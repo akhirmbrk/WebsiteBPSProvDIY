@@ -35,7 +35,7 @@
           <h5> FORM UPDATE KAMUS PEKERJAAN</h5>
           <hr />
 
-          <form method="post" id="demo" action="<?php echo base_url("index.php/zoomorder/uploadnotulen/" . $idm); ?>" enctype="multipart/form-data">
+          <form method="post" id="demo" action="<?php echo base_url("zoom/zoomorder/uploadnotulen/" . $idm); ?>" enctype="multipart/form-data">
 
             <div class="form-group">
               <label> Penilai Pekerjaan: </label>

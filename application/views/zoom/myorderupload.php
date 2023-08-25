@@ -69,7 +69,7 @@
 														<span class="badge badge-warning">Belum Upload</span>
 													</td>
 													<td>
-														<a name="d_edit_bagi_pegawai" class="btn btn-square btn-outline btn-xs btn-dark" href="<?php echo base_url('index.php/zoomorder/uploadnotulenview/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Upload Notulen"><i class="ti-upload"></i></a>
+														<a name="d_edit_bagi_pegawai" class="btn btn-square btn-outline btn-xs btn-dark" href="<?php echo base_url('zoom/zoomorder/uploadnotulenview/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Upload Notulen"><i class="ti-upload"></i></a>
 													</td>
 
 
