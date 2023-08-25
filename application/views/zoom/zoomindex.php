@@ -1,13 +1,13 @@
     <!-- Main container -->
     <main>
 
-      <header class="header header- bg-img" style="background-image: url(<?php echo base_url(); ?>assets///img/gallery/222.jpg)"  >
+      <header class="header header- bg-img" style="background-image: url(<?php echo base_url(); ?>assets/img/gallery/222.jpg)">
         <div class="header-info">
           <div class="left">
             <h1 class="header-title">Dashboard Informasi Jadwal Rapat Daring </h1>
           </div>
 
-         
+
         </div>
 
         <div class="header-action">
