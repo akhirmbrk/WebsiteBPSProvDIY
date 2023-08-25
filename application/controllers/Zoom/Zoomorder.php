@@ -1,43 +1,46 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Zoomorder extends CI_Controller {
-	
-	public function __construct(){
+class Zoomorder extends CI_Controller
+{
+
+	public function __construct()
+	{
 		parent::__construct();
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
-            $this->session->set_flashdata('info_form',' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
-            redirect('sso/index','refresh');
-        }
+			$this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
+			redirect('sso/index', 'refresh');
+		}
 		$this->load->library('form_validation');
 		$this->load->model('All_m');
 		$defadata['defadata'] = $this->All_m->top_bar();
 		$this->load->vars($defadata);
 		date_default_timezone_set("Asia/Bangkok");
 	}
-	
 
 
-	public function index ($bulan=0,$tahun=0)	{
+
+	public function index($bulan = 0, $tahun = 0)
+	{
 		//echo "oke".$_SESSION['nip'];	
 		$data = array();
-		
+
 		$data['judul'] = "";
 		$data['dash'] = "1";
-		
+
 		$this->load->vars($data);
-		
+
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbar');
-		$this->load->view('zoomindex');
-		$this->load->view('part/footer_zoomindex');	
-
+		$this->load->view('zoom/zoomindex');
+		$this->load->view('part/footer_zoomindex');
 	}
-	
-	public function evenn() {
-		
-		
+
+	public function evenn()
+	{
+
+
 		$dataeven = $this->All_m->even();
 
 		/* if (count($dataeven)) {
@@ -52,211 +55,197 @@ class Zoomorder extends CI_Controller {
 		$arr[0] = array('title' => "All Day Event", 'start' => "2023-01-22", 'className' =>  "badge badge-success");    
 		$arr[1] = array('title' => "All Day Event", 'start' => "2023-01-25", 'className' =>  "badge badge-warning");
 		$arr[2] = array('title' => "All errr Event", 'start' => "2023-02-12T10:30:00-05:00", "end"=> "2023-02-12T12:30:00-05:00", 'className' =>  "badge badge-warning", "url"=>base_url('index.php/zoomorder/indddex')); */
-		
-	
+
+
 		$ff = json_encode($dataeven);
-	  
+
 		header('Content-Type: application/json');
 		echo $ff;
 	}
-	
-	
-	
-	
-	public function order ()	{
-		$data = array();        
-        $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');  
-		$this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');  		
-		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');  
-		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');  		
-		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required'); 
-		
-        $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');	
-		
-        if ($this->form_validation->run() == FALSE) {
-			
+
+
+
+	public function order()
+	{
+		$data = array();
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
+		$this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');
+		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');
+		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
+		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required');
+
+		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
+
+		if ($this->form_validation->run() == FALSE) {
+
 			$data['judul'] = "";
 			$data['ordered'] = "1";
 
 
 			$tgl = date('Y-m-d', strtotime(' +1 day'));
-			
-			$tgl_dh_1=substr($tgl,8, 2);
-			$bln_dh_1=substr($tgl,5, 2);
-			$thn_dh_1=substr($tgl,0, 4);	
-			$data['tanggal_now']= $bln_dh_1.'/'.$tgl_dh_1.'/'.$thn_dh_1;					
-		
+
+			$tgl_dh_1 = substr($tgl, 8, 2);
+			$bln_dh_1 = substr($tgl, 5, 2);
+			$thn_dh_1 = substr($tgl, 0, 4);
+			$data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
+
 			$this->load->vars($data);
 			$this->load->view('part/header');
 			$this->load->view('part/sidetopbar');
-			$this->load->view('order');
-			$this->load->view('part/footer');	
-		    
-        }else{
-            $hasil = $this->All_m->addorder();
-			
-			
-			if($hasil['point']=='sukses'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');	
-				redirect('Zoomorder/index/','refresh');	
-				
-				
-			} else if($hasil['point']=='lewat'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal '.$hasil['tanggal'].' Sudah Lewat Atau Format Salah</h1></div> ');	
-				redirect('Zoomorder/order/','refresh');	
-				
-			} else if($hasil['point']=='block'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal '.$hasil['tanggal'].' Sudah Penuh</h1></div> ');	
-				redirect('Zoomorder/order/','refresh');	
+			$this->load->view('zoom/order');
+			$this->load->view('part/footer');
+		} else {
+			$hasil = $this->All_m->addorder();
+
+
+			if ($hasil['point'] == 'sukses') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
+				redirect('Zoomorder/index/', 'refresh');
+			} else if ($hasil['point'] == 'lewat') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+				redirect('Zoomorder/order/', 'refresh');
+			} else if ($hasil['point'] == 'block') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
+				redirect('Zoomorder/order/', 'refresh');
 			}
-			
-			
-
-			
-
-        }
+		}
 	}
-	
-	
-	public function myorder ()	{
-		
+
+
+	public function myorder()
+	{
+
 		$data = array();
 		$data['judul'] = "";
 		$data['myorder'] = "1";
-		
+
 		$data['list_order'] = $this->All_m->list_order($_SESSION['nip']);
-		
+
 		$this->load->vars($data);
-		
+
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbar');
-		$this->load->view('myorder');
-		$this->load->view('part/footer');	
-
+		$this->load->view('zoom/myorder');
+		$this->load->view('part/footer');
 	}
-	
-	
-	public function editzoom ($idm)	{
-		$data = array();        
-        $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');  
-		$this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');  		
-		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');  
-		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');  		
-		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required'); 
-		
-        $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');	
-		
-        if ($this->form_validation->run() == FALSE) {
-			
+
+	public function editzoom($idm)
+	{
+		$data = array();
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
+		$this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');
+		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');
+		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
+		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required');
+
+		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
+
+		if ($this->form_validation->run() == FALSE) {
+
 			$data['judul'] = "-";
-			$data['myorder'] = "1";	
-			
+			$data['myorder'] = "1";
+
 			$data['idm'] = $idm;
 			$data['editzoom'] = $this->All_m->editzoom($idm);
 
 			$this->load->vars($data);
 			$this->load->view('part/header');
 			$this->load->view('part/sidetopbar');
-			$this->load->view('editzoom');
-			$this->load->view('part/footer');	
-		    
-        }else{
-			
-			
-			 $hasil = $this->All_m->editzoomcek($idm);
-			
-			
-			if($hasil['point']=='sukses'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');	
-				redirect('Zoomorder/myorder/','refresh');	
-				
-				
-			} else if($hasil['point']=='lewat'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal '.$hasil['tanggal'].' Sudah Lewat Atau Format Salah</h1></div> ');	
-				redirect('Zoomorder/editzoom/'.$idm,'refresh');	
-				
-			} else if($hasil['point']=='block'){
-				
-				$this->session->set_flashdata('info_form','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal '.$hasil['tanggal'].' Sudah Penuh</h1></div> ');	
-				redirect('Zoomorder/editzoom/'.$idm,'refresh');	
+			$this->load->view('zoom/editzoom');
+			$this->load->view('part/footer');
+		} else {
+
+
+			$hasil = $this->All_m->editzoomcek($idm);
+
+
+			if ($hasil['point'] == 'sukses') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
+				redirect('Zoomorder/myorder/', 'refresh');
+			} else if ($hasil['point'] == 'lewat') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+				redirect('Zoomorder/editzoom/' . $idm, 'refresh');
+			} else if ($hasil['point'] == 'block') {
+
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
+				redirect('Zoomorder/editzoom/' . $idm, 'refresh');
 			}
-
-
-        }
+		}
 	}
-	
-	
-	
-	public function lookzoom ($idm)	{
-		$data = array();        
 
-			
+
+
+	public function lookzoom($idm)
+	{
+		$data = array();
+
+
 		$data['judul'] = "-";
-		$data['myorder'] = "1";	
-		
+		$data['myorder'] = "1";
+
 		$data['idm'] = $idm;
 		$data['lookzoom'] = $this->All_m->lookzoom($idm);
 
 		$this->load->vars($data);
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbar');
-		$this->load->view('lookzoom');
-		$this->load->view('part/footer');	
-		    
-   
+		$this->load->view('zoom/lookzoom');
+		$this->load->view('part/footer');
 	}
-	
-	
-	public function myorderupload ()	{
-		
+
+
+	public function myorderupload()
+	{
+
 		$data = array();
 		$data['judul'] = "";
 		$data['myorderupload'] = "1";
-		
+
 		$data['list_order'] = $this->All_m->list_order_upload($_SESSION['nip']);
-		
+
 		$this->load->vars($data);
-		
+
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbar');
-		$this->load->view('myorderupload');
-		$this->load->view('part/footer');	
-
+		$this->load->view('zoom/myorderupload');
+		$this->load->view('part/footer');
 	}
-	
-	
-	
-	public function uploadnotulenview ($idm)	{
-		$data = array();        
 
-			
+
+
+	public function uploadnotulenview($idm)
+	{
+		$data = array();
+
+
 		$data['judul'] = "-";
-		$data['myorderupload'] = "1";	
-		
+		$data['myorderupload'] = "1";
+
 		$data['idm'] = $idm;
 		$this->load->vars($data);
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbar');
-		$this->load->view('uploadnotulenview');
-		$this->load->view('part/footer');	
-		
-		
+		$this->load->view('zoom/uploadnotulenview');
+		$this->load->view('part/footer');
 	}
-	
-	
-	public function uploadnotulen ($idm)	{
 
-		$nama_file = $idm."_".now();
-		
+
+	public function uploadnotulen($idm)
+	{
+
+		$nama_file = $idm . "_" . now();
+
 		$this->load->library('upload'); // Load librari upload
 		$config['upload_path'] = './notulen/';
 		$config['allowed_types'] = 'pdf';
@@ -264,29 +253,19 @@ class Zoomorder extends CI_Controller {
 		$config['overwrite'] = true;
 		$config['file_name'] = $nama_file;
 
-		
+
 		$this->upload->initialize($config); // Load konfigurasi uploadnya
 
-		if($this->upload->do_upload('file')){ 
-			$this->All_m->upload_notulen($nama_file,$idm);
-			
-			$this->session->set_flashdata('info_form','<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Upload</div> ');	
-			
-		}else{			
-			$this->session->set_flashdata('info_form','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Upload, Silahkan Ulangi</div> ');	
+		if ($this->upload->do_upload('file')) {
+			$this->All_m->upload_notulen($nama_file, $idm);
+
+			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Upload</div> ');
+		} else {
+			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Upload, Silahkan Ulangi</div> ');
 		}
 
 		//$lppsw = '<div class="alert alert-success fade in"> <button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button> <strong>Berhasil </strong> Upload Data DSRT</div>';
 		//$this->session->set_flashdata('info_form',$lppsw);
-		redirect('zoomorder/myorderupload/','refresh');
-		    
-   
+		redirect('zoom/zoomorder/myorderupload/', 'refresh');
 	}
-	
-	
-
-
-	
-
-	
- }
+}

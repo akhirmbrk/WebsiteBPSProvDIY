@@ -1,7 +1,7 @@
 <!-- Main container -->
 <main>
 
-	<header class="header header- bg-img" style="background-image: url(<?= base_url() ?>assets/bps/1.png)">
+	<header class="header header- bg-img" style="background-image: url(<?= base_url() ?>assets/img/gallery/1.jpg)">
 		<div class="header-info">
 			<div class="left">
 				<h1 class="header-title">Notulen Rapat Daring Saya</h1>

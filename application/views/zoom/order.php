@@ -1,7 +1,7 @@
 <!-- Main container -->
 <main>
 
-  <header class="header header- bg-img" style="background-image: url(<?= base_url() ?>assets/img/gallery/1.jpg)">
+  <header class="header header- bg-img" style="background-image: url(<?= base_url() ?>assets/img/gallery/2.jpg)">
     <div class="header-info">
       <div class="left">
         <h1 class="header-title">Permintaan Rapat Daring</h1>

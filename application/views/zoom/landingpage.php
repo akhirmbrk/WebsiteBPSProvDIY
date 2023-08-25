@@ -59,25 +59,25 @@
     !-->
     <div class="main-content">
       <div class="row justify-content-center">
-        <a href="<? base_url() ?>/index.php/zoomorder" class="col-6">
+        <a href="<?= base_url() ?>zoom/zoomorder" class="col-6">
           <div class="card">
             <div class="card-body d-flex flex-column align-items-center">
               <div class="media-grid media-grid-hover">
                 <div class="media flex-column align-items-center">
                   <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">ZOOM ORDER</code><br>
-                  <img src="http<? base_url() ?>/assets/bps/calendar.png" style="margin-top: 10px;">
+                  <img src="<?= base_url() ?>assets/bps/calendar.png" style="margin-top: 10px;">
                 </div>
               </div>
             </div>
           </div>
         </a>
-        <a href="<? base_url() ?>/index.php/manajemenfile" class="col-6">
+        <a href="<?= base_url() ?>zoom/manajemenfile" class="col-6">
           <div class="card">
             <div class="card-body d-flex flex-column align-items-center">
               <div class="media-grid media-grid-hover">
                 <div class="media flex-column align-items-center">
                   <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">MANAJEMEN FILE</code><br>
-                  <img src="<? base_url() ?>/assets/bps/document-file.png" style="margin-top: 10px;" alt="Gambar" />
+                  <img src="<?= base_url() ?>assets/bps/document-file.png" style="margin-top: 10px;" alt="Gambar" />
                 </div>
               </div>
             </div>
