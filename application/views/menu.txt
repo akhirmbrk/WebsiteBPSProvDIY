@@ -1,0 +1,8 @@
+kinerja----
+- lap harian
+- edit ckpt
+- usul master pekrajaan
+- laporan
+	- ckpt awal
+	- ckpt revised
+	- ckpr

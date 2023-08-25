@@ -1,0 +1,67 @@
+.d-tebal {
+  font-weight: 600;
+}
+.d-selected {
+	background-color:#ccc;
+}
+.d-tr_hover:hover{
+	cursor: pointer;
+	background-color:#ccc;
+}
+.d-fiestletter {
+    text-transform: capitalize;
+}
+.d-logo {
+	color:#000;
+}
+.main-content {
+	/*background-color:#eff6fb;*/
+}
+
+.sidebar-navigation{
+	/* warna sidebar sampng kanan*/
+	/* background:#c4c4c4; */
+}
+
+.header-bar{
+	color:#fff;
+	/*background:url("../img/bg_header_bar.png") no-repeat #032d6d;*/
+	background:#0b4689;
+	border : 0px;
+}
+
+.sidebar-header {
+	background:#fff;
+	
+}
+.header-bar h4{
+	color : #fff;
+}
+li.activeisdi {
+	color:#fff;
+	/*background:url("../img/bg_logo.png") no-repeat #032d6d;*/
+	background: #33cabb;
+}
+
+#bg-isdi-1{
+	background:url("../img/bg_logo.png") no-repeat #032d6d;
+	border : 0px;
+}
+#bg-isdi-11{
+	background:url('../img/bg_topbar.png') no-repeat #0c8ae3;
+}
+#bg-isdi-2{
+	background:#fff;
+}
+#bg-darko{
+	background:#fff;
+}
+
+#bgisdilogin{
+	background:url('../img/bg_logo.png') no-repeat #0665b1;
+}
+
+
+#bg-ui-generalisdi{
+	 #fff;
+}
