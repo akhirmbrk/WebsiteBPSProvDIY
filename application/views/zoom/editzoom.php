@@ -45,7 +45,7 @@
                 <?php if ($editzoom['idm'] != 0) { ?>
 
 
-                  <form class="" method="post" action="<?php echo base_url('index.php/zoomorder/editzoom/' . $idm); ?>">
+                  <form class="" method="post" action="<?php echo base_url('zoom/zoomorder/editzoom/' . $idm); ?>">
 
 
 
