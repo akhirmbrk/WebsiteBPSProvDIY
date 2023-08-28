@@ -252,7 +252,7 @@ class All_m extends CI_Model
 				$dataxx[$i]['className'] = $statuse;
 
 				if ($data[$i]['oleh'] == $_SESSION['nip']) {
-					$dataxx[$i]['url'] = base_url('index.php/zoomorder/lookzoom/' . $data[$i]['idm']);
+					$dataxx[$i]['url'] = base_url('zoom/zoomorder/lookzoom/' . $data[$i]['idm']);
 				} else {
 					$dataxx[$i]['url'] = "#";
 				}
