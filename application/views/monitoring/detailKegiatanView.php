@@ -21,7 +21,7 @@
         <div class="card shadow-1">
             <header class="card-header bg-lightest">
                 <div class="card-title flexbox">
-                    <img class="img-fluid" src="<?= base_url('assets/theme/src') ?>/assets/img/bg/bg_bps.png" alt="">
+                    <img class="img-fluid" src="<?= base_url('') ?>/assets/img/bg/bg_bps.png" alt="">
                 </div>
             </header>
 

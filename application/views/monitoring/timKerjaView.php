@@ -10,7 +10,7 @@
         </div>
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('index/tambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
 
         </div>
@@ -27,9 +27,9 @@
                 <div class="card shadow-1">
                     <h5 class="card-title"><strong>Filter Tim Kerja</strong></h5>
 
-                      
 
-						<form class="card-body">
+
+                    <form class="card-body">
                         <div class="form-group">
                             <label>BPS</label>
                             <select title="BPS" multiple data-provide="selectpicker" data-width="100%">
@@ -44,35 +44,35 @@
 
 
 
-                            <div class="form-group">
-                                <label>Jenis Tim Kerja</label>
-                                <select title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
-                                    <option>Analisis Statistik dan Penjaminan Kualitas</option>
-                                    <option>Neraca Regional</option>
-                                    <option>Statistik Sosial</option>
-                                    <option>Statistik Distribusi</option>
-                                    <option>Statistik Produksi</option>
-                                    <option>Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)</option>
-                                    <option>Pengolahan dan TIK</option>
-                                    <option>Diseminasi Statistik</option>
-                                    <option>Pembinaan dan Pelaksanaan Statistik Sektoral</option>
-                                    <option>Perencanaan dan Administrasi Keuangan</option>
-                                    <option>Manajemen SDM dan Hukum</option>
-                                    <option>Fasilitasi Operasional Perkantoran</option>
-                                    <option>SAKIP</option>
-                                    <option>Humas & Unit Kerja Pimpinan</option>
-                                    <option>Zona Integritas dan Reformasi Birokrasi</option>
-                                    <option>Kolaborasi Mengawal Perubahan</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label>Jenis Tim Kerja</label>
+                            <select title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                                <option>Analisis Statistik dan Penjaminan Kualitas</option>
+                                <option>Neraca Regional</option>
+                                <option>Statistik Sosial</option>
+                                <option>Statistik Distribusi</option>
+                                <option>Statistik Produksi</option>
+                                <option>Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)</option>
+                                <option>Pengolahan dan TIK</option>
+                                <option>Diseminasi Statistik</option>
+                                <option>Pembinaan dan Pelaksanaan Statistik Sektoral</option>
+                                <option>Perencanaan dan Administrasi Keuangan</option>
+                                <option>Manajemen SDM dan Hukum</option>
+                                <option>Fasilitasi Operasional Perkantoran</option>
+                                <option>SAKIP</option>
+                                <option>Humas & Unit Kerja Pimpinan</option>
+                                <option>Zona Integritas dan Reformasi Birokrasi</option>
+                                <option>Kolaborasi Mengawal Perubahan</option>
+                            </select>
+                        </div>
 
-                            <hr>
+                        <hr>
 
-                            <div class="text-right">
-                                <a class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
-                                <button class="btn btn-sm btn-bold btn-primary" type="submit">Apply</button>
-                            </div>
-                        </form>
+                        <div class="text-right">
+                            <a class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
+                            <button class="btn btn-sm btn-bold btn-primary" type="submit">Apply</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -91,10 +91,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="avatar" src="<?= base_url('assets/theme/src');
+                            <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/3.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Pengolahan dan TIK</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -117,10 +117,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="avatar" src="<?= base_url('assets/theme/src');
+                            <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Sosial</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -140,10 +140,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="avatar" src="<?= base_url('assets/theme/src');
+                            <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Neraca</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -163,10 +163,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="avatar" src="<?= base_url('assets/theme/src');
+                            <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Sosial 2</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -186,10 +186,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="avatar" src="<?= base_url('assets/theme/src');
+                            <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Produksi</h5>
                                 <small class="opacity-65 fw-300">
 
