@@ -76,6 +76,7 @@ class Zoomorder extends CI_Controller
 		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');
 		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
 		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
 
 		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
@@ -146,6 +147,7 @@ class Zoomorder extends CI_Controller
 		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');
 		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
 		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
 
 		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 

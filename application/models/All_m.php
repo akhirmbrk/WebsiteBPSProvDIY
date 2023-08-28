@@ -36,6 +36,13 @@ class All_m extends CI_Model
 
 		$jedah_res = $jedah->row_array();
 
+		$keterangan = $this->input->post("keterangan");
+		$ruangan = 'Zoom';
+
+		if ($keterangan == 1) {
+			$ruangan = $this->input->post("ruangan");
+		}
+
 		if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
 			$hasil['point'] = 'lewat';
 			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
@@ -51,10 +58,75 @@ class All_m extends CI_Model
 				'status' => 0,
 				'jumlah_peserta' => $this->input->post("jumlah_peserta"),
 				'tgl_pengajuan' => date("Y-m-d"),
-				'namapengusul' => $_SESSION['nama']
-
+				'namapengusul' => $_SESSION['nama'],
+				'keterangan' => $keterangan,
+				'ruangan' => $ruangan
 			);
 			$this->db->insert('meetingreq', $data);
+			$hasil['point'] = 'sukses';
+		}
+
+
+		return $hasil;
+	}
+
+	public function editzoomcek($idm)
+	{
+
+		$tgl_dh_1 = substr($this->input->post("tgl_start"), 3, 2);
+		$bln_dh_1 = substr($this->input->post("tgl_start"), 0, 2);
+		$thn_dh_1 = substr($this->input->post("tgl_start"), 6, 4);
+		$tgl_start = $thn_dh_1 . "-" . $bln_dh_1 . "-" . $tgl_dh_1 . " " . $this->input->post("time_start");
+
+
+		$tgl_dh_2 = substr($this->input->post("tgl_end"), 3, 2);
+		$bln_dh_2 = substr($this->input->post("tgl_end"), 0, 2);
+		$thn_dh_2 = substr($this->input->post("tgl_end"), 6, 4);
+		$tgl_end = $thn_dh_2 . "-" . $bln_dh_2 . "-" . $tgl_dh_2 . " " . $this->input->post("time_end");
+
+
+		//validasi dan pesan error
+
+		// jika waktu kurang
+		$unix_now = strtotime("now");
+
+		$unix_tgl_start = strtotime($tgl_start);
+		$unix_tgl_end = strtotime($tgl_end);
+
+		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2 AND idm <>" . $idm);
+
+		$jedah_res = $jedah->row_array();
+
+		$keterangan = $this->input->post("keterangan");
+		$ruangan = 'Zoom';
+
+		if ($keterangan == 1) {
+			$ruangan = $this->input->post("ruangan");
+		}
+
+		if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
+			$hasil['point'] = 'lewat';
+			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
+		} else if ($jedah_res['jumlah'] > 1) {
+			$hasil['point'] = 'block';
+			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
+		} else {
+			$data = array(
+				'perihal' => $this->input->post("perihal"),
+				'tgl_start' => $tgl_start,
+				'tgl_end' => $tgl_end,
+				'oleh' => $_SESSION['nip'],
+				'status' => 0,
+				'jumlah_peserta' => $this->input->post("jumlah_peserta"),
+				'tgl_pengajuan' => date("Y-m-d"),
+				'namapengusul' => $_SESSION['nama'],
+				'keterangan' => $keterangan,
+				'ruangan' => $ruangan
+
+			);
+			$this->db->where('idm', $idm);
+			$this->db->update('meetingreq', $data);
+
 			$hasil['point'] = 'sukses';
 		}
 
@@ -409,61 +481,6 @@ class All_m extends CI_Model
 		return $data;
 	}
 
-
-	public function editzoomcek($idm)
-	{
-
-		$tgl_dh_1 = substr($this->input->post("tgl_start"), 3, 2);
-		$bln_dh_1 = substr($this->input->post("tgl_start"), 0, 2);
-		$thn_dh_1 = substr($this->input->post("tgl_start"), 6, 4);
-		$tgl_start = $thn_dh_1 . "-" . $bln_dh_1 . "-" . $tgl_dh_1 . " " . $this->input->post("time_start");
-
-
-		$tgl_dh_2 = substr($this->input->post("tgl_end"), 3, 2);
-		$bln_dh_2 = substr($this->input->post("tgl_end"), 0, 2);
-		$thn_dh_2 = substr($this->input->post("tgl_end"), 6, 4);
-		$tgl_end = $thn_dh_2 . "-" . $bln_dh_2 . "-" . $tgl_dh_2 . " " . $this->input->post("time_end");
-
-
-		//validasi dan pesan error
-
-		// jika waktu kurang
-		$unix_now = strtotime("now");
-
-		$unix_tgl_start = strtotime($tgl_start);
-		$unix_tgl_end = strtotime($tgl_end);
-
-		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2 AND idm <>" . $idm);
-
-		$jedah_res = $jedah->row_array();
-
-		if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
-			$hasil['point'] = 'lewat';
-			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
-		} else if ($jedah_res['jumlah'] > 1) {
-			$hasil['point'] = 'block';
-			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
-		} else {
-			$data = array(
-				'perihal' => $this->input->post("perihal"),
-				'tgl_start' => $tgl_start,
-				'tgl_end' => $tgl_end,
-				'oleh' => $_SESSION['nip'],
-				'status' => 0,
-				'jumlah_peserta' => $this->input->post("jumlah_peserta"),
-				'tgl_pengajuan' => date("Y-m-d"),
-				'namapengusul' => $_SESSION['nama']
-
-			);
-			$this->db->where('idm', $idm);
-			$this->db->update('meetingreq', $data);
-
-			$hasil['point'] = 'sukses';
-		}
-
-
-		return $hasil;
-	}
 
 
 	public function update_permintaan($idm)

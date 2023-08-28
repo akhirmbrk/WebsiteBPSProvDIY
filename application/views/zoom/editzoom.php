@@ -111,7 +111,7 @@
                     <div class="row">
                       <div class="form-group col-md-4">
                         <label class="require">Keterangan</label>
-                        <select onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
+                        <select name="keterangan" onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
                           <option value="0">Online</option>
                           <option value="1">Offline</option>
                         </select>
@@ -121,7 +121,7 @@
                     <div id="ruangRapat" class="row" style="display: none;">
                       <div class="form-group col-md-4">
                         <label class="require">Ruangan</label>
-                        <select class="form-control" data-provide="selectpicker">
+                        <select name="ruangan" class="form-control" data-provide="selectpicker">
                           <option value="bima">Ruang Bima</option>
                           <option value="pst">Ruang PST</option>
                         </select>
