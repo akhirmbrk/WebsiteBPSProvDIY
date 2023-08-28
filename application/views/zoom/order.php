@@ -44,7 +44,7 @@
 
 
                   <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-4">
                       <label>Perihal Rapat Dalam Jaringan (Daring) </label>
                       <input name="perihal" class="form-control" type="text" value="" required>
                     </div>
@@ -97,13 +97,30 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-4">
                       <label>Jumlah Peserta </label>
                       <input type="number" class="form-control" name="jumlah_peserta" placeholder="Max = 100" max="100" required>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="form-group col-md-4">
+                      <label class="require">Keterangan</label>
+                      <select onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
+                        <option value="0">Online</option>
+                        <option value="1">Offline</option>
+                      </select>
+                    </div>
+                  </div>
 
-
+                  <div id="ruangRapat" class="row" style="display: none;">
+                    <div class="form-group col-md-4">
+                      <label class="require">Ruangan</label>
+                      <select class="form-control" data-provide="selectpicker">
+                        <option value="bima">Ruang Bima</option>
+                        <option value="pst">Ruang PST</option>
+                      </select>
+                    </div>
+                  </div>
 
 
                   <hr>
@@ -140,7 +157,18 @@
   <!--/.main-content -->
 
 
-
+  <script>
+    function showRuangan() {
+      var ruang = document.getElementById("ruangRapat");
+      var ket = document.getElementById("keterangan");
+      console.log(ket.value);
+      if (ket.value == 0) {
+        ruang.style.display = "none";
+      } else {
+        ruang.style.display = "block";
+      }
+    }
+  </script>
 
 </main>
 <!-- END Main container -->
