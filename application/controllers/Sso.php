@@ -21,7 +21,7 @@ class Sso extends CI_Controller
 			$_SESSION['getprop'] = $pdf['getprop'];
 			$_SESSION['nip'] = $pdf['nip'];
 
-			redirect('zoom/landingpage/index', 'refresh');
+			redirect('landingpage/index', 'refresh');
 		}
 
 		//simpan session
@@ -50,7 +50,7 @@ class Sso extends CI_Controller
 		$_SESSION['getprop'] = "34";
 		$_SESSION['nip'] = "340054255";
 
-		redirect('zoom/landingpage/index', 'refresh');
+		redirect('landingpage/index', 'refresh');
 		// http://localhost:8080/zoom/index.php/sso/dummylogin
 
 	}

@@ -47,7 +47,7 @@
       </li>
 
       <li class="menu-item">
-        <a class="menu-link" href="<?php echo base_url('zoom/sso/lout'); ?>">
+        <a class="menu-link" href="<?php echo base_url('sso/lout'); ?>">
           <span class="icon fa fa-power-off" style="color:yellow"></span>
           <span class="title" style="color:yellow">Keluar</span>
         </a>
@@ -110,7 +110,7 @@
       <li class="dropdown">
         <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="<?php echo base_url('zoom/sso/lout'); ?>"><i class="ti-power-off"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('sso/lout'); ?>"><i class="ti-power-off"></i> Logout</a>
         </div>
       </li>
 

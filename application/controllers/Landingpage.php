@@ -26,6 +26,6 @@ class Landingpage extends CI_Controller
 	{
 
 		$this->load->view('part/header');
-		$this->load->view('zoom/landingpage');
+		$this->load->view('landingpage');
 	}
 }

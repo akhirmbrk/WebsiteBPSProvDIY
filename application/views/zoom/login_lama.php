@@ -35,7 +35,7 @@
   </h2>
 
   <br><br>
-  <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>zoom/sso/dummylogin">LOGIN SSO </a>
+  <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
   <!-- <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>index.php/zoom/sso">LOGIN SSO </a> -->
   <br><br><br>
 
