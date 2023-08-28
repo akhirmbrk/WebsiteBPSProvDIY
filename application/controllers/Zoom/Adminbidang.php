@@ -60,7 +60,7 @@ class Adminbidang extends CI_Controller
 		$data = array();
 
 
-		$data['judul'] = "-";
+		$data['admindisetujui'] = "1";
 		$data['myorder'] = "1";
 
 		$data['idm'] = $idm;

@@ -154,7 +154,8 @@
         </div>
 
 
-      </div><!--/.row -->
+      </div>
+      <!--/.row -->
 
 
 
@@ -162,7 +163,8 @@
 
 
     </div>
-  </div><!--/.main-content -->
+  </div>
+  <!--/.main-content -->
 
 
 
