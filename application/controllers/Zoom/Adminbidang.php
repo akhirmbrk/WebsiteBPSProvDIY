@@ -134,6 +134,7 @@ class Adminbidang extends CI_Controller
 	public function order()
 	{
 		$data = array();
+		$data['admin_tambahjadwal'] = "1";
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
