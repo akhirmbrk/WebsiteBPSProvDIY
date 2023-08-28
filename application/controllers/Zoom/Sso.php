@@ -21,7 +21,7 @@ class Sso extends CI_Controller
 			$_SESSION['getprop'] = $pdf['getprop'];
 			$_SESSION['nip'] = $pdf['nip'];
 
-			redirect('landingpage/index', 'refresh');
+			redirect('zoom/landingpage/index', 'refresh');
 		}
 
 		//simpan session
@@ -37,6 +37,7 @@ class Sso extends CI_Controller
 		unset($_SESSION['nip']);
 		//unset($_SESSION['getUrlFoto']);
 
+		redirect('home/index', 'refresh'); // Sementara untuk dummy login
 		$this->load->library('sso_bps');
 		$pdf = $this->sso_bps->lout();
 		//echo $pdf;
