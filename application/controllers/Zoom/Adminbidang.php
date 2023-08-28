@@ -16,7 +16,7 @@ class Adminbidang extends CI_Controller
 		$this->load->model('All_m');
 		$defadata = $this->All_m->top_bar();
 		if ($defadata['admin_zoom'] != 1) {
-			redirect('zoomorder/index/', 'refresh');
+			redirect('zoom/zoomorder/index/', 'refresh');
 		}
 
 		date_default_timezone_set("Asia/Bangkok");
@@ -50,7 +50,7 @@ class Adminbidang extends CI_Controller
 
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbaradmin');
-		$this->load->view('adminzoom_disetujui');
+		$this->load->view('zoom/adminzoom_disetujui');
 		$this->load->view('part/footer_zoomindex');
 	}
 
@@ -69,7 +69,7 @@ class Adminbidang extends CI_Controller
 		$this->load->vars($data);
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbaradmin');
-		$this->load->view('lookzoom');
+		$this->load->view('zoom/lookzoom');
 		$this->load->view('part/footer');
 	}
 
@@ -86,7 +86,7 @@ class Adminbidang extends CI_Controller
 
 		$this->load->view('part/header');
 		$this->load->view('part/sidetopbaradmin');
-		$this->load->view('adminzoom_batal');
+		$this->load->view('zoom/adminzoom_batal');
 		$this->load->view('part/footer_zoomindex');
 	}
 
@@ -111,12 +111,12 @@ class Adminbidang extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('part/header');
 			$this->load->view('part/sidetopbaradmin');
-			$this->load->view('adminzoom_reply');
+			$this->load->view('zoom/adminzoom_reply');
 			$this->load->view('part/footer');
 		} else {
 			$this->All_m->update_permintaan($idm);
 			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Setujui Permintaan Rapat Daring</div> ');
-			redirect('adminbidang/daring_disetujui/', 'refresh');
+			redirect('zoom/adminbidang/daring_disetujui/', 'refresh');
 		}
 	}
 
@@ -126,7 +126,7 @@ class Adminbidang extends CI_Controller
 	{
 		$this->All_m->hapuszoom($idm);
 		$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Membatalakan Permintaan Rapat Daring</div> ');
-		redirect('adminbidang/daring_batal/', 'refresh');
+		redirect('zoom/adminbidang/daring_batal/', 'refresh');
 	}
 
 
@@ -161,7 +161,7 @@ class Adminbidang extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('part/header');
 			$this->load->view('part/sidetopbaradmin');
-			$this->load->view('orderadmin');
+			$this->load->view('zoom/orderadmin');
 			$this->load->view('part/footer');
 		} else {
 			$hasil = $this->All_m->addorderadmin();
@@ -170,15 +170,15 @@ class Adminbidang extends CI_Controller
 			if ($hasil['point'] == 'sukses') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
-				redirect('adminbidang/daring_disetujui/', 'refresh');
+				redirect('zoom/adminbidang/daring_disetujui/', 'refresh');
 			} else if ($hasil['point'] == 'lewat') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-				redirect('adminbidang/order/', 'refresh');
+				redirect('zoom/adminbidang/order/', 'refresh');
 			} else if ($hasil['point'] == 'block') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
-				redirect('adminbidang/order/', 'refresh');
+				redirect('zoom/adminbidang/order/', 'refresh');
 			}
 		}
 	}
