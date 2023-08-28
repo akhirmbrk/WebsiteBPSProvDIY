@@ -39,7 +39,7 @@
             <div class="row">
 
               <div class="col-md-12">
-                <form class="" method="post" action="<?php echo base_url('index.php/zoomorder/order/'); ?>">
+                <form class="" method="post" action="<?php echo base_url('zoom/zoomorder/order/'); ?>">
 
 
 
@@ -127,7 +127,8 @@
         </div>
 
 
-      </div><!--/.row -->
+      </div>
+      <!--/.row -->
 
 
 
@@ -135,7 +136,8 @@
 
 
     </div>
-  </div><!--/.main-content -->
+  </div>
+  <!--/.main-content -->
 
 
 
