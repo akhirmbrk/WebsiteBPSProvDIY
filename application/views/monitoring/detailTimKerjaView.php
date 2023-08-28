@@ -23,7 +23,7 @@
                   <div class="card shadow-1">
                       <header class="card-header bg-lightest">
                           <div class="card-title flexbox">
-                              <img class="avatar" src="<?= base_url('assets/theme/src') ?>/assets/img/avatar/2.jpg" alt="...">
+                              <img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/2.jpg" alt="...">
                               <div>
                                   <h6 class="mb-0">
                                       Hossein Shams
@@ -49,7 +49,7 @@
                   <div class="card shadow-1">
                       <header class="card-header bg-lightest">
                           <div class="card-title flexbox">
-                              <img class="avatar" src="<?= base_url('assets/theme/src') ?>/assets/img/avatar/1.jpg" alt="...">
+                              <img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/1.jpg" alt="...">
                               <div>
                                   <h6 class="mb-0">Maryam Amiri <small class="sidetitle fs-11">Support Agent</small></h6>
                                   <small>Today at 03:18 Pm</small>
@@ -69,7 +69,7 @@
                   <div class="card shadow-1">
                       <header class="card-header bg-lightest">
                           <div class="card-title flexbox">
-                              <img class="avatar" src="<?= base_url('assets/theme/src') ?>/assets/img/avatar/2.jpg" alt="...">
+                              <img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/2.jpg" alt="...">
                               <div>
                                   <h6 class="mb-0">Hossein Shams</h6>
                                   <small>Today at 06:38 PM</small>
@@ -86,7 +86,7 @@
                   <div class="card shadow-1">
                       <header class="card-header bg-lightest">
                           <div class="card-title flexbox">
-                              <img class="avatar" src="<?= base_url('assets/theme/src') ?>/assets/img/avatar/2.jpg" alt="...">
+                              <img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/2.jpg" alt="...">
                               <div>
                                   <h6 class="mb-0">Hossein Shams</h6>
                                   <small>Today at 06:38 PM</small>
@@ -102,7 +102,7 @@
                   <div class="card shadow-1">
                       <header class="card-header bg-lightest">
                           <div class="card-title flexbox">
-                              <img class="avatar" src="<?= base_url('assets/theme/src') ?>/assets/img/avatar/2.jpg" alt="...">
+                              <img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/2.jpg" alt="...">
                               <div>
                                   <h6 class="mb-0">Hossein Shams</h6>
                                   <small>Today at 06:38 PM</small>

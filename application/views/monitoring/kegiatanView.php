@@ -11,7 +11,7 @@
 
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('index/tambahKegiatan') ?>" title="Tambah Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahKegiatan') ?>" title="Tambah Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
 
         </div>
@@ -50,7 +50,7 @@
                     <h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
 
                     <form class="card-body">
-					<div class="form-group">
+                        <div class="form-group">
                             <label>Periode Pelaksanaan</label>
                             <select title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
                                 <option>Januari</option>
@@ -59,16 +59,16 @@
                                 <option>April</option>
                                 <option>Mei</option>
                                 <option>Juni</option>
-								<option>Juli</option>
-								<option>Agustus</option>
-								<option>September</option>
-								<option>Oktober</option>
-								<option>November</option>
-								<option>Desember</option>
+                                <option>Juli</option>
+                                <option>Agustus</option>
+                                <option>September</option>
+                                <option>Oktober</option>
+                                <option>November</option>
+                                <option>Desember</option>
                             </select>
                         </div>
 
-					
+
                         <div class="form-group">
                             <label>BPS</label>
                             <select title="All BPS" multiple data-provide="selectpicker" data-width="100%">
@@ -137,10 +137,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="rounded" width="40px" src="<?= base_url('assets/theme/src');
+                            <img class="rounded" width="40px" src="<?= base_url('');
                                                                     ?>/assets/img/bg/logo_bps.png" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailKegiatan') ?>">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailKegiatan') ?>">
                                 <h5 class="fs-15">Regsosek</h5>
                                 <div class="progress">
                                     <div class="progress-bar <?php if ($progress <= 25) {
@@ -162,7 +162,7 @@
 
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
+                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
                                         <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
@@ -185,10 +185,10 @@
 
                             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <img class="rounded" width="40px" src="<?= base_url('assets/theme/src');
+                            <img class="rounded" width="40px" src="<?= base_url('');
                                                                     ?>/assets/img/bg/logo_bps.png" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('index/detailKegiatan') ?> ">
+                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailKegiatan') ?> ">
                                 <h5 class="fs-15">Sensus Pertanian</h5>
                                 <div class="progress">
                                     <div class="progress-bar <?php if ($progress <= 25) {
@@ -210,7 +210,7 @@
                                 </small>
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
+                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
                                         <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
