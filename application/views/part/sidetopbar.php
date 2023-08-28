@@ -1,7 +1,9 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-expand-lg sidebar-iconic">
   <header class="sidebar-header">
-    <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
+    <a class="" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
+      <span class="logo"><img src="<?php echo base_url(); ?>assets/img/bg/logo_bps.png" alt="logo" style="width: 40px;"></span>
+    </a>
   </header>
 
   <nav class="sidebar-navigation">

@@ -24,7 +24,6 @@ class Landingpage extends CI_Controller
 
 	public function index()
 	{
-
 		$this->load->view('part/header');
 		$this->load->view('part/topbar');
 		$this->load->view('landingpage');
