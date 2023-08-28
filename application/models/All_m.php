@@ -684,6 +684,7 @@ class All_m extends CI_Model {
 	
 		// perintah join hanya memuat tabel yang saling berhubungan disini hanya tabel z_team dan rapatteam begitu juga di atas. setelah membuat perintah select SQL, selalu cek apakah select itu berjalan. caranya copas ini ke bagian SQL di phpmyadmin dan bagian yang ada variabelnya di isi dengan value nya. misal SELECT * FROM z_team T, rapatteam R WHERE T.id_zteam = R.id_zteam AND T.id_zteam = "11"
 
+		// $A = $this->db->query("SELECT * FROM z_team T, rapatteam R WHERE T.id_zteam = R.id_zteam AND T.id_zteam = ".$id_zteam);
 		$A = $this->db->query("SELECT * FROM z_team T, rapatteam R WHERE T.id_zteam = R.id_zteam AND T.id_zteam = ".$id_zteam);
 	
 		if ($A->num_rows() > 0) {

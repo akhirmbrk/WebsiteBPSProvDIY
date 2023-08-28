@@ -71,7 +71,7 @@
             </div>
           </div>
         </a>
-        <a href="<?= base_url() ?>zoom/manajemenfile" class="col-6">
+        <a href="<?= base_url() ?>manajemenFile/manajemenfile" class="col-6">
           <div class="card">
             <div class="card-body d-flex flex-column align-items-center">
               <div class="media-grid media-grid-hover">

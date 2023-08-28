@@ -36,7 +36,7 @@ class Manajemenfile extends CI_Controller
 
 		$this->load->view('part/header');
 		// $this->load->view('part/topbar');
-		$this->load->view('zoom/file_home');
+		$this->load->view('manajemenFile/file_home');
 		$this->load->view('part/footer_zoomindex');
 	}
 
@@ -56,7 +56,7 @@ class Manajemenfile extends CI_Controller
 		$this->load->vars($data);
 		$this->load->view('part/header');
 		$this->load->view('part/topbar');
-		$this->load->view('myrapatupload');
+		$this->load->view('manajemenfile/myrapatupload');
 		$this->load->view('part/footer');
 	}
 

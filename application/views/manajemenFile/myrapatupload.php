@@ -69,7 +69,7 @@
                             <span class="badge badge-warning">Belum Upload</span>
                           </td>
                           <td>
-                            <a name="d_edit_bagi_team" class="btn btn-square btn-outline btn-xs btn-dark" href="<?php echo base_url('index.php/manajemenfile/uploadnotulenrapat/' . $rapat['idr']); ?>" data-provide="tooltip" data-placement="top" title="Upload Notulen"><i class="ti-upload"></i></a>
+                            <a name="d_edit_bagi_team" class="btn btn-square btn-outline btn-xs btn-dark" href="<?php echo base_url('manajemenfile/manajemenfile/uploadnotulenrapat/' . $rapat['idr']); ?>" data-provide="tooltip" data-placement="top" title="Upload Notulen"><i class="ti-upload"></i></a>
                           </td>
 
                         <?php } else { ?>
