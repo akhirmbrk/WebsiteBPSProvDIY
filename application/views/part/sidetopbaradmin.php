@@ -8,8 +8,8 @@
         <ul class="menu">
 
             <li class="menu-item  <?php if (isset($admin_permintaan)) {
-                              echo 'active';
-                            } ?>">
+                                        echo 'active';
+                                    } ?>">
                 <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/index'); ?>">
                     <span class="icon fa fa-home"></span>
                     <span class="title">Permintaan Rapat Daring</span>
@@ -17,8 +17,8 @@
             </li>
 
             <li class="menu-item <?php if (isset($admindisetujui)) {
-                              echo 'active';
-                            } ?>">
+                                        echo 'active';
+                                    } ?>">
                 <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_disetujui'); ?>">
                     <span class="icon fa fa-briefcase"></span>
                     <span class="title">Rapat Daring Disetujui</span>
@@ -26,8 +26,8 @@
             </li>
 
             <li class="menu-item <?php if (isset($admin_batal)) {
-                              echo 'active';
-                            } ?>">
+                                        echo 'active';
+                                    } ?>">
                 <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_batal'); ?>">
                     <span class="icon fa fa-briefcase"></span>
                     <span class="title">Rapat Daring Batal</span>
@@ -36,8 +36,8 @@
 
 
             <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
-                              echo 'active';
-                            } ?>">
+                                        echo 'active';
+                                    } ?>">
                 <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/order'); ?>">
                     <span class="icon fa fa-user"></span>
                     <span class="title">Tambah Jadwal</span>
@@ -46,8 +46,7 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" style="bg-color:#fff; color:#e00808;"
-                    href="<?php echo base_url('zoom/zoomorder'); ?>">
+                <a class="menu-link" style="bg-color:#fff; color:#e00808;" href="<?php echo base_url('zoom/zoomorder'); ?>">
                     <span class="icon fa fa-file-text-o"></span>
                     <span class="title">Switch Akun</span>
                 </a>
@@ -77,11 +76,9 @@
 
         <ul class="topbar-btns">
             <li class="dropdown">
-                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar"
-                        src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
+                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="<?php echo base_url('zoom/sso/lout'); ?>"><i
-                            class="ti-power-off"></i>
+                    <a class="dropdown-item" href="<?php echo base_url('sso/lout'); ?>"><i class="ti-power-off"></i>
                         Logout</a>
                 </div>
             </li>
