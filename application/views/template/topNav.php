@@ -11,6 +11,9 @@
                 <?php } elseif ($tipe == 2) { ?>
                     <a class="menu-link" href="<?= base_url('zoom/zoomorder/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
+                <?php } elseif ($tipe == 3) { ?>
+                    <a class="menu-link" href="<?= base_url('manajemenfile/manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
                 <?php } else { ?>
                     <a class="menu-link" href="<?= base_url('landingpage') ?>"><img width="40px" src="<?= base_url('');
                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Landing Page BPS</a>
@@ -112,22 +115,24 @@
                                 <span class="title">Upload Notula</span>
                             </a>
                         </li>
-
-                        <!-- <li class="menu-item">
-                            <a class="menu-link" href="<?php echo base_url('sso/lout'); ?>">
-                                <span class="icon fa fa-power-off" style="color:yellow"></span>
-                                <span class="title" style="color:yellow">Keluar</span>
-                            </a>
-                        </li> -->
-
-
-
-
-
                     </ul>
                 </nav>
 
-            <?php }  ?>
+            <?php } elseif ($tipe == 3) { ?>
+                <nav class="sidebar-navigation">
+                    <ul class="menu">
+
+                        <li class="menu-item  <?php if (isset($dash)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('manajemenfile/manajemenfile/index'); ?>">
+                                <span class="icon fa fa-home"></span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php } ?>
         </div>
 
 
@@ -179,9 +184,10 @@
                 </li>
 
 
-                <li>
+                <!-- Notifikasi -->
+                <!-- <li>
                     <span class="topbar-btn has-new" data-toggle="quickview" data-target="#qv-notifications"><i class="ti-bell"></i></span>
-                </li>
+                </li> -->
 
             </ul>
 

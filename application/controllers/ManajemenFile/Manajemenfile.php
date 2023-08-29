@@ -26,7 +26,8 @@ class Manajemenfile extends CI_Controller
 	{
 		$data = array();
 
-		$data['judul'] = "";
+		$data['title'] = "Manajemen File";
+		$data['tipe'] = "3";
 		$data['dash'] = "1";
 
 		// untuk menambahkan tambilan dalam satu halaman tidak perlu membuat methode baru ()
@@ -34,8 +35,8 @@ class Manajemenfile extends CI_Controller
 		$data['daftarteam'] = $this->All_m->list_teamkerja($_SESSION['nip'], $id_zperiode);
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
-		// $this->load->view('part/topbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('manajemenFile/file_home');
 		$this->load->view('part/footer_zoomindex');
 	}
@@ -46,7 +47,8 @@ class Manajemenfile extends CI_Controller
 	public function myrapatupload($id_zteam = 0)
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "Upload Rapat";
+		$data['tipe'] = "3";
 		$data['myrapatupload'] = "1";
 
 
@@ -54,8 +56,8 @@ class Manajemenfile extends CI_Controller
 		$data['listrapat'] = $this->All_m->list_rapat_upload($_SESSION['nip'], $id_zteam);
 
 		$this->load->vars($data);
-		$this->load->view('part/header');
-		$this->load->view('part/topbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('manajemenfile/myrapatupload');
 		$this->load->view('part/footer');
 	}
@@ -64,13 +66,14 @@ class Manajemenfile extends CI_Controller
 	{
 		$data = array();
 
-
-		$data['judul'] = "-";
+		$data['title'] = "Upload File";
+		$data['tipe'] = "3";
 		$data['myrapatupload'] = "1";
 
 		$data['idr'] = $idr;
 		$this->load->vars($data);
-		$this->load->view('part/header');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('uploadnotulenrapat');
 		$this->load->view('part/footer');
 	}
