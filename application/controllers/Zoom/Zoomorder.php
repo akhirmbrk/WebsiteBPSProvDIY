@@ -139,6 +139,7 @@ class Zoomorder extends CI_Controller
 
 	public function editzoom($idm)
 	{
+
 		$data = array();
 		$this->load->library('form_validation');
 
@@ -151,6 +152,7 @@ class Zoomorder extends CI_Controller
 
 		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
+
 		if ($this->form_validation->run() == FALSE) {
 
 			$data['judul'] = "-";
@@ -162,7 +164,7 @@ class Zoomorder extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('part/header');
 			$this->load->view('part/sidetopbar');
-			$this->load->view('zoom/editzoom');
+			$this->load->view('zoom/editzoom', $data);
 			$this->load->view('part/footer');
 		} else {
 

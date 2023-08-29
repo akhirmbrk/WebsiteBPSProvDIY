@@ -27,9 +27,6 @@
     <div class="card card-body">
 
 
-
-
-
       <div class="row">
 
 
@@ -105,25 +102,35 @@
                     <div class="row">
                       <div class="form-group col-md-4">
                         <label>Jumlah Peserta </label>
-                        <input type="number" class="form-control" name="jumlah_peserta" placeholder="Max = 100" max="100" required>
+                        <input type="number" class="form-control" name="jumlah_peserta" value="<?php echo $editzoom['jumlah_peserta']; ?>" placeholder="Max = 100" max="100" required>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-4">
                         <label class="require">Keterangan</label>
                         <select name="keterangan" onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
-                          <option value="0">Online</option>
-                          <option value="1">Offline</option>
+                          <option <?php if ($editzoom['keterangan'] == 0) {
+                                    echo 'selected';
+                                  } ?> value="0">Online</option>
+                          <option <?php if ($editzoom['keterangan'] == 1) {
+                                    echo 'selected';
+                                  } ?> value="1">Offline</option>
                         </select>
                       </div>
                     </div>
 
-                    <div id="ruangRapat" class="row" style="display: none;">
+                    <div id="ruangRapat" class="row" <?php if ($editzoom['keterangan'] == 0) {
+                                                        echo 'style="display: none;"';
+                                                      } ?>>
                       <div class="form-group col-md-4">
                         <label class="require">Ruangan</label>
                         <select name="ruangan" class="form-control" data-provide="selectpicker">
-                          <option value="bima">Ruang Bima</option>
-                          <option value="pst">Ruang PST</option>
+                          <option <?php if ($editzoom['ruangan'] == 'bima') {
+                                    echo 'selected';
+                                  } ?> value="bima">Ruang Bima</option>
+                          <option <?php if ($editzoom['ruangan'] == 'pst') {
+                                    echo 'selected';
+                                  } ?> value="pst">Ruang PST</option>
                         </select>
                       </div>
                     </div>

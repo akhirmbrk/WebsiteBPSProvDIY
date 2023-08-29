@@ -23,7 +23,7 @@
     								<thead>
     									<tr>
     										<th width="5%" class="fw-600" style="vertical-align:middle;">No </th>
-    										<th width="20%" class="fw-600" style="vertical-align:middle;">Perihal Zoom
+    										<th width="15%" class="fw-600" style="vertical-align:middle;">Perihal Zoom
     										</th>
     										<th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Mulai
     										</th>
@@ -31,8 +31,9 @@
     										</th>
     										<th width="20%" class="fw-600" style="vertical-align:middle;">Diajukan Oleh
     										</th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle;">Ruangan</th>
     										<th width="10%" class="fw-600" style="vertical-align:middle;">Tanggal</th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle;"> </th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle;"></th>
     									</tr>
     								</thead>
     								<tbody>
@@ -47,6 +48,7 @@
     												<td><?php echo $list['jadwal_akhir']; ?></td>
     												<td><span name="m_nama_kegiatan"><?php echo $list['namapengusul']; ?></span>
     												</td>
+    												<td><?php echo $list['ruangan']; ?></td>
     												<td><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span>
     												</td>
     												<td>
