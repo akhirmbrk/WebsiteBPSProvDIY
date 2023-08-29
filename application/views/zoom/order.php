@@ -45,7 +45,7 @@
 
                   <div class="row">
                     <div class="form-group col-md-4">
-                      <label>Perihal Rapat Dalam Jaringan (Daring) </label>
+                      <label>Perihal Rapat </label>
                       <input name="perihal" class="form-control" type="text" value="" required>
                     </div>
                   </div>

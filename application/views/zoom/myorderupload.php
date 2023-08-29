@@ -45,6 +45,7 @@
 										<th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Mulai</th>
 										<th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Selesai</th>
 										<th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;">Notulen</th>
+										<!-- <th width="15%" class="fw-600" style="vertical-align:middle;"></th> -->
 									</tr>
 								</thead>
 								<tbody>

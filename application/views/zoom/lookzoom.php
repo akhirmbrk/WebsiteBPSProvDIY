@@ -48,7 +48,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <label>Perihal Rapat Dalam Jaringan (Daring) </label>
+                                            <!-- <label>Perihal Rapat Dalam Jaringan (Daring) </label> -->
                                             <h2><?php echo $lookzoom['perihal']; ?></h2>
                                         </div>
                                     </div>

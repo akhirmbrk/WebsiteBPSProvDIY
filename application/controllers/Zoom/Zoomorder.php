@@ -26,7 +26,7 @@ class Zoomorder extends CI_Controller
 		//echo "oke".$_SESSION['nip'];	
 		$data = array();
 
-		$data['title'] = "";
+		$data['title'] = "Dashboard";
 		$data['dash'] = "1";
 		$data['tab'] = "1";
 		$data['tipe'] = '2';
@@ -86,7 +86,7 @@ class Zoomorder extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['title'] = "";
+			$data['title'] = "Create Meeting";
 			$data['ordered'] = "1";
 
 
@@ -127,7 +127,7 @@ class Zoomorder extends CI_Controller
 	{
 
 		$data = array();
-		$data['title'] = "";
+		$data['title'] = "My Meeting";
 		$data['myorder'] = "1";
 		$data['tipe'] = '2';
 
@@ -160,15 +160,16 @@ class Zoomorder extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['title'] = "-";
+			$data['title'] = "My Meeting";
+			$data['tipe'] = "2";
 			$data['myorder'] = "1";
 
 			$data['idm'] = $idm;
 			$data['editzoom'] = $this->All_m->editzoom($idm);
 
 			$this->load->vars($data);
-			$this->load->view('part/header');
-			$this->load->view('part/sidetopbar');
+			$this->load->view('template/header', $data);
+			$this->load->view('template/topnav', $data);
 			$this->load->view('zoom/editzoom', $data);
 			$this->load->view('part/footer');
 		} else {
@@ -200,15 +201,16 @@ class Zoomorder extends CI_Controller
 		$data = array();
 
 
-		$data['title'] = "-";
+		$data['tipe'] = "2";
+		$data['title'] = "My Meeting";
 		$data['myorder'] = "1";
 
 		$data['idm'] = $idm;
 		$data['lookzoom'] = $this->All_m->lookzoom($idm);
 
 		$this->load->vars($data);
-		$this->load->view('part/header');
-		$this->load->view('part/sidetopbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('zoom/lookzoom');
 		$this->load->view('part/footer');
 	}
@@ -218,15 +220,16 @@ class Zoomorder extends CI_Controller
 	{
 
 		$data = array();
-		$data['title'] = "";
+		$data['title'] = "Memo Rapat";
+		$data['tipe'] = "2";
 		$data['myorderupload'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_upload($_SESSION['nip']);
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
-		$this->load->view('part/sidetopbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('zoom/myorderupload');
 		$this->load->view('part/footer');
 	}
@@ -238,13 +241,14 @@ class Zoomorder extends CI_Controller
 		$data = array();
 
 
-		$data['title'] = "-";
+		$data['title'] = "Upload Notulen";
+		$data['tipe'] = "2";
 		$data['myorderupload'] = "1";
 
 		$data['idm'] = $idm;
 		$this->load->vars($data);
-		$this->load->view('part/header');
-		$this->load->view('part/sidetopbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('zoom/uploadnotulenview');
 		$this->load->view('part/footer');
 	}

@@ -5,13 +5,21 @@
             <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
 
             <div class="topbar-brand">
-                <a class="menu-link" href="<?= base_url('monitoring/index/dashboard') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                <?php if ($tipe == 1) { ?>
+                    <a class="menu-link" href="<?= base_url('monitoring/index/dashboard') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                <?php } elseif ($tipe == 2) { ?>
+                    <a class="menu-link" href="<?= base_url('zoom/zoomorder/') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                <?php } else { ?>
+                    <a class="menu-link" href="<?= base_url('landingpage') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                <?php } ?>
             </div>
 
             <div class="topbar-divider d-none d-md-block"></div>
 
-            <?php if ($tipe == '1') { ?>
+            <?php if ($tipe == 1) { ?>
                 <nav class="topbar-navigation">
                     <ul class="menu">
 
@@ -61,7 +69,7 @@
 
                     </ul>
                 </nav>
-            <?php } else { ?>
+            <?php } elseif ($tipe == 2) { ?>
                 <nav class="sidebar-navigation">
                     <ul class="menu">
 
@@ -117,6 +125,7 @@
 
                     </ul>
                 </nav>
+
             <?php }  ?>
         </div>
 
@@ -134,7 +143,7 @@
 
                         <?php
 
-                        if (count($defadata)) {
+                        if ($tipe == 2 && count($defadata)) {
                         ?>
 
 
