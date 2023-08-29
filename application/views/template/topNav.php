@@ -88,7 +88,7 @@
                                                 } ?>">
                             <a class="menu-link" href="<?php echo base_url('zoom/zoomorder/order'); ?>">
                                 <span class="icon fa fa-plus"></span>
-                                <span class="title">Daring</span>
+                                <span class="title">Rapat</span>
                             </a>
                         </li>
 
@@ -99,7 +99,7 @@
                                                 } ?>">
                             <a class="menu-link" href="<?php echo base_url('zoom/zoomorder/myorder'); ?>">
                                 <span class="icon fa fa-calendar"></span>
-                                <span class="title">Daftar </span>
+                                <span class="title">Daftar Rapat</span>
 
                             </a>
                         </li>
@@ -109,7 +109,7 @@
                                                 } ?>">
                             <a class="menu-link" href="<?php echo base_url('zoom/zoomorder/myorderupload'); ?>">
                                 <span class="icon fa fa-upload"></span>
-                                <span class="title">Upload Memo</span>
+                                <span class="title">Upload Notula</span>
                             </a>
                         </li>
 
