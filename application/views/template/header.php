@@ -10,7 +10,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="description" content="Responsive admin dashboard and web application ui kit.">
     <meta name="keywords" content="dashboard, index, main">
 
-    <title><?= $title ?>&mdash; Monitoring BPS</title>
+    <title><?php echo $title;
+            if ($tipe == 1) {
+                echo ' &mdash; Monitoring BPS';
+            } elseif ($tipe == 2) {
+                echo ' &mdash; Zoom Order';
+            } else {
+                echo ' &mdash; Landing Page';
+            } ?></title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">

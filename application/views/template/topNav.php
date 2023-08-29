@@ -59,9 +59,11 @@
                             </a>
                         </li>
 
+
                     </ul>
                 </nav>
-            <?php } else { ?>
+            <?php } elseif ($tipe == '2') { ?>
+
                 <nav class="sidebar-navigation">
                     <ul class="menu">
 
