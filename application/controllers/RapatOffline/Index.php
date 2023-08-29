@@ -23,10 +23,10 @@ class Index extends CI_Controller
     public function index()
     {
         $data['title'] = "Dashboard Utama";
-        $this->load->view('monitoring/template/header', $data);
-        // $this->load->view('monitoring/template/topNav', $data);
+        $this->load->view('template/header', $data);
+        // $this->load->view('template/topNav', $data);
         // $this->load->view('rapatoffline/indexView');
         $this->load->view('maintenanceView');
-        // $this->load->view('monitoring/template/footer');
+        // $this->load->view('template/footer');
     }
 }

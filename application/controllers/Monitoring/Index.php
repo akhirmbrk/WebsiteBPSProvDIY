@@ -24,7 +24,7 @@ class Index extends CI_Controller
 	{
 		$data['judul'] = "Login";
 		$data['title'] = "Halaman Login";
-		$this->load->view('monitoring/template/header', $data);
+		$this->load->view('template/header', $data);
 		$this->load->view('monitoring/loginView', $data);
 	}
 
@@ -32,20 +32,20 @@ class Index extends CI_Controller
 	{
 		$data['tab'] = "1";
 		$data['title'] = "Dashboard Utama";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/indexView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function userControl()
 	{
 		$data['tab'] = "2";
 		$data['title'] = "User Utama";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/userControlView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function kegiatan()
@@ -53,10 +53,10 @@ class Index extends CI_Controller
 		$data['tab'] = "3";
 		$data['progress'] = 76;
 		$data['title'] = "Kegiatan";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/kegiatanView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function detailKegiatan()
@@ -64,40 +64,40 @@ class Index extends CI_Controller
 		$data['tab'] = "3";
 		$data['progress'] = 70;
 		$data['title'] = "Kegiatan Monitoring BPS";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/detailKegiatanView', $data);
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function tambahKegiatan()
 	{
 		$data['tab'] = "3";
 		$data['title'] = "Tambah Kegiatan BPS";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/tambahKegiatan');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function editKegiatan()
 	{
 		$data['tab'] = "3";
 		$data['title'] = "Edit Kegiatan";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/editKegiatanView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function tambahTimKerja()
 	{
 		$data['tab'] = "4";
 		$data['title'] = "Tambah Tim Kerja BPS";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/tambahTimKerjaView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -105,19 +105,19 @@ class Index extends CI_Controller
 	{
 		$data['tab'] = "4";
 		$data['title'] = "Tim Kerja";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/timKerjaView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function detailTimKerja()
 	{
 		$data['tab'] = "4";
 		$data['title'] = "Tim Kerja Monitoring BPS";
-		$this->load->view('monitoring/template/header', $data);
-		$this->load->view('monitoring/template/topNav', $data);
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/detailTimKerjaView');
-		$this->load->view('monitoring/template/footer');
+		$this->load->view('template/footer');
 	}
 }
