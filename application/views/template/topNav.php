@@ -10,10 +10,10 @@
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
                 <?php } elseif ($tipe == 2) { ?>
                     <a class="menu-link" href="<?= base_url('zoom/zoomorder/') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
                 <?php } else { ?>
                     <a class="menu-link" href="<?= base_url('landingpage') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Landing Page BPS</a>
                 <?php } ?>
             </div>
 
