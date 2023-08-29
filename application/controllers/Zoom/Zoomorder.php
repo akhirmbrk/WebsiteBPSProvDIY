@@ -26,13 +26,15 @@ class Zoomorder extends CI_Controller
 		//echo "oke".$_SESSION['nip'];	
 		$data = array();
 
-		$data['judul'] = "";
+		$data['title'] = "";
 		$data['dash'] = "1";
+		$data['tab'] = "1";
+		$data['tipe'] = '2';
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
-		$this->load->view('part/sidetopbar');
+		$this->load->view('template/header');
+		$this->load->view('template/topnav', $data);
 		$this->load->view('zoom/zoomindex');
 		$this->load->view('part/footer_zoomindex');
 	}
@@ -69,6 +71,8 @@ class Zoomorder extends CI_Controller
 	public function order()
 	{
 		$data = array();
+
+		$data['tipe'] = '2';
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
@@ -82,7 +86,7 @@ class Zoomorder extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "";
+			$data['title'] = "";
 			$data['ordered'] = "1";
 
 
@@ -94,8 +98,8 @@ class Zoomorder extends CI_Controller
 			$data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
 
 			$this->load->vars($data);
-			$this->load->view('part/header');
-			$this->load->view('part/sidetopbar');
+			$this->load->view('template/header', $data);
+			$this->load->view('template/topnav', $data);
 			$this->load->view('zoom/order');
 			$this->load->view('part/footer');
 		} else {
@@ -123,15 +127,16 @@ class Zoomorder extends CI_Controller
 	{
 
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "";
 		$data['myorder'] = "1";
+		$data['tipe'] = '2';
 
 		$data['list_order'] = $this->All_m->list_order($_SESSION['nip']);
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
-		$this->load->view('part/sidetopbar');
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topnav', $data);
 		$this->load->view('zoom/myorder');
 		$this->load->view('part/footer');
 	}
@@ -155,7 +160,7 @@ class Zoomorder extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "-";
+			$data['title'] = "-";
 			$data['myorder'] = "1";
 
 			$data['idm'] = $idm;
@@ -195,7 +200,7 @@ class Zoomorder extends CI_Controller
 		$data = array();
 
 
-		$data['judul'] = "-";
+		$data['title'] = "-";
 		$data['myorder'] = "1";
 
 		$data['idm'] = $idm;
@@ -213,7 +218,7 @@ class Zoomorder extends CI_Controller
 	{
 
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "";
 		$data['myorderupload'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_upload($_SESSION['nip']);
@@ -233,7 +238,7 @@ class Zoomorder extends CI_Controller
 		$data = array();
 
 
-		$data['judul'] = "-";
+		$data['title'] = "-";
 		$data['myorderupload'] = "1";
 
 		$data['idm'] = $idm;

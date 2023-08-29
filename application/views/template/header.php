@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="description" content="Responsive admin dashboard and web application ui kit.">
     <meta name="keywords" content="dashboard, index, main">
 
-    <title><?= $title ?> &mdash; Monitoring BPS</title>
+    <title><?= $title ?>&mdash; Monitoring BPS</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">

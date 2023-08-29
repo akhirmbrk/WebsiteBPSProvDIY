@@ -31,6 +31,7 @@ class Index extends CI_Controller
 	public function dashboard()
 	{
 		$data['tab'] = "1";
+		$data['tipe'] = "1";
 		$data['title'] = "Dashboard Utama";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -41,6 +42,7 @@ class Index extends CI_Controller
 	public function userControl()
 	{
 		$data['tab'] = "2";
+		$data['tipe'] = "1";
 		$data['title'] = "User Utama";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -51,6 +53,7 @@ class Index extends CI_Controller
 	public function kegiatan()
 	{
 		$data['tab'] = "3";
+		$data['tipe'] = "1";
 		$data['progress'] = 76;
 		$data['title'] = "Kegiatan";
 		$this->load->view('template/header', $data);
@@ -62,6 +65,7 @@ class Index extends CI_Controller
 	public function detailKegiatan()
 	{
 		$data['tab'] = "3";
+		$data['tipe'] = "1";
 		$data['progress'] = 70;
 		$data['title'] = "Kegiatan Monitoring BPS";
 		$this->load->view('template/header', $data);
@@ -73,6 +77,7 @@ class Index extends CI_Controller
 	public function tambahKegiatan()
 	{
 		$data['tab'] = "3";
+		$data['tipe'] = "1";
 		$data['title'] = "Tambah Kegiatan BPS";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -83,6 +88,7 @@ class Index extends CI_Controller
 	public function editKegiatan()
 	{
 		$data['tab'] = "3";
+		$data['tipe'] = "1";
 		$data['title'] = "Edit Kegiatan";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -93,6 +99,7 @@ class Index extends CI_Controller
 	public function tambahTimKerja()
 	{
 		$data['tab'] = "4";
+		$data['tipe'] = "1";
 		$data['title'] = "Tambah Tim Kerja BPS";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -104,6 +111,7 @@ class Index extends CI_Controller
 	public function timKerja()
 	{
 		$data['tab'] = "4";
+		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
@@ -114,6 +122,7 @@ class Index extends CI_Controller
 	public function detailTimKerja()
 	{
 		$data['tab'] = "4";
+		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja Monitoring BPS";
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
