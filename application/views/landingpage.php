@@ -66,7 +66,7 @@
                 <div class="media-grid media-grid-hover">
                   <div class="media flex-column align-items-center">
                     <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">ZOOM ORDER</code><br>
-                    <img src="<?= base_url() ?>assets/bps/calendar.png" style="margin-top: 10px;">
+                    <img src="<?= base_url() ?>assets/bps/rapat.png" style="margin-top: 10px;">
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                 <div class="media-grid media-grid-hover">
                   <div class="media flex-column align-items-center">
                     <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">MANAJEMEN FILE</code><br>
-                    <img src="<?= base_url() ?>assets/bps/document-file.png" style="margin-top: 10px;" alt="Gambar" />
+                    <img src="<?= base_url() ?>assets/bps/surat.png" style="margin-top: 10px;" alt="Gambar" />
                   </div>
                 </div>
               </div>
@@ -93,8 +93,8 @@
               <div class="card-body d-flex flex-column align-items-center">
                 <div class="media-grid media-grid-hover">
                   <div class="media flex-column align-items-center">
-                    <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">Monitoring Kegiatan</code><br>
-                    <img src="<?= base_url() ?>assets/bps/document-file.png" style="margin-top: 10px;" alt="Gambar" />
+                    <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">MONITORING KEGIATAN</code><br>
+                    <img src="<?= base_url() ?>assets/bps/monitoring.png" style="margin-top: 10px;" alt="Gambar" />
                   </div>
                 </div>
               </div>
@@ -107,8 +107,8 @@
               <div class="card-body d-flex flex-column align-items-center">
                 <div class="media-grid media-grid-hover">
                   <div class="media flex-column align-items-center">
-                    <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">Rapat Offline</code><br>
-                    <img src="<?= base_url() ?>assets/bps/document-file.png" style="margin-top: 10px;" alt="Gambar" />
+                    <code class="w-100 text-center" style="font-family: Verdana, sans-serif; font-size: 20px">RAPAT OFFLINE</code><br>
+                    <img src="<?= base_url() ?>assets/bps/rapat.png" style="margin-top: 10px;" alt="Gambar" />
                   </div>
                 </div>
               </div>
