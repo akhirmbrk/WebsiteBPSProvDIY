@@ -15,7 +15,9 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-
+		$data['title'] = 'Login';
+		$data['tipe'] = '';
+		$this->load->view('template/header', $data);
 		$this->load->view('login_lama');
 	}
 }
