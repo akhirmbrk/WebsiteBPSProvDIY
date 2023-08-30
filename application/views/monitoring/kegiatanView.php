@@ -157,8 +157,8 @@
                                         </small>
                                         <td>
                                             <nav class="nav gap-2 fs-16">
-                                                <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                                <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
+                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/index/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                             </nav>
                                         </td>
                                 </div>

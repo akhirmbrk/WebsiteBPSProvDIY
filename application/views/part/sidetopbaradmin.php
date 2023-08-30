@@ -80,6 +80,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="<?php echo base_url('sso/lout'); ?>"><i class="ti-power-off"></i>
                         Logout</a>
+                        
                 </div>
             </li>
 

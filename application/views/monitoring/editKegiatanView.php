@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form class="row" method="post" enctype="multipart/form-data">
+              <form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']); ?>" class="row" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">
@@ -39,58 +39,35 @@
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <!-- <select class="form-control" data-provide="selectpicker">
-											<option>Sosial</option>
-                      <option>Neraca</option>
-                      <option>Distribusi</option>
-                      <option>Pengolahan dan TIK</option>
-                      <option>Diseminasi</option>
-                </select> -->
                                       <input type="text" class="form-control" value="Tim Kerja" disabled>
                                   </div>
 
                                   <div class="form-group col-md-6">
                                       <label class="require">Judul Kegiatan</label>
-                                      <input type="text" class="form-control" value="Judul" disabled>
+                                      <input type="text" class="form-control" value="<?= $detail_kegiatan['judul_kegiatan'] ?>" disabled>
                                   </div>
                               </div>
 
                               <hr>
                               <label class="require">Tanggal Mulai</label>
-                              <!-- <div class="input-group" data-provide="datepicker">
-						
-                  <div class="input-group-prepend">
-				
-                    
-                  </div>
-					
-                  <input type="text" class="form-control">
-                </div> -->
-                              <input type="text" class="form-control" value="Tanggal Mulai" disabled>
+                              <input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Mulai" disabled>
+                              <br>
                               <label class="require">Tanggal Selesai</label>
-                              <!-- <div class="input-group" data-provide="datepicker">
-						
-                  <div class="input-group-prepend">
-				
-                 
-                  </div>
-                  <input type="text" class="form-control">
-                </div> -->
-                              <input type="text" class="form-control" value="Tanggal Selesai" disabled>
+                              <input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Selesai" disabled>
 
                               <hr>
 
                               <label class="require">Progress</label>
 
-                              <div data-provide="slider" data-value="100" data-target="next"></div>
-                              <p></p>
+                              <div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
+                              <input type="number" name="progresKegiatan" value="" class="form-control-plaintext">
 
                           </div>
 
 
                           <footer class="card-footer text-right">
                               <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/index/kegiatan') ?>">Cancel</a>
-                              <button class="btn btn-primary" type="submit" href="<?= base_url('monitoring/index/kegiatan') ?>">Update</button>
+                              <button class="btn btn-primary" type="submit">Update</button>
                           </footer>
 
 

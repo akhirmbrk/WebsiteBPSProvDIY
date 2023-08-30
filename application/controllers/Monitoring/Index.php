@@ -85,6 +85,24 @@ class Index extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
+	public function editKegiatan($id)
+	{
+		$data['tab'] = "3";
+		$data['tipe'] = "1";
+		$data['progress'] = 70;
+		$data['title'] = "Kegiatan Monitoring BPS";
+
+
+		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+		$this->load->vars($data);
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
+		$this->load->view('monitoring/editKegiatanView', $data);
+		$this->load->view('template/footer');
+	}
+
+
 	public function tambahKegiatan()
 	{
 		$data['tab'] = "3";
@@ -96,16 +114,6 @@ class Index extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	public function editKegiatan()
-	{
-		$data['tab'] = "3";
-		$data['tipe'] = "1";
-		$data['title'] = "Edit Kegiatan";
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/editKegiatanView');
-		$this->load->view('template/footer');
-	}
 
 	public function tambahTimKerja()
 	{
