@@ -74,7 +74,7 @@
                     </ul>
                 </nav>
             <?php } elseif ($tipe == 2) { ?>
-                <nav class="sidebar-navigation">
+                <nav class="topbar-navigation">
                     <ul class="menu">
 
                         <li class="menu-item  <?php if (isset($dash)) {
@@ -119,7 +119,7 @@
                 </nav>
 
             <?php } elseif ($tipe == 3) { ?>
-                <nav class="sidebar-navigation">
+                <nav class="topbar-navigation">
                     <ul class="menu">
 
                         <li class="menu-item  <?php if (isset($dash)) {

@@ -17,7 +17,7 @@ class Landingpage extends CI_Controller
 		$this->load->model('All_m');
 		$defadata['defadata'] = $this->All_m->top_bar();
 		$this->load->vars($defadata);
-		date_default_timezone_set("Asia/Bangkok");
+		date_default_timezone_set("Asia/Jakarta");
 	}
 
 

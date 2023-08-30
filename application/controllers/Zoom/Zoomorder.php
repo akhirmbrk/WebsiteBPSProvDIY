@@ -16,7 +16,7 @@ class Zoomorder extends CI_Controller
 		$this->load->model('All_m');
 		$defadata['defadata'] = $this->All_m->top_bar();
 		$this->load->vars($defadata);
-		date_default_timezone_set("Asia/Bangkok");
+		date_default_timezone_set("Asia/Jakarta");
 	}
 
 
@@ -90,7 +90,7 @@ class Zoomorder extends CI_Controller
 			$data['ordered'] = "1";
 
 
-			$tgl = date('Y-m-d', strtotime(' +1 day'));
+			$tgl = date('Y-m-d', strtotime(' +0 day'));
 
 			$tgl_dh_1 = substr($tgl, 8, 2);
 			$bln_dh_1 = substr($tgl, 5, 2);

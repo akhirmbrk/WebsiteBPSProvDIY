@@ -18,7 +18,7 @@ class Index extends CI_Controller
             redirect('zoom/zoomorder/index/', 'refresh');
         }
 
-        date_default_timezone_set("Asia/Bangkok");
+        date_default_timezone_set("Asia/Jakarta");
     }
     public function index()
     {
