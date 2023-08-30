@@ -100,6 +100,7 @@ class Zoomorder extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('template/header', $data);
 			$this->load->view('template/topnav', $data);
+			$this->load->view('template/header_content', $data);
 			$this->load->view('zoom/order');
 			$this->load->view('part/footer');
 		} else {
@@ -137,6 +138,7 @@ class Zoomorder extends CI_Controller
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
+		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/myorder');
 		$this->load->view('part/footer');
 	}
