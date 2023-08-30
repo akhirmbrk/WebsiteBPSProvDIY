@@ -9,15 +9,13 @@
     </header>
     <!--/.header -->
     <div class="center-vh">
-        <div class="card card-round card-shadowed px-50 py-30  mb-0 center-vh " style="max-width: 100%; opacity:80%; border-radius: 40px">
-
-            <img width="100px" class="m-3" alt="" src="<?= base_url() ?>assets/bps/image-10@2x.png" />
-            <h1 class="">Website Integrasi</h1>
-            <h5 class="">BPS Provinsi DI Yogyakarta</h5>
+        <!-- <div class="card card-round card-shadowed px-70 py-10  mb-0 center-vh " style="max-width: 100%; opacity:80%; border-radius: 36px"> -->
+		<div class="card card-round card-shadowed mt-100 mb-0 center-vh pt-40 pb-40" style="max-width: 100%; opacity:85%; border-radius: 36px; width:550px; height:290px;box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px inset">
+            <img width="55px" class="m-3" alt="" src="<?= base_url() ?>assets/bps/image-10@2x.png" />
+            <h1 class="" style ="font-family:'Krona One'"><strong>Website Integrasi</strong></h1>
+            <h4 class="" style = "font-family:'Krona One'">BPS Provinsi DI Yogyakarta</h4>
             <span class="fs-12"> versi ujicoba</span>
-            <br>
-            <br>
-            <a class="btn btn-round btn-outline btn-lg btn-info" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
+            <a class="btn btn-round btn-outline btn-lg btn-info" style ="font-family:'Bree Serif'; width:170px" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
             <br>
             <!-- <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>index.php/zoom/sso">LOGIN SSO </a> -->
 
