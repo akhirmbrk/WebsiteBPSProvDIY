@@ -1,53 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<body class="min-h-fullscreen bg-img " style="background-image: url(<?= base_url('');
+                                                                    ?>/assets/bps/image-1@2x.png);">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Responsive admin dashboard and web application ui kit. ">
-    <meta name="keywords" content="login, signin">
+    <!-- Main container -->
+    <header class="header header-transparent">
+        <div class="header-info m-0 p-2">
+            <img class="" width="400px" alt="" src="<?= base_url() ?>assets/bps/header_bpsdiy.png" />
+        </div>
+    </header>
+    <!--/.header -->
+    <div class="center-vh">
+        <div class="card card-round card-shadowed px-50 py-30  mb-0 center-vh " style="max-width: 100%; opacity:80%; border-radius: 40px">
 
-    <title>BPS DI Yogyakarta</title>
+            <img width="100px" class="m-3" alt="" src="<?= base_url() ?>assets/bps/image-10@2x.png" />
+            <h1 class="">Website Integrasi</h1>
+            <h5 class="">BPS Provinsi DI Yogyakarta</h5>
+            <span class="fs-12"> versi ujicoba</span>
+            <br>
+            <br>
+            <a class="btn btn-round btn-outline btn-lg btn-info" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
+            <br>
+            <!-- <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>index.php/zoom/sso">LOGIN SSO </a> -->
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="<?php echo base_url(); ?>assets/css/core.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/app.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/style.min.css" rel="stylesheet">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon.png">
-</head>
-
-<body class="text-center h-fullscreen bg-img p-70" style="background-image:url(<?= base_url() ?>assets/bps/image-1@2x.png)">
-
-    <h4><img src="<?php echo base_url(); ?>assets/img/bg/logo_bps.png" alt="logo" style="width: 40px;"> BPS Prov. D.I.
-        Yogyakarta</h4>
-    <br /><br />
-    <!-- <div class="card"> -->
-    <h2 class="text-uppercase text- fs-50 d-none d-md-block">
-        <span class="fs-70 fw-900">Permintaan</span><br>
-        <span>Rapat Daring</span>
-        <span class="text-primary fs-70">.</span>
-        <br /><span class="fs-12"> versi ujicoba</span>
-    </h2>
-
-    <br><br>
-    <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
-    <!-- <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>index.php/zoom/sso">LOGIN SSO </a> -->
-    <br><br><br>
-
-    <!-- </div> -->
-
-    <!-- Scripts -->
-    <script src="<?php echo base_url(); ?>assets/js/core.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/app.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/script.min.js"></script>
-
+        </div>
+    </div>
 </body>
-
 
 </html>
