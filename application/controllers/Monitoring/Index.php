@@ -6,6 +6,8 @@ class Index extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('monitoring/Kegiatan_m');
+
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
 			$this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
@@ -56,18 +58,27 @@ class Index extends CI_Controller
 		$data['tipe'] = "1";
 		$data['progress'] = 76;
 		$data['title'] = "Kegiatan";
+
+		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
+
+		$this->load->vars($data);
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/kegiatanView');
 		$this->load->view('template/footer');
 	}
 
-	public function detailKegiatan()
+	public function detailKegiatan($id)
 	{
 		$data['tab'] = "3";
 		$data['tipe'] = "1";
 		$data['progress'] = 70;
 		$data['title'] = "Kegiatan Monitoring BPS";
+
+
+		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+		$this->load->vars($data);
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/detailKegiatanView', $data);

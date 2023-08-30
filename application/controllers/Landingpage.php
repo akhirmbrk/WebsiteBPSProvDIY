@@ -24,7 +24,7 @@ class Landingpage extends CI_Controller
 
 	public function index()
 	{
-		$data['tipe'] = "0";
+		$data['tipe'] = "landing";
 		$data['tab'] = "1";
 		$data['title'] = "Website Integrasi";
 

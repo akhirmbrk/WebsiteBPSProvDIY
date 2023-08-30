@@ -33,7 +33,7 @@ class All_m extends CI_Model
 		$unix_tgl_end = strtotime($tgl_end);
 
 		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2");
-
+		
 		$jedah_res = $jedah->row_array();
 
 		$keterangan = $this->input->post("keterangan");
@@ -516,31 +516,6 @@ class All_m extends CI_Model
 		$this->db->where('idm', $idm);
 		$this->db->update('meetingreq', $data);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	public function nama_bulan($bulan)

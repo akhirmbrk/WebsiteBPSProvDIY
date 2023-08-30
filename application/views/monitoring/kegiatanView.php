@@ -45,7 +45,7 @@
                     </ul>
                 </div> -->
 
-
+                <!-- Filter -->
                 <div class="card shadow-1">
                     <h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
 
@@ -116,105 +116,54 @@
 
 
             <div class="col-md-8 col-xl-9">
-
                 <div class="media-list media-list-divided media-list-hover" data-provide="selectall">
                     <div class="media-list-body bg-white b-1">
+
+                        <!-- Searching kegiatan -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
                                 <input type="text" name="s" placeholder="Cari Kegiatan">
                             </form>
                         </div>
-                        <div class="media align-items-center">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input">
-                                <label class="custom-control-label"></label>
-                            </div>
+                        <!-- end Searching kegiatan -->
 
-                            <label class="toggler fs-16 ml-20">
-                                <input type="checkbox" data-perform="toggle-star" data-target="#">
-                                <i class="fa fa-star"></i>
-                            </label>
+                        <?php
+                        if (count($list_kegiatan)) {
+                            foreach ($list_kegiatan as $indeks => $item) {  ?>
+                                <div class="media align-items-center">
+                                    <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
+                                    <img class="rounded" width="40px" src="<?= base_url('');
+                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">
 
-                            <img class="rounded" width="40px" src="<?= base_url('');
-                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">
+                                    <a class="media-body text-truncate" href="<?php echo (base_url('monitoring/index/detailKegiatan/') . $item['id_kegiatan']) ?> ">
+                                        <h5 class="fs-15"><?= $item["judul_kegiatan"]; ?></h5>
+                                        <div class="progress">
+                                            <div class="progress-bar <?php if ($item['progres_kegiatan'] <= 25) {
+                                                                            echo "bg-danger";
+                                                                        } elseif ($item['progres_kegiatan'] <= 50) {
+                                                                            echo "bg-warning";
+                                                                        } elseif ($item['progres_kegiatan'] <= 75) {
+                                                                            echo "bg-info";
+                                                                        } else {
+                                                                            echo "bg-success";
+                                                                        } ?>" role="progressbar" style="width: <?= $item['progres_kegiatan'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kegiatan'] ?>%</div>
+                                        </div>
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailKegiatan') ?>">
-                                <h5 class="fs-15">Regsosek</h5>
-                                <div class="progress">
-                                    <div class="progress-bar <?php if ($progress <= 25) {
-                                                                    echo "bg-danger";
-                                                                } elseif ($progress <= 50) {
-                                                                    echo "bg-warning";
-                                                                } elseif ($progress <= 75) {
-                                                                    echo "bg-info";
-                                                                } else {
-                                                                    echo "bg-success";
-                                                                } ?>" role="progressbar" style="width: <?= $progress ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $progress ?>%</div>
+                                        <small class="opacity-65 fw-300">
+                                            <?= $item['id_tim_kerja'] ?>
+                                            <span class="divider-dash"></span>
+                                            BPS Provinsi Daerah Istimewa Yogyakarta
+                                        </small>
+                                        <td>
+                                            <nav class="nav gap-2 fs-16">
+                                                <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
+                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                            </nav>
+                                        </td>
                                 </div>
-                                <small class="opacity-65 fw-300">
-
-                                    Tim Kerja Statistik
-                                    <span class="divider-dash"></span>
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-
-                        </div>
-
-                        <div class="media align-items-center">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input">
-                                <label class="custom-control-label"></label>
-                            </div>
-
-                            <label class="toggler fs-16 ml-20">
-                                <input type="checkbox" data-perform="toggle-star" data-target="#">
-                                <i class="fa fa-star"></i>
-                            </label>
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="rounded" width="40px" src="<?= base_url('');
-                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">
-
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailKegiatan') ?> ">
-                                <h5 class="fs-15">Sensus Pertanian</h5>
-                                <div class="progress">
-                                    <div class="progress-bar <?php if ($progress <= 25) {
-                                                                    echo "bg-danger";
-                                                                } elseif ($progress <= 50) {
-                                                                    echo "bg-warning";
-                                                                } elseif ($progress <= 75) {
-                                                                    echo "bg-info";
-                                                                } else {
-                                                                    echo "bg-success";
-                                                                } ?>" role="progressbar" style="width: <?= $progress ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $progress ?>%</div>
-                                </div>
-
-                                <small class="opacity-65 fw-300">
-
-                                    Tim Kerja Statistik
-                                    <span class="divider-dash"></span>
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan') ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-                        </div>
+                        <?php }
+                        } ?>
 
                         </a>
 

@@ -33,6 +33,7 @@
                                                 }  ?>">
                             <a class="menu-link" href="<?= base_url('monitoring/index/dashboard');
                                                         ?>">
+                                <span class="icon fa fa-home"></span>
                                 <span class="title">Home</span>
                             </a>
                         </li>
@@ -44,6 +45,7 @@
                                                 }  ?>">
                             <a class="menu-link" href="<?= base_url('monitoring/index/userControl');
                                                         ?>">
+                                <span class="icon fa fa-user-secret"></span>
                                 <span class="title">User</span>
                             </a>
                         </li>
@@ -55,6 +57,7 @@
                                                 }  ?>">
                             <a class="menu-link" href="<?= base_url('monitoring/index/kegiatan');
                                                         ?>">
+                                <span class="icon fa fa-list-alt"></span>
                                 <span class="title">Kegiatan</span>
                             </a>
                         </li>
@@ -66,6 +69,7 @@
                                                 }  ?>">
                             <a class="menu-link" href="<?= base_url('monitoring/index/timKerja');
                                                         ?>">
+                                <span class="icon fa fa-users"></span>
                                 <span class="title">Tim Kerja</span>
                             </a>
                         </li>
@@ -178,8 +182,10 @@
 
                         <?php } ?>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
-                            Landing Page</a>
+                        <?php if ($tipe != 'landing') { ?>
+                            <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
+                                Landing Page</a>
+                        <?php } ?>
                         <a class="dropdown-item" href="<?= base_url('sso/lout') ?>"><i class="ti-power-off"></i>
                             Logout</a>
 

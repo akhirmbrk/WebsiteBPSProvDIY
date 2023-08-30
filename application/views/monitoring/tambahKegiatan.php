@@ -27,9 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form class="row" method="post" enctype="multipart/form-data">
-
-
+              <form action="<?php echo base_url('monitoring/Kegiatan/tambahKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
                   <div class="col-md-7 col-xl-8">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
@@ -39,59 +37,54 @@
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <select class="form-control" data-provide="selectpicker">
-                                          <option>Analisis Statistik dan Penjaminan Kualitas</option>
-                                          <option>Neraca Regional</option>
-                                          <option>Statistik Sosial</option>
-                                          <option>Statistik Distribusi</option>
-                                          <option>Statistik Produksi</option>
-                                          <option>Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)
+                                      <select name="id_tim_kerja" class="form-control" data-provide="selectpicker">
+                                          <option value="1">Analisis Statistik dan Penjaminan Kualitas</option>
+                                          <option value="2">Neraca Regional</option>
+                                          <option value="3">Statistik Sosial</option>
+                                          <option value="4">Statistik Distribusi</option>
+                                          <option value="5">Statistik Produksi</option>
+                                          <option value="6">Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)
                                           </option>
-                                          <option>Pengolahan dan TIK</option>
-                                          <option>Diseminasi Statistik</option>
-                                          <option>Pembinaan dan Pelaksanaan Statistik Sektoral</option>
-                                          <option>Perencanaan dan Administrasi Keuangan</option>
-                                          <option>Manajemen SDM dan Hukum</option>
-                                          <option>Fasilitasi Operasional Perkantoran</option>
-                                          <option>SAKIP</option>
-                                          <option>Humas & Unit Kerja Pimpinan</option>
-                                          <option>Zona Integritas dan Reformasi Birokrasi</option>
-                                          <option>Kolaborasi Mengawal Perubahan</option>
+                                          <option value="7">Pengolahan dan TIK</option>
+                                          <option value="8">Diseminasi Statistik</option>
+                                          <option value="9">Pembinaan dan Pelaksanaan Statistik Sektoral</option>
+                                          <option value="1">Perencanaan dan Administrasi Keuangan</option>
+                                          <option value="1">Manajemen SDM dan Hukum</option>
+                                          <option value="1">Fasilitasi Operasional Perkantoran</option>
+                                          <option value="1">SAKIP</option>
+                                          <option value="1">Humas & Unit Kerja Pimpinan</option>
+                                          <option value="1">Zona Integritas dan Reformasi Birokrasi</option>
+                                          <option value="1">Kolaborasi Mengawal Perubahan</option>
                                       </select>
                                   </div>
 
                                   <div class="form-group col-md-6">
                                       <label class="require">Judul Kegiatan</label>
-                                      <input class="form-control" type="text" name="title">
+                                      <input class="form-control" type="text" name="judul_kegiatan">
                                   </div>
                               </div>
 
                               <hr>
-                              <label class="require">Tanggal Mulai</label>
+                              <label class="require">Waktu Kegiatan</label>
                               <div class="input-group" data-provide="datepicker">
-
-                                  <div class="input-group-prepend">
-
-                                      <!-- <span class="input-group-text">Mulai</span> -->
-                                  </div>
-
-                                  <input type="text" class="form-control">
-                              </div>
+                                  <input type="text" class="form-control" name="tgl_start" placeholder="Tanggal Mulai">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </span>
+                                  <!-- </div>
                               <label class="require">Tanggal Selesai</label>
-                              <div class="input-group" data-provide="datepicker">
-
-                                  <div class="input-group-prepend">
-
-                                      <!-- <span class="input-group-text">Mulai</span> -->
-                                  </div>
-                                  <input type="text" class="form-control">
+                              <div class="input-group" data-provide="datepicker"> -->
+                                  <input type="text" class="form-control" name="tgl_end" placeholder="Tanggal Selesai">
+                                  <span class="input-group-addon">
+                                      <i class="fa fa-calendar"></i>
+                                  </span>
                               </div>
 
                               <hr>
 
                               <div class="form-group">
                                   <label class="require">Deskripsi Kegiatan</label>
-                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220"></textarea>
+                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsi_kegiatan"></textarea>
                               </div>
 
 
