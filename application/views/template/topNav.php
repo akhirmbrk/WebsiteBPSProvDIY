@@ -178,7 +178,7 @@
 
                         <?php } ?>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= base_url('sso/lout') ?>"><i class="ti-back-left"></i>
+                        <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
                             Landing Page</a>
                         <a class="dropdown-item" href="<?= base_url('sso/lout') ?>"><i class="ti-power-off"></i>
                             Logout</a>
