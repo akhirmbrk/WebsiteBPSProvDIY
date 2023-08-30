@@ -1,7 +1,7 @@
-<header class="header header-bg-img" style="background-image: url(<?= base_url() ?>assets/img/bps/polos.png)">
+<!-- <header class="header header-bg-img" style="background-image: url(<?= base_url() ?>assets/img/bps/polos.png)">
   <div class="header-info">
     <div class="left">
-      <h1 class="header-title"><strong>Daftar Team Saya</strong></h1>
+      <h1 class="header-title"><strong>Daftar Tim Kerja</strong></h1>
     </div>
     <div class="right flex-middle"></div>
   </div>
@@ -10,7 +10,7 @@
     <div class="flexbox align-items-center gap-items-4"></div>
     <nav class="nav"></nav>
   </div>
-</header>
+</header> -->
 
 
 <div class="main-content">
