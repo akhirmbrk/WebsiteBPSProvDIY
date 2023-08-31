@@ -9,6 +9,7 @@ class Index extends CI_Controller
 		$this->load->model('monitoring/Kegiatan_m');
 		$this->load->model('monitoring/BPS_m');
 		$this->load->model('monitoring/Periode_m');
+		$this->load->model('monitoring/tim_kerja_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -147,8 +148,8 @@ class Index extends CI_Controller
 		$data['title'] = "Tim Kerja";
 
 		$filter['bps'] = $this->BPS_m->list_bps();
-		$filter['tim_kerja'] = $this->Periode_m->list_periode();
 		$filter['periode'] = $this->Periode_m->list_periode();
+		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
 		$this->load->vars($data);
 

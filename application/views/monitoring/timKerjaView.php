@@ -10,7 +10,8 @@
         </div>
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahTimKerja') ?>"
+                    title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
 
         </div>
@@ -59,22 +60,12 @@
                         <div class="form-group">
                             <label>Jenis Tim Kerja</label>
                             <select title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
-                                <option>Analisis Statistik dan Penjaminan Kualitas</option>
-                                <option>Neraca Regional</option>
-                                <option>Statistik Sosial</option>
-                                <option>Statistik Distribusi</option>
-                                <option>Statistik Produksi</option>
-                                <option>Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)</option>
-                                <option>Pengolahan dan TIK</option>
-                                <option>Diseminasi Statistik</option>
-                                <option>Pembinaan dan Pelaksanaan Statistik Sektoral</option>
-                                <option>Perencanaan dan Administrasi Keuangan</option>
-                                <option>Manajemen SDM dan Hukum</option>
-                                <option>Fasilitasi Operasional Perkantoran</option>
-                                <option>SAKIP</option>
-                                <option>Humas & Unit Kerja Pimpinan</option>
-                                <option>Zona Integritas dan Reformasi Birokrasi</option>
-                                <option>Kolaborasi Mengawal Perubahan</option>
+                                <?php
+                                if (count($tim_kerja)) {
+                                    foreach ($tim_kerja as $indeks => $item) {  ?>
+                                <option><?php echo $item['nama_tim_kerja']; ?></option>
+                                <?php }
+                                } ?>
                             </select>
                         </div>
 
@@ -106,7 +97,8 @@
                             <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/3.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate"
+                                href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Pengolahan dan TIK</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -116,7 +108,9 @@
 
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip"
+                                            title="" data-perform="delete" data-target="#"
+                                            data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
 
@@ -132,7 +126,8 @@
                             <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate"
+                                href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Sosial</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -141,7 +136,9 @@
                                 </small>
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip"
+                                            title="" data-perform="delete" data-target="#"
+                                            data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
 
@@ -155,7 +152,8 @@
                             <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate"
+                                href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Neraca</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -164,7 +162,9 @@
                                 </small>
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip"
+                                            title="" data-perform="delete" data-target="#"
+                                            data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
 
@@ -178,7 +178,8 @@
                             <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate"
+                                href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Sosial 2</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -187,7 +188,9 @@
                                 </small>
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip"
+                                            title="" data-perform="delete" data-target="#"
+                                            data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
 
@@ -201,7 +204,8 @@
                             <img class="avatar" src="<?= base_url('');
                                                         ?>/assets/img/avatar/4.jpg" alt="...">
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
+                            <a class="media-body text-truncate"
+                                href="<?= base_url('monitoring/index/detailTimKerja') ?>">
                                 <h5 class="fs-15">Tim Produksi</h5>
                                 <small class="opacity-65 fw-300">
 
@@ -210,7 +214,9 @@
                                 </small>
                                 <td>
                                     <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip"
+                                            title="" data-perform="delete" data-target="#"
+                                            data-original-title="Delete"><i class="ti-trash"></i></a>
                                     </nav>
                                 </td>
 
