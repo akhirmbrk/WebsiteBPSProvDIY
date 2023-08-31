@@ -3,8 +3,17 @@
         <div class="header-info">
             <div class="left">
                 <br>
-                <h2 class="header-title"><?= $detail_kegiatan['judul_kegiatan'] ?> <small class="subtitle"><?= $detail_kegiatan['id_tim_kerja'] ?></small></h2>
+                <h2 class="header-title"><?= $detail_kegiatan['judul_kegiatan'] ?>
+                    <small class="subtitle"><?= $tim_kerja['nama_tim_kerja'] ?></small>
+                </h2>
             </div>
+        </div>
+
+        <div class="header-action">
+            <div class="buttons">
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
+            </div>
+
         </div>
     </div>
 </header>

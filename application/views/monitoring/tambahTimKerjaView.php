@@ -40,39 +40,32 @@
                                   <?php
                                     if (count($bps)) {
                                         foreach ($bps as $indeks => $item) {  ?>
-                                  <option value="<?= $item['kodeBPS'] ?>">
-                                      <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
-                                  </option>
+                                          <option value="<?= $item['kodeBPS'] ?>">
+                                              <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
+                                          </option>
                                   <?php }
                                     } ?>
                               </select>
                               <hr>
-                              <!-- <div class="row"> -->
-                              <!-- <div class="form-group col-md-6"> -->
                               <label class="require">Jenis Tim Kerja</label>
                               <select class="form-control" data-provide="selectpicker">
                                   <?php
-                                if (count($tim_kerja)) {
-                                    foreach ($tim_kerja as $indeks => $item) {  ?>
-                                  <option><?php echo $item['nama_tim_kerja']; ?></option>
+                                    if (count($tim_kerja)) {
+                                        foreach ($tim_kerja as $indeks => $item) {  ?>
+                                          <option><?php echo $item['nama_tim_kerja']; ?></option>
                                   <?php }
-                                } ?>
+                                    } ?>
                               </select>
-                              <!-- </div> -->
+
                               <hr>
-                              <!-- <div class="form-group col-md-6">
-                                  <label class="require">Nama Tim Kerja</label>
-                                  <input class="form-control" type="text" name="title">
-                              </div> -->
-                              <!-- </div> -->
                               <label class="require">Periode</label>
                               <select class="form-control" data-provide="selectpicker">
-                                  <option>2020</option>
-                                  <option>2021</option>
-                                  <option>2022</option>
-                                  <option>2023</option>
-                                  <option>2024</option>
-                                  <option>2025</option>
+                                  <?php
+                                    if (count($periode)) {
+                                        foreach ($periode as $indeks => $item) {  ?>
+                                          <option><?php echo $item['Tahun']; ?></option>
+                                  <?php }
+                                    } ?>
                               </select>
                               <hr>
                               <label class="require">Anggota</label>

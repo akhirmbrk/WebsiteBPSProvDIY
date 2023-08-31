@@ -47,11 +47,11 @@
 
                         <div class="form-group">
                             <label>BPS</label>
-                            <select title="All BPS" multiple data-provide="selectpicker" data-width="100%">
+                            <select nama="filterBPS" title="All BPS" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($bps)) {
                                     foreach ($bps as $indeks => $item) {  ?>
-                                        <option><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
+                                        <option value="<?= $item['kodeBPS'] ?>"><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
                                 <?php }
                                 } ?>
                             </select>
@@ -60,23 +60,13 @@
 
                         <div class="form-group">
                             <label>Tim Kerja</label>
-                            <select title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
-                                <option>Analisis Statistik dan Penjaminan Kualitas</option>
-                                <option>Neraca Regional</option>
-                                <option>Statistik Sosial</option>
-                                <option>Statistik Distribusi</option>
-                                <option>Statistik Produksi</option>
-                                <option>Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)</option>
-                                <option>Pengolahan dan TIK</option>
-                                <option>Diseminasi Statistik</option>
-                                <option>Pembinaan dan Pelaksanaan Statistik Sektoral</option>
-                                <option>Perencanaan dan Administrasi Keuangan</option>
-                                <option>Manajemen SDM dan Hukum</option>
-                                <option>Fasilitasi Operasional Perkantoran</option>
-                                <option>SAKIP</option>
-                                <option>Humas & Unit Kerja Pimpinan</option>
-                                <option>Zona Integritas dan Reformasi Birokrasi</option>
-                                <option>Kolaborasi Mengawal Perubahan</option>
+                            <select nama="filterTimKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                                <?php
+                                if (count($tim_kerja)) {
+                                    foreach ($tim_kerja as $indeks => $item) {  ?>
+                                        <option value="<?= $item['id_team'] ?>"><?php echo $item['nama_tim_kerja']; ?></option>
+                                <?php }
+                                } ?>
                             </select>
                         </div>
 
@@ -127,7 +117,7 @@
                                         </div>
 
                                         <small class="opacity-65 fw-300">
-                                            <?= $item['id_tim_kerja'] ?>
+                                            <?= $tim_kerja[$indeks]['nama_tim_kerja'] ?>
                                             <span class="divider-dash"></span>
                                             BPS Provinsi Daerah Istimewa Yogyakarta
                                         </small>

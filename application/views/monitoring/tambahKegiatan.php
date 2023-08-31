@@ -37,44 +37,31 @@
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <select name="id_tim_kerja" class="form-control" data-provide="selectpicker">
-                                          <option value="1">Analisis Statistik dan Penjaminan Kualitas</option>
-                                          <option value="2">Neraca Regional</option>
-                                          <option value="3">Statistik Sosial</option>
-                                          <option value="4">Statistik Distribusi</option>
-                                          <option value="5">Statistik Produksi</option>
-                                          <option value="6">Sensus Pertanian & Statistik Perikanan, Pertanian dan Kehutanan (SP2K)
-                                          </option>
-                                          <option value="7">Pengolahan dan TIK</option>
-                                          <option value="8">Diseminasi Statistik</option>
-                                          <option value="9">Pembinaan dan Pelaksanaan Statistik Sektoral</option>
-                                          <option value="1">Perencanaan dan Administrasi Keuangan</option>
-                                          <option value="1">Manajemen SDM dan Hukum</option>
-                                          <option value="1">Fasilitasi Operasional Perkantoran</option>
-                                          <option value="1">SAKIP</option>
-                                          <option value="1">Humas & Unit Kerja Pimpinan</option>
-                                          <option value="1">Zona Integritas dan Reformasi Birokrasi</option>
-                                          <option value="1">Kolaborasi Mengawal Perubahan</option>
+                                      <select id="timKerja" name="timKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                                          <?php
+                                            if (count($tim_kerja)) {
+                                                foreach ($tim_kerja as $indeks => $item) {  ?>
+                                                  <option value="<?= $item['id_team'] ?>"><?php echo $item['nama_tim_kerja']; ?></option>
+                                          <?php }
+                                            } ?>
                                       </select>
                                   </div>
 
                                   <div class="form-group col-md-6">
                                       <label class="require">Judul Kegiatan</label>
-                                      <input class="form-control" type="text" name="judul_kegiatan">
+                                      <input class="form-control" type="text" name="judulKegiatan">
                                   </div>
                               </div>
 
                               <hr>
                               <label class="require">Waktu Kegiatan</label>
                               <div class="input-group" data-provide="datepicker">
-                                  <input type="text" class="form-control" name="tgl_start" placeholder="Tanggal Mulai">
+                                  <input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai">
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>
-                                  <!-- </div>
-                              <label class="require">Tanggal Selesai</label>
-                              <div class="input-group" data-provide="datepicker"> -->
-                                  <input type="text" class="form-control" name="tgl_end" placeholder="Tanggal Selesai">
+
+                                  <input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai">
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>
@@ -84,7 +71,7 @@
 
                               <div class="form-group">
                                   <label class="require">Deskripsi Kegiatan</label>
-                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsi_kegiatan"></textarea>
+                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan"></textarea>
                               </div>
 
 

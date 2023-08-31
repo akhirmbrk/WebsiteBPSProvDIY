@@ -25,4 +25,17 @@ class tim_kerja_m extends CI_Model
         $Q->free_result();
         return $data;
     }
+
+    public function show_tim_kerja($id)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM tim_kerja WHERE id_team = " . $id);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data['id_team'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
 }

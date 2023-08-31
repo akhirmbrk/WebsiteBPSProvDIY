@@ -64,8 +64,14 @@ class Index extends CI_Controller
 
 		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
 
+		foreach ($data['list_kegiatan'] as $key => $item) {
+			$data['tim_kerja'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+		}
+
+
 		$filter['bps'] = $this->BPS_m->list_bps();
 		$filter['periode'] = $this->Periode_m->list_periode();
+		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
 
 		$this->load->vars($data);
@@ -86,6 +92,9 @@ class Index extends CI_Controller
 
 
 		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+		$data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
+
+
 		$this->load->vars($data);
 
 		$this->load->view('template/header');
@@ -103,11 +112,13 @@ class Index extends CI_Controller
 
 
 		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+		$data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
+		// var_dump($data['tim_kerja']);
 		$this->load->vars($data);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/editKegiatanView', $data);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
+		$this->load->view('monitoring/editKegiatanView');
 		$this->load->view('template/footer');
 	}
 
@@ -117,6 +128,9 @@ class Index extends CI_Controller
 		$data['tab'] = "3";
 		$data['tipe'] = "1";
 		$data['title'] = "Tambah Kegiatan BPS";
+
+		$data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
 		$this->load->view('monitoring/tambahKegiatan');
@@ -130,13 +144,16 @@ class Index extends CI_Controller
 		$data['tipe'] = "1";
 		$data['title'] = "Tambah Tim Kerja BPS";
 
-		$data['bps'] = $this->BPS_m->list_bps();
+		$filter['bps'] = $this->BPS_m->list_bps();
+		$filter['periode'] = $this->Periode_m->list_periode();
+		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
 		$this->load->vars($data);
+		$this->load->vars($filter);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/tambahTimKerjaView', $data['bps']);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
+		$this->load->view('monitoring/tambahTimKerjaView');
 		$this->load->view('template/footer');
 	}
 
@@ -152,10 +169,11 @@ class Index extends CI_Controller
 		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
 		$this->load->vars($data);
+		$this->load->vars($filter);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/timKerjaView', $filter);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
+		$this->load->view('monitoring/timKerjaView');
 		$this->load->view('template/footer');
 	}
 

@@ -7,8 +7,9 @@
               <div class="header-info">
                   <div class="left">
                       <br>
-                      <h2 class="header-title"><strong>Edit Progress Kegiatan</strong><small class="subtitle">Update
-                              progress kegiatan sesuai dengan capaian terbaru.</small></h2>
+                      <h2 class="header-title"><strong><?= $detail_kegiatan['judul_kegiatan'] ?></strong>
+                          <small class="subtitle"><?= $tim_kerja['nama_tim_kerja'] ?></small>
+                      </h2>
                   </div>
               </div>
 
@@ -62,6 +63,13 @@
                               <div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
                               <input type="number" name="progresKegiatan" value="" class="form-control-plaintext">
 
+
+                              <hr>
+
+                              <div class="form-group">
+                                  <label class="require">Deskripsi Kegiatan</label>
+                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan"></textarea>
+                              </div>
                           </div>
 
 

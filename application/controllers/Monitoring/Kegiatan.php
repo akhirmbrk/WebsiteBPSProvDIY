@@ -39,40 +39,24 @@ class Kegiatan extends CI_Controller
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
-        if ($this->form_validation->run() == FALSE) {
 
-            $data['title'] = "Create Kegiatan";
+        $hasil = $this->Kegiatan_m->add_kegiatan();
+        // var_dump($data);
 
+        if ($hasil['point'] == 'sukses') {
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
+            redirect('monitoring/index/kegiatan', 'refresh');
+        } else if ($hasil['point'] == 'lewat') {
 
-            $tgl = date('Y-m-d', strtotime(' +0 day'));
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+            redirect('monitoring/index/kegiatan', 'refresh');
+        } else if ($hasil['point'] == 'block') {
 
-            $tgl_dh_1 = substr($tgl, 8, 2);
-            $bln_dh_1 = substr($tgl, 5, 2);
-            $thn_dh_1 = substr($tgl, 0, 4);
-            $data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
-
-            $this->load->vars($data);
-            $this->load->view('template/header', $data);
-            $this->load->view('template/topnav', $data);
-            $this->load->view('monitoring/tambahKegiatan');
-            $this->load->view('template/footer');
-        } else {
-            $hasil = $this->Kegiatan_m->add_kegiatan();
-
-            if ($hasil['point'] == 'sukses') {
-                $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
-                redirect('monitoring/index/kegiatan', 'refresh');
-            } else if ($hasil['point'] == 'lewat') {
-
-                $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-                redirect('monitoring/index/kegiatan', 'refresh');
-            } else if ($hasil['point'] == 'block') {
-
-                $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
-                redirect('monitoring/index/kegiatan', 'refresh');
-            }
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
+            redirect('monitoring/index/kegiatan', 'refresh');
         }
     }
+
 
     public function updateKegiatan($id)
     {

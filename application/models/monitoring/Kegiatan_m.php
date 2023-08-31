@@ -10,15 +10,15 @@ class Kegiatan_m extends CI_Model
 
     public function add_kegiatan()
     {
-        $tgl_dh_1 = substr($this->input->post("tgl_start"), 3, 2);
-        $bln_dh_1 = substr($this->input->post("tgl_start"), 0, 2);
-        $thn_dh_1 = substr($this->input->post("tgl_start"), 6, 4);
+        $tgl_dh_1 = substr($this->input->post("tglStart"), 3, 2);
+        $bln_dh_1 = substr($this->input->post("tglStart"), 0, 2);
+        $thn_dh_1 = substr($this->input->post("tglStart"), 6, 4);
         $tgl_start = $thn_dh_1 . "-" . $bln_dh_1 . "-" . $tgl_dh_1;
 
 
-        $tgl_dh_2 = substr($this->input->post("tgl_end"), 3, 2);
-        $bln_dh_2 = substr($this->input->post("tgl_end"), 0, 2);
-        $thn_dh_2 = substr($this->input->post("tgl_end"), 6, 4);
+        $tgl_dh_2 = substr($this->input->post("tglEnd"), 3, 2);
+        $bln_dh_2 = substr($this->input->post("tglEnd"), 0, 2);
+        $thn_dh_2 = substr($this->input->post("tglEnd"), 6, 4);
         $tgl_end = $thn_dh_2 . "-" . $bln_dh_2 . "-" . $tgl_dh_2;
 
         // jika waktu kurang
@@ -40,14 +40,15 @@ class Kegiatan_m extends CI_Model
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
         } else {
             $data = array(
-                'judul_kegiatan' => $this->input->post("judul_kegiatan"),
+                'judul_kegiatan' => $this->input->post("judulKegiatan"),
                 'tgl_start' => $tgl_start,
                 'tgl_end' => $tgl_end,
                 'progres_kegiatan' => 0,
-                // 'id_tim_kerja' => $_SESSION['id_tim_kerja'],
-                'id_tim_kerja' => '2',
-                'deskripsi_kegiatan' => $this->input->post("deskripsi_kegiatan"),
+                'id_tim_kerja' => $this->input->post("timKerja"),
+                // 'id_tim_kerja' => '2',
+                'deskripsi_kegiatan' => $this->input->post("deskripsiKegiatan"),
             );
+            // var_dump($data);
             $this->db->insert('kegiatan', $data);
             $hasil['point'] = 'sukses';
         }
@@ -93,7 +94,8 @@ class Kegiatan_m extends CI_Model
     public function update_kegiatan($id)
     {
         $data = array(
-            'progres_kegiatan' => $this->input->post('progresKegiatan')
+            'progres_kegiatan' => $this->input->post('progresKegiatan'),
+            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan')
 
         );
         $this->db->where('id_kegiatan', $id);
