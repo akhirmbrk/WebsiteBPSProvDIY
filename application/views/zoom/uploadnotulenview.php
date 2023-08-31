@@ -1,28 +1,5 @@
 <!-- Main container -->
 <main>
-
-    <header class="header header-inverse">
-        <div class="header-info">
-            <div class="left">
-                <h1 class="header-title"><strong>Notulen Rapat Daring Saya</strong></h1>
-            </div>
-
-            <div class="right flex-middle">
-
-            </div>
-        </div>
-
-        <div class="header-action">
-            <div class="flexbox align-items-center gap-items-4">
-
-            </div>
-
-            <nav class="nav">
-
-            </nav>
-        </div>
-    </header>
-
     <div class="main-content">
         <div class="card card-body">
 
@@ -32,7 +9,7 @@
 
 
                 <div class="col-sm-6">
-                    <h5> FORM UPDATE KAMUS PEKERJAAN</h5>
+                    <h5> UPLOAD NOTULEN</h5>
                     <hr />
 
                     <form method="post" id="demo"
@@ -40,11 +17,11 @@
                         enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label> Penilai Pekerjaan: </label>
+                            <label> Notulen Saya: </label>
 
                         </div>
                         <div class="form-group">
-                            <input type="file" name="file">
+                            <input class="form-control" type="file" name="file">
                             <br />
                             <br />
                         </div>

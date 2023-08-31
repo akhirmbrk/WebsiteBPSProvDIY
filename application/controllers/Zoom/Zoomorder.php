@@ -30,11 +30,13 @@ class Zoomorder extends CI_Controller
 		$data['dash'] = "1";
 		$data['tab'] = "1";
 		$data['tipe'] = '2';
+		$data['content'] = 'Dashboard Informasi Jadwal Rapat';
 
 		$this->load->vars($data);
 
 		$this->load->view('template/header');
 		$this->load->view('template/topnav', $data);
+		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/zoomindex');
 		$this->load->view('part/footer_zoomindex');
 	}
@@ -88,6 +90,7 @@ class Zoomorder extends CI_Controller
 
 			$data['title'] = "Create Meeting";
 			$data['ordered'] = "1";
+			$data['content'] = 'Permintaan Rapat';
 
 
 			$tgl = date('Y-m-d', strtotime(' +0 day'));
@@ -131,6 +134,7 @@ class Zoomorder extends CI_Controller
 		$data['title'] = "My Meeting";
 		$data['myorder'] = "1";
 		$data['tipe'] = '2';
+		$data['content'] = 'Daftar Permintaan Rapat Saya';
 
 		$data['list_order'] = $this->All_m->list_order($_SESSION['nip']);
 
@@ -165,6 +169,7 @@ class Zoomorder extends CI_Controller
 			$data['title'] = "My Meeting";
 			$data['tipe'] = "2";
 			$data['myorder'] = "1";
+			$data['content'] = 'Permintaan Rapat';
 
 			$data['idm'] = $idm;
 			$data['editzoom'] = $this->All_m->editzoom($idm);
@@ -172,6 +177,7 @@ class Zoomorder extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('template/header', $data);
 			$this->load->view('template/topnav', $data);
+			$this->load->view('template/header_content', $data);
 			$this->load->view('zoom/editzoom', $data);
 			$this->load->view('part/footer');
 		} else {
@@ -206,6 +212,7 @@ class Zoomorder extends CI_Controller
 		$data['tipe'] = "2";
 		$data['title'] = "My Meeting";
 		$data['myorder'] = "1";
+		$data['content'] = 'Deskripsi Rapat';
 
 		$data['idm'] = $idm;
 		$data['lookzoom'] = $this->All_m->lookzoom($idm);
@@ -213,6 +220,7 @@ class Zoomorder extends CI_Controller
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
+		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/lookzoom');
 		$this->load->view('part/footer');
 	}
@@ -225,6 +233,7 @@ class Zoomorder extends CI_Controller
 		$data['title'] = "Memo Rapat";
 		$data['tipe'] = "2";
 		$data['myorderupload'] = "1";
+		$data['content'] = 'Notulen Rapat Saya';
 
 		$data['list_order'] = $this->All_m->list_order_upload($_SESSION['nip']);
 
@@ -232,6 +241,7 @@ class Zoomorder extends CI_Controller
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
+		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/myorderupload');
 		$this->load->view('part/footer');
 	}
@@ -246,11 +256,13 @@ class Zoomorder extends CI_Controller
 		$data['title'] = "Upload Notulen";
 		$data['tipe'] = "2";
 		$data['myorderupload'] = "1";
+		$data['content'] = 'Upload Notulen Rapat Saya';
 
 		$data['idm'] = $idm;
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
+		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/uploadnotulenview');
 		$this->load->view('part/footer');
 	}

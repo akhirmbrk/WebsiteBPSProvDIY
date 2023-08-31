@@ -1,28 +1,5 @@
 <!-- Main container -->
 <main>
-
-    <header class="header header-inverse">
-        <div class="header-info">
-            <div class="left">
-                <h1 class="header-title"><strong>Notulen Rapat Daring Saya</strong></h1>
-            </div>
-
-            <div class="right flex-middle">
-
-            </div>
-        </div>
-
-        <div class="header-action">
-            <div class="flexbox align-items-center gap-items-4">
-
-            </div>
-
-            <nav class="nav">
-
-            </nav>
-        </div>
-    </header>
-
     <div class="main-content">
         <div class="card card-body">
 
