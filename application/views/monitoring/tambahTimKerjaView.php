@@ -36,12 +36,13 @@
 
                           <div class="card-body">
                               <label class="require">Kode BPS</label>
-                              <select class="form-control" data-provide="selectpicker">
-                                  <option>(3401) Kulon Progo</option>
-                                  <option>(3402) Bantul</option>
-                                  <option>(3403) Gunungkidul</option>
-                                  <option>(3404) Sleman</option>
-                                  <option>(3471) Kota Yogyakarta</option>
+                              <select nama="kodeBPS" class="form-control" data-provide="selectpicker">
+                                  <?php
+                                    if (count($bps)) {
+                                        foreach ($bps as $indeks => $item) {  ?>
+                                          <option value="<?= $item['kodeBPS'] ?>"><?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?></option>
+                                  <?php }
+                                    } ?>
                               </select>
                               <hr>
                               <!-- <div class="row"> -->

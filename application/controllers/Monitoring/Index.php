@@ -7,6 +7,7 @@ class Index extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('monitoring/Kegiatan_m');
+		$this->load->model('monitoring/BPS_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -60,11 +61,14 @@ class Index extends CI_Controller
 		$data['title'] = "Kegiatan";
 
 		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
+		$data['bps'] = $this->BPS_m->list_bps();
+
+		$this->load->vars($data);
 
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/kegiatanView');
+		$this->load->view('monitoring/kegiatanView', $data['bps']);
 		$this->load->view('template/footer');
 	}
 
@@ -120,9 +124,14 @@ class Index extends CI_Controller
 		$data['tab'] = "4";
 		$data['tipe'] = "1";
 		$data['title'] = "Tambah Tim Kerja BPS";
+
+		$data['bps'] = $this->BPS_m->list_bps();
+
+		$this->load->vars($data);
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/tambahTimKerjaView');
+		$this->load->view('monitoring/tambahTimKerjaView', $data['bps']);
 		$this->load->view('template/footer');
 	}
 
@@ -132,9 +141,14 @@ class Index extends CI_Controller
 		$data['tab'] = "4";
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja";
+
+		$data['bps'] = $this->BPS_m->list_bps();
+
+		$this->load->vars($data);
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/timKerjaView');
+		$this->load->view('monitoring/timKerjaView', $data['bps']);
 		$this->load->view('template/footer');
 	}
 

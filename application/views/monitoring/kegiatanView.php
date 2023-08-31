@@ -25,25 +25,6 @@
         <div class="row">
 
             <div class="col-md-4 col-xl-3 d-none d-md-block">
-                <!-- <div class="card shadow-1">
-                    <ul class="nav nav-lg nav-pills flex-column">
-                        <li class="nav-item active">
-                            <i class="fa fa-comments"></i>
-                            <a class="nav-link" href="#">All</a>
-                            <span class="badge badge-pill badge-secondary">4</span>
-                        </li>
-
-                        <li class="nav-item">
-                            <i class="fa fa-user"></i>
-                            <a class="nav-link" href="#">Assigned to me</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <i class="fa fa-star"></i>
-                            <a class="nav-link" href="#">Starred</a>
-                        </li>
-                    </ul>
-                </div> -->
 
                 <!-- Filter -->
                 <div class="card shadow-1">
@@ -72,12 +53,12 @@
                         <div class="form-group">
                             <label>BPS</label>
                             <select title="All BPS" multiple data-provide="selectpicker" data-width="100%">
-                                <option>BPS Provinsi DI Yogyakarta</option>
-                                <option>BPS Kota Yogyakarta</option>
-                                <option>BPS Kabupaten Sleman</option>
-                                <option>BPS Kabupaten Bantul</option>
-                                <option>BPS Kabupaten Gunungkidul</option>
-                                <option>BPS Kabupaten Kulon Progo</option>
+                                <?php
+                                if (count($bps)) {
+                                    foreach ($bps as $indeks => $item) {  ?>
+                                        <option><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
+                                <?php }
+                                } ?>
                             </select>
                         </div>
 
