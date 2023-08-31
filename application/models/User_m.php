@@ -1,0 +1,81 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class User_m extends CI_Model
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function add_user()
+    {
+    }
+
+    public function list_user()
+    {
+        $data = array();
+        $i = 0;
+
+        // $Q = $this->db->query("SELECT * FROM kegiatan WHERE oleh = " . $nip . " ORDER BY idm DESC");
+        $Q = $this->db->query("SELECT * FROM userapp ");
+
+
+        if ($Q->num_rows() > 0) {
+            foreach ($Q->result_array() as $row) {
+                $data[] = $row;
+                $i++;
+            }
+        }
+
+        $Q->free_result();
+        return $data;
+    }
+
+    public function detail_user_by_id($id)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM userapp WHERE  ida = " . $id);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data['ida'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
+
+    public function detail_user_by_nip($nip)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM userapp WHERE  nip = " . $nip);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data['nip'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
+
+
+    public function update_kegiatan($id)
+    {
+        $data = array(
+            'progres_kegiatan' => $this->input->post('progresKegiatan'),
+            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan')
+
+        );
+        $this->db->where('id_kegiatan', $id);
+        $this->db->update('kegiatan', $data);
+
+        $hasil['point'] = 'sukses';
+
+        return $hasil;
+    }
+
+    /* SELECT SUM(ABC.jumlah_realisasi/ABC.target*100) AS total_realisasi, COUNT(ABC.id_pekerjaan) AS id, SUM(ABC.jumlah_persen_ketepatan/ABC.jumlah_realisasi) AS jm_per_ketepatan, SUM(ABC.jumlah_persen_kualitas/ABC.jumlah_realisasi) AS jm_per_kualitas, ABC.id_peg FROM ( SELECT MP.id_pekerjaan, MP.target, sum(TKH.realisasi) AS jumlah_realisasi, sum(TKH.realisasi*TKH.ketepatan) AS jumlah_persen_ketepatan, sum(TKH.realisasi*TKH.kualitas) AS jumlah_persen_kualitas, MP.id_pegawai AS id_peg FROM transaksi_kerja MP LEFT JOIN transaksi_k_harian_sdh_dinilai TKH ON TKH.id_tk = MP.id_tk WHERE MP.bln_ckp = 1 AND MP.tahun = 2018 GROUP BY MP.id_pekerjaan, MP.id_pegawai) AS ABC GROUP BY ABC.id_peg  */
+
+
+    /* 	CREATE VIEW m_transaksi_pekerjaan AS ( select t.id_tk AS id_tk,t.id_pegawai AS id_pegawai,mp.id_pekerjaan AS id_pekerjaan,mp.nama AS nama,mp.satuan AS satuan,mp.id_satker AS id_satker, mp.status_pekerjaan AS status_pekerjaan,mp.fungsional_tipe AS fungsional_tipe,mp.id_m_jbtn_penilai AS id_m_jbtn_penilai,t.target AS target,t.bln_ckp AS bln_ckp,t.tahun AS tahun,t.dibuat_by AS dibuat_by,t.keterangan AS keterangan,t.is_lock AS is_lock, ms.kode_human AS kode_human from (m_satker ms, m_pekerjaan mp join transaksi_kerja t) where (t.id_pekerjaan = mp.id_pekerjaan and ms.id_satker = mp.id_satker) ) */
+}

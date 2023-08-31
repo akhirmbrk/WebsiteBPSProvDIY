@@ -10,6 +10,7 @@ class Index extends CI_Controller
 		$this->load->model('monitoring/BPS_m');
 		$this->load->model('monitoring/Periode_m');
 		$this->load->model('monitoring/tim_kerja_m');
+		$this->load->model('User_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -49,8 +50,13 @@ class Index extends CI_Controller
 		$data['tab'] = "2";
 		$data['tipe'] = "1";
 		$data['title'] = "User Utama";
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
+
+		$data['users'] = $this->User_m->list_user();
+		// var_dump($data['users']);
+		$this->load->vars($data);
+
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
 		$this->load->view('monitoring/userControlView');
 		$this->load->view('template/footer');
 	}
@@ -65,9 +71,10 @@ class Index extends CI_Controller
 		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
 
 		foreach ($data['list_kegiatan'] as $key => $item) {
-			$data['tim_kerja'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+			$data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
 		}
 
+		// var_dump($data['tim_kerja']);
 
 		$filter['bps'] = $this->BPS_m->list_bps();
 		$filter['periode'] = $this->Periode_m->list_periode();

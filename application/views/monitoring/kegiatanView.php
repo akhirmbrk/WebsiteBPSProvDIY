@@ -117,7 +117,7 @@
                                         </div>
 
                                         <small class="opacity-65 fw-300">
-                                            <?= $tim_kerja[$indeks]['nama_tim_kerja'] ?>
+                                            <?= $tim[$indeks]['nama_tim_kerja'] ?>
                                             <span class="divider-dash"></span>
                                             BPS Provinsi Daerah Istimewa Yogyakarta
                                         </small>

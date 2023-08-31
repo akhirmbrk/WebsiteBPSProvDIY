@@ -50,6 +50,11 @@ class Kegiatan_m extends CI_Model
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
+            // $data1 = array(
+            //     'id_team' => $this->input->post("timKerja"),
+            //     'id_kegiatan' => 
+            // );
+            // $this->db->insert('kegiatan_tim_kerja', $data1);
             $hasil['point'] = 'sukses';
         }
 
