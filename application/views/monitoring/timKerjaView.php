@@ -31,12 +31,24 @@
 
                     <form class="card-body">
                         <div class="form-group">
+                            <label>Periode Pelaksanaan</label>
+                            <select nama="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
+                                <?php
+                                if (count($periode)) {
+                                    foreach ($periode as $indeks => $item) {  ?>
+                                        <option value="<?= $item['id_zperiode'] ?>"><?= $item['Tahun']; ?></option>
+                                <?php }
+                                } ?>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>BPS</label>
-                            <select title="BPS" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterBPS" title="BPS" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($bps)) {
                                     foreach ($bps as $indeks => $item) {  ?>
-                                        <option><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
+                                        <option value="<?= $item['kodeBPS'] ?>"><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
                                 <?php }
                                 } ?>
                             </select>

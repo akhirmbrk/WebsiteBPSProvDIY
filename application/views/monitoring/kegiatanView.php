@@ -33,19 +33,14 @@
                     <form class="card-body">
                         <div class="form-group">
                             <label>Periode Pelaksanaan</label>
-                            <select title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
-                                <option>Januari</option>
-                                <option>Februari</option>
-                                <option>Maret</option>
-                                <option>April</option>
-                                <option>Mei</option>
-                                <option>Juni</option>
-                                <option>Juli</option>
-                                <option>Agustus</option>
-                                <option>September</option>
-                                <option>Oktober</option>
-                                <option>November</option>
-                                <option>Desember</option>
+                            <select nama="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
+                                <?php
+                                if (count($periode)) {
+                                    foreach ($periode as $indeks => $item) {  ?>
+                                        <option value="<?= $item['id_zperiode'] ?>"><?= $item['Tahun']; ?></option>
+                                <?php }
+                                } ?>
+
                             </select>
                         </div>
 

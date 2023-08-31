@@ -8,6 +8,7 @@ class Index extends CI_Controller
 		parent::__construct();
 		$this->load->model('monitoring/Kegiatan_m');
 		$this->load->model('monitoring/BPS_m');
+		$this->load->model('monitoring/Periode_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -61,14 +62,17 @@ class Index extends CI_Controller
 		$data['title'] = "Kegiatan";
 
 		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
-		$data['bps'] = $this->BPS_m->list_bps();
+
+		$filter['bps'] = $this->BPS_m->list_bps();
+		$filter['periode'] = $this->Periode_m->list_periode();
+
 
 		$this->load->vars($data);
+		$this->load->vars($filter);
 
-		$this->load->vars($data);
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/kegiatanView', $data['bps']);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
+		$this->load->view('monitoring/kegiatanView');
 		$this->load->view('template/footer');
 	}
 
@@ -83,9 +87,9 @@ class Index extends CI_Controller
 		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
 		$this->load->vars($data);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/detailKegiatanView', $data);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
+		$this->load->view('monitoring/detailKegiatanView');
 		$this->load->view('template/footer');
 	}
 
@@ -142,13 +146,15 @@ class Index extends CI_Controller
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja";
 
-		$data['bps'] = $this->BPS_m->list_bps();
+		$filter['bps'] = $this->BPS_m->list_bps();
+		$filter['tim_kerja'] = $this->Periode_m->list_periode();
+		$filter['periode'] = $this->Periode_m->list_periode();
 
 		$this->load->vars($data);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/timKerjaView', $data['bps']);
+		$this->load->view('monitoring/timKerjaView', $filter);
 		$this->load->view('template/footer');
 	}
 
