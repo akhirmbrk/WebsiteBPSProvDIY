@@ -40,7 +40,9 @@
                                   <?php
                                     if (count($bps)) {
                                         foreach ($bps as $indeks => $item) {  ?>
-                                          <option value="<?= $item['kodeBPS'] ?>"><?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?></option>
+                                  <option value="<?= $item['kodeBPS'] ?>">
+                                      <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
+                                  </option>
                                   <?php }
                                     } ?>
                               </select>
@@ -49,11 +51,12 @@
                               <!-- <div class="form-group col-md-6"> -->
                               <label class="require">Jenis Tim Kerja</label>
                               <select class="form-control" data-provide="selectpicker">
-                                  <option>Sosial</option>
-                                  <option>Neraca</option>
-                                  <option>Distribusi</option>
-                                  <option>Pengolahan dan TIK</option>
-                                  <option>Diseminasi</option>
+                                  <?php
+                                if (count($tim_kerja)) {
+                                    foreach ($tim_kerja as $indeks => $item) {  ?>
+                                  <option><?php echo $item['nama_tim_kerja']; ?></option>
+                                  <?php }
+                                } ?>
                               </select>
                               <!-- </div> -->
                               <hr>

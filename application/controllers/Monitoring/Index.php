@@ -8,6 +8,7 @@ class Index extends CI_Controller
 		parent::__construct();
 		$this->load->model('monitoring/Kegiatan_m');
 		$this->load->model('monitoring/BPS_m');
+		$this->load->model('monitoring/tim_kerja_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -142,13 +143,14 @@ class Index extends CI_Controller
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja";
 
-		$data['bps'] = $this->BPS_m->list_bps();
+		$filter['bps'] = $this->BPS_m->list_bps();
+		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
 		$this->load->vars($data);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/timKerjaView', $data['bps']);
+		$this->load->view('monitoring/timKerjaView', $filter);
 		$this->load->view('template/footer');
 	}
 
