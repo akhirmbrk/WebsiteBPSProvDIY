@@ -28,9 +28,10 @@ class Landingpage extends CI_Controller
 		$data['tab'] = "1";
 		$data['title'] = "Website Integrasi";
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topnav', $data);
-		$this->load->view('landingpage');
-		$this->load->view('part/footer_zoomindex');
+		// $this->load->view('template/header', $data);
+		// $this->load->view('template/topnav', $data);
+		// $this->load->view('landingpage');
+		$this->load->view('landingBaru');
+		// $this->load->view('part/footer_zoomindex');
 	}
 }

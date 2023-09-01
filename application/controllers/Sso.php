@@ -22,6 +22,7 @@ class Sso extends CI_Controller
 			$_SESSION['nip'] = $pdf['nip'];
 
 			redirect('landingpage/index', 'refresh');
+			// redirect('landingBaru/index', 'refresh');
 		}
 
 		//simpan session
@@ -51,6 +52,7 @@ class Sso extends CI_Controller
 		$_SESSION['nip'] = "340054255";
 
 		redirect('landingpage/index', 'refresh');
+		// redirect('landingBaru/index', 'refresh');
 		// http://localhost:8080/zoom/index.php/sso/dummylogin
 
 	}
