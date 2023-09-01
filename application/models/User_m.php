@@ -8,8 +8,80 @@ class User_m extends CI_Model
         parent::__construct();
     }
 
-    public function add_user()
+    public function edit_role_user($id)
     {
+        $atribut = $this->input->post('roleEdit');
+
+        if ($atribut == "SuperAdmin") {
+            $data = array(
+                'super_admin' => 1,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        } elseif ($atribut == "AdminTimKerjaProv") {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 1,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        } elseif ($atribut == "AdminTimKerjaKabKot") {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 1,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        } elseif ($atribut == "KepalaProv") {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 1,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        } elseif ($atribut == "KepalaKabKot") {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 1,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        } elseif ($atribut == "KetuaTimKerjaProvinsi") {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 1,
+            );
+        } else {
+            $data = array(
+                'super_admin' => 0,
+                "admin_tim_kerja_prov" => 0,
+                "admin_tim_kerja_kabkota" => 0,
+                "kepala_prov" => 0,
+                "kepala_kabkota" => 0,
+                "ketua_tim_kerja_prov" => 0,
+            );
+        }
+        $this->db->where('ida', $id);
+        $this->db->update('userapp', $data);
+
+        $hasil['point'] = 'sukses';
+
+        return $hasil;
     }
 
     public function list_user()
