@@ -15,7 +15,7 @@
             <h1 class="" style ="font-family:'Krona One'"><strong>Website Integrasi</strong></h1>
             <h4 class="" style = "font-family:'Krona One'">BPS Provinsi DI Yogyakarta</h4>
             <span class="fs-12"> versi ujicoba</span>
-            <a class="btn btn-round btn-outline btn-lg btn-info" style ="font-family:'Bree Serif'; width:170px" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
+            <a class="btn btn-round btn-outline btn-lg btn-info" style ="font-family:'Bree Serif'; width:200px; font-size:20px;" href="<?php echo base_url(); ?>sso/dummylogin">LOGIN SSO </a>
             <br>
             <!-- <a class="btn btn-bold btn-lg btn-primary" href="<?php echo base_url(); ?>index.php/zoom/sso">LOGIN SSO </a> -->
 
