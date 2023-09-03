@@ -39,42 +39,44 @@
                             if (count($users)) {
                                 foreach ($users as $indeks => $item) { ?>
                                     <tr>
+                                        <input type="hidden" name="idUser" id="idUser<?= $item['ida'] ?>" value="<?= $item['ida'] ?>">
                                         <td name="namaUser" id="namaUser<?= $item['ida'] ?>"><?= $item['namaU'] ?></td>
                                         <td name="nipUser" id="nipUser<?= $item['ida'] ?>"><?= $item['nip'] ?></td>
                                         <td name="roleUser" id="roleUser">
                                             <?php if ($item['super_admin'] == 1) {
                                                 echo '<span class="badge badge-ring badge-danger mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="SuperAdmin"></input>';
                                                 echo 'Super Admin';
-                                            } elseif ($item['admin_pst'] == 1) {
-                                                echo '<span class="badge badge-ring badge-warning mr-2 mt-2"></span>';
-                                                echo 'Admin PST';
-                                            } elseif ($item['admin_zoom'] == 1) {
-                                                echo '<span class="badge badge-ring badge-warning mr-2 mt-2"></span>';
-                                                echo 'Admin Zoom';
                                             } elseif ($item['admin_tim_kerja_prov'] == 1) {
-                                                echo '<span class="badge badge-ring badge-warning mr-2 mt-2"></span>';
+                                                echo '<span class="badge badge-ring badge-purple mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="AdminTimKerjaProv"></input>';
                                                 echo 'Admin Tim Kerja Provinsi';
                                             } elseif ($item['admin_tim_kerja_kabkota'] == 1) {
-                                                echo '<span class="badge badge-ring badge-info mr-2 mt-2"></span>';
+                                                echo '<span class="badge badge-ring badge-pink mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="AdminTimKerjaKabKot"></input>';
                                                 echo 'Admin Tim Kerja Kabupaten/Kota';
                                             } elseif ($item['kepala_prov'] == 1) {
                                                 echo '<span class="badge badge-ring badge-success mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="KepalaProv"></input>';
                                                 echo 'Kepala BPS Provinsi';
                                             } elseif ($item['kepala_kabkota'] == 1) {
-                                                echo '<span class="badge badge-ring badge-success mr-2 mt-2"></span>';
+                                                echo '<span class="badge badge-ring badge-cyan mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="KepalaKabKot"></input>';
                                                 echo 'Kepala BPS Provinsi';
                                             } elseif ($item['ketua_tim_kerja_prov'] == 1) {
-                                                echo '<span class="badge badge-ring badge-warning mr-2 mt-2"></span>';
+                                                echo '<span class="badge badge-ring badge-dark mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="KetuaTimKerjaProvinsi"></input>';
                                                 echo 'Ketua Tim Kerja';
                                             } else {
-                                                echo '<span class="badge badge-ring badge-info mr-2 mt-2"></span>';
+                                                echo '<span class="badge badge-ring badge-secondary mr-2 mt-2"></span>';
+                                                echo '<input id="role' .  $item['ida']  . '" type="hidden" value="user"></input>';
                                                 echo 'User';
                                             } ?></td>
                                         <td>
-                                            <nav class="nav gap-2 fs-16">
-                                                <span name="editUser" id="<?= $item['ida'] ?>" onclick="editUser(this.id)" class="nav-link hover-primary cat-edit" href="#" data-provide="tooltip" title="Edit" data-perform="edit" data-target="modal-cat-edit.html"><i class="ti-pencil"></i></span>
-                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="Delete" data-perform="delete" data-target="#"><i class="ti-trash"></i></a>
-                                            </nav>
+                                            <!-- <nav class="nav gap-2 fs-16"> -->
+                                            <span name="editUser" id="<?= $item['ida'] ?>" onclick="editUser(this.id)" class="nav-link hover-primary cat-edit" href="#" data-provide="tooltip" title="Edit" data-perform="edit" data-target="modal-cat-edit.html"><i class="ti-pencil"></i></span>
+                                            <!-- <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="Delete" data-perform="delete" data-target="#"><i class="ti-trash"></i></a> -->
+                                            <!-- </nav> -->
                                         </td>
 
                                     </tr>
@@ -87,38 +89,39 @@
 
 
             <div class="col-lg-5">
-                <form class="card shadow-1">
+                <form action="<?= base_url('') ?>monitoring/user/editRole" method="post" class="card shadow-1">
                     <h5 class="card-title"><strong>Edit Role User</strong></h5>
 
                     <div class="card-body">
+                        <input class="form-control" type="hidden" name="idEdit" id="idEdit">
                         <div class="form-group">
                             <label class="require">Name</label>
-                            <input class="form-control" type="text" name="namaEdit" id="namaEdit">
+                            <input class="form-control" type="text" name="namaEdit" id="namaEdit" readonly>
                         </div>
 
                         <div class="form-group">
                             <label class="require">NIP</label>
-                            <input class="form-control" type="text" name="nipEdit" id="nipEdit">
+                            <input class="form-control" type="text" name="nipEdit" id="nipEdit" readonly>
                         </div>
 
                         <div class="form-group">
                             <label>Role</label>
-                            <!-- <input class="form-control" type="text" name="name" value="#33cabb" data-provide="colorpicker"> -->
-                            <div>
-                                <select name="roleEdit" id="roleEdit" data-provide="selectpicker" class="form-control">
-                                    <option selected value="SuperAdmin">Super Admin</option>
-                                    <option value="AdminTimKerjaProv">Admin Tim Kerja Prov</option>
-                                    <option value="AdminTimKerjaKabKot">Admin Tim Kerja KabKot</option>
-                                    <option value="KepalaProv">Kepala Prov</option>
-                                    <option value="KepalaKabKot">Kepala KabKot</option>
-                                    <option value="KetuaTimKerjaProvins">Ketua Tim Kerja Prov</option>
-                                </select>
-                            </div>
+                            <!-- <input class="form-control" type="text" name="roleEdit" id="roleEdit" readonly> -->
+
+                            <select name="roleEdit" id="roleEdit" class="form-control">
+                                <option value="SuperAdmin">Super Admin</option>
+                                <option value="AdminTimKerjaProv">Admin Tim Kerja Provinsi</option>
+                                <option value="AdminTimKerjaKabKot">Admin Tim Kerja Kabupaten/Kota</option>
+                                <option value="KepalaProv">Kepala Provinsi</option>
+                                <option value="KepalaKabKot">Kepala KabKabupaten/Kota</option>
+                                <option value="KetuaTimKerjaProvinsi">Ketua Tim Kerja Provinsi</option>
+                                <option value="user">User</option>
+                            </select>
                         </div>
                     </div>
 
                     <footer class="card-footer text-right">
-                        <button class="btn btn-primary">Save</button>
+                        <button class="btn btn-primary" type="submit">Save</button>
                     </footer>
 
                 </form>
@@ -129,17 +132,22 @@
 
                         var idNama = "namaUser" + $id;
                         var idNip = "nipUser" + $id;
+                        var idRole = "role" + $id;
+
                         var nama = document.getElementById(idNama).innerHTML;
                         var nip = document.getElementById(idNip).innerHTML;
+                        var role = document.getElementById(idRole).value;
 
+                        var kolomId = document.getElementById('idEdit');
                         var kolomNama = document.getElementById('namaEdit');
                         var kolomNip = document.getElementById('nipEdit');
+                        var kolomRole = document.getElementById('roleEdit');
 
+
+                        kolomId.value = $id;
                         kolomNama.value = nama;
                         kolomNip.value = nip;
-
-                        console.log(nama);
-                        console.log(nip);
+                        kolomRole.value = role;
 
                     }
                 </script>
