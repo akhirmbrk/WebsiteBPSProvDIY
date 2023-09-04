@@ -55,7 +55,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/index/kegiatan');
+                            <a class="menu-link" href="<?= base_url('monitoring/kegiatan');
                                                         ?>">
                                 <span class="icon fa fa-list-alt"></span>
                                 <span class="title">Kegiatan</span>

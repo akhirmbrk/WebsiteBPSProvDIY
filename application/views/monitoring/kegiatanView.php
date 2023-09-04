@@ -11,7 +11,7 @@
 
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahKegiatan') ?>" title="Tambah Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahKegiatan') ?>" title="Tambah Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
 
         </div>
@@ -79,7 +79,7 @@
                     </form>
                 </div>
             </div>
-
+            <!-- END Filter -->
 
             <div class="col-md-8 col-xl-9">
                 <div class="media-list media-list-divided media-list-hover" data-provide="selectall">
@@ -102,7 +102,7 @@
                                     <img class="rounded" width="40px" src="<?= base_url('');
                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">
 
-                                    <a class="media-body text-truncate" href="<?php echo (base_url('monitoring/index/detailKegiatan/') . $item['id_kegiatan']) ?> ">
+                                    <a class="media-body text-truncate" href="<?php echo (base_url('monitoring/Kegiatan/detailKegiatan/') . $item['id_kegiatan']) ?> ">
                                         <h5 class="fs-15"><?= $item["judul_kegiatan"]; ?></h5>
                                         <div class="progress">
                                             <div class="progress-bar <?php if ($item['progres_kegiatan'] <= 25) {
@@ -123,8 +123,8 @@
                                         </small>
                                         <td>
                                             <nav class="nav gap-2 fs-16">
-                                                <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/index/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/index/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                                <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
+                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                             </nav>
                                         </td>
                                 </div>

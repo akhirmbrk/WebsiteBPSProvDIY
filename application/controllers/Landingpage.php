@@ -3,7 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Landingpage extends CI_Controller
 {
-
+	public $load;
+	public $All_m;
+	public $session;
 
 	public function __construct()
 	{

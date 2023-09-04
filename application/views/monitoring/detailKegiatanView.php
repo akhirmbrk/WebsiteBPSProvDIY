@@ -11,7 +11,7 @@
 
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
             </div>
 
         </div>
