@@ -3,7 +3,6 @@ html {
 }
 
 .slider {
-	margin-bottom: 20px;
 	position: relative;
 }
 
@@ -11,6 +10,20 @@ html {
 	transform: scale(1);
 	opacity: 1;
 }
+
+.slider .owl-item.active.center .slider-card :hover {
+	-webkit-transform: scale(0.97);
+	transform: scale(0.97);
+}
+
+.owl-prev :hover{
+	opacity: 0.8
+}
+
+.owl-next :hover{
+	opacity: 0.8
+}
+
 
 .slider-card {
 	transform: scale(0.9);
@@ -26,7 +39,7 @@ html {
 .owl-nav .owl-next {
 	position: absolute;
 	top: calc(33%);
-	right: calc(29%);
+	right: calc(25%);
 	opacity: 0.6;
 	/* font-size: 100px !important; */
 	z-index: 1;
@@ -35,7 +48,7 @@ html {
 .owl-nav .owl-prev {
 	position: absolute;
 	top: calc(33%);
-	left: calc(29%);
+	left: calc(25%);
 	opacity: 0.6;
 	/* font-size: 100px !important; */
 	z-index: 1;
@@ -46,9 +59,8 @@ html {
 	/*top: 150px;
 	  left: calc(50% - 240px); */
 	display: block;
-	margin-left: 30%;
-	margin-right: auto;
-	margin-top: 60px;
+	margin-left: 31%;
+	margin-top: 2%;
 	font-size: var(--font-size-77xl);
 	font-weight: 600;
 	font-family: var(--font-markazi-text);

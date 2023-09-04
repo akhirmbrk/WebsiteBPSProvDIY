@@ -100,60 +100,99 @@
                                 <input type="text" name="s" placeholder="Cari Kegiatan">
                             </form>
                         </div>
+		<!-- Accordion Mulai -->
+  
+						<div class="card">
+              <h4 class="card-title"><strong>ST 2023</strong></h4>
 
-					<li class="menu-item">	
-                        <div class="media align-items-center">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input">
-                                <label class="custom-control-label"></label>
-                            </div>
+              <div class="accordion accordion-connected" id="accordion-2">
+                <!-- Dari Sini -->
+                <div class="card">
+                  <h5 class="card-title">
+                    <a data-toggle="collapse" data-parent="#accordion-2" href="#collapse-2-2" class="collapsed" aria-expanded="false">Pelatihan</a>
+                  </h5>
 
+                  <div id="collapse-2-2" class="collapse" style="">
+                    <div class="card-body">
 
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
+                      <!-- Taruh Isi Disini -->
+											<div class="col-lg-8">
+            <div class="card">
+              <h4 class="card-title"><strong>Row actions</strong></h4>
 
-                            <img class="rounded" width="40px" src="<?= base_url('');
-                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">
-						
-						
-						<a class = "menu-link open" href = "#">	
-							<a class="media-body text-truncate" href="#">
-								<h5 class="fs-15">Regsosek</h5>
-							</a>
-							<ul class = "menu-submenu">
-								<li class = "menu-item">
-									<span class = "title">Batching</span>
-								</li>
-							</ul>
-						</a>
-
+              <div class="card-body">
+                <table class="table table-separated">
+                  <thead>
+                    <tr>
+                 
+                      <th>First Name</th>
+        
+                      <th class="text-center w-100px">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Otto</td>
+                      <td class="text-right table-actions">
+                        <a class="table-action hover-primary" href="#"><i class="ti-pencil"></i></a>
+                        <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
+												<a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
+												<a class="table-action hover-success" href="#"><i class="ti-download"></i></a>
+                          </div>
                         </div>
-					</li>
-
-					<li class = "menu-item">
-
-                        <div class="media align-items-center">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input">
-                                <label class="custom-control-label"></label>
-                            </div>
-
-                            <label class="toggler fs-16 ml-20">
-                                <input type="checkbox" data-perform="toggle-star" data-target="#">
-                                <i class="fa fa-star"></i>
-                            </label>
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="rounded" width="40px" src="<?= base_url('');
-                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">
-
-                           
-
-                    </div>
-
-				</li>
+                      </td>
+                    </tr>
+                    <tr>
+                     
+                      <td>Thornton</td>
+                      <td class="text-right table-actions">
+                        <a class="table-action hover-primary" href="#"><i class="ti-pencil"></i></a>
+                        <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
+												<a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
+												<a class="table-action hover-success" href="#"><i class="ti-download"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                    
+                      <td>the Bird</td>
+                      <td class="text-right table-actions">
+                        <a class="table-action hover-primary" href="#"><i class="ti-pencil"></i></a>
+                        <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
+												<a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
+												<a class="table-action hover-success" href="#"><i class="ti-download"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </div>
 
+
+                      <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sampe Sini -->
+                <div class="card">
+                  <h5 class="card-title">
+                    <a data-toggle="collapse" data-parent="#accordion-2" href="#collapse-2-3" class="collapsed" aria-expanded="false">Entri</a>
+                  </h5>
+
+                  <div id="collapse-2-3" class="collapse">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                    </div>
+                  </div>
+                </div>
+              </div>
+			
+            </div>
+			
 
                 <footer class="flexbox align-items-center py-20">
                     <span class="flex-grow text-right text-lighter pr-2">1-20 of 367</span>

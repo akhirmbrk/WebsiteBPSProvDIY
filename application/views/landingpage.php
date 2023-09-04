@@ -1,4 +1,4 @@
-  <!-- Preloader -->
+  Preloader
   <!-- END Topbar -->
 
 

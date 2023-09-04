@@ -3331,12 +3331,14 @@ var baseUrl = "http://localhost/WebsiteBPSProvDIY/";
 	Navigation.Defaults = {
 		nav: false,
 		navText: [
-			'<img src="' + baseUrl + '/assets/img/backLogo.png"/>',
-			'<img src="' + baseUrl + '/assets/img/nextLogo.png"/>',
+			'<img width="40%" src="' + baseUrl + '/assets/img/backLogo.png"/>',
+			'<img width="40%" src="' + baseUrl + '/assets/img/nextLogo.png"/>',
 			// '<img src="http://localhost/WebsiteBPSProvDIY/assets/img/backLogo.png"/>',
 			// '<img src="http://localhost/WebsiteBPSProvDIY/assets/img/nextLogo.png"/>',
 			// // '<span aria-label="' + "Previous" + '">akuw</span>',
 			// '<span aria-label="' + "Next" + '">PPPPP</span>',
+			// <img  src="img/backLogo.png"/>,
+			// <img width="100px" src="img/nextLogo.png"/>,
 		],
 		navSpeed: false,
 		navElement: 'button type="button" role="presentation"',

@@ -32,7 +32,7 @@
 
   <section id="slider" class="pt-5">
     <div class="container">
-      <div class="judul">MENU UTAMA</div>
+      <div class="judul" >MENU UTAMA </div>
       <br>
       <br>
       <br>
@@ -47,7 +47,7 @@
             <div class="slider-card">
               <a class="d-flex justify-content-center align-center mb-4"  href = "<?= base_url() ?>/manajemenFile/manajemenfile">
                 <img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-</a>
+						</a>
             </div>
             <div class="slider-card">
               <a class="d-flex justify-content-center align-center mb-4" href = "<?= base_url() ?>/monitoring/index/dashboard">
@@ -57,7 +57,7 @@
             <div class="slider-card">
               <a class="d-flex justify-content-center align-center mb-4" href = "<?= base_url() ?>/zoom/zoomorder">
                 <img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />
-</a>
+							</a>
             </div>
             <div class="slider-card">
               <div class="d-flex justify-content-center align-center mb-4">
