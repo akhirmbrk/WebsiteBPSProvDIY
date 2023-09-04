@@ -67,12 +67,6 @@
                                   </span>
                               </div>
 
-                              <hr>
-
-                              <div class="form-group">
-                                  <label class="require">Deskripsi Kegiatan</label>
-                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan"></textarea>
-                              </div>
 
 
                           </div>

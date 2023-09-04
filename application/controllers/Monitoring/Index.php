@@ -11,6 +11,7 @@ class Index extends CI_Controller
 	public $Kegiatan_m;
 	public $tim_kerja_m;
 	public $Periode_m;
+	public $Z_anggotateam_m;
 
 	public function __construct()
 	{
@@ -19,6 +20,7 @@ class Index extends CI_Controller
 		$this->load->model('monitoring/BPS_m');
 		$this->load->model('monitoring/Periode_m');
 		$this->load->model('monitoring/tim_kerja_m');
+		$this->load->model('monitoring/Z_anggotateam_m');
 		$this->load->model('User_m');
 		$this->load->model('All_m');
 
@@ -100,6 +102,8 @@ class Index extends CI_Controller
 		$filter['periode'] = $this->Periode_m->list_periode();
 		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
+		$data['teams'] = $this->Z_anggotateam_m->list_all_team();
+
 		$this->load->vars($data);
 		$this->load->vars($filter);
 
@@ -109,13 +113,18 @@ class Index extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	public function detailTimKerja()
+	public function detailTimKerja($id, $bps, $periode)
 	{
 		$data['tab'] = "4";
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja Monitoring BPS";
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
+
+
+		$data['member'] = $this->Z_anggotateam_m->list_anggota_team($id, $bps, $periode);
+
+		$this->load->vars($data);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
 		$this->load->view('monitoring/detailTimKerjaView');
 		$this->load->view('template/footer');
 	}
