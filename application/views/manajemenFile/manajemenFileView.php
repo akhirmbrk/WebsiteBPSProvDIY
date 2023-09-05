@@ -116,24 +116,22 @@
                     <div class="card-body">
 
                       <!-- Taruh Isi Disini -->
-											<div class="col-lg-8">
+											<div class="col-lg-9">
             <div class="card">
-              <h4 class="card-title"><strong>Row actions</strong></h4>
+              <!-- <h4 class="card-title"><strong>Row actions</strong></h4> -->
 
-              <div class="card-body">
-                <table class="table table-separated">
+              <div class="card-body pt-0">
+                <table class="table">
                   <thead>
                     <tr>
-                 
-                      <th>First Name</th>
-        
+                      <th><strong>Nama Dokumen</strong></th>
                       <th class="text-center w-100px">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Otto</td>
-                      <td class="text-right table-actions">
+                      <td class="text-right table-actions" style="width: 130px;">
                         <a class="table-action hover-primary" href="#"><i class="ti-pencil"></i></a>
                         <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
 												<a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
@@ -192,6 +190,8 @@
               </div>
 			
             </div>
+
+						
 			
 
                 <footer class="flexbox align-items-center py-20">
