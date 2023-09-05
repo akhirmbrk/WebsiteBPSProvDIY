@@ -42,4 +42,22 @@ class Z_anggotateam_m extends CI_Model
         $Q->free_result();
         return $data;
     }
+
+    public function add_teams($iduser, $ketuatim)
+    {
+
+        $data = array(
+            'id_team' => $this->input->post("timKerja"),
+            'id_user' => $iduser,
+            'kodeBPS' => $this->input->post("kodeBPS"),
+            'Id_Periode' => $this->input->post("periode"),
+            'ketua_tim' => $ketuatim
+        );
+        // var_dump($data);
+        $this->db->insert('z_anggotateam', $data);
+
+        $hasil['point'] = 'sukses';
+
+        return $hasil;
+    }
 }

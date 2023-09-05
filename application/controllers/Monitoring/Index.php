@@ -12,6 +12,8 @@ class Index extends CI_Controller
 	public $tim_kerja_m;
 	public $Periode_m;
 	public $Z_anggotateam_m;
+	public $form_validation;
+	public $input;
 
 	public function __construct()
 	{
@@ -82,6 +84,7 @@ class Index extends CI_Controller
 		$filter['periode'] = $this->Periode_m->list_periode();
 		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
+
 		$this->load->vars($data);
 		$this->load->vars($filter);
 
@@ -90,7 +93,43 @@ class Index extends CI_Controller
 		$this->load->view('monitoring/tambahTimKerjaView');
 		$this->load->view('template/footer');
 	}
+	public function addTimUser()
+	{
+		$this->load->library('form_validation');
 
+		$this->form_validation->set_rules('kodeBPS', 'Kode BPS', 'trim|required');
+		$this->form_validation->set_rules('timKerja', 'Tim Kerja', 'trim|required');
+		$this->form_validation->set_rules('periode', 'Periode', 'trim|required');
+		$this->form_validation->set_rules('anggota', 'Anggota', 'trim|required');
+
+		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
+
+
+		$member = $this->input->post('anggota');
+		$arr_member = explode(",", $member);
+
+		foreach ($arr_member as $indeks => $item) {
+			if ($indeks == 0) {
+				$ketua = 1;
+			} else {
+				$ketua = 0;
+			}
+			$hasil = $this->Z_anggotateam_m->add_teams($item, $ketua);
+		}
+
+		if ($hasil['point'] == 'sukses') {
+			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
+			redirect('monitoring/kegiatan', 'refresh');
+		} else if ($hasil['point'] == 'lewat') {
+
+			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+			redirect('monitoring/kegiatan', 'refresh');
+		} else if ($hasil['point'] == 'block') {
+
+			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
+			redirect('monitoring/kegiatan', 'refresh');
+		}
+	}
 
 	public function timKerja()
 	{

@@ -131,7 +131,6 @@ class Kegiatan extends CI_Controller
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
-
         $hasil = $this->Kegiatan_m->add_kegiatan();
         // var_dump($data);
 

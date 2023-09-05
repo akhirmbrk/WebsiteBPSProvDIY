@@ -46,7 +46,7 @@ class Kegiatan_m extends CI_Model
                 'progres_kegiatan' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
-                'deskripsi_kegiatan' => $this->input->post("deskripsiKegiatan"),
+                'deskripsi_kegiatan' => " ",
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
