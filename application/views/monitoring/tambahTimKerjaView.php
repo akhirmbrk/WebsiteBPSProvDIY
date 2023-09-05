@@ -68,9 +68,23 @@
                                     } ?>
                               </select>
                               <hr>
-                              <label class="require">Anggota</label>
-                              <input class="form-control" type="text" id="sample-typeahead">
+                              <label id="anggota" class="require">Anggota</label>
+                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead">
+
                           </div>
+                          <script>
+                              var y = document.getElementById('sample-typeahead')
+
+                              function myFunction() {
+                                  var x = []
+                                  x = y.value
+
+                                  for (let i = 0; i < x.length; i++) {
+                                      const element = x[i];
+
+                                  }
+                              }
+                          </script>
 
 
                           <footer class="card-footer text-right">
