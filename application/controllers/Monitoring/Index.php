@@ -3,6 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Index extends CI_Controller
 {
+	public $BPS_m;
+	public $load;
+	public $session;
+	public $User_m;
+	public $All_m;
+	public $Kegiatan_m;
+	public $tim_kerja_m;
+	public $Periode_m;
+	public $Z_anggotateam_m;
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -10,7 +20,9 @@ class Index extends CI_Controller
 		$this->load->model('monitoring/BPS_m');
 		$this->load->model('monitoring/Periode_m');
 		$this->load->model('monitoring/tim_kerja_m');
+		$this->load->model('monitoring/Z_anggotateam_m');
 		$this->load->model('User_m');
+		$this->load->model('All_m');
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -18,7 +30,6 @@ class Index extends CI_Controller
 			redirect('sso/index', 'refresh');
 		}
 		$this->load->library('form_validation');
-		$this->load->model('All_m');
 		$defadata = $this->All_m->top_bar();
 		if ($defadata['admin_zoom'] != 1) {
 			redirect('zoom/zoomorder/index/', 'refresh');
@@ -61,90 +72,6 @@ class Index extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	public function kegiatan()
-	{
-		$data['tab'] = "3";
-		$data['tipe'] = "1";
-		$data['progress'] = 76;
-		$data['title'] = "Kegiatan";
-
-		$data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
-
-		foreach ($data['list_kegiatan'] as $key => $item) {
-			$data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
-		}
-
-		// var_dump($data['tim_kerja']);
-
-		$filter['bps'] = $this->BPS_m->list_bps();
-		$filter['periode'] = $this->Periode_m->list_periode();
-		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
-
-
-		$this->load->vars($data);
-		$this->load->vars($filter);
-
-		$this->load->view('template/header');
-		$this->load->view('template/topNav');
-		$this->load->view('monitoring/kegiatanView');
-		$this->load->view('template/footer');
-	}
-
-	public function detailKegiatan($id)
-	{
-		$data['tab'] = "3";
-		$data['tipe'] = "1";
-		$data['progress'] = 70;
-		$data['title'] = "Kegiatan Monitoring BPS";
-
-
-		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
-		$data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
-
-
-		$this->load->vars($data);
-
-		$this->load->view('template/header');
-		$this->load->view('template/topNav');
-		$this->load->view('monitoring/detailKegiatanView');
-		$this->load->view('template/footer');
-	}
-
-	public function editKegiatan($id)
-	{
-		$data['tab'] = "3";
-		$data['tipe'] = "1";
-		$data['progress'] = 70;
-		$data['title'] = "Kegiatan Monitoring BPS";
-
-
-		$data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
-		$data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
-		// var_dump($data['tim_kerja']);
-		$this->load->vars($data);
-
-		$this->load->view('template/header');
-		$this->load->view('template/topNav');
-		$this->load->view('monitoring/editKegiatanView');
-		$this->load->view('template/footer');
-	}
-
-
-	public function tambahKegiatan()
-	{
-		$data['tab'] = "3";
-		$data['tipe'] = "1";
-		$data['title'] = "Tambah Kegiatan BPS";
-
-		$data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
-
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
-		$this->load->view('monitoring/tambahKegiatan');
-		$this->load->view('template/footer');
-	}
-
-
 	public function tambahTimKerja()
 	{
 		$data['tab'] = "4";
@@ -175,6 +102,8 @@ class Index extends CI_Controller
 		$filter['periode'] = $this->Periode_m->list_periode();
 		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
+		$data['teams'] = $this->Z_anggotateam_m->list_all_team();
+
 		$this->load->vars($data);
 		$this->load->vars($filter);
 
@@ -184,13 +113,18 @@ class Index extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	public function detailTimKerja()
+	public function detailTimKerja($id, $bps, $periode)
 	{
 		$data['tab'] = "4";
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja Monitoring BPS";
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topNav', $data);
+
+
+		$data['member'] = $this->Z_anggotateam_m->list_anggota_team($id, $bps, $periode);
+
+		$this->load->vars($data);
+		$this->load->view('template/header');
+		$this->load->view('template/topNav');
 		$this->load->view('monitoring/detailTimKerjaView');
 		$this->load->view('template/footer');
 	}

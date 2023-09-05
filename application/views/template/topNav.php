@@ -15,8 +15,8 @@
                     <a class="menu-link" href="<?= base_url('manajemenfile/manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
                 <?php } else { ?>
-                    <a class="menu-link" href="<?= base_url('landingBaru') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Integrasi BPS</a>
+                    <a class="menu-link" style="text-decoration:none" href="<?= base_url('landingpage') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Integrasi BPS</a>
                 <?php } ?>
             </div>
 
@@ -55,7 +55,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/index/kegiatan');
+                            <a class="menu-link" href="<?= base_url('monitoring/kegiatan');
                                                         ?>">
                                 <span class="icon fa fa-list-alt"></span>
                                 <span class="title">Kegiatan</span>

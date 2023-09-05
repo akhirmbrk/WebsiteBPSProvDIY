@@ -3,7 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Sso extends CI_Controller
 {
-
+	public $load;
+	public $All_m;
+	public $sso_bps;
 
 	function index()
 	{

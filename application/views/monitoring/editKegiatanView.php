@@ -74,7 +74,7 @@
 
 
                           <footer class="card-footer text-right">
-                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/index/kegiatan') ?>">Cancel</a>
+                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/Kegiatan') ?>">Cancel</a>
                               <button class="btn btn-primary" type="submit">Update</button>
                           </footer>
 

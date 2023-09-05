@@ -24,10 +24,9 @@
 
             <div class="col-md-4 col-xl-3 d-none d-md-block">
 
+                <!-- Filter -->
                 <div class="card shadow-1">
                     <h5 class="card-title"><strong>Filter Tim Kerja</strong></h5>
-
-
 
                     <form class="card-body">
                         <div class="form-group">
@@ -78,135 +77,50 @@
                 </div>
             </div>
 
+            <!-- END Filter -->
 
             <div class="col-md-8 col-xl-9">
 
                 <div class="media-list media-list-divided media-list-hover" data-provide="selectall">
                     <div class="media-list-body bg-white b-1">
+                        <!-- Search -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
                                 <input type="text" name="s" placeholder="Cari Tim Kerja">
                             </form>
                         </div>
+                        <!-- END Search -->
 
-                        <div class="media align-items-center">
+                        <!-- List Tim Kerja -->
+                        <?php
+                        // var_dump($teams);
+                        if (count($teams)) {
+                            foreach ($teams as $indeks => $item) {  ?>
+                                <div class="media align-items-center">
+                                    <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
+                                    <img class="avatar" src="<?= base_url('');
+                                                                ?>/assets/img/avatar/3.jpg" alt="...">
 
-                            <img class="avatar" src="<?= base_url('');
-                                                        ?>/assets/img/avatar/3.jpg" alt="...">
+                                    <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode'] ?>">
+                                        <h5 class="fs-15"><?= $item['nama_tim_kerja'] ?></h5>
+                                        <small class="opacity-65 fw-300">
+                                            <?= $item['namaBPS'] ?>
+                                        </small>
 
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
-                                <h5 class="fs-15">Tim Pengolahan dan TIK</h5>
-                                <small class="opacity-65 fw-300">
+                                        <td>
+                                            <nav class="nav gap-2 fs-16">
+                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                            </nav>
+                                        </td>
 
+                                    </a>
 
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
+                                </div>
+                        <?php  }
+                        } ?>
 
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-
-                        </div>
-
-                        <div class="media align-items-center">
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="avatar" src="<?= base_url('');
-                                                        ?>/assets/img/avatar/4.jpg" alt="...">
-
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
-                                <h5 class="fs-15">Tim Sosial</h5>
-                                <small class="opacity-65 fw-300">
-
-
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-                        </div>
-                        <div class="media align-items-center">
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="avatar" src="<?= base_url('');
-                                                        ?>/assets/img/avatar/4.jpg" alt="...">
-
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
-                                <h5 class="fs-15">Tim Neraca</h5>
-                                <small class="opacity-65 fw-300">
-
-
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-                        </div>
-                        <div class="media align-items-center">
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="avatar" src="<?= base_url('');
-                                                        ?>/assets/img/avatar/4.jpg" alt="...">
-
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
-                                <h5 class="fs-15">Tim Sosial 2</h5>
-                                <small class="opacity-65 fw-300">
-
-
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-                        </div>
-                        <div class="media align-items-center">
-
-                            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
-
-                            <img class="avatar" src="<?= base_url('');
-                                                        ?>/assets/img/avatar/4.jpg" alt="...">
-
-                            <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') ?>">
-                                <h5 class="fs-15">Tim Produksi</h5>
-                                <small class="opacity-65 fw-300">
-
-
-                                    BPS Provinsi Daerah Istimewa Yogyakarta
-                                </small>
-                                <td>
-                                    <nav class="nav gap-2 fs-16">
-                                        <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                    </nav>
-                                </td>
-
-                            </a>
-
-                        </div>
+                        <!-- END List Tim Kerja -->
 
 
                     </div>

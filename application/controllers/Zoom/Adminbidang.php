@@ -3,6 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Adminbidang extends CI_Controller
 {
+	public $load;
+	public $session;
+	public $All_m;
+	public $form_validation;
 
 	public function __construct()
 	{

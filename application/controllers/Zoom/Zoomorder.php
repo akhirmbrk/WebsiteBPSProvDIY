@@ -3,6 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Zoomorder extends CI_Controller
 {
+	private $load;
+	private $session;
+	private $All_m;
+	private $upload;
+	private $form_validation;
 
 	public function __construct()
 	{

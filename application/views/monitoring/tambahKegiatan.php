@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form action="<?php echo base_url('monitoring/Kegiatan/tambahKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
+              <form action="<?php echo base_url('monitoring/Kegiatan/addKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
                   <div class="col-md-7 col-xl-8">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
@@ -67,20 +67,14 @@
                                   </span>
                               </div>
 
-                              <hr>
-
-                              <div class="form-group">
-                                  <label class="require">Deskripsi Kegiatan</label>
-                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan"></textarea>
-                              </div>
 
 
                           </div>
 
 
                           <footer class="card-footer text-right">
-                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/index/kegiatan') ?>">Cancel</a>
-                              <button class="btn btn-primary" type="submit" href="<?= base_url('monitoring/index/kegiatan') ?>">Submit</button>
+                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/kegiatan') ?>">Cancel</a>
+                              <button class="btn btn-primary" type="submit">Submit</button>
                           </footer>
 
 
@@ -88,21 +82,21 @@
                   </div>
 
 
-                  <!-- <div class="col-md-5 col-xl-4">
-        <div class="card shadow-1">
-          <h5 class="card-title">Attachments</h5>
+                  <!-- <div class=" col-md-5 col-xl-4">
+                                  <div class="card shadow-1">
+                                      <h5 class="card-title">Attachments</h5>
 
-          <div class="card-body">
-            <div class="input-group file-group">
-              <input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
-              <input type="file" multiple>
-              <span class="input-group-append">
-                <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> -->
+                                      <div class="card-body">
+                                          <div class="input-group file-group">
+                                              <input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
+                                              <input type="file" multiple>
+                                              <span class="input-group-append">
+                                                  <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                      </div> -->
 
 
               </form>
