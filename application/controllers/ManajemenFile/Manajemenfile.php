@@ -41,7 +41,7 @@ class Manajemenfile extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
 		$this->load->view('manajemenFile/manajemenFileView');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer');
 	}
 
 

@@ -32,7 +32,7 @@
 
   <section id="slider" class="pt-5">
     <div class="container">
-      <div class="judul" >MENU UTAMA </div>
+      <div class="judul pt-2" >MENU UTAMA </div>
       <br>
       <br>
       <br>

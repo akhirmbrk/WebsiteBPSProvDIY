@@ -116,6 +116,28 @@
                     <div class="card-body">
 
                       <!-- Taruh Isi Disini -->
+<<<<<<< HEAD
+											<div class="col-lg-9">
+            <div class="card">
+              <!-- <h4 class="card-title"><strong>Row actions</strong></h4> -->
+
+              <div class="card-body pt-0">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th><strong>Nama Dokumen</strong></th>
+                      <th class="text-center w-100px">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Otto</td>
+                      <td class="text-right table-actions" style="width: 130px;">
+                        <a class="table-action hover-primary" href="#"><i class="ti-pencil"></i></a>
+                        <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
+												<a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
+												<a class="table-action hover-success" href="#"><i class="ti-download"></i></a>
+=======
                       <div class="col-lg-8">
                         <div class="card">
                           <h4 class="card-title"><strong>Row actions</strong></h4>
@@ -138,6 +160,7 @@
                                     <a class="table-action hover-danger" href="#"><i class="ti-trash"></i></a>
                                     <a class="table-action hover-info" href="#"><i class="ti-eye"></i></a>
                                     <a class="table-action hover-success" href="#"><i class="ti-download"></i></a>
+>>>>>>> d56de1db335fbb04979ebec4bf9ea3070e4e0cce
                           </div>
                         </div>
                         </td>
@@ -174,6 +197,45 @@
 
             <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. -->
           </div>
+<<<<<<< HEAD
+
+
+                      <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sampe Sini -->
+                <div class="card">
+                  <h5 class="card-title">
+                    <a data-toggle="collapse" data-parent="#accordion-2" href="#collapse-2-3" class="collapsed" aria-expanded="false">Entri</a>
+                  </h5>
+
+                  <div id="collapse-2-3" class="collapse">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                    </div>
+                  </div>
+                </div>
+              </div>
+			
+            </div>
+
+						
+			
+
+                <footer class="flexbox align-items-center py-20">
+                    <span class="flex-grow text-right text-lighter pr-2">1-20 of 367</span>
+                    <nav>
+                        <a class="btn btn-sm btn-square disabled" href="#"><i class="ti-angle-left"></i></a>
+                        <a class="btn btn-sm btn-square" href="#"><i class="ti-angle-right"></i></a>
+                    </nav>
+                </footer>
+
+            </div>
+
+=======
+>>>>>>> d56de1db335fbb04979ebec4bf9ea3070e4e0cce
         </div>
       </div>
 
