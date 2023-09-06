@@ -195,7 +195,7 @@
         // Typeahead
         //
         var countries = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('namaU '),
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
                 url: '<?= base_url('') ?>/assets/data/json/userapp.json',
@@ -212,8 +212,8 @@
         $('#sample-typeahead').tagsinput({
             typeaheadjs: {
                 name: 'countries',
-                displayKey: 'namaU',
-                valueKey: 'ida',
+                displayKey: 'name',
+                valueKey: 'name',
                 source: countries.ttAdapter()
             }
         });

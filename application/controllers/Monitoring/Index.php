@@ -117,17 +117,27 @@ class Index extends CI_Controller
 			$hasil = $this->Z_anggotateam_m->add_teams($item, $ketua);
 		}
 
+
+		foreach ($arr_member as $indeks => $item) {
+			if ($indeks == 0) {
+				$ketua = 1;
+			} else {
+				$ketua = 0;
+			}
+			$hasil = $this->Z_anggotateam_m->add_teams($item, $ketua);
+		}
+
 		if ($hasil['point'] == 'sukses') {
 			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
-			redirect('monitoring/kegiatan', 'refresh');
+			redirect('monitoring/index/timKerja', 'refresh');
 		} else if ($hasil['point'] == 'lewat') {
 
 			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-			redirect('monitoring/kegiatan', 'refresh');
+			redirect('monitoring/index/timKerja', 'refresh');
 		} else if ($hasil['point'] == 'block') {
 
 			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
-			redirect('monitoring/kegiatan', 'refresh');
+			redirect('monitoring/index/timKerja', 'refresh');
 		}
 	}
 

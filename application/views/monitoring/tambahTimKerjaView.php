@@ -59,6 +59,7 @@
                                     } ?>
                               </select>
 
+
                               <hr>
                               <label name="labelPeriode" class="require">Periode</label>
                               <select name="periode" id="periode" class="form-control" data-provide="selectpicker">
@@ -74,8 +75,8 @@
                               <hr>
                               <div><small>Yang pertama merupakan ketua tim</small></div>
                               <label class="require">Anggota</label>
-                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead">
-                              <input type="hidden" id="anggota" name="anggota">
+                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" required>
+                              <input type="hidden" id="anggota" name="anggota" required>
                               <script>
                                   var y = document.getElementById('sample-typeahead')
                                   var anggota = document.getElementById('anggota')
@@ -90,7 +91,7 @@
 
 
                               <footer class="card-footer text-right">
-                                  <a class="btn btn-secondary mr-2" href="#">Cancel</a>
+                                  <a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
                                   <button class="btn btn-primary" type="submit">Submit</button>
                               </footer>
 
