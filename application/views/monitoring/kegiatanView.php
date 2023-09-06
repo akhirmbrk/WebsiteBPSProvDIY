@@ -22,6 +22,7 @@
 
 <div class="main-content">
     <div class="container">
+        <?php echo $this->session->flashdata('info_form');  ?>
         <div class="row">
 
             <div class="col-md-4 col-xl-3 d-none d-md-block">
@@ -124,7 +125,7 @@
                                         <td>
                                             <nav class="nav gap-2 fs-16">
                                                 <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                             </nav>
                                         </td>
                                 </div>
