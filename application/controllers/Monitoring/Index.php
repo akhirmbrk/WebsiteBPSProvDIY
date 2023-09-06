@@ -105,26 +105,23 @@ class Index extends CI_Controller
 		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
 
-		$member = $this->input->post('anggota');
+		$member = $this->input->post('sample-typeahead');
 		$arr_member = explode(",", $member);
+		// var_dump($arr_member);
 
-		foreach ($arr_member as $indeks => $item) {
-			if ($indeks == 0) {
-				$ketua = 1;
-			} else {
-				$ketua = 0;
-			}
-			$hasil = $this->Z_anggotateam_m->add_teams($item, $ketua);
+		foreach ($arr_member as $item) {
+			$coba[] = $this->User_m->detail_user_by_name($item);
 		}
+		// var_dump($coba);
 
-
-		foreach ($arr_member as $indeks => $item) {
+		foreach ($coba as $indeks => $item) {
 			if ($indeks == 0) {
 				$ketua = 1;
 			} else {
 				$ketua = 0;
 			}
-			$hasil = $this->Z_anggotateam_m->add_teams($item, $ketua);
+			// var_dump($item['ida']);
+			$hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $ketua);
 		}
 
 		if ($hasil['point'] == 'sukses') {

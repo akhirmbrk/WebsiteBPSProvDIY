@@ -13,7 +13,7 @@ class tim_kerja_m extends CI_Model
         $data = array();
         $i = 0;
 
-        $Q = $this->db->query("SELECT * FROM tim_kerja ORDER BY id_team ASC");
+        $Q = $this->db->query("SELECT * FROM tim_kerja ");
 
         if ($Q->num_rows() > 0) {
             foreach ($Q->result_array() as $row) {

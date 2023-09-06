@@ -198,11 +198,11 @@
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-                url: '<?= base_url('') ?>/assets/data/json/userapp.json',
+                url: '<?= base_url('') ?>/assets/data/json/nama.json',
                 filter: function(list) {
-                    return $.map(list, function(cityname) {
+                    return $.map(list, function(username) {
                         return {
-                            name: cityname
+                            name: username
                         };
                     });
                 }

@@ -130,6 +130,19 @@ class User_m extends CI_Model
         return $data;
     }
 
+    public function detail_user_by_name($nama)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT `ida` FROM `userapp` WHERE REPLACE(`namaU`, ',', '') ='" . $nama . "'");
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data['namaU'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
+
 
     public function update_kegiatan($id)
     {

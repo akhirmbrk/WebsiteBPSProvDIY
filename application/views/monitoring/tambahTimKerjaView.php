@@ -75,17 +75,21 @@
                               <hr>
                               <div><small>Yang pertama merupakan ketua tim</small></div>
                               <label class="require">Anggota</label>
-                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" required>
+                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
                               <input type="hidden" id="anggota" name="anggota" required>
                               <script>
-                                  var y = document.getElementById('sample-typeahead')
-                                  var anggota = document.getElementById('anggota')
-
+                                  // Array dengan delimiter koma
                                   function myFunction() {
-                                      var x = y.value.split(',');
-                                      console.log(x)
-                                      anggota.value = x
 
+                                      //   var arrayDenganKoma = document.getElementById('sample-typeahead').value;
+
+                                      //   // Mengganti delimiter dari koma ke semikolon
+                                      //   var arrayDenganSemicolon = arrayDenganKoma;
+
+                                      //   document.getElementById('anggota').value = arrayDenganSemicolon;
+                                      //   console.log(arrayDenganSemicolon);
+                                      //   console.log(document.getElementById('anggota'))
+                                      console.log($('#sample-typeahead').val())
                                   }
                               </script>
 

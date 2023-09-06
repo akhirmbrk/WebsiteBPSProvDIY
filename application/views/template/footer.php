@@ -194,32 +194,42 @@
         //
         // Typeahead
         //
-        var countries = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('namaU '),
+        var userapp = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['ida', 'nip', 'namaU']),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-                url: '<?= base_url('') ?>/assets/data/json/userapp.json',
+                url: '<?= base_url('') ?>/assets/data/json/fix.json',
                 filter: function(list) {
-                    return $.map(list, function(cityname) {
+                    return $.map(list, function(user) {
                         return {
-                            name: cityname
+                            ida: user.ida,
+                            nip: user.nip,
+                            namaU: user.namaU.replace(/,/g, ' ')
                         };
                     });
                 }
             }
         });
-        countries.initialize();
+
+        userapp.initialize();
+
         $('#sample-typeahead').tagsinput({
             typeaheadjs: {
-                name: 'countries',
-                displayKey: 'namaU',
-                valueKey: 'ida',
-                source: countries.ttAdapter()
+                name: 'userapp',
+                displayKey: function(item) {
+                    return item.namaU + ' - ' + item.nip;
+                },
+                valueKey: 'namaU',
+                source: userapp.ttAdapter()
             }
         });
 
+
+
     });
 </script>
+
+
 </body>
 
 

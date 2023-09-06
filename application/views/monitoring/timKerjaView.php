@@ -108,11 +108,10 @@
                                             <?= $item['namaBPS'] ?>
                                         </small>
 
-                                        <td>
-                                            <nav class="nav gap-2 fs-16">
-                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                            </nav>
-                                        </td>
+                                        <nav class="nav gap-2 fs-16">
+                                            <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        </nav>
+
 
                                     </a>
 
