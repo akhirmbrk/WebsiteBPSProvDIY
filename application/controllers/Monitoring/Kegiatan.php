@@ -105,6 +105,13 @@ class Kegiatan extends CI_Controller
 
     public function tambahKegiatan()
     {
+        $tgl = date('Y-m-d', strtotime(' +0 day'));
+
+        $tgl_dh_1 = substr($tgl, 8, 2);
+        $bln_dh_1 = substr($tgl, 5, 2);
+        $thn_dh_1 = substr($tgl, 0, 4);
+        $data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
+
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['title'] = "Tambah Kegiatan BPS";
@@ -136,7 +143,7 @@ class Kegiatan extends CI_Controller
 
         if ($hasil['point'] == 'sukses') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><h1>Berhasil Menambah Kegiatan</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambah Kegiatan</div> ');
             redirect('monitoring/kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
