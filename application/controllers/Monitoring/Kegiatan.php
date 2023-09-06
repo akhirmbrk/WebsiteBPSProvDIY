@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Kegiatan extends CI_Controller
 {
     public $load;
+    public $input;
     public $session;
     public $form_validation;
     public $All_m;
@@ -178,6 +179,17 @@ class Kegiatan extends CI_Controller
     {
         $this->Kegiatan_m->hapus_kegiatan($id);
         $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
+        redirect('monitoring/kegiatan', 'refresh');
+    }
+
+    public function filterKegiatan()
+    {
+        $tim = $this->input->post('filterTimKerja');
+        // var_dump($tim);
+        $data = $this->Kegiatan_m->filter_kegiatan($tim);
+
+        $this->load->vars($data);
+
         redirect('monitoring/kegiatan', 'refresh');
     }
 }

@@ -117,6 +117,20 @@ class Kegiatan_m extends CI_Model
         $this->db->delete('kegiatan');
     }
 
+    public function filter_kegiatan($tim)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM kegiatan WHERE id_tim_kerja = " . $tim);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            // $data['kodeBPS'] = 0;
+            $data['id_team'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
+
     /* SELECT SUM(ABC.jumlah_realisasi/ABC.target*100) AS total_realisasi, COUNT(ABC.id_pekerjaan) AS id, SUM(ABC.jumlah_persen_ketepatan/ABC.jumlah_realisasi) AS jm_per_ketepatan, SUM(ABC.jumlah_persen_kualitas/ABC.jumlah_realisasi) AS jm_per_kualitas, ABC.id_peg FROM ( SELECT MP.id_pekerjaan, MP.target, sum(TKH.realisasi) AS jumlah_realisasi, sum(TKH.realisasi*TKH.ketepatan) AS jumlah_persen_ketepatan, sum(TKH.realisasi*TKH.kualitas) AS jumlah_persen_kualitas, MP.id_pegawai AS id_peg FROM transaksi_kerja MP LEFT JOIN transaksi_k_harian_sdh_dinilai TKH ON TKH.id_tk = MP.id_tk WHERE MP.bln_ckp = 1 AND MP.tahun = 2018 GROUP BY MP.id_pekerjaan, MP.id_pegawai) AS ABC GROUP BY ABC.id_peg  */
 
 
