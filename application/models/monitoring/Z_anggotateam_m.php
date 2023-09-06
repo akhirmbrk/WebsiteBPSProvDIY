@@ -13,7 +13,7 @@ class Z_anggotateam_m extends CI_Model
         $data = array();
         $i = 0;
 
-        $Q = $this->db->query("SELECT * FROM z_anggotateam A JOIN tim_kerja B ON A.id_team = B.id_team JOIN bps C ON A.KodeBPS = C.KodeBPS WHERE ketua_tim = 1");
+        $Q = $this->db->query("SELECT * FROM z_anggotateam A JOIN tim_kerja B ON A.id_team = B.id_team JOIN bps C ON A.KodeBPS = C.KodeBPS JOIN z_periode D ON A.Id_Periode = D.id_zperiode WHERE ketua_tim = 1 ORDER BY Id_Periode ASC");
 
         if ($Q->num_rows() > 0) {
             foreach ($Q->result_array() as $row) {

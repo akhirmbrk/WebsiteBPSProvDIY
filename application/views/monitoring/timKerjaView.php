@@ -105,7 +105,7 @@
                                     <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode'] ?>">
                                         <h5 class="fs-15"><?= $item['nama_tim_kerja'] ?></h5>
                                         <small class="opacity-65 fw-300">
-                                            <?= $item['namaBPS'] ?>
+                                            <?= $item['namaBPS'] . " - " . $item['Tahun'] ?>
                                         </small>
 
                                         <nav class="nav gap-2 fs-16">
