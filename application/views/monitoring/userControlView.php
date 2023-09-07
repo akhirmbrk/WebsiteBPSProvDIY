@@ -25,6 +25,7 @@
                             <input type="text" name="s" placeholder="Cari Nama Pegawai">
                         </form>
                     </div>
+
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -84,6 +85,7 @@
                             } ?>
                         </tbody>
                     </table>
+                    <?= $this->pagination->create_links(); ?>
                 </div>
             </div>
 

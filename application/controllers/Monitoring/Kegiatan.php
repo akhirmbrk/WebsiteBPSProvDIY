@@ -12,6 +12,8 @@ class Kegiatan extends CI_Controller
     public $BPS_m;
     public $tim_kerja_m;
     public $Periode_m;
+    public $pagination;
+    public $uri;
 
     public function __construct()
     {
@@ -37,12 +39,50 @@ class Kegiatan extends CI_Controller
     }
     public function index()
     {
+        $this->load->library('pagination');
+
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/index";
+        $config['total_rows'] = $this->Kegiatan_m->get_jumlah_kegiatan();
+        $config['per_page'] = 5;
+
+        $config['full_tag_open'] = '<nav class="mt-3"><ul class="pagination justify-content-center">';
+        $config['full_tag_close'] = '</ul></nav>';
+
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li class="page-item ">';
+        $config['first_tag_close'] = '</li>';
+
+        $config['next_link'] = '<span class="ti-arrow-right"></span>';
+        $config['next_tag_open'] = '<li class="page-item ">';
+        $config['next_tag_close'] = '</li>';
+
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+
+        $config['attributes'] = array('class' => 'page-link');
+
+        $config['prev_link'] = '<span class="ti-arrow-left"></span>';
+        $config['prev_tag_open'] = '<li class="page-item ">';
+        $config['prev_tag_close'] = '</li>';
+
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li class="page-item ">';
+        $config['last_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
-        $data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
+        $data['start'] = $this->uri->segment(4);
+
+        $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan($config['per_page'], $data['start']);
 
         foreach ($data['list_kegiatan'] as $key => $item) {
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);

@@ -120,18 +120,18 @@
                         } ?>
 
                         <!-- END List Tim Kerja -->
-
-
                     </div>
+                    <?= $this->pagination->create_links(); ?>
 
 
-                    <footer class="flexbox align-items-center py-20">
+
+                    <!-- <footer class="flexbox align-items-center py-20">
                         <span class="flex-grow text-right text-lighter pr-2">1-20 of 367</span>
                         <nav>
                             <a class="btn btn-sm btn-square disabled" href="#"><i class="ti-angle-left"></i></a>
                             <a class="btn btn-sm btn-square" href="#"><i class="ti-angle-right"></i></a>
-                        </nav>
-                    </footer>
+                        </nav> -->
+                    <!-- </footer> -->
 
                 </div>
 

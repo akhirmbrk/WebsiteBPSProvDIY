@@ -14,6 +14,8 @@ class Index extends CI_Controller
 	public $Z_anggotateam_m;
 	public $form_validation;
 	public $input;
+	public $pagination;
+	public $uri;
 
 	public function __construct()
 	{
@@ -25,6 +27,8 @@ class Index extends CI_Controller
 		$this->load->model('monitoring/Z_anggotateam_m');
 		$this->load->model('User_m');
 		$this->load->model('All_m');
+
+
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
@@ -60,11 +64,48 @@ class Index extends CI_Controller
 
 	public function userControl()
 	{
+		$this->load->library('pagination');
+
+		$config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/index/userControl";
+		$config['total_rows'] = $this->User_m->get_jumlah_user();
+		$config['per_page'] = 5;
+
+		$config['full_tag_open'] = '<nav class="mt-3"><ul class="pagination justify-content-center">';
+		$config['full_tag_close'] = '</ul></nav>';
+
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item ">';
+		$config['first_tag_close'] = '</li>';
+
+		$config['next_link'] = '<span class="ti-arrow-right"></span>';
+		$config['next_tag_open'] = '<li class="page-item ">';
+		$config['next_tag_close'] = '</li>';
+
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li>';
+
+		$config['attributes'] = array('class' => 'page-link');
+
+		$config['prev_link'] = '<span class="ti-arrow-left"></span>';
+		$config['prev_tag_open'] = '<li class="page-item ">';
+		$config['prev_tag_close'] = '</li>';
+
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item ">';
+		$config['last_tag_close'] = '</li>';
+
+		$this->pagination->initialize($config);
+
+
 		$data['tab'] = "2";
 		$data['tipe'] = "1";
 		$data['title'] = "User Utama";
+		$data['start'] = $this->uri->segment(4);
 
-		$data['users'] = $this->User_m->list_user();
+		$data['users'] = $this->User_m->get_users($config['per_page'], $data['start']);
 		// var_dump($data['users']);
 		$this->load->vars($data);
 
@@ -140,15 +181,52 @@ class Index extends CI_Controller
 
 	public function timKerja()
 	{
+		$this->load->library('pagination');
+
+		$config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/index/timKerja";
+		$config['total_rows'] = $this->Z_anggotateam_m->get_jumlah_team();
+		$config['per_page'] = 5;
+
+		$config['full_tag_open'] = '<nav class="mt-3"><ul class="pagination justify-content-center">';
+		$config['full_tag_close'] = '</ul></nav>';
+
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item ">';
+		$config['first_tag_close'] = '</li>';
+
+		$config['next_link'] = '<span class="ti-arrow-right"></span>';
+		$config['next_tag_open'] = '<li class="page-item ">';
+		$config['next_tag_close'] = '</li>';
+
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li>';
+
+		$config['attributes'] = array('class' => 'page-link');
+
+		$config['prev_link'] = '<span class="ti-arrow-left"></span>';
+		$config['prev_tag_open'] = '<li class="page-item ">';
+		$config['prev_tag_close'] = '</li>';
+
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item ">';
+		$config['last_tag_close'] = '</li>';
+
+		$this->pagination->initialize($config);
+
 		$data['tab'] = "4";
 		$data['tipe'] = "1";
 		$data['title'] = "Tim Kerja";
+
+		$data['start'] = $this->uri->segment(4);
 
 		$filter['bps'] = $this->BPS_m->list_bps();
 		$filter['periode'] = $this->Periode_m->list_periode();
 		$filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
-		$data['teams'] = $this->Z_anggotateam_m->list_all_team();
+		$data['teams'] = $this->Z_anggotateam_m->get_teams($config['per_page'], $data['start']);;
 
 		$this->load->vars($data);
 		$this->load->vars($filter);

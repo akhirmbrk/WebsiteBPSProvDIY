@@ -30,7 +30,6 @@ class User extends CI_Controller
 
 
         $id = $this->input->post('idEdit');
-        var_dump($id);
         $hasil = $this->User_m->edit_role_user($id);
 
 
