@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Kegiatan extends CI_Controller
 {
     public $load;
+    public $input;
     public $session;
     public $form_validation;
     public $All_m;
@@ -105,6 +106,13 @@ class Kegiatan extends CI_Controller
 
     public function tambahKegiatan()
     {
+        $tgl = date('Y-m-d', strtotime(' +0 day'));
+
+        $tgl_dh_1 = substr($tgl, 8, 2);
+        $bln_dh_1 = substr($tgl, 5, 2);
+        $thn_dh_1 = substr($tgl, 0, 4);
+        $data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
+
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['title'] = "Tambah Kegiatan BPS";
@@ -131,21 +139,21 @@ class Kegiatan extends CI_Controller
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
-
         $hasil = $this->Kegiatan_m->add_kegiatan();
         // var_dump($data);
 
         if ($hasil['point'] == 'sukses') {
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
+
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambah Kegiatan</div> ');
             redirect('monitoring/kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-            redirect('monitoring/kegiatan', 'refresh');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
         } else if ($hasil['point'] == 'block') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
-            redirect('monitoring/kegiatan', 'refresh');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
+            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
         }
     }
 
@@ -172,5 +180,42 @@ class Kegiatan extends CI_Controller
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
             redirect('monitoring/kegiatan/editkegiatan/' . $id, 'refresh');
         }
+    }
+
+    public function hapusKegiatan($id)
+    {
+        $this->Kegiatan_m->hapus_kegiatan($id);
+        $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
+        redirect('monitoring/kegiatan', 'refresh');
+    }
+
+    public function filterKegiatan()
+    {
+        $data['tab'] = "3";
+        $data['tipe'] = "1";
+        $data['progress'] = 76;
+        $data['title'] = "Kegiatan";
+
+        $data['list_kegiatan'] = $this->Kegiatan_m->filter_kegiatan($this->input->post('filterTimKerja'));
+
+        foreach ($data['list_kegiatan'] as $key => $item) {
+            $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+        }
+
+        // var_dump($data['tim_kerja']);
+
+        $filter['bps'] = $this->BPS_m->list_bps();
+        $filter['periode'] = $this->Periode_m->list_periode();
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+
+
+
+        $this->load->vars($data);
+        $this->load->vars($filter);
+
+        $this->load->view('template/header');
+        $this->load->view('template/topNav');
+        $this->load->view('monitoring/kegiatanView');
+        $this->load->view('template/footer');
     }
 }

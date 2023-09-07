@@ -46,7 +46,7 @@ class Kegiatan_m extends CI_Model
                 'progres_kegiatan' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
-                'deskripsi_kegiatan' => $this->input->post("deskripsiKegiatan"),
+                'deskripsi_kegiatan' => " ",
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
@@ -109,6 +109,30 @@ class Kegiatan_m extends CI_Model
         $hasil['point'] = 'sukses';
 
         return $hasil;
+    }
+
+    public function hapus_kegiatan($id)
+    {
+        $this->db->where('id_kegiatan', $id);
+        $this->db->delete('kegiatan');
+    }
+
+    public function filter_kegiatan($tim)
+    {
+        $data = array();
+        $i = 0;
+
+        $Q = $this->db->query("SELECT * FROM kegiatan WHERE id_tim_kerja = " . $tim . " ORDER BY tgl_start DESC");
+
+        if ($Q->num_rows() > 0) {
+            foreach ($Q->result_array() as $row) {
+                $data[] = $row;
+                $i++;
+            }
+        }
+
+        $Q->free_result();
+        return $data;
     }
 
     /* SELECT SUM(ABC.jumlah_realisasi/ABC.target*100) AS total_realisasi, COUNT(ABC.id_pekerjaan) AS id, SUM(ABC.jumlah_persen_ketepatan/ABC.jumlah_realisasi) AS jm_per_ketepatan, SUM(ABC.jumlah_persen_kualitas/ABC.jumlah_realisasi) AS jm_per_kualitas, ABC.id_peg FROM ( SELECT MP.id_pekerjaan, MP.target, sum(TKH.realisasi) AS jumlah_realisasi, sum(TKH.realisasi*TKH.ketepatan) AS jumlah_persen_ketepatan, sum(TKH.realisasi*TKH.kualitas) AS jumlah_persen_kualitas, MP.id_pegawai AS id_peg FROM transaksi_kerja MP LEFT JOIN transaksi_k_harian_sdh_dinilai TKH ON TKH.id_tk = MP.id_tk WHERE MP.bln_ckp = 1 AND MP.tahun = 2018 GROUP BY MP.id_pekerjaan, MP.id_pegawai) AS ABC GROUP BY ABC.id_peg  */

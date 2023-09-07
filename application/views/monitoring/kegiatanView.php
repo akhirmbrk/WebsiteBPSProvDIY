@@ -22,6 +22,7 @@
 
 <div class="main-content">
     <div class="container">
+        <?php echo $this->session->flashdata('info_form');  ?>
         <div class="row">
 
             <div class="col-md-4 col-xl-3 d-none d-md-block">
@@ -30,10 +31,10 @@
                 <div class="card shadow-1">
                     <h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
 
-                    <form class="card-body">
+                    <form action="<?= base_url('monitoring/kegiatan/filterKegiatan') ?>" method="post" class="card-body">
                         <div class="form-group">
                             <label>Periode Pelaksanaan</label>
-                            <select nama="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($periode)) {
                                     foreach ($periode as $indeks => $item) {  ?>
@@ -47,7 +48,7 @@
 
                         <div class="form-group">
                             <label>BPS</label>
-                            <select nama="filterBPS" title="All BPS" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterBPS" title="All BPS" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($bps)) {
                                     foreach ($bps as $indeks => $item) {  ?>
@@ -60,7 +61,7 @@
 
                         <div class="form-group">
                             <label>Tim Kerja</label>
-                            <select nama="filterTimKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterTimKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($tim_kerja)) {
                                     foreach ($tim_kerja as $indeks => $item) {  ?>
@@ -124,7 +125,7 @@
                                         <td>
                                             <nav class="nav gap-2 fs-16">
                                                 <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-pencil"></i></a>
-                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/editKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                                <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $item['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                             </nav>
                                         </td>
                                 </div>

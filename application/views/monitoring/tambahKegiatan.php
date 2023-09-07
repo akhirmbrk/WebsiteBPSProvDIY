@@ -37,7 +37,7 @@
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <select id="timKerja" name="timKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                                      <select required id="timKerja" name="timKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
                                           <?php
                                             if (count($tim_kerja)) {
                                                 foreach ($tim_kerja as $indeks => $item) {  ?>
@@ -49,19 +49,19 @@
 
                                   <div class="form-group col-md-6">
                                       <label class="require">Judul Kegiatan</label>
-                                      <input class="form-control" type="text" name="judulKegiatan">
+                                      <input class="form-control" type="text" name="judulKegiatan" required>
                                   </div>
                               </div>
 
                               <hr>
                               <label class="require">Waktu Kegiatan</label>
                               <div class="input-group" data-provide="datepicker">
-                                  <input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai">
+                                  <input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai" value="<?php echo $tanggal_now; ?>" required>
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>
 
-                                  <input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai">
+                                  <input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai" value="<?php echo $tanggal_now; ?>" required>
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>

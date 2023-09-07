@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form class="row" method="post" enctype="multipart/form-data">
+              <form class="row" action="<?= base_url('') ?>monitoring/index/addTimUser" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">
@@ -35,8 +35,8 @@
                           <h4 class="card-title"><strong>Detail Tim Kerja</strong></h4>
 
                           <div class="card-body">
-                              <label class="require">Kode BPS</label>
-                              <select nama="kodeBPS" class="form-control" data-provide="selectpicker">
+                              <label name="labelKodeBPS" class="require">Kode BPS</label>
+                              <select name="kodeBPS" id="kodeBPS" class="form-control" data-provide="selectpicker">
                                   <?php
                                     if (count($bps)) {
                                         foreach ($bps as $indeks => $item) {  ?>
@@ -47,40 +47,61 @@
                                     } ?>
                               </select>
                               <hr>
-                              <label class="require">Jenis Tim Kerja</label>
-                              <select class="form-control" data-provide="selectpicker">
+                              <label name="labelTimKerja" class="require">Jenis Tim Kerja</label>
+                              <select name="timKerja" id="timKerja" class="form-control" data-provide="selectpicker">
                                   <?php
                                     if (count($tim_kerja)) {
                                         foreach ($tim_kerja as $indeks => $item) {  ?>
-                                          <option><?php echo $item['nama_tim_kerja']; ?></option>
+                                          <option value="<?= $item['id_team'] ?>">
+                                              <?php echo $item['nama_tim_kerja']; ?>
+                                          </option>
                                   <?php }
                                     } ?>
                               </select>
 
+
                               <hr>
-                              <label class="require">Periode</label>
-                              <select class="form-control" data-provide="selectpicker">
+                              <label name="labelPeriode" class="require">Periode</label>
+                              <select name="periode" id="periode" class="form-control" data-provide="selectpicker">
                                   <?php
                                     if (count($periode)) {
                                         foreach ($periode as $indeks => $item) {  ?>
-                                          <option><?php echo $item['Tahun']; ?></option>
+                                          <option value="<?= $item['id_zperiode'] ?>">
+                                              <?php echo $item['Tahun']; ?>
+                                          </option>
                                   <?php }
                                     } ?>
                               </select>
                               <hr>
+                              <div><small>Yang pertama merupakan ketua tim</small></div>
                               <label class="require">Anggota</label>
-                              <input class="form-control" type="text" id="sample-typeahead">
+                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
+                              <input type="hidden" id="anggota" name="anggota" required>
+                              <script>
+                                  // Array dengan delimiter koma
+                                  function myFunction() {
+
+                                      //   var arrayDenganKoma = document.getElementById('sample-typeahead').value;
+
+                                      //   // Mengganti delimiter dari koma ke semikolon
+                                      //   var arrayDenganSemicolon = arrayDenganKoma;
+
+                                      //   document.getElementById('anggota').value = arrayDenganSemicolon;
+                                      //   console.log(arrayDenganSemicolon);
+                                      //   console.log(document.getElementById('anggota'))
+                                      console.log($('#sample-typeahead').val())
+                                  }
+                              </script>
+
+
+                              <footer class="card-footer text-right">
+                                  <a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
+                                  <button class="btn btn-primary" type="submit">Submit</button>
+                              </footer>
+
+
                           </div>
-
-
-                          <footer class="card-footer text-right">
-                              <a class="btn btn-secondary mr-2" href="#">Cancel</a>
-                              <button class="btn btn-primary" type="submit">Submit</button>
-                          </footer>
-
-
                       </div>
-                  </div>
 
               </form>
           </div>

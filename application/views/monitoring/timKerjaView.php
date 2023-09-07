@@ -105,14 +105,13 @@
                                     <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode'] ?>">
                                         <h5 class="fs-15"><?= $item['nama_tim_kerja'] ?></h5>
                                         <small class="opacity-65 fw-300">
-                                            <?= $item['namaBPS'] ?>
+                                            <?= $item['namaBPS'] . " &mdash; " . $item['Tahun'] ?>
                                         </small>
 
-                                        <td>
-                                            <nav class="nav gap-2 fs-16">
-                                                <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                            </nav>
-                                        </td>
+                                        <nav class="nav gap-2 fs-16">
+                                            <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                        </nav>
+
 
                                     </a>
 
