@@ -120,13 +120,17 @@ class Kegiatan_m extends CI_Model
     public function filter_kegiatan($tim)
     {
         $data = array();
-        $Q = $this->db->query("SELECT * FROM kegiatan WHERE id_tim_kerja = " . $tim);
+        $i = 0;
+
+        $Q = $this->db->query("SELECT * FROM kegiatan WHERE id_tim_kerja = " . $tim . " ORDER BY tgl_start DESC");
+
         if ($Q->num_rows() > 0) {
-            $data = $Q->row_array();
-        } else {
-            // $data['kodeBPS'] = 0;
-            $data['id_team'] = 0;
+            foreach ($Q->result_array() as $row) {
+                $data[] = $row;
+                $i++;
+            }
         }
+
         $Q->free_result();
         return $data;
     }

@@ -191,12 +191,31 @@ class Kegiatan extends CI_Controller
 
     public function filterKegiatan()
     {
-        $tim = $this->input->post('filterTimKerja');
-        // var_dump($tim);
-        $data = $this->Kegiatan_m->filter_kegiatan($tim);
+        $data['tab'] = "3";
+        $data['tipe'] = "1";
+        $data['progress'] = 76;
+        $data['title'] = "Kegiatan";
+
+        $data['list_kegiatan'] = $this->Kegiatan_m->filter_kegiatan($this->input->post('filterTimKerja'));
+
+        foreach ($data['list_kegiatan'] as $key => $item) {
+            $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+        }
+
+        // var_dump($data['tim_kerja']);
+
+        $filter['bps'] = $this->BPS_m->list_bps();
+        $filter['periode'] = $this->Periode_m->list_periode();
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+
+
 
         $this->load->vars($data);
+        $this->load->vars($filter);
 
-        redirect('monitoring/kegiatan', 'refresh');
+        $this->load->view('template/header');
+        $this->load->view('template/topNav');
+        $this->load->view('monitoring/kegiatanView');
+        $this->load->view('template/footer');
     }
 }
