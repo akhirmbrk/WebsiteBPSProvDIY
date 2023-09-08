@@ -32,11 +32,8 @@
                     </div>
 
                     <!-- List User Table -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="ajaxContent"></div>
-                        </div>
-                    </div>
+
+                    <div id="ajaxContent"></div>
 
 
                 </div>

@@ -35,6 +35,7 @@ class User extends CI_Controller
         // $this->pagination->initialize($config);
 
 
+        $data['tabUser'] = "1";
         $data['tab'] = "2";
         $data['tipe'] = "1";
         $data['title'] = "User Utama";
@@ -68,11 +69,9 @@ class User extends CI_Controller
         $this->pagination->initialize($config);
 
 
-        $data['tab'] = "2";
-        $data['tipe'] = "1";
-        $data['title'] = "User Utama";
-
         $data['users'] = $this->User_m->get_users_live($config['per_page'], $data['start'], $search, $count = false);
+        $data['result_user'] = $config['total_rows'];
+
         // var_dump($data['users']);
         $this->load->vars($data);
 

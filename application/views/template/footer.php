@@ -178,86 +178,33 @@
 
 <!-- Scripts -->
 <script src="<?= base_url('');
-                ?>/assets/js/core.min.js" data-provide="typeahead"></script>
+                ?>assets/js/core.min.js" data-provide="typeahead"></script>
 <script src="<?= base_url('');
-                ?>/assets/js/app.min.js"></script>
+                ?>assets/js/app.min.js"></script>
 <script src="<?= base_url('');
-                ?>/assets/js/script.min.js"></script>
+                ?>assets/js/script.min.js"></script>
 <script src="<?= base_url('');
-                ?>/assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+                ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
 <script src="<?= base_url('');
-                ?>/assets/vendor/i8-icon/jquery-i8-icon.min.js"></script>
+                ?>assets/vendor/i8-icon/jquery-i8-icon.min.js"></script>
 <!-- <script src="<?= base_url('') ?>/assets/data/json/countries.json"></script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/389b5a4983.js" crossorigin="anonymous"></script>
 
-
 <script>
-    $(function() {
-
-        /*--first time load--*/
-        ajaxlist(page_url = false);
-
-
-        // Real Live
-        /*-- Search keyword--*/
-        $(document).on('keyup', "#searchUser", function(event) {
-            ajaxlist(page_url = false);
-            event.preventDefault();
-        });
-
-
-        // Dengan tombol
-        /*-- Search keyword--*/
-        // $(document).on('click', "#searchBtn", function(event) {
-        //     ajaxlist(page_url = false);
-        //     event.preventDefault();
-        // });
-
-        // /*-- Reset Search--*/
-        // $(document).on('click', "#resetBtn", function(event) {
-        //     $("#searchUser").val('');
-        //     ajaxlist(page_url = false);
-        //     event.preventDefault();
-        // });
-
-        /*-- Page click --*/
-        $(document).on('click', ".pagination li a", function(event) {
-            var page_url = $(this).attr('href');
-            ajaxlist(page_url);
-            event.preventDefault();
-        });
-
-        /*-- create function ajaxlist --*/
-        function ajaxlist(page_url = false) {
-            var search_key = $("#searchUser").val();
-
-            var dataString = 'searchUser=' + search_key;
-            var base_url = '<?php echo base_url('Monitoring/User/indexAjax') ?>';
-
-            if (page_url == false) {
-                var page_url = base_url;
-            }
-
-            $.ajax({
-                type: "POST",
-                url: page_url,
-                data: dataString,
-                success: function(response) {
-                    console.log(response);
-                    $("#ajaxContent").html(response);
-                }
-            });
-        }
-    });
-</script>
-
-<script>
+    <?php
+    if (isset($tabUser)) {
+        $this->load->view('monitoring/livesearch/userSearch');
+    } elseif (isset($tabKegiatan)) {
+        $this->load->view('monitoring/livesearch/kegiatanSearch');
+    } elseif (isset($tabTim)) {
+        $this->load->view('monitoring/livesearch/timSearch');
+    }
+    ?>
     app.ready(function() {
         //
-        // Typeahead
         //
         var userapp = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['ida', 'nip', 'namaU']),

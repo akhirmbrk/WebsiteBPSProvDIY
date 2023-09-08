@@ -1,11 +1,14 @@
 <!-- List User Table -->
-<table class="table table-hover">
-    <thead>
+
+<h6 class="ml-4" style="color :#33cabb;"><em>Hasil Pencarian : <?= $result_user; ?></em></h6>
+
+<table class="table table-hover  ">
+    <thead class="thead thead-dark">
         <tr>
             <th>Nama</th>
             <th>NIP</th>
             <th>Role</th>
-            <th class="w-100px text-center">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -57,10 +60,8 @@
             <?php }
         } else { ?>
             <tr>
-                <td>
-                    <div class="">
-                        <div class="alert alert-secondary">User tidak Ada</div>
-                    </div>
+                <td colspan="4">
+                    <div class="alert alert-secondary">User Tidak Ada</div>
                 </td>
             </tr>
         <?php } ?>

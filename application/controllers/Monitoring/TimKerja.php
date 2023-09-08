@@ -36,27 +36,17 @@ class TimKerja extends CI_Controller
 
     public function index()
     {
-        $this->load->library('pagination');
-
-        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Monitoring/TimKerja/index";
-        $config['total_rows'] = $this->Z_anggotateam_m->get_jumlah_team();
-        $config['per_page'] = 5;
-
-        $config['attributes'] = array('class' => 'page-link');
-
-        $this->pagination->initialize($config);
-
+        $data['tabTim'] = "1";
         $data['tab'] = "4";
         $data['tipe'] = "1";
         $data['title'] = "Tim Kerja";
 
-        $data['start'] = $this->uri->segment(4);
 
         $filter['bps'] = $this->BPS_m->list_bps();
         $filter['periode'] = $this->Periode_m->list_periode();
         $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
-        $data['teams'] = $this->Z_anggotateam_m->get_teams($config['per_page'], $data['start']);;
+        // $data['teams'] = $this->Z_anggotateam_m->get_teams($config['per_page'], $data['start']);;
 
         $this->load->vars($data);
         $this->load->vars($filter);
@@ -65,6 +55,32 @@ class TimKerja extends CI_Controller
         $this->load->view('template/topNav');
         $this->load->view('monitoring/timKerjaView');
         $this->load->view('template/footer');
+    }
+
+    public function indexAjax()
+    {
+        $search = array(
+            'keyword' => trim($this->input->post('searchTimKerja')),
+        );
+
+        $this->load->library('pagination');
+
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Monitoring/TimKerja/indexAjax";
+        $data['start'] = $this->uri->segment(4);
+        $config['per_page'] = 5;
+        $config['total_rows'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = true);
+        $config['attributes'] = array('class' => 'page-link');
+
+        $this->pagination->initialize($config);
+
+
+        $data['teams'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = false);
+
+
+        // var_dump($data['teams']);
+
+        $this->load->vars($data);
+        $this->load->view('monitoring/timKerjaAjaxView');
     }
 
 
