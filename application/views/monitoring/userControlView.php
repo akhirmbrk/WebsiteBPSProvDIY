@@ -16,7 +16,7 @@
 <div class="main-content">
 
     <div class="container">
-
+        <?php echo $this->session->flashdata('info_form');  ?>
         <div class="row">
             <div class="col-lg-7">
                 <div class="card shadow-1">
