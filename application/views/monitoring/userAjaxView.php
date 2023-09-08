@@ -54,8 +54,16 @@
                     </td>
 
                 </tr>
-        <?php }
-        } ?>
+            <?php }
+        } else { ?>
+            <tr>
+                <td>
+                    <div class="">
+                        <div class="alert alert-secondary">User tidak Ada</div>
+                    </div>
+                </td>
+            </tr>
+        <?php } ?>
     </tbody>
 </table>
 <!-- Pagination -->

@@ -200,18 +200,28 @@
         /*--first time load--*/
         ajaxlist(page_url = false);
 
+
+        // Real Live
         /*-- Search keyword--*/
-        $(document).on('click', "#searchBtn", function(event) {
+        $(document).on('keyup', "#searchUser", function(event) {
             ajaxlist(page_url = false);
             event.preventDefault();
         });
 
-        /*-- Reset Search--*/
-        $(document).on('click', "#resetBtn", function(event) {
-            $("#searchUser").val('');
-            ajaxlist(page_url = false);
-            event.preventDefault();
-        });
+
+        // Dengan tombol
+        /*-- Search keyword--*/
+        // $(document).on('click', "#searchBtn", function(event) {
+        //     ajaxlist(page_url = false);
+        //     event.preventDefault();
+        // });
+
+        // /*-- Reset Search--*/
+        // $(document).on('click', "#resetBtn", function(event) {
+        //     $("#searchUser").val('');
+        //     ajaxlist(page_url = false);
+        //     event.preventDefault();
+        // });
 
         /*-- Page click --*/
         $(document).on('click', ".pagination li a", function(event) {

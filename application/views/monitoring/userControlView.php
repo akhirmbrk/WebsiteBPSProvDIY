@@ -24,8 +24,8 @@
                     <div class="card-body">
                         <form class="lookup lookup-right">
                             <input type="text" id="searchUser" name="searchUser" autofocus autocomplete="off" placeholder="Cari Nama Pegawai">
-                            <button type="button" id="searchBtn" class="btn btn-info">Search</button>
-                            <button type="button" id="resetBtn" class="btn btn-warning">Reset</button>
+                            <!-- <button type="button" id="searchBtn" class="btn btn-info">Search</button>
+                            <button type="button" id="resetBtn" class="btn btn-warning">Reset</button> -->
 
                         </form>
                     </div>
@@ -43,7 +43,7 @@
 
             <!-- Form Edit Role User -->
             <div class="col-lg-5">
-                <form action="<?= base_url('') ?>monitoring/user/editRole" method="post" class="card shadow-1">
+                <form action="<?= base_url('') ?>Monitoring/User/editRole" method="post" class="card shadow-1">
                     <h5 class="card-title"><strong>Edit Role User</strong></h5>
 
                     <div class="card-body">
