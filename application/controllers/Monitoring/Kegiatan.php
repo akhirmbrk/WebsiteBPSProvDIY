@@ -12,6 +12,8 @@ class Kegiatan extends CI_Controller
     public $BPS_m;
     public $tim_kerja_m;
     public $Periode_m;
+    public $pagination;
+    public $uri;
 
     public function __construct()
     {
@@ -28,21 +30,29 @@ class Kegiatan extends CI_Controller
             redirect('sso/index', 'refresh');
         }
         $this->load->library('form_validation');
-        $defadata = $this->All_m->top_bar();
-        if ($defadata['admin_zoom'] != 1) {
-            redirect('zoom/zoomorder/index/', 'refresh');
-        }
 
         date_default_timezone_set("Asia/Jakarta");
     }
     public function index()
     {
+        $this->load->library('pagination');
+
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/index";
+        $config['total_rows'] = $this->Kegiatan_m->get_jumlah_kegiatan();
+        $config['per_page'] = 5;
+        $config['attributes'] = array('class' => 'page-link');
+
+        $this->pagination->initialize($config);
+
+
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
-        $data['list_kegiatan'] = $this->Kegiatan_m->list_kegiatan();
+        $data['start'] = $this->uri->segment(4);
+
+        $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan($config['per_page'], $data['start']);
 
         foreach ($data['list_kegiatan'] as $key => $item) {
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
@@ -145,15 +155,15 @@ class Kegiatan extends CI_Controller
         if ($hasil['point'] == 'sukses') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambah Kegiatan</div> ');
-            redirect('monitoring/kegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         } else if ($hasil['point'] == 'block') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
-            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 

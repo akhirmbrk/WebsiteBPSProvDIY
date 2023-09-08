@@ -6,16 +6,16 @@
 
             <div class="topbar-brand">
                 <?php if ($tipe == 1) { ?>
-                    <a class="menu-link" href="<?= base_url('monitoring/index/dashboard') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
                 <?php } elseif ($tipe == 2) { ?>
-                    <a class="menu-link" href="<?= base_url('zoom/zoomorder/') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
                 <?php } elseif ($tipe == 3) { ?>
-                    <a class="menu-link" href="<?= base_url('manajemenfile/manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
                 <?php } else { ?>
-                    <a class="menu-link" style="text-decoration:none" href="<?= base_url('landingpage') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" style="text-decoration:none" href="<?= base_url('Landingpage') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                     ?>/assets/img/bg/logo_bps.png" alt="...">Integrasi BPS</a>
                 <?php } ?>
             </div>
@@ -31,7 +31,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/index/dashboard');
+                            <a class="menu-link" href="<?= base_url('Monitoring/Mndex/dashboard');
                                                         ?>">
                                 <span class="icon fa fa-home"></span>
                                 <span class="title">Home</span>
@@ -43,7 +43,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/index/userControl');
+                            <a class="menu-link" href="<?= base_url('Monitoring/User');
                                                         ?>">
                                 <span class="icon fa fa-user-secret"></span>
                                 <span class="title">User</span>
@@ -55,7 +55,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/kegiatan');
+                            <a class="menu-link" href="<?= base_url('Monitoring/Kegiatan');
                                                         ?>">
                                 <span class="icon fa fa-list-alt"></span>
                                 <span class="title">Kegiatan</span>
@@ -67,7 +67,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('monitoring/index/timKerja');
+                            <a class="menu-link" href="<?= base_url('Monitoring/TimKerja');
                                                         ?>">
                                 <span class="icon fa fa-users"></span>
                                 <span class="title">Tim Kerja</span>

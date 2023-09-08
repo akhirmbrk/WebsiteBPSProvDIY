@@ -10,7 +10,7 @@
         </div>
         <div class="header-action">
             <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/index/tambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
+                <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
 
         </div>
@@ -86,7 +86,7 @@
                         <!-- Search -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
-                                <input type="text" name="s" placeholder="Cari Tim Kerja">
+                                <input type="text" name="searchTimKerja" autofocus autocomplete="off" placeholder="Cari Tim Kerja">
                             </form>
                         </div>
                         <!-- END Search -->
@@ -102,14 +102,14 @@
                                     <img class="avatar" src="<?= base_url('');
                                                                 ?>/assets/img/avatar/3.jpg" alt="...">
 
-                                    <a class="media-body text-truncate" href="<?= base_url('monitoring/index/detailTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode'] ?>">
+                                    <a class="media-body text-truncate" href="<?= base_url('Monitoring/TimKerja/detailTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode'] ?>">
                                         <h5 class="fs-15"><?= $item['nama_tim_kerja'] ?></h5>
                                         <small class="opacity-65 fw-300">
                                             <?= $item['namaBPS'] . " &mdash; " . $item['Tahun'] ?>
                                         </small>
 
                                         <nav class="nav gap-2 fs-16">
-                                            <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                            <a class="nav-link hover-danger cat-delete" href="<?= base_url('Monitoring/TimKerja/hapusKegiatan') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode']  ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                         </nav>
 
 
@@ -120,18 +120,18 @@
                         } ?>
 
                         <!-- END List Tim Kerja -->
-
-
                     </div>
+                    <?= $this->pagination->create_links(); ?>
 
 
-                    <footer class="flexbox align-items-center py-20">
+
+                    <!-- <footer class="flexbox align-items-center py-20">
                         <span class="flex-grow text-right text-lighter pr-2">1-20 of 367</span>
                         <nav>
                             <a class="btn btn-sm btn-square disabled" href="#"><i class="ti-angle-left"></i></a>
                             <a class="btn btn-sm btn-square" href="#"><i class="ti-angle-right"></i></a>
-                        </nav>
-                    </footer>
+                        </nav> -->
+                    <!-- </footer> -->
 
                 </div>
 

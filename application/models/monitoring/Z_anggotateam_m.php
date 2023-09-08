@@ -25,6 +25,22 @@ class Z_anggotateam_m extends CI_Model
         $Q->free_result();
         return $data;
     }
+
+    public function get_teams($limit, $start)
+    {
+        $query = $this->db->order_by('z_anggotateam.id_zanggt', 'DESC')->select('*');
+        $query = $this->db->from('z_anggotateam');
+        $query = $this->db->join('tim_kerja', 'tim_kerja.id_team = z_anggotateam.id_team');
+        $query = $this->db->join('bps', 'bps.KodeBPS = z_anggotateam.KodeBPS');
+        $query = $this->db->join('z_periode', 'z_periode.id_zperiode = z_anggotateam.Id_Periode');
+        $query = $this->db->where('ketua_tim =', 1);
+        $query = $this->db->limit($limit, $start);
+        $query = $this->db->get()->result_array();
+
+        return $query;
+    }
+
+
     public function list_anggota_team($id, $bps, $periode)
     {
         $data = array();
@@ -59,5 +75,19 @@ class Z_anggotateam_m extends CI_Model
         $hasil['point'] = 'sukses';
 
         return $hasil;
+    }
+
+
+    public function get_jumlah_team()
+    {
+        return $this->db->get_where('z_anggotateam', array('ketua_tim' => 1))->num_rows();
+    }
+
+    public function hapus_tim_kerja($team, $bps, $periode)
+    {
+        $this->db->where('id_team', $team);
+        $this->db->where('kodeBPS', $bps);
+        $this->db->where('Id_Periode', $periode);
+        $this->db->delete('z_anggotateam');
     }
 }

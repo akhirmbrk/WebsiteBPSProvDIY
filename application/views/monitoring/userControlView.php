@@ -20,11 +20,15 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="card shadow-1">
+
+                    <!-- Search Form -->
                     <div class="card-body">
                         <form class="lookup lookup-right">
-                            <input type="text" name="s" placeholder="Cari Nama Pegawai">
+                            <input type="text" id="searchUser" name="searchUser" autofocus autocomplete="off" placeholder="Cari Nama Pegawai">
                         </form>
                     </div>
+
+                    <!-- List User Table -->
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -84,10 +88,14 @@
                             } ?>
                         </tbody>
                     </table>
+                    <!-- Pagination -->
+                    <?= $this->pagination->create_links(); ?>
+
+
                 </div>
             </div>
 
-
+            <!-- Form Edit Role User -->
             <div class="col-lg-5">
                 <form action="<?= base_url('') ?>monitoring/user/editRole" method="post" class="card shadow-1">
                     <h5 class="card-title"><strong>Edit Role User</strong></h5>
@@ -106,8 +114,6 @@
 
                         <div class="form-group">
                             <label>Role</label>
-                            <!-- <input class="form-control" type="text" name="roleEdit" id="roleEdit" readonly> -->
-
                             <select name="roleEdit" id="roleEdit" class="form-control">
                                 <option value="SuperAdmin">Super Admin</option>
                                 <option value="AdminTimKerjaProv">Admin Tim Kerja Provinsi</option>

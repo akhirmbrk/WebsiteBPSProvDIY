@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form class="row" action="<?= base_url('') ?>monitoring/index/addTimUser" method="post" enctype="multipart/form-data">
+              <form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/addTimUser" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">
@@ -75,7 +75,7 @@
                               <hr>
                               <div><small>Yang pertama merupakan ketua tim</small></div>
                               <label class="require">Anggota</label>
-                              <input class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
+                              <input autocomplete="off" class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
                               <input type="hidden" id="anggota" name="anggota" required>
                               <script>
                                   // Array dengan delimiter koma

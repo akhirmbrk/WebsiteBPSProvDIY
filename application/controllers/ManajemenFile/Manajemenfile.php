@@ -17,8 +17,6 @@ class Manajemenfile extends CI_Controller
 			$this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
 			redirect('sso/index', 'refresh');
 		}
-		$defadata['defadata'] = $this->All_m->top_bar();
-		$this->load->vars($defadata);
 		date_default_timezone_set("Asia/Jakarta");
 	}
 
@@ -40,7 +38,7 @@ class Manajemenfile extends CI_Controller
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
-		$this->load->view('manajemenFile/manajemenFileView');
+		$this->load->view('manajemenFile/manajemenFileView copy');
 		$this->load->view('template/footer');
 	}
 

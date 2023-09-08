@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form action="<?php echo base_url('monitoring/Kegiatan/addKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
+              <form action="<?php echo base_url('Monitoring/Kegiatan/addKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
                   <div class="col-md-7 col-xl-8">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
@@ -49,19 +49,19 @@
 
                                   <div class="form-group col-md-6">
                                       <label class="require">Judul Kegiatan</label>
-                                      <input class="form-control" type="text" name="judulKegiatan" required>
+                                      <input class="form-control" type="text" name="judulKegiatan" autofocus autocomplete="off" required>
                                   </div>
                               </div>
 
                               <hr>
                               <label class="require">Waktu Kegiatan</label>
                               <div class="input-group" data-provide="datepicker">
-                                  <input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai" value="<?php echo $tanggal_now; ?>" required>
+                                  <input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>
 
-                                  <input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai" value="<?php echo $tanggal_now; ?>" required>
+                                  <input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
                                   <span class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                   </span>
@@ -73,7 +73,7 @@
 
 
                           <footer class="card-footer text-right">
-                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/kegiatan') ?>">Cancel</a>
+                              <a class="btn btn-secondary mr-2" href="<?= base_url('Monitoring/Kegiatan') ?>">Cancel</a>
                               <button class="btn btn-primary" type="submit">Submit</button>
                           </footer>
 

@@ -89,7 +89,7 @@
                         <!-- Searching kegiatan -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
-                                <input type="text" name="s" placeholder="Cari Kegiatan">
+                                <input type="text" name="searchKegiatan" autofocus autocomplete="off" placeholder="Cari Kegiatan">
                             </form>
                         </div>
                         <!-- end Searching kegiatan -->
@@ -135,16 +135,12 @@
                         </a>
 
                     </div>
+                    <?= $this->pagination->create_links(); ?>
                 </div>
 
 
-                <footer class="flexbox align-items-center py-20">
-                    <span class="flex-grow text-right text-lighter pr-2">1-20 of 367</span>
-                    <nav>
-                        <a class="btn btn-sm btn-square disabled" href="#"><i class="ti-angle-left"></i></a>
-                        <a class="btn btn-sm btn-square" href="#"><i class="ti-angle-right"></i></a>
-                    </nav>
-                </footer>
+                <!-- <footer class="flexbox align-items-center py-20">
+                </footer> -->
 
             </div>
 
