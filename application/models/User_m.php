@@ -165,6 +165,33 @@ class User_m extends CI_Model
         return $this->db->get('userapp', $limit, $start)->result_array();
     }
 
+    public function get_users_live($limit, $start, $keyword, $count)
+    {
+        //  $this->db->get('userapp', $limit, $start)->result_array();
+
+        $this->db->select('*');
+        $this->db->from('userapp');
+        if ($keyword) {
+            $keyword = $keyword['keyword'];
+            if ($keyword) {
+                $this->db->where("namaU LIKE '%$keyword%'");
+                $this->db->or_where("nip LIKE '%$keyword%'");
+            }
+        }
+        if ($count) {
+            return $this->db->count_all_results();
+        } else {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }
+        }
+
+        return array();
+    }
+
     public function get_jumlah_user()
     {
         return $this->db->get('userapp')->num_rows();

@@ -31,7 +31,7 @@
                                                 } else {
                                                     echo '';
                                                 }  ?>">
-                            <a class="menu-link" href="<?= base_url('Monitoring/index/dashboard');
+                            <a class="menu-link" href="<?= base_url('Monitoring/Index/dashboard');
                                                         ?>">
                                 <span class="icon fa fa-home"></span>
                                 <span class="title">Home</span>
