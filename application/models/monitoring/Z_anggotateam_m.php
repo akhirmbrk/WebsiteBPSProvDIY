@@ -40,6 +40,34 @@ class Z_anggotateam_m extends CI_Model
         return $query;
     }
 
+    public function get_teams_live($limit, $start, $keyword, $count)
+    {
+        $this->db->order_by('z_anggotateam.id_zanggt', 'DESC')->select('*');
+        $this->db->from('z_anggotateam');
+        $this->db->join('tim_kerja', 'tim_kerja.id_team = z_anggotateam.id_team');
+        $this->db->join('bps', 'bps.KodeBPS = z_anggotateam.KodeBPS');
+        $this->db->join('z_periode', 'z_periode.id_zperiode = z_anggotateam.Id_Periode');
+        $this->db->where('ketua_tim =', 1);
+
+        if ($keyword) {
+            $keyword = $keyword['keyword'];
+            if ($keyword) {
+                $this->db->like("nama_tim_kerja", $keyword);
+            }
+        }
+        if ($count) {
+            return $this->db->count_all_results();
+        } else {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }
+        }
+
+        return array();
+    }
 
     public function list_anggota_team($id, $bps, $periode)
     {

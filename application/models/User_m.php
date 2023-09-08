@@ -174,8 +174,8 @@ class User_m extends CI_Model
         if ($keyword) {
             $keyword = $keyword['keyword'];
             if ($keyword) {
-                $this->db->where("namaU LIKE '%$keyword%'");
-                $this->db->or_where("nip LIKE '%$keyword%'");
+                $this->db->like("namaU", $keyword);
+                $this->db->or_like("nip", $keyword);
             }
         }
         if ($count) {

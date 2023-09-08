@@ -140,6 +140,30 @@ class Kegiatan_m extends CI_Model
         return $this->db->order_by('id_kegiatan', 'DESC')->get('kegiatan', $limit, $start)->result_array();
     }
 
+    public function get_kegiatan_live($limit, $start, $keyword, $count)
+    {
+        $this->db->select('*');
+        $this->db->from('kegiatan');
+        if ($keyword) {
+            $keyword = $keyword['keyword'];
+            if ($keyword) {
+                $this->db->like("judul_kegiatan", $keyword);
+            }
+        }
+        if ($count) {
+            return $this->db->count_all_results();
+        } else {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }
+        }
+
+        return array();
+    }
+
     public function get_jumlah_kegiatan()
     {
         return $this->db->get('kegiatan')->num_rows();

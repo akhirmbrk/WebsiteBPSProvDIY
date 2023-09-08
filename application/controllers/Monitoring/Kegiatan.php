@@ -35,28 +35,19 @@ class Kegiatan extends CI_Controller
     }
     public function index()
     {
-        $this->load->library('pagination');
-
-        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/index";
-        $config['total_rows'] = $this->Kegiatan_m->get_jumlah_kegiatan();
-        $config['per_page'] = 5;
-        $config['attributes'] = array('class' => 'page-link');
-
-        $this->pagination->initialize($config);
-
-
+        $data['tabKegiatan'] = "1";
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
-        $data['start'] = $this->uri->segment(4);
+        // $data['start'] = $this->uri->segment(4);
 
-        $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan($config['per_page'], $data['start']);
+        // $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan($config['per_page'], $data['start']);
 
-        foreach ($data['list_kegiatan'] as $key => $item) {
-            $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
-        }
+        // foreach ($data['list_kegiatan'] as $key => $item) {
+        //     $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+        // }
 
         // var_dump($data['tim_kerja']);
 
@@ -72,6 +63,39 @@ class Kegiatan extends CI_Controller
         $this->load->view('template/topNav');
         $this->load->view('monitoring/kegiatanView');
         $this->load->view('template/footer');
+    }
+
+    public function indexAjax()
+    {
+        $search = array(
+            'keyword' => trim($this->input->post('searchKegiatan')),
+        );
+
+        $this->load->library('pagination');
+
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
+        $data['start'] = $this->uri->segment(4);
+        $config['per_page'] = 5;
+        $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
+
+        $config['attributes'] = array('class' => 'page-link');
+
+        $this->pagination->initialize($config);
+
+
+        $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = false);
+
+        foreach ($data['list_kegiatan'] as $key => $item) {
+            $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+        }
+
+
+        // var_dump($data['tim']);
+
+        $this->load->vars($data);
+
+
+        $this->load->view('monitoring/kegiatanAjaxView');
     }
 
     public function detailKegiatan($id)
