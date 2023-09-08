@@ -4,7 +4,7 @@
 		<div class="header-info">
 			<div class="left">
 				<br>
-				<h2 class="header-title"><strong>Tim Kerja Saya</strong> <small class="subtitle">Lorem Ipsum</h2>
+				<h2 class="header-title"><strong>File Tim Kerja</strong> <small class="subtitle">Silakan Pilih Dokumen yang Ingin Dilihat atau Diunduh</h2>
 			</div>
 
 			<!-- <div class="header-action">
@@ -129,13 +129,13 @@
 									</h2>
 									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 										<div class="accordion-body">
-											<div class="table-responsive">
+											<div class="table-responsive" style="text-align: left;">
 												<table class="table">
 													<thead class="table-light">
 														<tr>
 															<th scope="col">#</th>
-															<th scope="col">Nama Dokumen</th>
-															<th scope="col">Action</th>
+															<th scope="col" style="text-align: center;">Nama Dokumen</th>
+															<th scope="col" style="text-align: center;">Action</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -143,8 +143,8 @@
 															<th scope="row">1</th>
 															<td>Mark</td>
 															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																<nav class="nav gap-2 fs-16 justify-content-center">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"  style="text-decoration: none;"></i></a>
 																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
 																</nav>
 															</td>
@@ -153,7 +153,7 @@
 															<th scope="row">2</th>
 															<td>Jacob</td>
 															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16">
+																<nav class="nav gap-2 fs-16 justify-content-center">
 																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
 																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
 																</nav>
@@ -163,14 +163,15 @@
 															<th scope="row">3</th>
 															<td>cok</td>
 															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16">
+																<nav class="nav gap-2 fs-16 justify-content-center">
 																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
 																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
 																</nav>
 															</td>
 													</tbody>
 												</table>
-												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
+												<button class="btn btn-label btn-info" fdprocessedid="zguoq" data-toggle="modal" data-target="#modal-sqduh"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
+
 											</div>
 										</div>
 									</div>
@@ -290,6 +291,196 @@
 
 						</div>
 
+						<div class="card">
+
+							<div class="row">
+								<div class="col">
+									<h4 class="card-title" style="font-size: large;"><strong>ST 2023</strong></h4>
+								</div>
+								<div class="col">
+
+								</div>
+								<div class="col">
+
+								</div>
+								<div class="col">
+									<button class="btn btn-float btn-sm btn-primary" fdprocessedid="d1yj1q" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Tambah Kegiatan"><i class="fa fa-plus"></i></button>
+								</div>
+
+							</div>
+							<!-- <h4 class="card-title"><strong>Row actions</strong></h4> -->
+							<div class="accordion" id="accordionPanelsStayOpenExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+											Pencacahan
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+										<div class="accordion-body">
+											<div class="table-responsive" style="text-align: left;">
+												<table class="table">
+													<thead class="table-light">
+														<tr>
+															<th scope="col">#</th>
+															<th scope="col" style="text-align: center;">Nama Dokumen</th>
+															<th scope="col" style="text-align: center;">Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th scope="row">1</th>
+															<td>Mark</td>
+															<td class="text-right table-actions">
+																<nav class="nav gap-2 fs-16 justify-content-center">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">2</th>
+															<td>Jacob</td>
+															<td class="text-right table-actions">
+																<nav class="nav gap-2 fs-16 justify-content-center">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">3</th>
+															<td>cok</td>
+															<td class="text-right table-actions">
+																<nav class="nav gap-2 fs-16 justify-content-center">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+													</tbody>
+												</table>
+												<button class="btn btn-label btn-info" fdprocessedid="zguoq" data-toggle="modal" data-target="#modal-sqduh"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+											Pengolahan
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+										<div class="accordion-body">
+											<div class="table-responsive">
+												<table class="table">
+													<thead class="table-light">
+														<tr>
+															<th scope="col">#</th>
+															<th scope="col">Nama Dokumen</th>
+															<th scope="col">Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th scope="row">1</th>
+															<td>Mark</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">2</th>
+															<td>Jacob</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">3</th>
+															<td>cok</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+													</tbody>
+												</table>
+												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+											Publikasi
+										</button>
+									</h2>
+									<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+										<div class="accordion-body">
+											<div class="table-responsive">
+												<table class="table">
+													<thead class="table-light">
+														<tr>
+															<th scope="col">#</th>
+															<th scope="col">Nama Dokumen</th>
+															<th scope="col">Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th scope="row">1</th>
+															<td>Mark</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">2</th>
+															<td>Jacob</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">3</th>
+															<td>cok</td>
+															<td>
+																<nav class="nav gap-2 fs-16">
+																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
+																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
+																</nav>
+															</td>
+													</tbody>
+												</table>
+												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- Sampe Sini -->
+
+						</div>
+
+
 					</div>
 
 
@@ -305,6 +496,34 @@
 
 			</div>
 
+		</div>
+	</div>
+</div>
+<!-- modal  -->
+<div class="modal fade modal-top" id="modal-sqduh" tabindex="-1" role="dialog" aria-labelledby="modal-sqduh-label" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modal-sqduh-label">Tambah Dokumen</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<!-- <label for="input-placeholder">Nama Dokumen</label> -->
+					<input type="text" class="form-control" placeholder="Nama Dokumen" id="input-placeholder" fdprocessedid="74vtj7">
+				</div>
+				<div class="input-group file-group">
+					<input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
+					<input type="file" multiple>
+					<span class="input-group-append">
+						<button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
+					</span>
+				</div>
+				<br>
+				<button class="btn btn-label btn-primary" fdprocessedid="n94e2j"><label><i class="ti-check"></i></label> Submit</button>
+			</div>
 		</div>
 	</div>
 </div>

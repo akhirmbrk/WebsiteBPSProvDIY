@@ -112,7 +112,7 @@
 										<a data-toggle="collapse" data-parent="#accordion-2" href="#collapse-2-2" class="collapsed" aria-expanded="false">Pelatihan</a>
 									</h5>
 
-									<div id="collapse-2-2" class="collapse" style="">
+									<div id="collapse-2-2" class="collapse">
 										<div class="card-body">
 
 											<!-- Taruh Isi Disini -->
