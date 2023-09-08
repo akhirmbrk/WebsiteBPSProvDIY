@@ -37,7 +37,7 @@
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <select required id="timKerja" name="timKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                                      <select required id="timKerja" name="timKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
                                           <?php
                                             if (count($tim_kerja)) {
                                                 foreach ($tim_kerja as $indeks => $item) {  ?>
@@ -80,25 +80,6 @@
 
                       </div>
                   </div>
-
-
-                  <!-- <div class=" col-md-5 col-xl-4">
-                                  <div class="card shadow-1">
-                                      <h5 class="card-title">Attachments</h5>
-
-                                      <div class="card-body">
-                                          <div class="input-group file-group">
-                                              <input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
-                                              <input type="file" multiple>
-                                              <span class="input-group-append">
-                                                  <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
-                                              </span>
-                                          </div>
-                                      </div>
-                                  </div>
-                      </div> -->
-
-
               </form>
           </div>
       </div>
