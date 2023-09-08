@@ -68,13 +68,15 @@
 
                               <div class="form-group">
                                   <label class="require">Deskripsi Kegiatan</label>
-                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan"></textarea>
+                                  <textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan">
+                                    <?= $detail_kegiatan['deskripsi_kegiatan'] ?>
+                                </textarea>
                               </div>
                           </div>
 
 
                           <footer class="card-footer text-right">
-                              <a class="btn btn-secondary mr-2" href="<?= base_url('monitoring/Kegiatan') ?>">Cancel</a>
+                              <a class="btn btn-secondary mr-2" href="<?= base_url('Monitoring/Kegiatan') ?>">Cancel</a>
                               <button class="btn btn-primary" type="submit">Update</button>
                           </footer>
 

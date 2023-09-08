@@ -89,7 +89,7 @@
                         <!-- Searching kegiatan -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
-                                <input type="text" name="s" placeholder="Cari Kegiatan">
+                                <input type="text" name="searchKegiatan" autofocus autocomplete="off" placeholder="Cari Kegiatan">
                             </form>
                         </div>
                         <!-- end Searching kegiatan -->

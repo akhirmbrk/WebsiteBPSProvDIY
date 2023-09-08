@@ -137,7 +137,7 @@ class Kegiatan_m extends CI_Model
 
     public function get_kegiatan($limit, $start)
     {
-        return $this->db->get('kegiatan', $limit, $start)->result_array();
+        return $this->db->order_by('id_kegiatan', 'DESC')->get('kegiatan', $limit, $start)->result_array();
     }
 
     public function get_jumlah_kegiatan()

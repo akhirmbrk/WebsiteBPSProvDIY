@@ -30,10 +30,6 @@ class Kegiatan extends CI_Controller
             redirect('sso/index', 'refresh');
         }
         $this->load->library('form_validation');
-        $defadata = $this->All_m->top_bar();
-        if ($defadata['admin_zoom'] != 1) {
-            redirect('zoom/zoomorder/index/', 'refresh');
-        }
 
         date_default_timezone_set("Asia/Jakarta");
     }
@@ -44,33 +40,7 @@ class Kegiatan extends CI_Controller
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/index";
         $config['total_rows'] = $this->Kegiatan_m->get_jumlah_kegiatan();
         $config['per_page'] = 5;
-
-        $config['full_tag_open'] = '<nav class="mt-3"><ul class="pagination justify-content-center">';
-        $config['full_tag_close'] = '</ul></nav>';
-
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li class="page-item ">';
-        $config['first_tag_close'] = '</li>';
-
-        $config['next_link'] = '<span class="ti-arrow-right"></span>';
-        $config['next_tag_open'] = '<li class="page-item ">';
-        $config['next_tag_close'] = '</li>';
-
-        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-        $config['cur_tag_close'] = '</a></li>';
-
-        $config['num_tag_open'] = '<li class="page-item">';
-        $config['num_tag_close'] = '</li>';
-
         $config['attributes'] = array('class' => 'page-link');
-
-        $config['prev_link'] = '<span class="ti-arrow-left"></span>';
-        $config['prev_tag_open'] = '<li class="page-item ">';
-        $config['prev_tag_close'] = '</li>';
-
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li class="page-item ">';
-        $config['last_tag_close'] = '</li>';
 
         $this->pagination->initialize($config);
 
@@ -185,15 +155,15 @@ class Kegiatan extends CI_Controller
         if ($hasil['point'] == 'sukses') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambah Kegiatan</div> ');
-            redirect('monitoring/kegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         } else if ($hasil['point'] == 'block') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
-            redirect('monitoring/kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 

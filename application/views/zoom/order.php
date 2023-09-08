@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <label>Perihal Rapat </label>
-                                            <input name="perihal" class="form-control" type="text" value="" required>
+                                            <input name="perihal" class="form-control" type="text" value="" autocomplete="off" autofocus required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -35,14 +35,14 @@
                                             </div>
                                             <div class="input-group">
 
-                                                <input type="text" name="tgl_start" class="form-control" data-provide="datepicker" value="<?php echo $tanggal_now; ?>" required>
+                                                <input type="text" name="tgl_start" class="form-control" data-provide="datepicker" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
 
 
 
-                                                <input type="text" name="time_start" class="form-control" value="07:30" data-provide="clockpicker" required>
+                                                <input type="text" name="time_start" class="form-control" value="07:30" data-provide="clockpicker" autocomplete="off" required>
                                                 <span class="input-group-addon"><i class="ti-timer"></i></span>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <label>Jumlah Peserta </label>
-                                            <input type="number" class="form-control" name="jumlah_peserta" placeholder="Max = 100" max="100" required>
+                                            <input type="number" class="form-control" name="jumlah_peserta" placeholder="Max = 100" max="100" autocomplete="off" required>
                                         </div>
                                     </div>
                                     <div class="row">
