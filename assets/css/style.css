@@ -52,25 +52,6 @@ html {
 	z-index: 1;
 }
 
-
-.font-markazi-text {
-	font-size: var(--font-size-77xl);
-	font-weight: 600;
-	font-family: var(--font-markazi-text);
-	/*position: absolute;
-	/*top: 150px;
-	  left: calc(50% - 240px); */
-	/* display: block;
-	margin-left: 31%;
-	margin-top: 2%;
-	
-	 */
-	/* display: inline-block; */
-	/* width: 484px;
-	height: 131px;
-	font-size: 70px;*/
-}
-
 /* .monitoringFont {
 	  position: relative;
 	  background-color: var(--color-white);
