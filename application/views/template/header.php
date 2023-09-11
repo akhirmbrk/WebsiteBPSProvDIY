@@ -21,6 +21,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif"  rel="stylesheet" >
+	<link href="https://fonts.googleapis.com/css?family=Krona+One"  rel="stylesheet" >
     <link href="<?= base_url(''); ?>assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="<?= base_url(''); ?>assets/vendor/material-icons/css/material-icons.css" rel="stylesheet">
     <link href="<?= base_url(''); ?>assets/vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
