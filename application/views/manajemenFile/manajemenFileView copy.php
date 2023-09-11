@@ -520,7 +520,9 @@
 					<span class="input-group-append">
 						<button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
 					</span>
+				
 				</div>
+				<small class="form-text"><i>Dokumen harus dalam format .pdf</i></small>
 				<br>
 				<button class="btn btn-label btn-primary" fdprocessedid="n94e2j"><label><i class="ti-check"></i></label> Submit</button>
 			</div>
