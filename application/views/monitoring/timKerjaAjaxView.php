@@ -15,7 +15,7 @@ if (count($teams)) {
                 </small>
 
                 <nav class="nav gap-2 fs-16">
-                    <a class="nav-link hover-danger cat-delete" href="<?= base_url('Monitoring/TimKerja/hapusKegiatan') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode']  ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                    <a class="nav-link hover-danger cat-delete" href="<?= base_url('Monitoring/TimKerja/hapusTimKerja') . "/" . $item['id_team'] . "/" . $item['kodeBPS'] . "/" . $item['Id_Periode']  ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                 </nav>
 
 

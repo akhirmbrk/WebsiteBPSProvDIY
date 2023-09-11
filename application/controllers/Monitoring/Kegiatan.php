@@ -49,12 +49,9 @@ class Kegiatan extends CI_Controller
         //     $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
         // }
 
-        // var_dump($data['tim_kerja']);
-
         $filter['bps'] = $this->BPS_m->list_bps();
         $filter['periode'] = $this->Periode_m->list_periode();
         $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
-
 
         $this->load->vars($data);
         $this->load->vars($filter);
@@ -109,7 +106,6 @@ class Kegiatan extends CI_Controller
         $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
 
-
         $this->load->vars($data);
 
         $this->load->view('template/header');
@@ -125,10 +121,9 @@ class Kegiatan extends CI_Controller
         $data['progress'] = 70;
         $data['title'] = "Kegiatan Monitoring BPS";
 
-
         $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
-        // var_dump($data['tim_kerja']);
+
         $this->load->vars($data);
 
         $this->load->view('template/header');
@@ -178,15 +173,11 @@ class Kegiatan extends CI_Controller
 
         if ($hasil['point'] == 'sukses') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambah Kegiatan</div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
             redirect('Monitoring/Kegiatan', 'refresh');
-        } else if ($hasil['point'] == 'lewat') {
+        } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
-        } else if ($hasil['point'] == 'block') {
-
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
             redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
@@ -203,23 +194,19 @@ class Kegiatan extends CI_Controller
 
         if ($hasil['point'] == 'sukses') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
-            redirect('monitoring/kegiatan', 'refresh');
-        } else if ($hasil['point'] == 'lewat') {
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Mengupdate Kegiatan</div> ');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-            redirect('monitoring/kegiatan/editkegiatan/' . $id, 'refresh');
-        } else if ($hasil['point'] == 'block') {
-
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
-            redirect('monitoring/kegiatan/editkegiatan/' . $id, 'refresh');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Mengupdate Kegiatan</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 
     public function hapusKegiatan($id)
     {
         $this->Kegiatan_m->hapus_kegiatan($id);
-        $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
+        $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
         redirect('monitoring/kegiatan', 'refresh');
     }
 

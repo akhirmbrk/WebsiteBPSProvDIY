@@ -136,16 +136,13 @@ class TimKerja extends CI_Controller
         }
 
         if ($hasil['point'] == 'sukses') {
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Buat Kegiatan</div> ');
-            redirect('Monitoring/TimKerja', 'refresh');
-        } else if ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tgl_start'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
             redirect('Monitoring/TimKerja', 'refresh');
-        } else if ($hasil['point'] == 'block') {
+        } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Kegiatan untuk Tanggal ' . $hasil['tgl_start'] . ' Sudah Penuh</h1></div> ');
-            redirect('Monitoring/TimKerja', 'refresh');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Tim Kerja</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 
@@ -165,10 +162,10 @@ class TimKerja extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function hapusKegiatan($team, $bps, $periode)
+    public function hapusTimKerja($team, $bps, $periode)
     {
         $this->Z_anggotateam_m->hapus_tim_kerja($team, $bps, $periode);
-        $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Hapus Tim Kerja</div> ');
+        $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Berhasil Hapus Tim Kerja</div> ');
         redirect('Monitoring/TimKerja', 'refresh');
     }
 }
