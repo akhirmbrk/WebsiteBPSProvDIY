@@ -61,7 +61,7 @@
                               <label class="require">Progress</label>
 
                               <div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
-                              <input type="number" name="progresKegiatan" value="" class="form-control-plaintext">
+                              <input style="width: 25px;" type="number" name="progresKegiatan" value="" class="form-control-plaintext" readonly>
 
 
                               <hr>
