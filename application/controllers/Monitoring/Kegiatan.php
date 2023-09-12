@@ -183,7 +183,7 @@ class Kegiatan extends CI_Controller
         } else {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatanView', 'refresh');
         }
     }
 
@@ -204,7 +204,7 @@ class Kegiatan extends CI_Controller
         } else {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Mengupdate Kegiatan</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
+            redirect('Monitoring/Kegiatan/editKegiatanView', 'refresh');
         }
     }
 
