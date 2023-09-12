@@ -103,7 +103,7 @@
 						<!-- Accordion Mulai -->
 
 						<div class="card">
-							<h4 class="card-title"><strong>ST 2023</strong></h4>
+							<h4 class="card-title" style="font-size: larger;"><strong>ST 2023</strong></h4>
 
 							<div class="accordion accordion-connected" id="accordion-2">
 								<!-- Dari Sini -->

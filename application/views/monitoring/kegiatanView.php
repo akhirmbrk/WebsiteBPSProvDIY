@@ -34,7 +34,7 @@
                     <form action="<?= base_url('monitoring/kegiatan/filterKegiatan') ?>" method="post" class="card-body">
                         <div class="form-group">
                             <label>Periode Pelaksanaan</label>
-                            <select name="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($periode)) {
                                     foreach ($periode as $indeks => $item) {  ?>
@@ -48,7 +48,7 @@
 
                         <div class="form-group">
                             <label>BPS</label>
-                            <select name="filterBPS" title="All BPS" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterBPS" title="All BPS" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($bps)) {
                                     foreach ($bps as $indeks => $item) {  ?>
@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label>Tim Kerja</label>
-                            <select name="filterTimKerja" title="All Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                            <select name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($tim_kerja)) {
                                     foreach ($tim_kerja as $indeks => $item) {  ?>
