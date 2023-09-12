@@ -46,7 +46,7 @@ type: "POST",
 url: page_url,
 data: dataString,
 success: function(response) {
-console.log(response);
+<!-- console.log(response); -->
 $("#ajaxContent").html(response);
 },
 });

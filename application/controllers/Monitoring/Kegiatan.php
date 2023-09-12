@@ -80,17 +80,22 @@ class Kegiatan extends CI_Controller
         $this->pagination->initialize($config);
 
 
+
         $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = false);
 
+
         foreach ($data['list_kegiatan'] as $key => $item) {
+            $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($config['per_page'], $data['start'], $search, $count = false, $item['id_kegiatan']);
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
         }
+        // $data['list_sub_kegiatan'] = $this->Kegiatan_m->get_id_parent_kegiatan();
+        // var_dump($data['list_sub_kegiatan'][0][0]['judul_kegiatan']);
 
 
-        // var_dump($data['tim']);
+        // var_dump($this->input->post('id'));
+
 
         $this->load->vars($data);
-
 
         $this->load->view('monitoring/kegiatanAjaxView');
     }
@@ -183,13 +188,13 @@ class Kegiatan extends CI_Controller
     }
 
 
-    public function updateKegiatan($id)
+    public function updateKegiatan($id, $parent)
     {
 
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id);
+        $hasil = $this->Kegiatan_m->update_kegiatan($id, $parent);
 
 
         if ($hasil['point'] == 'sukses') {

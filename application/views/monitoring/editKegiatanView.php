@@ -28,7 +28,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']); ?>" class="row" method="post" enctype="multipart/form-data">
+              <form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan'] . "/" .  $detail_kegiatan['id_parent']); ?>" class="row" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">
@@ -61,7 +61,7 @@
                               <label class="require">Progress</label>
 
                               <div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
-                              <input type="number" name="progresKegiatan" value="" class="form-control-plaintext">
+                              <input type="number" name="progresKegiatan" value="" class="form-control-plaintext" readonly>
 
 
                               <hr>
