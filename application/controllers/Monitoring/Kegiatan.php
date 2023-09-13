@@ -145,7 +145,7 @@ class Kegiatan extends CI_Controller
 
     public function tambahKegiatan()
     {
-        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota'])) || (isset($_SESSION['roleKetuaTKProv']))) {
+        if ((!$_SESSION['user_role'] == 2) || (!$_SESSION['user_role'] == 3) || (!$_SESSION['user_role'] == 4)) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
