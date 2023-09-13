@@ -96,7 +96,7 @@ class Kegiatan_m extends CI_Model
     }
 
 
-    public function update_kegiatan($id)
+    public function update_kegiatan($id, $parent)
     {
         $data = array(
             'progres_kegiatan' => $this->input->post('progresKegiatan'),
@@ -105,6 +105,24 @@ class Kegiatan_m extends CI_Model
         );
         $this->db->where('id_kegiatan', $id);
         $this->db->update('kegiatan', $data);
+
+        $query = $this->db->select('progres_kegiatan');
+        $query = $this->db->from('kegiatan');
+        $query = $this->db->where('id_parent', $parent);
+        $query = $this->db->get()->result_array();
+        $total = count($query);
+        $progres = 0;
+        foreach ($query as $key => $item) {
+            $progres += (int)$query[$key]['progres_kegiatan'];
+        }
+        $mean = $progres / $total;
+
+        $data1 = array(
+            'progres_kegiatan' => $mean
+        );
+
+        $this->db->where('id_kegiatan', $parent);
+        $this->db->update('kegiatan', $data1);
 
         $hasil['point'] = 'sukses';
 
@@ -144,6 +162,32 @@ class Kegiatan_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('kegiatan');
+        $this->db->where('id_parent', 0);
+        if ($keyword) {
+            $keyword = $keyword['keyword'];
+            if ($keyword) {
+                $this->db->like("judul_kegiatan", $keyword);
+            }
+        }
+        if ($count) {
+            return $this->db->count_all_results();
+        } else {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }
+        }
+
+        return array();
+    }
+
+    public function get_sub_kegiatan_live($limit, $start, $keyword, $count, $parent)
+    {
+        $this->db->select('*');
+        $this->db->from('kegiatan');
+        $this->db->where('id_parent', $parent);
         if ($keyword) {
             $keyword = $keyword['keyword'];
             if ($keyword) {
@@ -167,6 +211,15 @@ class Kegiatan_m extends CI_Model
     public function get_jumlah_kegiatan()
     {
         return $this->db->get('kegiatan')->num_rows();
+    }
+
+    public function get_id_parent_kegiatan()
+    {
+        $query =  $this->db->select('id_parent');
+        $query =  $this->db->from('kegiatan');
+        $query =  $this->db->where('id_parent !=', 0);
+
+        return $query->get()->result_array();
     }
     /* SELECT SUM(ABC.jumlah_realisasi/ABC.target*100) AS total_realisasi, COUNT(ABC.id_pekerjaan) AS id, SUM(ABC.jumlah_persen_ketepatan/ABC.jumlah_realisasi) AS jm_per_ketepatan, SUM(ABC.jumlah_persen_kualitas/ABC.jumlah_realisasi) AS jm_per_kualitas, ABC.id_peg FROM ( SELECT MP.id_pekerjaan, MP.target, sum(TKH.realisasi) AS jumlah_realisasi, sum(TKH.realisasi*TKH.ketepatan) AS jumlah_persen_ketepatan, sum(TKH.realisasi*TKH.kualitas) AS jumlah_persen_kualitas, MP.id_pegawai AS id_peg FROM transaksi_kerja MP LEFT JOIN transaksi_k_harian_sdh_dinilai TKH ON TKH.id_tk = MP.id_tk WHERE MP.bln_ckp = 1 AND MP.tahun = 2018 GROUP BY MP.id_pekerjaan, MP.id_pegawai) AS ABC GROUP BY ABC.id_peg  */
 

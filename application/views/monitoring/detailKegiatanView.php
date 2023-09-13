@@ -29,12 +29,6 @@
         <? //= var_dump($detail_kegiatan) 
         ?>
         <div class="card shadow-1">
-            <header class="card-header bg-lightest">
-                <div class="card-title flexbox">
-                    <img class="img-fluid" src="<?= base_url('') ?>/assets/img/bg/bg_bps.png" alt="">
-                </div>
-            </header>
-
 
             <div class="card-body" style="text-align: center;">
                 <h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
