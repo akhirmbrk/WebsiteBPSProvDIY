@@ -122,24 +122,26 @@ class Kegiatan extends CI_Controller
     public function editKegiatan($id)
     {
 
-        if (!(isset($_SESSION['roleAdminTKProv'])) || !(isset($_SESSION['roleAdminTKKabkota']))) {
+        if (($_SESSION['roleAdminTKProv'] == 1) || ($_SESSION['roleAdminTKKabkota'] == 1)) {
+
+            $data['tab'] = "3";
+            $data['tipe'] = "1";
+            $data['progress'] = 70;
+            $data['title'] = "Kegiatan Monitoring BPS";
+
+            $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+            $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
+
+            $this->load->vars($data);
+
+            $this->load->view('template/header');
+            $this->load->view('template/topNav');
+            $this->load->view('monitoring/editKegiatanView');
+            $this->load->view('template/footer');
+        } else {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Anda Tidak Memiliki Akses ke Edit Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
-        $data['tab'] = "3";
-        $data['tipe'] = "1";
-        $data['progress'] = 70;
-        $data['title'] = "Kegiatan Monitoring BPS";
-
-        $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
-        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
-
-        $this->load->vars($data);
-
-        $this->load->view('template/header');
-        $this->load->view('template/topNav');
-        $this->load->view('monitoring/editKegiatanView');
-        $this->load->view('template/footer');
     }
 
 
