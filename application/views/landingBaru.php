@@ -33,10 +33,10 @@
 
 <body>
 
-  <div class="row no-margin" style="padding-top: 10%">
+  <div class="row no-margin" style="padding-top: 5%">
     <div id="slider" class="col-12">
       <div class="container mx-auto text-center">
-        <span class="fs-40 fw-900">MENU UTAMA</span>
+        <span class="fs-40 fw-900" style="font-family: Markazi-Text;">MENU UTAMA</span>
         <br>
         <br>
         <br>
