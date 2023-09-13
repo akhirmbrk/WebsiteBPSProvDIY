@@ -93,11 +93,21 @@ class Kegiatan_m extends CI_Model
 
         $jedah_res = $jedah->row_array();
 
+        $idParent = $this->input->post("id_parent_kegiatan");
 
-        if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
+        $query = $this->db->select('*');
+        $query = $this->db->from('kegiatan');
+        $query = $this->db->where('id_kegiatan', $idParent);
+        $query = $this->db->get()->result_array();
+        $tgl_start_parent = strtotime($query[0]['tgl_start']);
+        $tgl_end_parent = strtotime($query[0]['tgl_end']);
+        // var_dump($tgl_start_parent);
+        // var_dump($tgl_end_parent);        
+
+        if ($tgl_start_parent > $unix_tgl_start || $tgl_end_parent > $unix_tgl_end || $tgl_start_parent > $tgl_end_parent) {
             $hasil['point'] = 'lewat';
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1  . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
-        } else if ($jedah_res['jumlah'] > 1) {
+        } else if ($unix_tgl_start < $tgl_start_parent || $unix_tgl_start > $tgl_end_parent) {
             $hasil['point'] = 'block';
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
         } else {
@@ -109,7 +119,8 @@ class Kegiatan_m extends CI_Model
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
-                'id_parent' => $this->input->post("id_parent_kegiatan")
+                'id_parent' => $idParent,
+                'KodeBPS' => $this->input->post("kodeBPS")
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
@@ -281,6 +292,15 @@ class Kegiatan_m extends CI_Model
         $query =  $this->db->select('id_parent');
         $query =  $this->db->from('kegiatan');
         $query =  $this->db->where('id_parent !=', 0);
+
+        return $query->get()->result_array();
+    }
+
+    public function show_kegiatan($id)
+    {
+        $query =  $this->db->select('*');
+        $query =  $this->db->from('kegiatan');
+        $query =  $this->db->where('id_kegiatan', $id);
 
         return $query->get()->result_array();
     }

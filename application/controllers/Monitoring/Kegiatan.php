@@ -185,9 +185,9 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         } elseif ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal Mulai Kegiatan Melebihi Tanggal Selesai Kegiatan</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Waktu Mulai Kegiatan Sudah Berlalu</h1></div> ');
             redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
-        } elseif ($hasil['point'] == 'blok') {
+        } elseif ($hasil['point'] == 'block') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
             redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
@@ -266,8 +266,12 @@ class Kegiatan extends CI_Controller
         $data['title'] = "Tambah Kegiatan BPS";
 
         $data['id_parent'] = $idParent;
+        $data['bps'] = $this->BPS_m->list_bps();
 
-        $data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+        $parentKegiatan = $this->Kegiatan_m->show_kegiatan($idParent);
+
+        $data['parent_BPS'] = $this->BPS_m->show_bps($parentKegiatan[0]['KodeBPS']);
+        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($parentKegiatan[0]['id_tim_kerja']);
 
         $this->load->view('template/header', $data);
         $this->load->view('template/topNav', $data);
@@ -299,7 +303,7 @@ class Kegiatan extends CI_Controller
         } else {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatanView', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahSubKegiatanView', 'refresh');
         }
     }
 }
