@@ -25,4 +25,17 @@ class BPS_m extends CI_Model
         $Q->free_result();
         return $data;
     }
+
+    public function show_bps($id)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM bps WHERE kodeBPS = " . $id);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data['kodeBPS'] = 0;
+        }
+        $Q->free_result();
+        return $data;
+    }
 }
