@@ -38,4 +38,15 @@ class Index extends CI_Controller
 		$this->load->view('monitoring/indexView');
 		$this->load->view('template/footer');
 	}
+
+	public function profil()
+	{
+		$data['tab'] = "0";
+		$data['tipe'] = "1";
+		$data['title'] = "Profil User";
+		$this->load->view('template/header', $data);
+		$this->load->view('template/topNav', $data);
+		$this->load->view('monitoring/profilView');
+		$this->load->view('template/footer');
+	}
 }

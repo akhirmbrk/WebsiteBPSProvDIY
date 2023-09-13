@@ -20,4 +20,14 @@ class Home extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('login_lama');
 	}
+
+	public function comingSoon()
+	{
+		$data['tab'] = "1";
+		$data['tipe'] = "1";
+		$data['title'] = "Coming Soon";
+		$this->load->view('template/header', $data);
+		$this->load->view('template/comingSoonView');
+		$this->load->view('template/footer');
+	}
 }

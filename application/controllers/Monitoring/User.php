@@ -19,6 +19,10 @@ class User extends CI_Controller
             $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
             redirect('sso/index', 'refresh');
         }
+        if (!(isset($_SESSION['roleSuperAdmin']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses Ke User</div>');
+            redirect('Monitoring/Index/dashboard', 'refresh');
+        }
         date_default_timezone_set("Asia/Jakarta");
     }
 

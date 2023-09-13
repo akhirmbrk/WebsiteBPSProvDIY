@@ -38,17 +38,19 @@
                             </a>
                         </li>
 
-                        <li class="menu-item <?php if ($tab === '2') {
-                                                    echo 'active';
-                                                } else {
-                                                    echo '';
-                                                }  ?>">
-                            <a class="menu-link" href="<?= base_url('Monitoring/User');
-                                                        ?>">
-                                <span class="icon fa fa-user-secret"></span>
-                                <span class="title">User</span>
-                            </a>
-                        </li>
+                        <?php if (isset($_SESSION['roleSuperAdmin'])) { ?>
+                            <li class="menu-item <?php if ($tab === '2') {
+                                                        echo 'active';
+                                                    } else {
+                                                        echo '';
+                                                    }  ?>">
+                                <a class="menu-link" href="<?= base_url('Monitoring/User');
+                                                            ?>">
+                                    <span class="icon fa fa-user-secret"></span>
+                                    <span class="title">User</span>
+                                </a>
+                            </li>
+                        <?php } ?>
 
                         <li class="menu-item <?php if ($tab === '3') {
                                                     echo 'active';
@@ -144,23 +146,20 @@
 
             <ul class="topbar-btns">
                 <li class="dropdown">
+                    <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
                     <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url('');
                                                                                                 ?>/assets/img/avatar/1.jpg" alt="..."></span>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#"><i class="ti-user"></i> Profile</a>
-                        <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+                        <!-- <a class="dropdown-item" href="<?= base_url('Monitoring/Index/profil') ?>"><i class="ti-user"></i> Profile</a> -->
+                        <!-- <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
 
 
-                        <?php
-
-                        if ($tipe == 2 && count($defadata)) {
-                        ?>
-
+                        <?php if ($tipe == 2 && count($defadata)) { ?>
 
                             <?php if ($defadata['admin_zoom'] == 1) { ?>
 
                                 <!-- <li class="menu-item"> -->
-                                <a class="dropdown-item" href="<?php echo base_url('zoom/adminbidang'); ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('Zoom/Adminbidang'); ?>">
                                     <span class="icon fa fa-file-text-o"></span>
                                     <span class="title">Admin</span>
                                 </a>
@@ -171,7 +170,7 @@
                             <?php if ($defadata['admin_pst'] == 0) { ?>
 
                                 <!-- <li class="menu-item"> -->
-                                <a class="dropdown-item" href="<?php echo base_url('zoom/adminbidang'); ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('Zoom/Adminbidang'); ?>">
                                     <span class="icon fa fa-file-text-o"></span>
                                     <span class="title">PST</span>
                                 </a>
@@ -181,7 +180,6 @@
 
 
                         <?php } ?>
-                        <div class="dropdown-divider"></div>
                         <?php if ($tipe != 'landing') { ?>
                             <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
                                 Landing Page</a>

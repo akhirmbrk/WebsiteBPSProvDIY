@@ -33,7 +33,7 @@ class All_m extends CI_Model
 		$unix_tgl_end = strtotime($tgl_end);
 
 		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2");
-		
+
 		$jedah_res = $jedah->row_array();
 
 		$keterangan = $this->input->post("keterangan");
@@ -571,7 +571,7 @@ class All_m extends CI_Model
 	{
 		$data = array();
 
-		$P = $this->db->query("SELECT * FROM userapp WHERE nip = " . $nip);
+		$P = $this->db->query("SELECT * FROM userapp WHERE nip = '" . $nip . "'");
 		if ($P->num_rows() == 0) {
 
 			$data = array(
@@ -579,6 +579,10 @@ class All_m extends CI_Model
 				'namaU' => $namaU
 			);
 			$this->db->insert('userapp', $data);
+
+			return $this->db->where('nip', $nip)->get()->result_array();
+		} else {
+			return $P->result_array();
 		}
 	}
 

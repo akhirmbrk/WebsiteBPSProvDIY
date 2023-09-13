@@ -26,23 +26,25 @@
         <div class="slider">
           <div class="owl-carousel">
             <div class="slider-card">
-              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/manajemenFile/manajemenfile">
+              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
                 <img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
               </a>
             </div>
             <div class="slider-card">
-              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/monitoring/index/dashboard">
+              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Monitoring/Index/dashboard">
                 <img class="monitoringImg" src="<?= base_url('') ?>/assets/img/monitoringLogo.png" alt="">
               </a>
             </div>
             <div class="slider-card">
-              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/zoom/zoomorder">
+              <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Zoom/zoomorder">
                 <img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />
               </a>
             </div>
             <div class="slider-card">
               <div class="d-flex justify-content-center align-center mb-4">
-                <img class="suratImg" src="<?= base_url('') ?>/assets/img/suratLogo.png" alt="">
+                <a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('Home/comingSoon') ?>">
+                  <img class=" suratImg" src="<?= base_url('') ?>/assets/img/suratLogo.png" alt="">
+                </a>
               </div>
             </div>
           </div>

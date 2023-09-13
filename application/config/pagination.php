@@ -8,7 +8,7 @@ $config['first_tag_open'] = '<li class="page-item">';
 $config['first_tag_close'] = '</li>';
 
 $config['next_link'] = '<span class="ti-arrow-right"></span>';
-$config['next_tag_open'] = '<li class="page-item disabled">';
+$config['next_tag_open'] = '<li class="page-item ">';
 $config['next_tag_close'] = '</li>';
 
 $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
@@ -19,7 +19,7 @@ $config['num_tag_close'] = '</li>';
 
 
 $config['prev_link'] = '<span class="ti-arrow-left"></span>';
-$config['prev_tag_open'] = '<li class="page-item disabled">';
+$config['prev_tag_open'] = '<li class="page-item ">';
 $config['prev_tag_close'] = '</li>';
 
 $config['last_link'] = 'Last';

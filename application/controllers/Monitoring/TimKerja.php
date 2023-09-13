@@ -86,6 +86,11 @@ class TimKerja extends CI_Controller
 
     public function tambahTimKerja()
     {
+        if (!((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota'])))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
         $data['tab'] = "4";
         $data['tipe'] = "1";
         $data['title'] = "Tambah Tim Kerja BPS";

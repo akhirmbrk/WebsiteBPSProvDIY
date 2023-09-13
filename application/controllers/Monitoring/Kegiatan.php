@@ -72,7 +72,7 @@ class Kegiatan extends CI_Controller
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(4);
-        $config['per_page'] = 2;
+        $config['per_page'] = 1;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
         $config['attributes'] = array('class' => 'page-link');
@@ -85,7 +85,7 @@ class Kegiatan extends CI_Controller
 
 
         foreach ($data['list_kegiatan'] as $key => $item) {
-            $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($config['per_page'], $data['start'], $search, $count = false, $item['id_kegiatan']);
+            $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($item['id_kegiatan']);
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
         }
         // $data['list_sub_kegiatan'] = $this->Kegiatan_m->get_id_parent_kegiatan();
@@ -121,6 +121,11 @@ class Kegiatan extends CI_Controller
 
     public function editKegiatan($id)
     {
+
+        if (!(isset($_SESSION['roleAdminTKProv'])) || !(isset($_SESSION['roleAdminTKKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Anda Tidak Memiliki Akses ke Edit Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 70;
@@ -140,6 +145,11 @@ class Kegiatan extends CI_Controller
 
     public function tambahKegiatan()
     {
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota'])) || (isset($_SESSION['roleKetuaTKProv']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
         $tgl = date('Y-m-d', strtotime(' +0 day'));
 
         $tgl_dh_1 = substr($tgl, 8, 2);
@@ -164,6 +174,10 @@ class Kegiatan extends CI_Controller
 
     public function addKegiatan()
     {
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $data = array();
 
         $this->load->library('form_validation');
@@ -197,7 +211,10 @@ class Kegiatan extends CI_Controller
 
     public function updateKegiatan($id, $parent)
     {
-
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Edit Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $data = array();
 
 
@@ -217,6 +234,10 @@ class Kegiatan extends CI_Controller
 
     public function hapusKegiatan($id)
     {
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Hapus Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $this->Kegiatan_m->hapus_kegiatan($id);
         $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
         redirect('monitoring/kegiatan', 'refresh');
@@ -254,6 +275,11 @@ class Kegiatan extends CI_Controller
 
     public function tambahSubKegiatan($idParent)
     {
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
         $tgl = date('Y-m-d', strtotime(' +0 day'));
 
         $tgl_dh_1 = substr($tgl, 8, 2);
@@ -277,6 +303,11 @@ class Kegiatan extends CI_Controller
 
     public function addSubKegiatan()
     {
+        if ((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota']))) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
         $data = array();
 
         $this->load->library('form_validation');
