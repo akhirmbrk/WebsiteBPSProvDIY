@@ -87,6 +87,10 @@ class User extends CI_Controller
     public function editRole()
     {
 
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit User</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
 
         $id = $this->input->post('idEdit');
         $hasil = $this->User_m->edit_role_user($id);

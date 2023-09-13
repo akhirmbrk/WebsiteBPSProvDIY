@@ -70,7 +70,7 @@ class Sso extends CI_Controller
 
 		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "8888";
+		$_SESSION['nip'] = "6666";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
 
@@ -91,11 +91,11 @@ class Sso extends CI_Controller
 		}
 
 		// var_dump($this->session->userdata('user_role'));
-		// var_dump($_SESSION);
+		var_dump($_SESSION);
 
 
 
-		redirect('landingpage/index', 'refresh');
+		// redirect('landingpage/index', 'refresh');
 		// redirect('landingBaru/index', 'refresh');
 		// http://localhost:8080/zoom/index.php/sso/dummylogin
 

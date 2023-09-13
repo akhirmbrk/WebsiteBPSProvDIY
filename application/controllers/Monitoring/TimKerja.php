@@ -86,10 +86,12 @@ class TimKerja extends CI_Controller
 
     public function tambahTimKerja()
     {
-        if (!((isset($_SESSION['roleSuperAdmin'])) || (isset($_SESSION['roleKepalaProv'])) || (isset($_SESSION['roleKepalaKabkota'])))) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
+
 
         $data['tab'] = "4";
         $data['tipe'] = "1";
@@ -111,6 +113,10 @@ class TimKerja extends CI_Controller
 
     public function addTimUser()
     {
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('kodeBPS', 'Kode BPS', 'trim|required');
@@ -169,6 +175,10 @@ class TimKerja extends CI_Controller
 
     public function hapusTimKerja($team, $bps, $periode)
     {
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $this->Z_anggotateam_m->hapus_tim_kerja($team, $bps, $periode);
         $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Berhasil Hapus Tim Kerja</div> ');
         redirect('Monitoring/TimKerja', 'refresh');
