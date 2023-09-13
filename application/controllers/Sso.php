@@ -71,33 +71,17 @@ class Sso extends CI_Controller
 		$_SESSION['nip'] = "222011494";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
-
-		if ($user[0]['super_admin'] == '1') {
-			$_SESSION['roleSuperAdmin'] = 1;
-		} elseif ($user[0]['admin_tim_kerja_prov'] == '1') {
-			$_SESSION['roleAdminTKProv'] = 1;
-		} elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
-			$_SESSION['roleAdminTKKabkota'] = 1;
-		} elseif ($user[0]['kepala_prov'] == '1') {
-			$_SESSION['roleKepalaProv'] = 1;
-		} elseif ($user[0]['kepala_kabkota'] == '1') {
-			$_SESSION['roleKepalaKabkota'] = 1;
-		} elseif ($user[0]['ketua_tim_kerja_prov'] == '1') {
-			$_SESSION['roleKetuaTKProv'] = 1;
-			// } else {
-			// 	$_SESSION['roleSuperAdmin'] = null;
-			// 	$_SESSION['roleAdminTKProv'] = null;
-			// 	$_SESSION['roleAdminTKKabkota'] = null;
-			// 	$_SESSION['roleKepalaProv'] = null;
-			// 	$_SESSION['roleKepalaKabkota'] = null;
-			// 	$_SESSION['roleKetuaTKProv'] = null;
-		}
+		// buat session role berdasarkan user
+		$_SESSION['roleSuperAdmin'] = $user[0]['super_admin'];
+		$_SESSION['roleAdminTKProv'] = $user[0]['admin_tim_kerja_prov'];
+		$_SESSION['roleAdminTKKabkota'] = $user[0]['admin_tim_kerja_kabkota'];
+		$_SESSION['roleKepalaProv'] = $user[0]['kepala_prov'];
+		$_SESSION['roleKepalaKabkota'] = $user[0]['kepala_kabkota'];
+		$_SESSION['roleKetuaTKProv'] = $user[0]['ketua_tim_kerja_prov'];
 
 		// var_dump($_SESSION);
 
-
-
-		// redirect('landingpage/index', 'refresh');
+		redirect('landingpage/index', 'refresh');
 		// redirect('landingBaru/index', 'refresh');
 		// http://localhost:8080/zoom/index.php/sso/dummylogin
 
