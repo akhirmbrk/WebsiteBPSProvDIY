@@ -7,16 +7,17 @@
 # Next Week #
 #############
 - User Role belum fix (minggu depan paling cepet)
+
 - Mengelompokkan tampilan sesuai Role user (Setelah yang di atas don ya)
+
 - menu profil pegawai
-- merubah data anggota yang ada di file data json ke tipe key=> value (PR)
+
 
 
 #############
 # This Week #
 #############
-- Merapikan detail kegiatan 
-- Menambahkan Accordion/drop down di kegiatan (Hari ini)
+
 - Filter pencarian bagian kegiatan dan tim kerja (baru berdasarkan tim kerja, kurang periode dan kode bps)
 
 
@@ -28,3 +29,7 @@ vvvvvvvvvvvvvvvvvvvv
 - Fitur pagination atau slider buat list user, list kegiatan, dan list tim kerja. ((DONE))
 - merubah data anggota yang ada di file data json ke tipe key=> value (PR) ((DONE))
 - pesan validasi gagal dan berhasil edit, insert, plus (hampir don ya)(DONE)
+
+- Merapikan detail kegiatan ((DONE))
+- merubah data anggota yang ada di file data json ke tipe key=> value (PR) ((DONE))
+- Menambahkan Accordion/drop down di kegiatan (Hari ini) ((DONE))
