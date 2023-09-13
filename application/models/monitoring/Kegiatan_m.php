@@ -22,7 +22,69 @@ class Kegiatan_m extends CI_Model
         $tgl_end = $thn_dh_2 . "-" . $bln_dh_2 . "-" . $tgl_dh_2;
 
         // jika waktu kurang
-        $unix_now = strtotime("now");
+        // $unix_now = strtotime("now");
+        $NOW = date("Y-m-d");
+        $unix_now = strtotime($NOW);
+
+        $unix_tgl_start = strtotime($tgl_start);
+        $unix_tgl_end = strtotime($tgl_end);
+        // var_dump($unix_now);
+        // var_dump($unix_tgl_start);
+        // var_dump($unix_tgl_end);
+
+        $jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM kegiatan WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM kegiatan WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM kegiatan WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) )e ");
+
+        $jedah_res = $jedah->row_array();
+
+
+        if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
+            $hasil['point'] = 'lewat';
+            $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1  . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
+        } else if ($jedah_res['jumlah'] > 2) {
+            $hasil['point'] = 'block';
+            $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
+        } else {
+            $data = array(
+                'judul_kegiatan' => $this->input->post("judulKegiatan"),
+                'tgl_start' => $tgl_start,
+                'tgl_end' => $tgl_end,
+                'progres_kegiatan' => 0,
+                'id_tim_kerja' => $this->input->post("timKerja"),
+                // 'id_tim_kerja' => '2',
+                'deskripsi_kegiatan' => " ",
+                'id_parent' => 0,
+                'KodeBPS' => $this->input->post("kodeBPS")
+            );
+            // var_dump($data);
+            $this->db->insert('kegiatan', $data);
+            // $data1 = array(
+            //     'id_team' => $this->input->post("timKerja"),
+            //     'id_kegiatan' => 
+            // );
+            // $this->db->insert('kegiatan_tim_kerja', $data1);
+            $hasil['point'] = 'sukses';
+        }
+
+
+        return $hasil;
+    }
+
+    public function add_sub_kegiatan()
+    {
+        $tgl_dh_1 = substr($this->input->post("tglStart"), 3, 2);
+        $bln_dh_1 = substr($this->input->post("tglStart"), 0, 2);
+        $thn_dh_1 = substr($this->input->post("tglStart"), 6, 4);
+        $tgl_start = $thn_dh_1 . "-" . $bln_dh_1 . "-" . $tgl_dh_1;
+
+
+        $tgl_dh_2 = substr($this->input->post("tglEnd"), 3, 2);
+        $bln_dh_2 = substr($this->input->post("tglEnd"), 0, 2);
+        $thn_dh_2 = substr($this->input->post("tglEnd"), 6, 4);
+        $tgl_end = $thn_dh_2 . "-" . $bln_dh_2 . "-" . $tgl_dh_2;
+
+        // jika waktu kurang
+        $NOW = date("Y-m-d");
+        $unix_now = strtotime($NOW);
 
         $unix_tgl_start = strtotime($tgl_start);
         $unix_tgl_end = strtotime($tgl_end);
@@ -47,6 +109,7 @@ class Kegiatan_m extends CI_Model
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
+                'id_parent' => $this->input->post("id_parent_kegiatan")
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);

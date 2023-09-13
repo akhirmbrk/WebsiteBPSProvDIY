@@ -72,7 +72,7 @@ class Kegiatan extends CI_Controller
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(4);
-        $config['per_page'] = 5;
+        $config['per_page'] = 2;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
         $config['attributes'] = array('class' => 'page-link');
@@ -151,11 +151,14 @@ class Kegiatan extends CI_Controller
         $data['tipe'] = "1";
         $data['title'] = "Tambah Kegiatan BPS";
 
+        $data['bps'] = $this->BPS_m->list_bps();
+
+
         $data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/topNav', $data);
-        $this->load->view('monitoring/tambahKegiatan');
+        $this->load->view('monitoring/tambahKegiatanView', $data);
         $this->load->view('template/footer');
     }
 
@@ -180,10 +183,14 @@ class Kegiatan extends CI_Controller
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
             redirect('Monitoring/Kegiatan', 'refresh');
-        } else {
+        } elseif ($hasil['point'] == 'lewat') {
+
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Tanggal Mulai Kegiatan Melebihi Tanggal Selesai Kegiatan</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
+        } elseif ($hasil['point'] == 'blok') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatanView', 'refresh');
+            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 
@@ -243,5 +250,56 @@ class Kegiatan extends CI_Controller
         $this->load->view('template/topNav');
         $this->load->view('monitoring/kegiatanView');
         $this->load->view('template/footer');
+    }
+
+    public function tambahSubKegiatan($idParent)
+    {
+        $tgl = date('Y-m-d', strtotime(' +0 day'));
+
+        $tgl_dh_1 = substr($tgl, 8, 2);
+        $bln_dh_1 = substr($tgl, 5, 2);
+        $thn_dh_1 = substr($tgl, 0, 4);
+        $data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
+
+        $data['tab'] = "3";
+        $data['tipe'] = "1";
+        $data['title'] = "Tambah Kegiatan BPS";
+
+        $data['id_parent'] = $idParent;
+
+        $data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/topNav', $data);
+        $this->load->view('monitoring/tambahSubKegiatanView', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function addSubKegiatan()
+    {
+        $data = array();
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('judul_kegiatan', 'Judul Kegiatan', 'trim|required');
+        $this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');
+        $this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
+        $this->form_validation->set_rules('id_tim_kerja', 'Kode Tim Kerja', 'trim|required');
+        $this->form_validation->set_rules('deskripsi_kegiatan', 'Deskripsi Kegiatan', 'trim|required');
+
+        $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
+
+        $hasil = $this->Kegiatan_m->add_sub_kegiatan();
+        // var_dump($data);
+
+        if ($hasil['point'] == 'sukses') {
+
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        } else {
+
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahKegiatanView', 'refresh');
+        }
     }
 }

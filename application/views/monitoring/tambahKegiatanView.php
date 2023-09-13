@@ -27,12 +27,26 @@
 
       <div class="main-content">
           <div class="container">
+              <?php echo $this->session->flashdata('info_form');  ?>
               <form action="<?php echo base_url('Monitoring/Kegiatan/addKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
                   <div class="col-md-7 col-xl-8">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
 
                           <div class="card-body">
+                              <label name="labelKodeBPS" class="require">Kode BPS</label>
+                              <select name="kodeBPS" id="kodeBPS" class="form-control" data-provide="selectpicker">
+                                  <?php
+                                    if (count($bps)) {
+                                        foreach ($bps as $indeks => $item) {  ?>
+                                          <option value="<?= $item['kodeBPS'] ?>">
+                                              <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
+                                          </option>
+                                  <?php }
+                                    } ?>
+                              </select>
+                              <hr>
+
 
                               <div class="row">
                                   <div class="form-group col-md-6">
@@ -53,6 +67,7 @@
                                   </div>
                               </div>
 
+
                               <hr>
                               <label class="require">Waktu Kegiatan</label>
                               <div class="input-group" data-provide="datepicker">
@@ -66,6 +81,8 @@
                                       <i class="fa fa-calendar"></i>
                                   </span>
                               </div>
+
+
 
 
 

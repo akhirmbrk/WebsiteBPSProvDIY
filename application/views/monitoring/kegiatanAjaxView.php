@@ -31,51 +31,49 @@ if (count($list_kegiatan)) {
                     </h4>
                     <?php //var_dump($list_sub_kegiatan[$indeks][1]) 
                     ?>
-                    <div id="collapse-1-<?= $item['id_kegiatan'] ?>" class="collapse show">
+                    <div id="collapse-1-<?= $item['id_kegiatan'] ?>" class="collapse">
                         <!-- tambah SOP -->
-                        <span class="p-2">
-                            <button class="btn btn-float btn-sm btn-primary" fdprocessedid="zguoq" data-toggle="modal" data-target="#modal-sqduh"><i class="ti-plus"></i></button>
-                        </span>
-                        <!-- End Tambah SOP -->
-                        <table class="table table-separated table-hover p-3">
-                            <thead>
-                                <tr>
-                                    <th style="width: 80px;">No</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th style="width: 200px;">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <div class="buttons">
+                            <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahSubKegiatan/') . $item['id_kegiatan'] ?>" title="Tambah Sub Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
+                            <!-- End Tambah SOP -->
+                            <table class="table table-separated table-hover p-3">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 80px;">No</th>
+                                        <th>Nama Kegiatan</th>
+                                        <th style="width: 200px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                <?php
-                                if (count($list_sub_kegiatan)) {
-                                    foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
-                                        <tr>
-                                            <th scope="row"><?= $key + 1 ?></th>
-                                            <td>
-                                                <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
-                                            </td>
-                                            <td>
-                                                <nav class="nav gap-2 fs-16">
-                                                    <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>
-                                                    <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                                </nav>
-                                            </td>
+                                    <?php
+                                    if (count($list_sub_kegiatan)) {
+                                        foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
+                                            <tr>
+                                                <th scope="row"><?= $key + 1 ?></th>
+                                                <td>
+                                                    <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
+                                                </td>
+                                                <td>
+                                                    <nav class="nav gap-2 fs-16">
+                                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>
+                                                        <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
+                                                    </nav>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                <?php }
-                                } ?>
-                            </tbody>
-                        </table>
+                                    <?php }
+                                    } ?>
+                                </tbody>
+                            </table>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 <?php }
 } ?>
-
-</a>
 
 <?= $this->pagination->create_links(); ?>
