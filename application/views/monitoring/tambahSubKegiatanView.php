@@ -27,8 +27,10 @@
 
       <div class="main-content">
           <div class="container">
-              <form action="<?php echo base_url('Monitoring/Kegiatan/addSubKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
-                  <div class="col-md-7 col-xl-8">
+
+              <div class="col-md-7 col-xl-8">
+                  <?php echo $this->session->flashdata('info_form');  ?>
+                  <form action="<?php echo base_url('Monitoring/Kegiatan/addSubKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail Kegiatan</strong></h4>
                           <!-- tambahkan input tipe hidden -->
@@ -85,7 +87,7 @@
 
 
                       </div>
-                  </div>
-              </form>
+                  </form>
+              </div>
           </div>
       </div>

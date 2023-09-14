@@ -104,7 +104,7 @@ class Kegiatan_m extends CI_Model
         // var_dump($tgl_start_parent);
         // var_dump($tgl_end_parent);        
 
-        if ($tgl_start_parent > $unix_tgl_start || $tgl_end_parent > $unix_tgl_end || $tgl_start_parent > $tgl_end_parent) {
+        if ($tgl_start_parent > $unix_tgl_start || $tgl_end_parent < $unix_tgl_end || $tgl_start_parent > $tgl_end_parent) {
             $hasil['point'] = 'lewat';
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1  . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
         } else if ($unix_tgl_start < $tgl_start_parent || $unix_tgl_start > $tgl_end_parent) {
