@@ -123,7 +123,7 @@ class Kegiatan extends CI_Controller
     {
 
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -215,7 +215,7 @@ class Kegiatan extends CI_Controller
     {
 
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -282,7 +282,7 @@ class Kegiatan extends CI_Controller
     public function tambahSubKegiatan($idParent)
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 3) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -315,7 +315,7 @@ class Kegiatan extends CI_Controller
     public function addSubKegiatan()
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 3) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class=""alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 

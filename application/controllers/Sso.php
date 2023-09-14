@@ -91,11 +91,11 @@ class Sso extends CI_Controller
 		}
 
 		// var_dump($this->session->userdata('user_role'));
-		var_dump($_SESSION);
+		// var_dump($_SESSION);
 
 
 
-		// redirect('landingpage/index', 'refresh');
+		redirect('landingpage/index', 'refresh');
 		// redirect('landingBaru/index', 'refresh');
 		// http://localhost:8080/zoom/index.php/sso/dummylogin
 
