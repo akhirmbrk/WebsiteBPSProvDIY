@@ -40,10 +40,12 @@ class Kegiatan_m extends CI_Model
         if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
             $hasil['point'] = 'lewat';
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1  . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
-        } else if ($jedah_res['jumlah'] > 2) {
-            $hasil['point'] = 'block';
-            $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
-        } else {
+        }
+        // else if ($jedah_res['jumlah'] > 2) {
+        //     $hasil['point'] = 'block';
+        //     $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
+        // }
+        else {
             $data = array(
                 'judul_kegiatan' => $this->input->post("judulKegiatan"),
                 'tgl_start' => $tgl_start,

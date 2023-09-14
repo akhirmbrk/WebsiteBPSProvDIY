@@ -19,10 +19,7 @@ class User extends CI_Controller
             $this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
             redirect('sso/index', 'refresh');
         }
-        if (!(isset($_SESSION['roleSuperAdmin']))) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-dismissible fade show alert-danger">Anda Tidak Memiliki Akses Ke User</div>');
-            redirect('Monitoring/Index/dashboard', 'refresh');
-        }
+
         date_default_timezone_set("Asia/Jakarta");
     }
 
@@ -88,8 +85,8 @@ class User extends CI_Controller
     {
 
         if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit User</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Edit User</div>');
+            redirect('Monitoring/User', 'refresh');
         }
 
         $id = $this->input->post('idEdit');
@@ -102,7 +99,7 @@ class User extends CI_Controller
             redirect('Monitoring/User', 'refresh');
         } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Mengubah Role User</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Mengubah Role User</div> ');
             redirect('Monitoring/User', 'refresh');
         }
     }
