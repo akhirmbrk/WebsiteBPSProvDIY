@@ -92,11 +92,11 @@
 				<div class="accordion accordion-flush" id="accordionFlushExample" style="border-color: red;">
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="flush-headingOne">
-							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTambahKegiatan" aria-expanded="false" aria-controls="flush-collapseTambahKegiatan">
 								Tambah Kegiatan
 							</button>
 						</h2>
-						<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+						<div id="flush-collapseTambahKegiatan" class="accordion-collapse collapse" aria-labelledby="flush-headingTambahKegiatan" data-bs-parent="#accordionFlushExample">
 							<div class="accordion-body">
 								<!-- Isi Accordion -->
 
@@ -179,22 +179,22 @@
 
 								</div>
 								<div class="col">
-									<button class="btn btn-float btn-sm btn-primary" fdprocessedid="d1yj1q" data-provide="tooltip" title="" data-toggle="modal" data-target="#modal-subkegiatan" data-original-title="Tambah Kegiatan"><i class="fa fa-plus"></i><label></label></button>
+									<button class="btn btn-float btn-sm btn-primary" fdprocessedid="d1yj1q" data-provide="tooltip" title="" data-toggle="modal" data-target="#modal-subkegiatan" data-original-title="Tambah Sub-Kegiatan"><i class="fa fa-plus"></i><label></label></button>
 								</div>
 
 							</div>
 							<!-- <h4 class="card-title"><strong>Row actions</strong></h4> -->
-							<div class="accordion" id="accordionPanelsStayOpenExample">
+							<div class="accordion accordion-flush" id="accordionFlushExample">
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+									<h2 class="accordion-header" id="flush-headingOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 											Pencacahan
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
 										<div class="accordion-body">
 											<div class="table-responsive" style="text-align: left;">
-												<table class="table">
+												<!-- <table class="table">
 													<thead class="table-light">
 														<tr>
 															<th scope="col">#</th>
@@ -233,6 +233,48 @@
 																</nav>
 															</td>
 													</tbody>
+												</table> -->
+												<table class="table table-separated" style="text-align: left;">
+													<thead>
+														<tr>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+														<tr>
+															<th scope="row" style="text-align: center;">2</th>
+															<td>Jacob</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+														<tr>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq" data-toggle="modal" data-target="#modal-sqduh"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
 
@@ -241,15 +283,15 @@
 									</div>
 								</div>
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+									<h2 class="accordion-header" id="flush-headingTwo">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 											Pengolahan
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+									<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
 										<div class="accordion-body">
 											<div class="table-responsive">
-												<table class="table">
+												<!-- <table class="table">
 													<thead class="table-light">
 														<tr>
 															<th scope="col">#</th>
@@ -288,6 +330,48 @@
 																</nav>
 															</td>
 													</tbody>
+												</table> -->
+												<table class="table table-separated" style="text-align: left;">
+													<thead>
+														<tr>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+														<tr>
+															<th scope="row" style="text-align: center;">2</th>
+															<td>Jacob</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+														<tr>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
+															</td>
+														</tr>
+													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
 											</div>
@@ -295,52 +379,54 @@
 									</div>
 								</div>
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+									<h2 class="accordion-header" id="flush-headingThree">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
 											Publikasi
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+									<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree">
 										<div class="accordion-body">
 											<div class="table-responsive">
-												<table class="table">
-													<thead class="table-light">
+											<table class="table table-separated" style="text-align: left;">
+													<thead>
 														<tr>
-															<th scope="col">#</th>
-															<th scope="col">Nama Dokumen</th>
-															<th scope="col">Action</th>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<th scope="row">1</th>
-															<td>Mark</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">2</th>
+															<th scope="row" style="text-align: center;">2</th>
 															<td>Jacob</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">3</th>
-															<td>cok</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
+														</tr>
 													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
@@ -366,65 +452,64 @@
 								</div>
 								<div class="col">
 
-								</div>
-
-								<div class="col">
 
 								</div>
 								<div class="col">
-									<button class="btn btn-float btn-sm btn-primary" fdprocessedid="d1yj1q" data-provide="tooltip" title="" data-toggle="modal" data-target="#modal-subkegiatan" data-original-title="Tambah Kegiatan"><i class="fa fa-plus"></i><label></label></button>
+									<button class="btn btn-float btn-sm btn-primary" fdprocessedid="d1yj1q" data-provide="tooltip" title="" data-toggle="modal" data-target="#modal-subkegiatan" data-original-title="Tambah Sub-Kegiatan"><i class="fa fa-plus"></i><label></label></button>
 								</div>
 
 							</div>
 							<!-- <h4 class="card-title"><strong>Row actions</strong></h4> -->
-							<div class="accordion" id="accordionPanelsStayOpenExample">
+							<div class="accordion accordion-flush" id="accordionFlushExample">
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+									<h2 class="accordion-header" id="flush-headingOne">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseOne">
 											Pencacahan
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+									<div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
 										<div class="accordion-body">
 											<div class="table-responsive" style="text-align: left;">
-												<table class="table">
-													<thead class="table-light">
+											<table class="table table-separated" style="text-align: left;">
+													<thead>
 														<tr>
-															<th scope="col">#</th>
-															<th scope="col" style="text-align: center;">Nama Dokumen</th>
-															<th scope="col" style="text-align: center;">Action</th>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<th scope="row">1</th>
-															<td>Mark</td>
-															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16 justify-content-center">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">2</th>
+															<th scope="row" style="text-align: center;">2</th>
 															<td>Jacob</td>
-															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16 justify-content-center">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">3</th>
-															<td>cok</td>
-															<td class="text-right table-actions">
-																<nav class="nav gap-2 fs-16 justify-content-center">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
+														</tr>
 													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq" data-toggle="modal" data-target="#modal-sqduh"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
@@ -434,52 +519,54 @@
 									</div>
 								</div>
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+									<h2 class="accordion-header" id="flush-headingTwo">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseTwo">
 											Pengolahan
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+									<div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
 										<div class="accordion-body">
 											<div class="table-responsive">
-												<table class="table">
-													<thead class="table-light">
+											<table class="table table-separated" style="text-align: left;">
+													<thead>
 														<tr>
-															<th scope="col">#</th>
-															<th scope="col">Nama Dokumen</th>
-															<th scope="col">Action</th>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<th scope="row">1</th>
-															<td>Mark</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">2</th>
+															<th scope="row" style="text-align: center;">2</th>
 															<td>Jacob</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">3</th>
-															<td>cok</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
+														</tr>
 													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>
@@ -488,52 +575,54 @@
 									</div>
 								</div>
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+									<h2 class="accordion-header" id="flush-headingThree">
+										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseThree">
 											Publikasi
 										</button>
 									</h2>
-									<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+									<div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingThree">
 										<div class="accordion-body">
 											<div class="table-responsive">
-												<table class="table">
-													<thead class="table-light">
+											<table class="table table-separated" style="text-align: left;">
+													<thead>
 														<tr>
-															<th scope="col">#</th>
-															<th scope="col">Nama Dokumen</th>
-															<th scope="col">Action</th>
+															<th style="width: 10%; text-align:center;">#</th>
+															<th style="text-align: left;"><strong>Nama File</strong></th>
+
+															<th style="text-align: center;"><strong>Actions</strong></th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<th scope="row">1</th>
-															<td>Mark</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">1</th>
+															<td style="text-align: left;">Mark</td>
+
+															<td class="text-center table-actions">
+																<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">2</th>
+															<th scope="row" style="text-align: center;">2</th>
 															<td>Jacob</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
 														</tr>
 														<tr>
-															<th scope="row">3</th>
-															<td>cok</td>
-															<td>
-																<nav class="nav gap-2 fs-16">
-																	<a class="nav-link hover-secondary cat-delete" href="#" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="View"><i class="fa fa-eye"></i></a>
-																	<a class="nav-link hover-success" href="#" data-provide="tooltip" title="" data-target="#" data-original-title="Download"><i class="fa fa-download"></i></a>
-																</nav>
+															<th scope="row" style="text-align: center;">3</th>
+															<td>Larry</td>
+
+															<td class="text-center table-actions">
+															<a class="table-action hover-secondary" href="#"><i class="fa fa-eye"></i></a>
+																<a class="table-action hover-success" href="#"><i class="fa fa-download"></i></a>
+																
 															</td>
+														</tr>
 													</tbody>
 												</table>
 												<button class="btn btn-label btn-info" fdprocessedid="zguoq"><label><i class="fa fa-plus"></i></label> Tambah Dokumen</button>

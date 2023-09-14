@@ -73,7 +73,7 @@ class Kegiatan extends CI_Controller
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(4);
-        $config['per_page'] = 1;
+        $config['per_page'] = 2;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
         $config['attributes'] = array('class' => 'page-link');
@@ -287,13 +287,21 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
+        $parentKegiatan = $this->Kegiatan_m->show_kegiatan($idParent);
 
-        $tgl = date('Y-m-d', strtotime(' +0 day'));
+        // $tgl = date('Y-m-d', strtotime(' +0 day'));
+        $tgl = $parentKegiatan[0]['tgl_start'];
+        // var_dump($parentKegiatan[0]['tgl_start']);
 
         $tgl_dh_1 = substr($tgl, 8, 2);
         $bln_dh_1 = substr($tgl, 5, 2);
         $thn_dh_1 = substr($tgl, 0, 4);
+
+        // var_dump($tgl_dh_1 . '/' . $bln_dh_1 . '/' . $thn_dh_1);
+
         $data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
+
+        // // var_dump($idParent);
 
         $data['tab'] = "3";
         $data['tipe'] = "1";
@@ -302,7 +310,6 @@ class Kegiatan extends CI_Controller
         $data['id_parent'] = $idParent;
         $data['bps'] = $this->BPS_m->list_bps();
 
-        $parentKegiatan = $this->Kegiatan_m->show_kegiatan($idParent);
 
         $data['parent_BPS'] = $this->BPS_m->show_bps($parentKegiatan[0]['KodeBPS']);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($parentKegiatan[0]['id_tim_kerja']);
@@ -339,10 +346,14 @@ class Kegiatan extends CI_Controller
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
             redirect('Monitoring/Kegiatan', 'refresh');
-        } else {
+        } else if ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
-            redirect('Monitoring/Kegiatan/tambahSubKegiatanView', 'refresh');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan Tangal Lewat</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
+        } else if ($hasil['point'] == 'block') {
+
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan Tangal Block</h1></div> ');
+            redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
         }
     }
 }
