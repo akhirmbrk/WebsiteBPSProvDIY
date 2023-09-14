@@ -33,7 +33,7 @@ class Kegiatan extends CI_Controller
 
         date_default_timezone_set("Asia/Jakarta");
     }
-    
+
     public function index()
     {
         $data['tabKegiatan'] = "1";
@@ -124,7 +124,7 @@ class Kegiatan extends CI_Controller
     {
 
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -149,7 +149,7 @@ class Kegiatan extends CI_Controller
     public function tambahKegiatan()
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -178,7 +178,7 @@ class Kegiatan extends CI_Controller
     public function addKegiatan()
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
         $data = array();
@@ -202,11 +202,11 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         } elseif ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Waktu Mulai Kegiatan Sudah Berlalu</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Waktu Mulai Kegiatan Sudah Berlalu</div> ');
             redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         } elseif ($hasil['point'] == 'block') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan</div> ');
             redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
@@ -216,7 +216,7 @@ class Kegiatan extends CI_Controller
     {
 
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Edit Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -232,7 +232,7 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Mengupdate Kegiatan</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Mengupdate Kegiatan</div> ');
             redirect('Monitoring/Kegiatan/editKegiatanView', 'refresh');
         }
     }
@@ -240,13 +240,13 @@ class Kegiatan extends CI_Controller
     public function hapusKegiatan($id)
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 3) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Hapus Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Hapus Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
 
         $this->Kegiatan_m->hapus_kegiatan($id);
-        $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Berhasil Hapus Kegiatan</div> ');
+        $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
         redirect('monitoring/kegiatan', 'refresh');
     }
 
@@ -283,7 +283,7 @@ class Kegiatan extends CI_Controller
     public function tambahSubKegiatan($idParent)
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 3) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -323,7 +323,7 @@ class Kegiatan extends CI_Controller
     public function addSubKegiatan()
     {
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 3) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Sub Kegiatan</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
 
@@ -348,11 +348,11 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan Tangal Lewat</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan Tangal Lewat</div> ');
             redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
         } else if ($hasil['point'] == 'block') {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Kegiatan Tangal Block</h1></div> ');
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan Tangal Block</div> ');
             redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
         }
     }

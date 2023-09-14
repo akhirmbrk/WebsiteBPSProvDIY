@@ -14,7 +14,7 @@ class Index extends CI_Controller
 
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
-			$this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
+			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Mohon Login Terlebih Dahulu</div>');
 			redirect('sso/index', 'refresh');
 		}
 

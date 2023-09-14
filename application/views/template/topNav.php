@@ -1,6 +1,6 @@
 <body class="topbar-unfix">
     <!-- Topbar -->
-    <header class="topbar topbar-expand-lg topbar-secondary topbar-inverse">
+    <header class="topbar topbar-expand-lg  topbar-inverse " style="  background: linear-gradient(to right, #005aa7, #fffde4);">
         <div class="topbar-left">
             <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
 
@@ -38,19 +38,21 @@
                             </a>
                         </li>
 
-                        <?php if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { ?>
-                            <li class="menu-item <?php if ($tab === '2') {
-                                                        echo 'active';
-                                                    } else {
-                                                        echo '';
-                                                    }  ?>">
-                                <a class="menu-link" href="<?= base_url('Monitoring/User');
-                                                            ?>">
-                                    <span class="icon fa fa-user-secret"></span>
-                                    <span class="title">User</span>
-                                </a>
-                            </li>
-                        <?php } ?>
+                        <?php //if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { 
+                        ?>
+                        <li class="menu-item <?php if ($tab === '2') {
+                                                    echo 'active';
+                                                } else {
+                                                    echo '';
+                                                }  ?>">
+                            <a class="menu-link" href="<?= base_url('Monitoring/User');
+                                                        ?>">
+                                <span class="icon fa fa-user-secret"></span>
+                                <span class="title">User</span>
+                            </a>
+                        </li>
+                        <?php // } 
+                        ?>
 
                         <li class="menu-item <?php if ($tab === '3') {
                                                     echo 'active';
