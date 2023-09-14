@@ -38,7 +38,7 @@
                             </a>
                         </li>
 
-                        <?php if (isset($_SESSION['roleSuperAdmin'])) { ?>
+                        <?php if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { ?>
                             <li class="menu-item <?php if ($tab === '2') {
                                                         echo 'active';
                                                     } else {

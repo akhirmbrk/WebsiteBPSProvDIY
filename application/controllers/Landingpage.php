@@ -32,10 +32,10 @@ class Landingpage extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('template/header');
-		$this->load->view('template/topnav');
-		// $this->load->view('landingpage');
+		// $this->load->view('template/header');
+		// $this->load->view('template/topnav');
 		$this->load->view('landingBaru');
 		// $this->load->view('template/footer');
+		// $this->load->view('landingpage');
 	}
 }

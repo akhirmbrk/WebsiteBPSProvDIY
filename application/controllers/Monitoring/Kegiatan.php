@@ -33,6 +33,7 @@ class Kegiatan extends CI_Controller
 
         date_default_timezone_set("Asia/Jakarta");
     }
+    
     public function index()
     {
         $data['tabKegiatan'] = "1";
