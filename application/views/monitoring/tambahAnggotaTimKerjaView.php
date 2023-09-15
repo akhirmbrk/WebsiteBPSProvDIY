@@ -27,7 +27,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
+              <form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/addTimUser" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">
@@ -60,6 +60,27 @@
                                   <?php }
                                     } ?>
                               </select>
+                              <hr>
+                              <div><small>Yang pertama merupakan ketua tim</small></div>
+                              <label class="require">Anggota</label>
+                              <input autocomplete="off" class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
+                              <input type="hidden" id="anggota" name="anggota" required>
+                              <script>
+                                  // Array dengan delimiter koma
+                                  function myFunction() {
+
+                                      //   var arrayDenganKoma = document.getElementById('sample-typeahead').value;
+
+                                      //   // Mengganti delimiter dari koma ke semikolon
+                                      //   var arrayDenganSemicolon = arrayDenganKoma;
+
+                                      //   document.getElementById('anggota').value = arrayDenganSemicolon;
+                                      //   console.log(arrayDenganSemicolon);
+                                      //   console.log(document.getElementById('anggota'))
+                                      console.log($('#sample-typeahead').val())
+                                  }
+                              </script>
+
 
                               <footer class="card-footer text-right">
                                   <a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>

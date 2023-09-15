@@ -25,6 +25,7 @@
 
 
                   <?php
+                    // var_dump($member[0]);
                     if (count($member)) {
                         foreach ($member as $indeks => $item) {  ?>
                           <div class="card shadow-1">
@@ -35,7 +36,7 @@
                                           <h5 class="mb-0"><?= $item['namaU'] ?>
                                               <small class="sidetitle fs-11"><?= $item['nip'] ?></small>
                                           </h5>
-                                          <small class=""><?php if ($item['ketua_tim'] == 1) {
+                                          <small class=""><?php if ($item['id_user'] == $item['id_ketuatim']) {
                                                                 echo 'Ketua Tim';
                                                             } else {
                                                                 echo 'Anggota';
