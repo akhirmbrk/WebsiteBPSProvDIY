@@ -1,6 +1,6 @@
 <body class="topbar-unfix">
     <!-- Topbar -->
-    <header class="topbar topbar-expand-lg topbar-secondary topbar-inverse">
+    <header class="topbar topbar-expand-lg topbar-inverse" style="background-color: sm">
         <div class="topbar-left">
             <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
 

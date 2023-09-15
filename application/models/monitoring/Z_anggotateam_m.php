@@ -8,23 +8,6 @@ class Z_anggotateam_m extends CI_Model
         parent::__construct();
     }
 
-    public function list_all_team()
-    {
-        $data = array();
-        $i = 0;
-
-        $Q = $this->db->query("SELECT * FROM z_anggotateam A JOIN tim_kerja B ON A.id_team = B.id_team JOIN bps C ON A.KodeBPS = C.KodeBPS JOIN z_periode D ON A.Id_Periode = D.id_zperiode WHERE ketua_tim = 1 ORDER BY Id_Periode ASC");
-
-        if ($Q->num_rows() > 0) {
-            foreach ($Q->result_array() as $row) {
-                $data[] = $row;
-                $i++;
-            }
-        }
-
-        $Q->free_result();
-        return $data;
-    }
 
     public function get_teams($limit, $start)
     {
@@ -40,41 +23,22 @@ class Z_anggotateam_m extends CI_Model
         return $query;
     }
 
-    public function get_teams_live($limit, $start, $keyword, $count)
-    {
-        $this->db->order_by('z_anggotateam.id_zanggt', 'DESC')->select('*');
-        $this->db->from('z_anggotateam');
-        $this->db->join('tim_kerja', 'tim_kerja.id_team = z_anggotateam.id_team');
-        $this->db->join('bps', 'bps.KodeBPS = z_anggotateam.KodeBPS');
-        $this->db->join('z_periode', 'z_periode.id_zperiode = z_anggotateam.Id_Periode');
-        $this->db->where('ketua_tim =', 1);
 
-        if ($keyword) {
-            $keyword = $keyword['keyword'];
-            if ($keyword) {
-                $this->db->like("nama_tim_kerja", $keyword);
-            }
-        }
-        if ($count) {
-            return $this->db->count_all_results();
-        } else {
-            $this->db->limit($limit, $start);
-            $query = $this->db->get();
-
-            if ($query->num_rows() > 0) {
-                return $query->result_array();
-            }
-        }
-
-        return array();
-    }
-
-    public function list_anggota_team($id, $bps, $periode)
+    public function list_anggota_team($id, $periode)
     {
         $data = array();
         $i = 0;
+        // $Q = $this->db->query("SELECT `id_team`,`id_user`,`id_zperiode`,`nip`,`namaU`,`Tahun` FROM `z_anggotateam` A JOIN  `z_team` C ON A.id_team = C.id_zteam JOIN`userapp` B ON A.id_user = B.ida  JOIN `z_periode` D ON C.id_zperiode = D.id_zperiode WHERE A.id_team = $id  AND C.id_zperiode = $periode");
+        $Q = $this->db->select('`id_team`, `id_user`, `z_team.id_zperiode`, `nip`, `namaU`, `Tahun`,`id_ketuatim`');
+        $Q = $this->db->from('z_anggotateam');
+        $Q = $this->db->join('z_team', 'z_team.id_zteam = z_anggotateam.id_team');
+        $Q = $this->db->join('userapp', 'userapp.ida = z_anggotateam.id_user');
+        $Q = $this->db->join('z_periode', 'z_periode.id_zperiode = z_team.id_zperiode');
+        $Q = $this->db->where('z_anggotateam.id_team', $id);
+        $Q = $this->db->where('z_team.id_zperiode', $periode);
+        $Q = $this->db->get();
 
-        $Q = $this->db->query("SELECT `id_team`,`id_user`,`kodeBPS`,`Id_Periode`,`ketua_tim`,`nip`,`namaU` FROM `z_anggotateam` A JOIN `userapp` B ON A.id_user = B.ida  WHERE A.id_team = $id AND A.KodeBPS = $bps AND A.Id_Periode = $periode");
+        // var_dump($Q);
 
         if ($Q->num_rows() > 0) {
             foreach ($Q->result_array() as $row) {
@@ -87,15 +51,12 @@ class Z_anggotateam_m extends CI_Model
         return $data;
     }
 
-    public function add_teams($iduser, $ketuatim)
+    public function add_teams($iduser, $tim)
     {
 
         $data = array(
-            'id_team' => $this->input->post("timKerja"),
-            'id_user' => $iduser,
-            'kodeBPS' => $this->input->post("kodeBPS"),
-            'Id_Periode' => $this->input->post("periode"),
-            'ketua_tim' => $ketuatim
+            'id_team' => $tim,
+            'id_user' => $iduser
         );
         // var_dump($data);
         $this->db->insert('z_anggotateam', $data);
