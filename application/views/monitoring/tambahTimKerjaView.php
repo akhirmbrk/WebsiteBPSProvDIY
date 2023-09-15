@@ -27,10 +27,12 @@
 
       <div class="main-content">
           <div class="container">
+              <?php echo $this->session->flashdata('info_form');  ?>
+
               <form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
 
 
-                  <div class="col-md-7 col-xl-8">
+                  <div class="col-md-7 col-xl-12">
                       <div class="card shadow-1">
                           <h4 class="card-title"><strong>Detail Tim Kerja</strong></h4>
 
@@ -40,7 +42,7 @@
                                   <?php
                                     if (count($tim_kerja)) {
                                         foreach ($tim_kerja as $indeks => $item) {  ?>
-                                          <option value="<?= $item['id_zteam'] ?>">
+                                          <option value="<?= $item['nama_team'] ?>">
                                               <?php echo $item['nama_team']; ?>
                                           </option>
                                   <?php }

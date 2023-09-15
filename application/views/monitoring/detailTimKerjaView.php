@@ -7,6 +7,12 @@
               </div>
           </div>
 
+          <div class="header-action">
+              <div class="buttons">
+                  <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
+              </div>
+
+          </div>
       </div>
   </header><!--/.header -->
 

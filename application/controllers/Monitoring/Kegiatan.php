@@ -50,9 +50,9 @@ class Kegiatan extends CI_Controller
         //     $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
         // }
 
-        $filter['bps'] = $this->BPS_m->list_bps();
+        // $filter['bps'] = $this->BPS_m->list_bps();
         $filter['periode'] = $this->Periode_m->list_periode();
-        $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+        // $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
 
         $this->load->vars($data);
         $this->load->vars($filter);

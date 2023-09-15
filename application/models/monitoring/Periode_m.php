@@ -47,4 +47,17 @@ class Periode_m extends CI_Model
         $Q->free_result();
         return $data;
     }
+
+    public function show_periode($id)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT * FROM z_periode WHERE id_zperiode = " . $id);
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data = null;
+        }
+        $Q->free_result();
+        return $data;
+    }
 }

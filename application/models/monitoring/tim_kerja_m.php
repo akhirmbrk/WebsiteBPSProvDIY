@@ -95,15 +95,16 @@ class tim_kerja_m extends CI_Model
         return $data;
     }
 
-    public function add_teams($namaTim)
+    public function add_teams($nama, $periode)
     {
 
         $data = array(
-            'nama_team' => $namaTim,
-            'id_zperiode' => $this->input->post("periode"),
+            'nama_team' => $nama,
+            'id_zperiode' => $periode,
             'id_ketuatim' => null
         );
         // var_dump($data);
+
         $this->db->insert('z_team', $data);
 
         $hasil['point'] = 'sukses';
@@ -132,11 +133,11 @@ class tim_kerja_m extends CI_Model
     public function show_tim_kerja($id)
     {
         $data = array();
-        $Q = $this->db->query("SELECT * FROM tim_kerja WHERE id_team = " . $id);
+        $Q = $this->db->query("SELECT * FROM z_team WHERE id_zteam = " . $id);
         if ($Q->num_rows() > 0) {
             $data = $Q->row_array();
         } else {
-            $data['id_team'] = 0;
+            $data['id_zteam'] = null;
         }
         $Q->free_result();
         return $data;
@@ -145,28 +146,17 @@ class tim_kerja_m extends CI_Model
     public function show_tim_kerja_bynama($nama, $periode)
     {
         $data = array();
-        if ($periode == 0) {
+        // var_dump($data);
 
-            $A = $this->db->query("SELECT * FROM z_periode where aktif = 1 ");
-
-
-            // untuk menampilkan data tabel yang sedikit gunakan if row seperti ini
-            // nama variabel ($) tahunaktif buat sendiri
-
-            if ($A->num_rows() > 0) {
-                $tahunaktif = $A->row_array();
-                $periode = $tahunaktif['id_zperiode'];
-            }
-            $A->free_result();
-        }
-
-        $Q = $this->db->query("SELECT * FROM tim_kerja WHERE nama_team = " . $nama . "AND id_zperiode = " . $periode);
+        $Q = $this->db->query("SELECT * FROM z_team WHERE nama_team = " . "'" . $nama . "'" . " AND id_zperiode = " . $periode);
         if ($Q->num_rows() > 0) {
             $data = $Q->row_array();
         } else {
-            $data['id_team'] = 0;
+            $data = null;
         }
         $Q->free_result();
+        // var_dump($data);
+
         return $data;
     }
 }

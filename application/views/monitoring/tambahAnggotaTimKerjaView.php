@@ -35,36 +35,20 @@
                           <h4 class="card-title"><strong>Detail Tim Kerja</strong></h4>
 
                           <div class="card-body">
-                              <label name="labelTimKerja" class="require">Jenis Tim Kerja</label>
-                              <select name="timKerja" id="timKerja" class="form-control" data-provide="selectpicker">
-                                  <?php
-                                    if (count($tim_kerja)) {
-                                        foreach ($tim_kerja as $indeks => $item) {  ?>
-                                          <option value="<?= $item['id_zteam'] ?>">
-                                              <?php echo $item['nama_team']; ?>
-                                          </option>
-                                  <?php }
-                                    } ?>
-                              </select>
+                              <label class="">Nama Tim</label>
+                              <label name="labelTimKerja" class="form-control"><?= $namaTim ?></label>
+                              <input type="hidden" id="timKerja" name="timKerja" value="<?= $idTim ?>" required>
 
 
                               <hr>
-                              <label name="labelPeriode" class="require">Periode</label>
-                              <select name="periode" id="periode" class="form-control" data-provide="selectpicker">
-                                  <?php
-                                    if (count($periode)) {
-                                        foreach ($periode as $indeks => $item) {  ?>
-                                          <option value="<?= $item['id_zperiode'] ?>">
-                                              <?php echo $item['Tahun']; ?>
-                                          </option>
-                                  <?php }
-                                    } ?>
-                              </select>
+                              <label class="">Periode</label>
+                              <label name="labelPeriode" class="form-control"><?= $periodeTim['Tahun'] ?> </label>
                               <hr>
                               <div><small>Yang pertama merupakan ketua tim</small></div>
                               <label class="require">Anggota</label>
                               <input autocomplete="off" class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
                               <input type="hidden" id="anggota" name="anggota" required>
+
                               <script>
                                   // Array dengan delimiter koma
                                   function myFunction() {
@@ -83,7 +67,7 @@
 
 
                               <footer class="card-footer text-right">
-                                  <a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
+                                  <a class="btn btn-secondary mr-2" href="<?= base_url("Monitoring/TimKerja/detailTimKerja/") . $idTim . "/" . $periodeTim['id_zperiode'] ?>">Cancel</a>
                                   <button class="btn btn-primary" type="submit">Submit</button>
                               </footer>
 
