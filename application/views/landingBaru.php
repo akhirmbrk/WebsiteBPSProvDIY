@@ -11,13 +11,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<meta name="keywords" content="dashboard, index, main">
 
 	<title><?php echo $title;
-					if ($tipe == 1) {
-						echo ' &mdash; Monitoring BPS';
-					} elseif ($tipe == 2) {
-						echo ' &mdash; Zoom Order';
-					} else {
-						echo ' &mdash; Landing Page';
-					} ?></title>
+			if ($tipe == 1) {
+				echo ' &mdash; Monitoring BPS';
+			} elseif ($tipe == 2) {
+				echo ' &mdash; Zoom Order';
+			} else {
+				echo ' &mdash; Landing Page';
+			} ?></title>
 	<!-- Bootstrap CSS -->
 	<!-- Styles -->
 	<link href="<?= base_url(''); ?>assets/css/core.min.css" rel="stylesheet">
@@ -77,7 +77,7 @@ $this->load->view('template/topnav');
 					<div class="slider-card">
 						<div class="d-flex justify-content-center align-center mb-4">
 							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('Home/comingSoon') ?>">
-								<img class="adminImg" src="<?= base_url('') ?>/assets/img/adminLogo.png" alt="">
+								<img class="adminImg" src="<?= base_url('') ?>/assets/img/logoAdmin.png" alt="">
 							</a>
 						</div>
 				</span>
