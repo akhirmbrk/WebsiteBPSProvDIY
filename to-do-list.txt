@@ -32,3 +32,9 @@ vvvvvvvvvvvvvvvvvvvv
 - Merapikan detail kegiatan ((DONE))
 - merubah data anggota yang ada di file data json ke tipe key=> value (PR) ((DONE))
 - Menambahkan Accordion/drop down di kegiatan (Hari ini) ((DONE))
+
+#############
+# CATATAN #
+#############
+- Carousel Landing Responsif
+- Logout Landing

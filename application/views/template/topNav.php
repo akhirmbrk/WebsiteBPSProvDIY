@@ -1,6 +1,7 @@
 <body class="topbar-unfix">
     <!-- Topbar -->
-    <header class="topbar topbar-expand-lg topbar-inverse" style="background-color: sm">
+    <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255);
+background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);">
         <div class="topbar-left">
             <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
 
@@ -38,19 +39,21 @@
                             </a>
                         </li>
 
-                        <?php if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { ?>
-                            <li class="menu-item <?php if ($tab === '2') {
-                                                        echo 'active';
-                                                    } else {
-                                                        echo '';
-                                                    }  ?>">
-                                <a class="menu-link" href="<?= base_url('Monitoring/User');
-                                                            ?>">
-                                    <span class="icon fa fa-user-secret"></span>
-                                    <span class="title">User</span>
-                                </a>
-                            </li>
-                        <?php } ?>
+                        <?php //if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { 
+                        ?>
+                        <li class="menu-item <?php if ($tab === '2') {
+                                                    echo 'active';
+                                                } else {
+                                                    echo '';
+                                                }  ?>">
+                            <a class="menu-link" href="<?= base_url('Monitoring/User');
+                                                        ?>">
+                                <span class="icon fa fa-user-secret"></span>
+                                <span class="title">User</span>
+                            </a>
+                        </li>
+                        <?php // } 
+                        ?>
 
                         <li class="menu-item <?php if ($tab === '3') {
                                                     echo 'active';
