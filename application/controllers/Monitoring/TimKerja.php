@@ -41,11 +41,11 @@ class TimKerja extends CI_Controller
         $data['tipe'] = "1";
         $data['title'] = "Tim Kerja";
 
-
-        $filter['bps'] = $this->BPS_m->list_bps();
+        $nip = $_SESSION['nip'];
         $filter['periode'] = $this->Periode_m->list_periode();
-        $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($periode = 0);
 
+        // var_dump($filter['tim_kerja']);
         // $data['teams'] = $this->Z_anggotateam_m->get_teams($config['per_page'], $data['start']);;
 
         $this->load->vars($data);
@@ -68,14 +68,14 @@ class TimKerja extends CI_Controller
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Monitoring/TimKerja/indexAjax";
         $data['start'] = $this->uri->segment(4);
         $config['per_page'] = 5;
-        $config['total_rows'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = true);
+        $config['total_rows'] = $this->tim_kerja_m->list_teamkerja($periode = 0, $config['per_page'], $data['start'], $search, $count = true);
         $config['attributes'] = array('class' => 'page-link');
 
         $this->pagination->initialize($config);
 
 
-        $data['teams'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = false);
-
+        // $data['teams'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = false);
+        $data['teams'] = $this->tim_kerja_m->list_teamkerja($periode = 0, $config['per_page'], $data['start'], $search, $count = false);
 
         // var_dump($data['teams']);
 
@@ -97,10 +97,9 @@ class TimKerja extends CI_Controller
         $data['tipe'] = "1";
         $data['title'] = "Tambah Tim Kerja BPS";
 
-        $filter['bps'] = $this->BPS_m->list_bps();
-        $filter['periode'] = $this->Periode_m->list_periode();
-        $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
-
+        $filter['periode'] = $this->Periode_m->list_periode_create();
+        // $periode = 3 untuk referensi nama tim di tahun 2023 yang sudah lengkap
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($periode = 3);
 
         $this->load->vars($data);
         $this->load->vars($filter);
@@ -108,6 +107,34 @@ class TimKerja extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/topNav');
         $this->load->view('monitoring/tambahTimKerjaView');
+        $this->load->view('template/footer');
+    }
+
+    public function tambahAnggotaTimKerja()
+    {
+
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
+
+        $data['tab'] = "4";
+        $data['tipe'] = "1";
+        $data['title'] = "Tambah Tim Kerja BPS";
+
+
+
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($periode = 0);
+
+
+
+        $this->load->vars($data);
+        $this->load->vars($filter);
+
+        $this->load->view('template/header');
+        $this->load->view('template/topNav');
+        $this->load->view('monitoring/tambahAnggotaTimKerjaView');
         $this->load->view('template/footer');
     }
 
@@ -119,7 +146,6 @@ class TimKerja extends CI_Controller
         }
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('kodeBPS', 'Kode BPS', 'trim|required');
         $this->form_validation->set_rules('timKerja', 'Tim Kerja', 'trim|required');
         $this->form_validation->set_rules('periode', 'Periode', 'trim|required');
         $this->form_validation->set_rules('anggota', 'Anggota', 'trim|required');
@@ -136,18 +162,28 @@ class TimKerja extends CI_Controller
         }
         // var_dump($coba);
 
+        $idTim = $this->input->post("timKerja");
+        $idPeriode = $this->input->post("periode");
+
+        $namaTeam = $this->tim_kerja_m->show_tim_kerja($idTim)["nama_tim_kerja"];
+
+
+        $idTimBaru = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $periode = 0);
+
         foreach ($coba as $indeks => $item) {
             if ($indeks == 0) {
-                $ketua = 1;
-            } else {
-                $ketua = 0;
+                $ketua = $item['ida'];
             }
             // var_dump($item['ida']);
-            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $ketua);
-        }
+            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTimBaru['id_zteam']);
+        };
+        $this->tim_kerja_m->update_teams($idTimBaru['id_zteam'], $ketua);
+
+        // var_dump($ketua);
+
+        // // var_dump($namaTeam);
 
         if ($hasil['point'] == 'sukses') {
-
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
             redirect('Monitoring/TimKerja', 'refresh');
         } else {
@@ -157,14 +193,56 @@ class TimKerja extends CI_Controller
         }
     }
 
-    public function detailTimKerja($id, $bps, $periode)
+    public function createTimUser()
+    {
+        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('timKerja', 'Tim Kerja', 'trim|required');
+        $this->form_validation->set_rules('periode', 'Periode', 'trim|required');
+
+        $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
+
+
+        $namaTeam = $this->tim_kerja_m->show_tim_kerja($idTim)["nama_tim_kerja"];
+
+
+        $idTimBaru = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $idPeriode);
+
+        foreach ($coba as $indeks => $item) {
+            if ($indeks == 0) {
+                $ketua = $item['ida'];
+            }
+            // var_dump($item['ida']);
+            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTimBaru['id_zteam']);
+        };
+        $this->tim_kerja_m->update_teams($idTimBaru['id_zteam'], $ketua);
+
+        // var_dump($ketua);
+
+        // // var_dump($namaTeam);
+
+        if ($hasil['point'] == 'sukses') {
+            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
+            redirect('Monitoring/TimKerja', 'refresh');
+        } else {
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Tim Kerja</h1></div> ');
+            redirect('Monitoring/TimKerja/tambahTimKerja', 'refresh');
+        }
+    }
+
+    public function detailTimKerja($id, $periode)
     {
         $data['tab'] = "4";
         $data['tipe'] = "1";
         $data['title'] = "Tim Kerja Monitoring BPS";
 
 
-        $data['member'] = $this->Z_anggotateam_m->list_anggota_team($id, $bps, $periode);
+        $data['member'] = $this->Z_anggotateam_m->list_anggota_team($id, $periode);
 
         $this->load->vars($data);
         $this->load->view('template/header');

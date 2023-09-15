@@ -1,0 +1,14 @@
+
+.slider-card{
+	transition: 0.3s;
+}
+
+.slider-card:hover{
+	transform: scale(0.95);
+}
+
+/* 
+html {
+	scroll-behavior: smooth;
+} */
+
