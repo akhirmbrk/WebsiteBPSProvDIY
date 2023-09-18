@@ -29,7 +29,7 @@ class Adminbidang extends CI_Controller
 	public function index()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['judul'] = "Permintaan Rapat";
 		$data['admin_permintaan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(0);
@@ -45,14 +45,14 @@ class Adminbidang extends CI_Controller
 	public function daring_disetujui()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['judul'] = "Rapat Disetujui";
 		$data['admindisetujui'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(1);
 
 		$this->load->vars($data);
 
-		$this->load->view('template/header');
+		$this->load->view('part/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom_disetujui');
 		$this->load->view('part/footer_zoomindex');
@@ -81,7 +81,7 @@ class Adminbidang extends CI_Controller
 	public function daring_batal()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['judul'] = "Rapat Batal";
 		$data['admin_batal'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(2);
@@ -152,7 +152,7 @@ class Adminbidang extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "";
+			$data['judul'] = "Tambah Jadwal";
 			$data['ordered'] = "1";
 
 

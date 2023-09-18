@@ -1,6 +1,6 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed bg-dark">
-    <header class="sidebar-header bg-#33cabb">
+<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: #465161;">
+    <header class="sidebar-header " style="background: #465161;">
         <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
         <span class="sidebar-toggle-fold"></span>
     </header>
