@@ -2,9 +2,11 @@
     <!-- Topbar -->
     <!-- Landing Page -->
 
-	<?php if ($tipe == 1) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
+	<?php if ($tipe == 1) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(0,121,240);
+background: linear-gradient(133deg, rgba(0,121,240,1) 0%, rgba(0,225,240,1) 10%, rgba(255,255,255,1) 17%, rgba(255,255,255,1) 100%);"> <?php } ?>
 
-	<?php if ($tipe == 2) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
+	<?php if ($tipe == 2) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(0,121,240);
+background: linear-gradient(133deg, rgba(0,121,240,1) 0%, rgba(0,225,240,1) 10%, rgba(255,255,255,1) 17%, rgba(255,255,255,1) 100%);"> <?php } ?>
     
 	<?php if ($tipe == 'Landing') { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);"> <?php } ?>
 
@@ -19,13 +21,13 @@
 
             <div class="topbar-brand">
                 <?php if ($tipe == 1) { ?>
-                    <a class="menu-link" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
                 <?php } elseif ($tipe == 2) { ?>
-                    <a class="menu-link" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
                 <?php } elseif ($tipe == 3) { ?>
-                    <a class="menu-link" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
+                    <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
                 <?php } else { ?>
                     <a class="menu-link" style="text-decoration:none" href="<?= base_url('Landingpage') ?>"><img width="40px" src="<?= base_url('');
