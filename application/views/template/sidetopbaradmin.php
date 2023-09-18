@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
+<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white;">
     <header class="sidebar-header " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);">
         <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
         <span class="sidebar-toggle-fold"></span>
@@ -16,14 +16,14 @@
                     <span class="arrow"></span>
                 </a>
 
-                <ul class="menu-submenu">
+                <ul class="menu-submenu bg-light">
 
                     <li class="menu-item <?php if (isset($admin_permintaan)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
-                            <span class="icon fa fa-home"></span>
-                            <span class="title">Permintaan Rapat Daring</span>
+                            <span class="icon fa fa-home" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
                         </a>
 
                     </li>
@@ -31,8 +31,8 @@
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o"></span>
-                            <span class="title">Rapat Daring Disetujui</span>
+                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
                         </a>
                     </li>
 
@@ -40,8 +40,8 @@
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o"></span>
-                            <span class="title">Rapat Daring Batal</span>
+                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
                         </a>
                     </li>
 
@@ -50,8 +50,8 @@
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o"></span>
-                            <span class="title">Tambah Jadwal</span>
+                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
                         </a>
                     </li>
@@ -59,38 +59,38 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" style="color: #465161;" href="#">
+                <a class="menu-link" href="#" style="color: #465161;">
                     <span class="icon fa fa-users"></span>
                     <span class="title">Admin Ruangan</span>
                     <span class="arrow"></span>
                 </a>
 
-                <ul class="menu-submenu">
+                <ul class="menu-submenu bg-light">
 
                     <li class="menu-item <?php if (isset($admin_permintaan)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/index'); ?>">
-                            <span class="icon fa fa-home"></span>
-                            <span class="title">Permintaan Rapat</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
+                            <span class="icon fa fa-home" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
                         </a>
 
                     </li>
                     <li class="menu-item <?php if (isset($admindisetujui)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o"></span>
-                            <span class="title">Rapat Disetujui</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
+                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
                         </a>
                     </li>
 
                     <li class="menu-item <?php if (isset($admin_batal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o"></span>
-                            <span class="title">Rapat Batal</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
+                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
                         </a>
                     </li>
 
@@ -98,9 +98,9 @@
                     <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o"></span>
-                            <span class="title">Tambah Jadwal</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
+                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
                         </a>
                     </li>
@@ -108,38 +108,38 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" style="color: #465161;" href="#">
+                <a class="menu-link" href="#" style="color: #465161;">
                     <span class="icon fa fa-tv"></span>
                     <span class="title">Admin Monitoring</span>
                     <span class="arrow"></span>
                 </a>
 
-                <ul class="menu-submenu">
+                <ul class="menu-submenu bg-light">
 
                     <li class="menu-item <?php if (isset($admin_permintaan)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/index'); ?>">
-                            <span class="icon fa fa-home"></span>
-                            <span class="title">Permintaan Rapat</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
+                            <span class="icon fa fa-home" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
                         </a>
 
                     </li>
                     <li class="menu-item <?php if (isset($admindisetujui)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o"></span>
-                            <span class="title">Rapat Disetujui</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
+                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
                         </a>
                     </li>
 
                     <li class="menu-item <?php if (isset($admin_batal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o"></span>
-                            <span class="title">Rapat Batal</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
+                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
                         </a>
                     </li>
 
@@ -147,9 +147,9 @@
                     <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('zoom/adminbidang/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o"></span>
-                            <span class="title">Tambah Jadwal</span>
+                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
+                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
                         </a>
                     </li>
@@ -171,9 +171,9 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" style="color: #465161;" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
-                    <span class="icon fa fa-power-off"></span>
-                    <span class="title">Logout</span>
+                <a class="menu-link bg-red" style="color: #465161;" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
+                    <span class="icon fa fa-power-off" style="color: red"></span>
+                    <span class=" title" style="color: red">Logout</span>
                 </a>
             </li>
 
