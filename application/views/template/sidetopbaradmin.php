@@ -190,8 +190,10 @@
 
 
 <!-- Topbar -->
-<header class="topbar bg-dark" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);">
-    <div class="topbar-left">
+<!-- <header class="topbar bg-dark" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
+<header class="topbar bg-dark" style="background: rgb(252,78,27);
+background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 10%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 100%);">
+	<div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
 
 
