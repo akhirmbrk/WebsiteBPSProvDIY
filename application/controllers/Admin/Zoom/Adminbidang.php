@@ -39,7 +39,7 @@ class Adminbidang extends CI_Controller
 		$this->load->view('part/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer');
 	}
 
 	public function daring_disetujui()
@@ -52,7 +52,7 @@ class Adminbidang extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom_disetujui');
 		$this->load->view('part/footer_zoomindex');
