@@ -110,7 +110,7 @@ class TimKerja extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambahAnggotaTimKerja()
+    public function tambahAnggotaTimKerja($idTim)
     {
 
         if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
@@ -122,7 +122,10 @@ class TimKerja extends CI_Controller
         $data['tab'] = "4";
         $data['tipe'] = "1";
         $data['title'] = "Tambah Tim Kerja BPS";
-
+        $data['idTim'] = $idTim;
+        $tim = $this->tim_kerja_m->show_tim_kerja($idTim);
+        $data['namaTim'] = $tim['nama_team'];
+        $data['periodeTim'] = $this->Periode_m->show_periode($tim['id_zperiode']);
 
 
         $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($periode = 0);
@@ -153,44 +156,44 @@ class TimKerja extends CI_Controller
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
 
-        $member = $this->input->post('sample-typeahead');
-        $arr_member = explode(",", $member);
-        // var_dump($arr_member);
+        // $member = $this->input->post('sample-typeahead');
+        // $arr_member = explode(",", $member);
+        // // var_dump($arr_member);
 
-        foreach ($arr_member as $item) {
-            $coba[] = $this->User_m->detail_user_by_name($item);
-        }
-        // var_dump($coba);
+        // foreach ($arr_member as $item) {
+        //     $coba[] = $this->User_m->detail_user_by_name($item);
+        // }
+        // // var_dump($coba);
 
-        $idTim = $this->input->post("timKerja");
-        $idPeriode = $this->input->post("periode");
+        // $idTim = $this->input->post("timKerja");
+        // $idPeriode = $this->input->post("periode");
 
-        $namaTeam = $this->tim_kerja_m->show_tim_kerja($idTim)["nama_tim_kerja"];
+        // $namaTeam = $this->tim_kerja_m->show_tim_kerja($idTim)["nama_tim_kerja"];
 
 
-        $idTimBaru = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $periode = 0);
+        // $idTimBaru = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $periode = 0);
 
-        foreach ($coba as $indeks => $item) {
-            if ($indeks == 0) {
-                $ketua = $item['ida'];
-            }
-            // var_dump($item['ida']);
-            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTimBaru['id_zteam']);
-        };
-        $this->tim_kerja_m->update_teams($idTimBaru['id_zteam'], $ketua);
+        // foreach ($coba as $indeks => $item) {
+        //     if ($indeks == 0) {
+        //         $ketua = $item['ida'];
+        //     }
+        //     // var_dump($item['ida']);
+        //     $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTimBaru['id_zteam']);
+        // };
+        // $this->tim_kerja_m->update_teams($idTimBaru['id_zteam'], $ketua);
 
-        // var_dump($ketua);
+        // // var_dump($ketua);
 
-        // // var_dump($namaTeam);
+        // // // var_dump($namaTeam);
 
-        if ($hasil['point'] == 'sukses') {
-            $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
-            redirect('Monitoring/TimKerja', 'refresh');
-        } else {
+        // if ($hasil['point'] == 'sukses') {
+        //     $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
+        //     redirect('Monitoring/TimKerja', 'refresh');
+        // } else {
 
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Tim Kerja</div> ');
-            redirect('Monitoring/TimKerja/tambahTimKerja', 'refresh');
-        }
+        //     $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Tim Kerja</div> ');
+        //     redirect('Monitoring/TimKerja/tambahTimKerja', 'refresh');
+        // }
     }
 
     public function createTimUser()
@@ -207,30 +210,25 @@ class TimKerja extends CI_Controller
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
+        $namaTeam = $this->input->post('timKerja');
+        $periode = $this->input->post('periode');
 
-        $namaTeam = $this->tim_kerja_m->show_tim_kerja($idTim)["nama_tim_kerja"];
+        // var_dump($namaTeam);
+        // var_dump($periode);
+        $data = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $periode);
+        // var_dump($data == null);
+        if ($data == null) {
+            $hasil = $this->tim_kerja_m->add_teams($namaTeam, $periode);
+        } else {
+            $hasil['point'] = 'gagal';
+        }
 
-
-        $idTimBaru = $this->tim_kerja_m->show_tim_kerja_bynama($namaTeam, $idPeriode);
-
-        foreach ($coba as $indeks => $item) {
-            if ($indeks == 0) {
-                $ketua = $item['ida'];
-            }
-            // var_dump($item['ida']);
-            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTimBaru['id_zteam']);
-        };
-        $this->tim_kerja_m->update_teams($idTimBaru['id_zteam'], $ketua);
-
-        // var_dump($ketua);
-
-        // // var_dump($namaTeam);
 
         if ($hasil['point'] == 'sukses') {
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Tim Kerja</div> ');
             redirect('Monitoring/TimKerja', 'refresh');
-        } else {
-            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Menambahkan Tim Kerja</h1></div> ');
+        } elseif ($hasil['point'] == 'gagal') {
+            $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Tim Kerja atau Tim Kerja Sudah Ada</div> ');
             redirect('Monitoring/TimKerja/tambahTimKerja', 'refresh');
         }
     }
@@ -243,6 +241,8 @@ class TimKerja extends CI_Controller
 
 
         $data['member'] = $this->Z_anggotateam_m->list_anggota_team($id, $periode);
+
+        $data['idTim'] = $id;
 
         $this->load->vars($data);
         $this->load->view('template/header');

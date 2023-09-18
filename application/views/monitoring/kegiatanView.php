@@ -46,30 +46,18 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <label>BPS</label>
-                            <select name="filterBPS" title="All BPS" data-provide="selectpicker" data-width="100%">
-                                <?php
-                                if (count($bps)) {
-                                    foreach ($bps as $indeks => $item) {  ?>
-                                        <option value="<?= $item['kodeBPS'] ?>"><?php echo "(" . $item['kodeBPS'] . ") " . $item['namaBPS']; ?></option>
-                                <?php }
-                                } ?>
-                            </select>
-                        </div>
 
-
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Tim Kerja</label>
                             <select name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($tim_kerja)) {
                                     foreach ($tim_kerja as $indeks => $item) {  ?>
-                                        <option value="<?= $item['id_team'] ?>"><?php echo $item['nama_tim_kerja']; ?></option>
+                                        <option value="<?= $item['id_zteam'] ?>"><?php echo $item['nama_team']; ?></option>
                                 <?php }
                                 } ?>
                             </select>
-                        </div>
+                        </div> -->
 
                         <hr>
 
