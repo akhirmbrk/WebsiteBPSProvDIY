@@ -38,7 +38,7 @@
 												} else {
 													echo '';
 												}  ?>">
-							<a class="menu-link" href="<?= base_url('Monitoring/Index/dashboard');
+							<a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/Index/dashboard');
 														?>">
 								<span class="icon fa fa-home"></span>
 								<span class="title">Home</span>
@@ -52,7 +52,7 @@
 												} else {
 													echo '';
 												}  ?>">
-							<a class="menu-link" href="<?= base_url('Monitoring/User');
+							<a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/User');
 														?>">
 								<span class="icon fa fa-user-secret"></span>
 								<span class="title">User</span>
@@ -66,7 +66,7 @@
 												} else {
 													echo '';
 												}  ?>">
-							<a class="menu-link" href="<?= base_url('Monitoring/Kegiatan');
+							<a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/Kegiatan');
 														?>">
 								<span class="icon fa fa-list-alt"></span>
 								<span class="title">Kegiatan</span>
@@ -78,7 +78,7 @@
 												} else {
 													echo '';
 												}  ?>">
-							<a class="menu-link" href="<?= base_url('Monitoring/TimKerja');
+							<a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/TimKerja');
 														?>">
 								<span class="icon fa fa-users"></span>
 								<span class="title">Tim Kerja</span>
@@ -95,7 +95,7 @@
 						<li class="menu-item  <?php if (isset($dash)) {
 													echo 'active';
 												} ?>">
-							<a class="menu-link" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
+							<a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
 								<span class="icon fa fa-home"></span>
 								<span class="title">Dashboard</span>
 							</a>
@@ -104,7 +104,7 @@
 						<li class="menu-item <?php if (isset($ordered)) {
 													echo 'active';
 												} ?>">
-							<a class="menu-link" href="<?php echo base_url('zoom/zoomorder/order'); ?>">
+							<a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/order'); ?>">
 								<span class="icon fa fa-plus"></span>
 								<span class="title">Rapat</span>
 							</a>
@@ -115,7 +115,7 @@
 						<li class="menu-item <?php if (isset($myorder)) {
 													echo 'active';
 												} ?>">
-							<a class="menu-link" href="<?php echo base_url('zoom/zoomorder/myorder'); ?>">
+							<a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/myorder'); ?>">
 								<span class="icon fa fa-calendar"></span>
 								<span class="title">Daftar Rapat</span>
 
@@ -125,7 +125,7 @@
 						<li class="menu-item <?php if (isset($myorderupload)) {
 													echo 'active';
 												} ?>">
-							<a class="menu-link" href="<?php echo base_url('zoom/zoomorder/myorderupload'); ?>">
+							<a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/myorderupload'); ?>">
 								<span class="icon fa fa-upload"></span>
 								<span class="title">Upload Notula</span>
 							</a>
@@ -148,6 +148,7 @@
 					</ul>
 				</nav>
 			<?php } ?>
+	
 		</div>
 
 
@@ -155,7 +156,7 @@
 
 			<ul class="topbar-btns">
 				<li class="dropdown">
-					<span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
+					<span class="topbar-btn" style="color: white;"><?= $_SESSION['nama'] ?></span>
 					<span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url('');
 																								?>/assets/img/avatar/1.jpg" alt="..."></span>
 					<div class="dropdown-menu dropdown-menu-right">
