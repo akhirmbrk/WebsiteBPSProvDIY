@@ -1,6 +1,6 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed sidebar-info">
-    <header class="sidebar-header bg-dark">
+<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed bg-dark">
+    <header class="sidebar-header bg-#33cabb">
         <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
         <span class="sidebar-toggle-fold"></span>
     </header>
@@ -157,8 +157,15 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" href="<?php echo base_url('landingpage'); ?>">
+                <a class="menu-link" href="<?php echo base_url('zoom/zoomorder'); ?>">
                     <span class="icon fa fa-reply"></span>
+                    <span class="title">Back</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" href="<?php echo base_url('landingpage'); ?>">
+                    <span class="icon fa fa-home"></span>
                     <span class="title">Landing Page</span>
                 </a>
             </li>
@@ -183,7 +190,7 @@
 
 
 <!-- Topbar -->
-<header class="topbar">
+<header class="topbar bg-dark">
     <div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
 

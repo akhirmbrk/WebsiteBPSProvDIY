@@ -70,7 +70,7 @@ class Sso extends CI_Controller
 
 		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340013059";
+		$_SESSION['nip'] = "1111";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
 
