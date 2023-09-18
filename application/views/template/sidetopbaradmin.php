@@ -1,16 +1,16 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: #465161;">
-	<header class="sidebar-header " style="background: #465161;">
+<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:black">
+	<header class="sidebar-header " style="background-color:#465161;">
 		<span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
 		<span class="sidebar-toggle-fold"></span>
 	</header>
 
 	<nav class="sidebar-navigation">
-		<ul class="menu menu-xl">
+		<ul class="menu menu-xl"
 
 
 			<li class="menu-item">
-				<a class="menu-link" href="#">
+				<a class="menu-link" href="#" style="color: #465161;" >
 					<span class="icon fa fa-video-camera"></span>
 					<span class="title">Admin Zoom</span>
 					<span class="arrow"></span>
@@ -59,7 +59,7 @@
 			</li>
 
 			<li class="menu-item">
-				<a class="menu-link" href="#">
+				<a class="menu-link" style="color: #465161;" href="#">
 					<span class="icon fa fa-users"></span>
 					<span class="title">Admin Ruangan</span>
 					<span class="arrow"></span>
@@ -108,7 +108,7 @@
 			</li>
 
 			<li class="menu-item">
-				<a class="menu-link" href="#">
+				<a class="menu-link" style="color: #465161;" href="#">
 					<span class="icon fa fa-tv"></span>
 					<span class="title">Admin Monitoring</span>
 					<span class="arrow"></span>
@@ -157,21 +157,21 @@
 			</li>
 
 			<li class="menu-item">
-				<a class="menu-link" href="<?php echo base_url('zoom/zoomorder'); ?>">
+				<a class="menu-link" style="color: #465161;" href="<?php echo base_url('zoom/zoomorder'); ?>">
 					<span class="icon fa fa-reply"></span>
 					<span class="title">Back</span>
 				</a>
 			</li>
 
 			<li class="menu-item">
-				<a class="menu-link" href="<?php echo base_url('landingpage'); ?>">
+				<a class="menu-link" style="color: #465161;" href="<?php echo base_url('landingpage'); ?>">
 					<span class="icon fa fa-home"></span>
 					<span class="title">Landing Page</span>
 				</a>
 			</li>
 
 			<li class="menu-item">
-				<a class="menu-link" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
+				<a class="menu-link" style="color: #465161;" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
 					<span class="icon fa fa-power-off"></span>
 					<span class="title">Logout</span>
 				</a>
@@ -190,7 +190,7 @@
 
 
 <!-- Topbar -->
-<header class="topbar bg-dark">
+<header class="topbar bg-dark" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);">
 	<div class="topbar-left">
 		<span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
 
