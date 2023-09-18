@@ -92,14 +92,14 @@
                 <nav class="topbar-navigation">
                     <ul class="menu">
 
-                        <li class="menu-item  <?php if (isset($dash)) {
-                                                    echo 'active';
-                                                } ?>">
-                            <a class="menu-link" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
-                                <span class="icon fa fa-home"></span>
-                                <span class="title">Dashboard</span>
-                            </a>
-                        </li>
+						<li class="menu-item  <?php if (isset($dash)) {
+													echo 'active';
+												} ?>">
+							<a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
+								<span class="icon fa fa-home"></span>
+								<span class="title">Dashboard</span>
+							</a>
+						</li>
 
                         <li class="menu-item <?php if (isset($ordered)) {
                                                     echo 'active';
