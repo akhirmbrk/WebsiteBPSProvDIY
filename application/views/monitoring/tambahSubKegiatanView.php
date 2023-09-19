@@ -36,23 +36,11 @@
                           <!-- tambahkan input tipe hidden -->
                           <input type="hidden" name="id_parent_kegiatan" value="<?= $id_parent ?>">
                           <div class="card-body">
-                              <label name="labelKodeBPS" class="require">Kode BPS</label>
-                              <!-- <select name="kodeBPS" id="kodeBPS" class="form-control" data-provide="selectpicker">
-                                  <option value="<?= $item['kodeBPS'] ?>">
-                                      <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
-                                  </option>
-                                </select> -->
-                              <input class="form-control" type="text" id="kodeBPS" name="kodeBPS" value="<?= $parent_BPS['kodeBPS'] ?>" autofocus autocomplete="off" hidden>
-                              <input class="form-control" type="text" id="kodeBPS1" name="kodeBPS1" value="<?= $parent_BPS['namaBPS'] ?>" autocomplete="off" readonly>
-                              <hr>
                               <div class="row">
                                   <div class="form-group col-md-6">
                                       <label class="require">Tim Kerja</label>
-                                      <!-- <select id="timKerja" name="timKerja" data-provide="selectpicker" data-width="100%">
-                                          <option selected value="<?= $tim_kerja['id_team'] ?>"><?php echo $tim_kerja['nama_tim_kerja']; ?></option>
-                                      </select> -->
-                                      <input class="form-control" type="text" id="timKerja" name="timKerja" value="<?= $tim_kerja['id_team'] ?>" autofocus autocomplete="off" hidden>
-                                      <input class="form-control" type="text" id="timKerja1" name="timKerja1" value="<?= $tim_kerja['nama_tim_kerja'] ?>" autocomplete="off" readonly>
+                                      <input class="form-control" type="text" id="timKerja" name="timKerja" value="<?= $tim_kerja['id_zteam'] ?>" autofocus autocomplete="off" hidden>
+                                      <input class="form-control" type="text" id="timKerja1" name="timKerja1" value="<?= $tim_kerja['nama_team'] ?>" autocomplete="off" readonly>
                                   </div>
 
                                   <div class="form-group col-md-6">

@@ -4,7 +4,7 @@
             <div class="left">
                 <br>
                 <h2 class="header-title"><?= $detail_kegiatan['judul_kegiatan'] ?>
-                    <small class="subtitle"><?= $tim_kerja['nama_tim_kerja'] ?></small>
+                    <small class="subtitle"><?= $tim_kerja['nama_team'] ?></small>
                 </h2>
             </div>
         </div>

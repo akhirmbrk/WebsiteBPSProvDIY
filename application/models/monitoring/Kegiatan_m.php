@@ -55,7 +55,7 @@ class Kegiatan_m extends CI_Model
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
                 'id_parent' => 0,
-                'KodeBPS' => $this->input->post("kodeBPS")
+                'KodeBPS' => '3400'
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
@@ -122,7 +122,7 @@ class Kegiatan_m extends CI_Model
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
                 'id_parent' => $idParent,
-                'KodeBPS' => $this->input->post("kodeBPS")
+                'KodeBPS' => '3400'
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
@@ -172,7 +172,7 @@ class Kegiatan_m extends CI_Model
     }
 
 
-    public function update_kegiatan($id, $parent)
+    public function update_kegiatan($id)
     {
         $data = array(
             'progres_kegiatan' => $this->input->post('progresKegiatan'),
@@ -182,23 +182,23 @@ class Kegiatan_m extends CI_Model
         $this->db->where('id_kegiatan', $id);
         $this->db->update('kegiatan', $data);
 
-        $query = $this->db->select('progres_kegiatan');
-        $query = $this->db->from('kegiatan');
-        $query = $this->db->where('id_parent', $parent);
-        $query = $this->db->get()->result_array();
-        $total = count($query);
-        $progres = 0;
-        foreach ($query as $key => $item) {
-            $progres += (int)$query[$key]['progres_kegiatan'];
-        }
-        $mean = $progres / $total;
+        // $query = $this->db->select('progres_kegiatan');
+        // $query = $this->db->from('kegiatan');
+        // $query = $this->db->where('id_parent', $parent);
+        // $query = $this->db->get()->result_array();
+        // $total = count($query);
+        // $progres = 0;
+        // foreach ($query as $key => $item) {
+        //     $progres += (int)$query[$key]['progres_kegiatan'];
+        // }
+        // $mean = $progres / $total;
 
-        $data1 = array(
-            'progres_kegiatan' => $mean
-        );
+        // $data1 = array(
+        //     'progres_kegiatan' => $mean
+        // );
 
-        $this->db->where('id_kegiatan', $parent);
-        $this->db->update('kegiatan', $data1);
+        // $this->db->where('id_kegiatan', $parent);
+        // $this->db->update('kegiatan', $data1);
 
         $hasil['point'] = 'sukses';
 
@@ -236,6 +236,7 @@ class Kegiatan_m extends CI_Model
 
     public function get_kegiatan_live($limit, $start, $keyword, $count)
     {
+        $this->db->order_by('id_kegiatan', 'DESC');
         $this->db->select('*');
         $this->db->from('kegiatan');
         $this->db->where('id_parent', 0);

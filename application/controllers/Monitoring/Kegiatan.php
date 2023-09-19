@@ -89,11 +89,6 @@ class Kegiatan extends CI_Controller
             $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($item['id_kegiatan']);
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
         }
-        // $data['list_sub_kegiatan'] = $this->Kegiatan_m->get_id_parent_kegiatan();
-        // var_dump($data['list_sub_kegiatan'][0][0]['judul_kegiatan']);
-
-
-        // var_dump($this->input->post('id'));
 
 
         $this->load->vars($data);
@@ -164,10 +159,7 @@ class Kegiatan extends CI_Controller
         $data['tipe'] = "1";
         $data['title'] = "Tambah Kegiatan BPS";
 
-        $data['bps'] = $this->BPS_m->list_bps();
-
-
-        $data['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
+        $data['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja(0);
 
         $this->load->view('template/header', $data);
         $this->load->view('template/topNav', $data);
@@ -212,7 +204,7 @@ class Kegiatan extends CI_Controller
     }
 
 
-    public function updateKegiatan($id, $parent)
+    public function updateKegiatan($id)
     {
 
         if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 6)) {
@@ -223,7 +215,7 @@ class Kegiatan extends CI_Controller
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id, $parent);
+        $hasil = $this->Kegiatan_m->update_kegiatan($id);
 
 
         if ($hasil['point'] == 'sukses') {
@@ -246,7 +238,7 @@ class Kegiatan extends CI_Controller
 
 
         $this->Kegiatan_m->hapus_kegiatan($id);
-        $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
+        $this->session->set_flashdata('info_form', '<div class="alert alert-\ alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
         redirect('monitoring/kegiatan', 'refresh');
     }
 
@@ -308,10 +300,7 @@ class Kegiatan extends CI_Controller
         $data['title'] = "Tambah Kegiatan BPS";
 
         $data['id_parent'] = $idParent;
-        $data['bps'] = $this->BPS_m->list_bps();
 
-
-        $data['parent_BPS'] = $this->BPS_m->show_bps($parentKegiatan[0]['KodeBPS']);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($parentKegiatan[0]['id_tim_kerja']);
 
         $this->load->view('template/header', $data);
@@ -335,7 +324,6 @@ class Kegiatan extends CI_Controller
         $this->form_validation->set_rules('tgl_start', 'Tanggal Mulai', 'trim|required');
         $this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
         $this->form_validation->set_rules('id_tim_kerja', 'Kode Tim Kerja', 'trim|required');
-        $this->form_validation->set_rules('deskripsi_kegiatan', 'Deskripsi Kegiatan', 'trim|required');
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 

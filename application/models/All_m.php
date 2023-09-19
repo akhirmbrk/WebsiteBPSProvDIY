@@ -571,20 +571,45 @@ class All_m extends CI_Model
 	{
 		$data = array();
 
-		$P = $this->db->query("SELECT * FROM userapp WHERE nip = '" . $nip . "'");
+		$P = $this->db->query("SELECT * FROM pegawai WHERE nip_lama = '" . $nip . "'");
 		if ($P->num_rows() == 0) {
 
-			$data = array(
-				'nip' => $nip,
-				'namaU' => $namaU
-			);
-			$this->db->insert('userapp', $data);
+			$K = $this->db->query("SELECT * FROM pegawai_kabkota WHERE nip_lama_pegawai_kabkota = '" . $nip . "'");
+			if ($K->num_rows() == 0) {
+				$data = array(
+					'nip_lama_pegawai_kabkota' => $nip,
+					'nama_pegawai_kabkota' => $namaU
+				);
+				$this->db->insert('pegawai_kabkota', $data);
+				$kabkota = $this->db->select('*')->from('pegawai_kabkota');
+				$kabkota = $this->db->where('nip_lama_pegawai_kabkota',  $nip);
 
-			return $this->db->where('nip', $nip)->get()->result_array();
+				return $kabkota->get()->result_array();
+			} else {
+				return $K->result_array();
+			}
 		} else {
 			return $P->result_array();
 		}
 	}
+	// public function cekUserExist($nip, $namaU)
+	// {
+	// 	$data = array();
+
+	// 	$P = $this->db->query("SELECT * FROM userapp WHERE nip = '" . $nip . "'");
+	// 	if ($P->num_rows() == 0) {
+
+	// 		$data = array(
+	// 			'nip' => $nip,
+	// 			'namaU' => $namaU
+	// 		);
+	// 		$this->db->insert('userapp', $data);
+
+	// 		return $this->db->where('nip', $nip)->get()->result_array();
+	// 	} else {
+	// 		return $P->result_array();
+	// 	}
+	// }
 
 
 

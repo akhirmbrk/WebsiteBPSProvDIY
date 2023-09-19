@@ -11,16 +11,33 @@
                                 </strong>
                             </a>
                             <br>
+
+                            <!-- Progress Kegiatan Utama -->
+                            <?php
+                            if (count($list_sub_kegiatan[$indeks])) {
+                                $progres[$indeks] = 0;
+                                foreach ($list_sub_kegiatan[$indeks] as $key => $value) {
+                                    $total[$indeks] = count($list_sub_kegiatan[$indeks]);
+                                    $progres[$indeks] += (int)$list_sub_kegiatan[$indeks][$key]['progres_kegiatan'];
+                                    // var_dump($value);
+                                }
+                                $mean[$indeks] = number_format($progres[$indeks] / $total[$indeks], 1);
+                            } else {
+                                $mean[$indeks] = 0;
+                            }
+                            ?>
+                            <!-- END Progress Kegiatan Utama -->
+
                             <div class="progress">
-                                <div class="progress-bar <?php if ($item['progres_kegiatan'] <= 25) {
+                                <div class="progress-bar <?php if ($mean[$indeks] <= 25) {
                                                                 echo "bg-danger";
-                                                            } elseif ($item['progres_kegiatan'] <= 50) {
+                                                            } elseif ($mean[$indeks] <= 50) {
                                                                 echo "bg-warning";
-                                                            } elseif ($item['progres_kegiatan'] <= 75) {
+                                                            } elseif ($mean[$indeks] <= 75) {
                                                                 echo "bg-info";
                                                             } else {
                                                                 echo "bg-success";
-                                                            } ?>" role="progressbar" style="width: <?= $item['progres_kegiatan'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kegiatan'] ?>%</div>
+                                                            } ?>" role="progressbar" style="width: <?= $mean[$indeks]; ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $mean[$indeks]  ?>%</div>
                             </div>
 
                             <small class="opacity-65 fw-300">
