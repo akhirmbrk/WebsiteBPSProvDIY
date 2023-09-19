@@ -119,39 +119,11 @@
                     <li class="menu-item <?php if (isset($admin_permintaan)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
+                        <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
                             <span class="icon fa fa-home" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
+                            <span class="title" style="color: #465161;">Pegawai</span>
                         </a>
 
-                    </li>
-                    <li class="menu-item <?php if (isset($admindisetujui)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
-                        </a>
-                    </li>
-
-                    <li class="menu-item <?php if (isset($admin_batal)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
-
-                        </a>
                     </li>
                 </ul>
             </li>
