@@ -64,31 +64,31 @@ class Sso extends CI_Controller
 	{
 		$this->load->model('All_m');
 		$this->load->library('session');
-		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340054255";		
-
-		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
+		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
 		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "1111";
+		$_SESSION['nip'] = "340054255";
+
+		// $_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340024494";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
 
-		if ($user[0]['super_admin'] == '1') {
-			if ($user[0]['admin_tim_kerja_prov'] == '1') {
-				$_SESSION['user_role'] = 2;
-			} elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
-				$_SESSION['user_role'] = 3;
-			} else {
-				$_SESSION['user_role'] = 1;
-			}
-		} elseif ($user[0]['admin_tim_kerja_prov'] == '1') {
-			$_SESSION['user_role'] = 4;
-		} elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
-			$_SESSION['user_role'] = 5;
-		} else {
-			$_SESSION['user_role'] = 6;
-		}
+		// if ($user[0]['super_admin'] == '1') {
+		// 	if ($user[0]['admin_tim_kerja_prov'] == '1') {
+		// 		$_SESSION['user_role'] = 2;
+		// 	} elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
+		// 		$_SESSION['user_role'] = 3;
+		// 	} else {
+		// 		$_SESSION['user_role'] = 1;
+		// 	}
+		// } elseif ($user[0]['admin_tim_kerja_prov'] == '1') {
+		// 	$_SESSION['user_role'] = 4;
+		// } elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
+		// 	$_SESSION['user_role'] = 5;
+		// } else {
+		// 	$_SESSION['user_role'] = 6;
+		// }
 
 		// var_dump($this->session->userdata('user_role'));
 		// var_dump($_SESSION);
