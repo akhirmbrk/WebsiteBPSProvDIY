@@ -4,18 +4,18 @@
 
     <?php if ($tipe == 1) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
 
-        <?php if ($tipe == 2) { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
-
-            <?php if ($tipe == 'Landing') { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);"> <?php } ?>
+	<?php if ($tipe == 2) { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
+    
+	<?php if ($tipe == 'Landing') { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);"> <?php } ?>
 
 
                 <!-- Menu Biasa -->
                 <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> -->
 
-                <!-- Admin -->
-                <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
-                <div class="topbar-left">
-                    <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
+        <!-- Admin -->
+        <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
+        <div class="topbar-left">
+            <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
 
                     <div class="topbar-brand">
                         <?php if ($tipe == 1) { ?>
@@ -51,21 +51,21 @@
                                     </a>
                                 </li>
 
-                                <?php //if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { 
-                                ?>
-                                <li class="menu-item <?php if ($tab === '2') {
-                                                            echo 'active';
-                                                        } else {
-                                                            echo '';
-                                                        }  ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/User');
-                                                                                        ?>">
-                                        <span class="icon fa fa-user"></span>
-                                        <span class="title">User</span>
-                                    </a>
-                                </li>
-                                <?php // } 
-                                ?>
+                        <?php //if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { 
+                        ?>
+                        <li class="menu-item <?php if ($tab === '2') {
+                                                    echo 'active';
+                                                } else {
+                                                    echo '';
+                                                }  ?>">
+                            <a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/User');
+                                                        ?>">
+                                <span class="icon fa fa-user-secret"></span>
+                                <span class="title">User</span>
+                            </a>
+                        </li>
+                        <?php // } 
+                        ?>
 
                                 <li class="menu-item <?php if ($tab === '3') {
                                                             echo 'active';
@@ -159,14 +159,14 @@
 
                 <div class="topbar-right">
 
-                    <ul class="topbar-btns">
-                        <li class="dropdown">
-                            <span class="" style="color: white;"><?= $_SESSION['nama'] ?></span>
-                            <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url('');
-                                                                                                        ?>/assets/img/avatar/1.jpg" alt="..."></span>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- <a class="dropdown-item" href="<?= base_url('Monitoring/Index/profil') ?>"><i class="ti-user"></i> Profile</a> -->
-                                <!-- <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
+            <ul class="topbar-btns">
+                <li class="dropdown">
+                    <span class="topbar-btn" style="color: white;"><?= $_SESSION['nama'] ?></span>
+                    <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url('');
+                                                                                                ?>/assets/img/avatar/1.jpg" alt="..."></span>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- <a class="dropdown-item" href="<?= base_url('Monitoring/Index/profil') ?>"><i class="ti-user"></i> Profile</a> -->
+                        <!-- <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
 
 
                                 <?php if ($tipe == 2 && count($defadata)) { ?>

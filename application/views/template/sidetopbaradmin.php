@@ -1,7 +1,8 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
     <header class="sidebar-header " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
-        <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
+        <a class="menu-link" style="color:#465161;" href="<?= base_url('admin/zoom/adminbidang/index') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
 
     <nav class="sidebar-navigation">
@@ -69,27 +70,27 @@
                     <li class="menu-item <?php if (isset($admin_permintaan)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
+                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/index'); ?>">
                             <span class="icon fa fa-home" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
+                            <span class="title" style="color: #465161;">Permintaan Rapat</span>
                         </a>
 
                     </li>
                     <li class="menu-item <?php if (isset($admindisetujui)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
+                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_disetujui'); ?>">
                             <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
+                            <span class="title" style="color: #465161;">Rapat Disetujui</span>
                         </a>
                     </li>
 
                     <li class="menu-item <?php if (isset($admin_batal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
+                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_batal'); ?>">
                             <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
+                            <span class="title" style="color: #465161;">Rapat Batal</span>
                         </a>
                     </li>
 
@@ -97,7 +98,7 @@
                     <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
                                                 echo 'active';
                                             } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
+                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/order'); ?>">
                             <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
                             <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
@@ -172,7 +173,7 @@
             <li class="menu-item">
                 <a class="menu-link bg-red" style="color: #465161;" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
                     <span class="icon fa fa-power-off" style="color: red"></span>
-                    <span class=" title" style="color: red">Logout</span>
+                    <span class=" title" style="color: red;">Logout</span>
                 </a>
             </li>
 
