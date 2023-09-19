@@ -1,7 +1,8 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
     <header class="sidebar-header " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
-        <span class="logo"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo"></span>
+        <a class="menu-link" style="color:#465161;" href="<?= base_url('admin/zoom/adminbidang/index') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
 
     <nav class="sidebar-navigation">
