@@ -1,12 +1,9 @@
     <!-- Main container -->
     <main>
-
-
-
     	<div class="main-content">
     		<div class="card card-body">
 
-    			<h2 class="d-fiestletter">Permintaan Rapat Daring Batal </h2>
+    			<h2 class="d-fiestletter">User</h2>
 
     			<div class="row">
 
@@ -41,27 +38,27 @@
     												<td><?php echo $list['perihal']; ?></td>
     												<td><?php echo $list['jadwal_awal']; ?></td>
     												<td><?php echo $list['jadwal_akhir']; ?></td>
-    												<td><span name="m_nama_kegiatan"><?php echo $list['namapengusul']; ?></span></td>
-    												<td><?php echo $list['ruangan']; ?></td>
-    												<td><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span></td>
+    												<td><span name=" m_nama_kegiatan"><?php echo $list['namapengusul']; ?></span></td>
+    										<td><?php echo $list['ruangan']; ?></td>
+    										<td><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span></td>
 
 
-    											</tr>
-    										<?php
+    									</tr>
+    								<?php
 												$nomor++;
 											}
 										} else { ?>
-    										<tr>
-    											<td><?php echo $nomor; ?></td>
-    											<td>tidak ada data</td>
-    											<td></td>
-    											<td></td>
-    											<td></td>
-    											<td></td>
-    										</tr>
+    								<tr>
+    									<td><?php echo $nomor; ?></td>
+    									<td>tidak ada data</td>
+    									<td></td>
+    									<td></td>
+    									<td></td>
+    									<td></td>
+    								</tr>
 
-    									<?php } ?>
-    								</tbody>
+    							<?php } ?>
+    							</tbody>
     							</table>
     						</div>
 
