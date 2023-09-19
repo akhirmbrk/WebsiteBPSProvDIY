@@ -173,7 +173,7 @@
             <li class="menu-item">
                 <a class="menu-link bg-red" style="color: #465161;" href="<?= base_url('sso/lout') ?>" style="bg-color:#fff; color:#e00808;">
                     <span class="icon fa fa-power-off" style="color: red"></span>
-                    <span class=" title" style="color: red">Logout</span>
+                    <span class=" title" style="color: red;">Logout</span>
                 </a>
             </li>
 
