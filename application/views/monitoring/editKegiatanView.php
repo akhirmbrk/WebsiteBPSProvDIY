@@ -8,7 +8,7 @@
                   <div class="left">
                       <br>
                       <h2 class="header-title"><strong><?= $detail_kegiatan['judul_kegiatan'] ?></strong>
-                          <small class="subtitle"><?= $tim_kerja['nama_tim_kerja'] ?></small>
+                          <small class="subtitle"><?= $tim_kerja['nama_team'] ?></small>
                       </h2>
                   </div>
               </div>
@@ -28,7 +28,7 @@
 
       <div class="main-content">
           <div class="container">
-              <form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan'] . "/" .  $detail_kegiatan['id_parent']); ?>" class="row" method="post" enctype="multipart/form-data">
+              <form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']); ?>" class="row" method="post" enctype="multipart/form-data">
 
 
                   <div class="col-md-7 col-xl-8">

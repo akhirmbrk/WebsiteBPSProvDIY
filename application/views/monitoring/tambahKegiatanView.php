@@ -33,19 +33,6 @@
                           <h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
 
                           <div class="card-body">
-                              <label name="labelKodeBPS" class="require">Kode BPS</label>
-                              <select name="kodeBPS" id="kodeBPS" class="form-control" data-provide="selectpicker">
-                                  <?php
-                                    if (count($bps)) {
-                                        foreach ($bps as $indeks => $item) {  ?>
-                                          <option value="<?= $item['kodeBPS'] ?>">
-                                              <?php echo "(" . $item['kodeBPS'] . ") " . substr($item['namaBPS'], 4); ?>
-                                          </option>
-                                  <?php }
-                                    } ?>
-                              </select>
-                              <hr>
-
 
                               <div class="row">
                                   <div class="form-group col-md-6">
@@ -54,7 +41,7 @@
                                           <?php
                                             if (count($tim_kerja)) {
                                                 foreach ($tim_kerja as $indeks => $item) {  ?>
-                                                  <option value="<?= $item['id_team'] ?>"><?php echo $item['nama_tim_kerja']; ?></option>
+                                                  <option value="<?= $item['id_zteam'] ?>"><?php echo $item['nama_team']; ?></option>
                                           <?php }
                                             } ?>
                                       </select>
