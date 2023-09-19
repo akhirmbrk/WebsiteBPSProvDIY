@@ -234,18 +234,41 @@ class Kegiatan_m extends CI_Model
         return $this->db->order_by('id_kegiatan', 'DESC')->get('kegiatan', $limit, $start)->result_array();
     }
 
-    public function get_kegiatan_live($limit, $start, $keyword, $count)
+    public function get_kegiatan_live($limit, $start, $search, $count)
     {
         $this->db->order_by('id_kegiatan', 'DESC');
         $this->db->select('*');
         $this->db->from('kegiatan');
         $this->db->where('id_parent', 0);
-        if ($keyword) {
-            $keyword = $keyword['keyword'];
-            if ($keyword) {
-                $this->db->like("judul_kegiatan", $keyword);
+
+        if ($search) {
+            // Jika $search adalah sebuah array, maka ambil komponen keyword dan periode
+            if (is_array($search) && isset($search['keyword']) && isset($search['periode']) && isset($search['timKerja'])) {
+                $search_keyword = $search['keyword'];
+                $periode = $search['periode'];
+                $tim = $search['timKerja'];
+                // var_dump($tim);
+                // Jika ada kata kunci, tambahkan kondisi LIKE
+                if ($search_keyword) {
+                    $this->db->like("judul_kegiatan", $search_keyword);
+                }
+
+                // Jika ada periode, tambahkan kondisi LIKE
+                if ($periode) {
+                    $this->db->group_start();
+                    $this->db->like("YEAR(tgl_start)", $periode);
+                    $this->db->or_like("YEAR(tgl_end)", $periode);
+                    $this->db->group_end();
+                }
+
+                if ($tim) {
+                    $this->db->group_start();
+                    $this->db->where("id_tim_kerja", $tim);
+                    $this->db->group_end();
+                }
             }
         }
+
         if ($count) {
             return $this->db->count_all_results();
         } else {
@@ -259,6 +282,7 @@ class Kegiatan_m extends CI_Model
 
         return array();
     }
+
 
     public function get_sub_kegiatan_live($parent)
     {

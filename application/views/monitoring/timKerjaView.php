@@ -32,11 +32,12 @@
                     <form class="card-body">
                         <div class="form-group">
                             <label>Periode Pelaksanaan</label>
-                            <select nama="filterPeriode" title="Periode Pelaksanaan" multiple data-provide="selectpicker" data-width="100%">
+                            <select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($periode)) {
-                                    foreach ($periode as $indeks => $item) {  ?>
-                                        <option value="<?= $item['id_zperiode'] ?>"><?= $item['Tahun']; ?></option>
+                                    foreach ($periode as $indeks => $item) {
+                                        $selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+                                        <option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
                                 <?php }
                                 } ?>
 
@@ -45,10 +46,10 @@
 
 
 
-
+                        <!-- 
                         <div class="form-group">
                             <label>Jenis Tim Kerja</label>
-                            <select name="filterTimKerja" title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
+                            <select id="filterTimKerja" name="filterTimKerja" title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($tim_kerja)) {
                                     foreach ($tim_kerja as $indeks => $item) {  ?>
@@ -56,13 +57,12 @@
                                 <?php }
                                 } ?>
                             </select>
-                        </div>
+                        </div> -->
 
                         <hr>
 
                         <div class="text-right">
-                            <a class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
-                            <button class="btn btn-sm btn-bold btn-primary" type="submit">Apply</button>
+                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
                         </div>
                     </form>
                 </div>
@@ -78,7 +78,7 @@
                         <!-- Search -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
-                                <input type="text" id="searchTimKerja" name="searchTimKerja" autofocus autocomplete="off" placeholder="Cari Tim Kerja">
+                                <input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
                             </form>
                         </div>
                         <!-- END Search -->

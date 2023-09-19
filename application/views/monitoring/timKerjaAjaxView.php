@@ -1,5 +1,5 @@
 <?php
-// var_dump($teams[0]);
+var_dump($teams);
 if (count($teams)) {
     foreach ($teams as $indeks => $item) {  ?>
         <div class="media align-items-center">
