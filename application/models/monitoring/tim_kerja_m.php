@@ -29,7 +29,7 @@ class tim_kerja_m extends CI_Model
         $this->db->order_by('z_team.id_zteam', 'DESC')->select('*');
         $this->db->from('z_team');
         $this->db->join('z_periode', 'z_team.id_zperiode = z_periode.id_zperiode');
-        $this->db->where('z_team.id_zperiode =', $id_zperiode);
+        // $this->db->where('z_team.id_zperiode =', $id_zperiode);
 
 
         // untuk menampilkan data tabel yang banyak gunakan if row seperti ini. tapi,

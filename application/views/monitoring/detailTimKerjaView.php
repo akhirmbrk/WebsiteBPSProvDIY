@@ -8,9 +8,11 @@
           </div>
 
           <div class="header-action">
-              <div class="buttons">
-                  <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
-              </div>
+              <?php if (!count($member)) { ?>
+                  <div class="buttons">
+                      <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
+                  </div>
+              <?php } ?>
 
           </div>
       </div>
@@ -25,11 +27,6 @@
           <div class="row">
 
               <div class="col-md-8 col-xl-9">
-
-
-
-
-
                   <?php
                     // var_dump($member[0]);
                     if (count($member)) {
