@@ -2,6 +2,11 @@ html {
 	scroll-behavior: smooth;
 }
 
+.header {
+	backdrop-filter: blur(10px); /* Sesuaikan nilai blur sesuai dengan keinginan Anda */
+	background-color: rgba(255, 255, 255, 0.3); /* Sesuaikan nilai opacity sesuai dengan keinginan Anda */
+  }
+
 .slider {
 	position: relative;
 }

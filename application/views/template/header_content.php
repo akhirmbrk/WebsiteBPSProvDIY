@@ -1,11 +1,13 @@
 <main>
-    <header class="header header-inverse">
+    <header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/bluehead.png') ?>);">
         <div class="header-info">
             <div class="left">
-                <h1 class="header-title"><strong>
+                <h2 class="header-title" style="font-size: 45px; color: #9597a5;
+
+text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;"><strong>
                         <?php echo $content;
                         ?>
-                    </strong></h1>
+                    </strong></h2>
             </div>
         </div>
 
@@ -14,17 +16,17 @@
         <div class="header-action">
             <div class="flexbox align-items-center gap-items-4">
                 <a class="text- " href="#" data-calendar="prev"><i class="ti-angle-left"></i></a>
-                <span class="text-  fs-16" id="calendar-title" style="color:aliceblue"></span>
+                <span class="text-  fs-16" id="calendar-title" style="color:#9597a5"></span>
                 <a class="text-" href="#" data-calendar="next"><i class="ti-angle-right"></i></a>
             </div>
 
             <nav class="nav">
-                <a class="nav-link" href="#" data-calendar="today">Today</a>
-                <a class="nav-link active" href="#" data-calendar-view="month">Month</a>
-                <a class="nav-link" href="#" data-calendar-view="basicWeek">Week</a>
-                <a class="nav-link" href="#" data-calendar-view="basicDay">Day</a>
+                <a class="nav-link"  style="color: #9597a5;" href="#" data-calendar="today">Today</a>
+                <a class="nav-link active"  style="color: #9597a5;" href="#" data-calendar-view="month">Month</a>
+                <a class="nav-link" href="#"  style="color: #9597a5;" data-calendar-view="basicWeek">Week</a>
+                <a class="nav-link" href="#"  style="color: #9597a5;" data-calendar-view="basicDay">Day</a>
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">More</a>
+                    <a class="nav-link dropdown-toggle"  style="color: #9597a5;" data-toggle="dropdown" href="#">More</a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#" data-calendar-view="agendaWeek">Agenda week</a>
                         <a class="dropdown-item" href="#" data-calendar-view="agendaDay">Agenda day</a>

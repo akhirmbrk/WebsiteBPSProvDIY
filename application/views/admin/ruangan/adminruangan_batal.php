@@ -22,13 +22,13 @@
     							<table id="mp_tabel" class="table table-hover table-bordered table-responsive" data-provide="datatables" cellspacing="0">
     								<thead>
     									<tr>
-    										<th width="5%" class="fw-600" style="vertical-align:middle;">No </th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle;">Perihal Zoom</th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Mulai</th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Selesai</th>
-    										<th width="20%" class="fw-600" style="vertical-align:middle;">Diajukan Oleh</th>
-    										<th width="20%" class="fw-600" style="vertical-align:middle;">Ruangan</th>
-    										<th width="10%" class="fw-600" style="vertical-align:middle;">Tanggal Pembatalan</th>
+    										<th width="5%" class="fw-600" style="vertical-align:middle; text-align: center;">No </th>
+    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align: center;">Perihal Zoom</th>
+    										<th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Mulai</th>
+    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align: center;">Jadwal Selesai</th>
+    										<th width="20%" class="fw-600" style="vertical-align:middle; text-align: center;">Diajukan Oleh</th>
+    										<th width="20%" class="fw-600" style="vertical-align:middle; text-align: center;">Ruangan</th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align: center;">Tanggal Pembatalan</th>
     									</tr>
     								</thead>
     								<tbody>
