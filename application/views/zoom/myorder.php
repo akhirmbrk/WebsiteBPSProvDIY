@@ -18,12 +18,12 @@
                                 data-provide="datatables" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="5%" class="fw-600" style="vertical-align:middle;">No </th>
-                                        <th width="20%" class="fw-600" style="vertical-align:middle;">Perihal Zoom</th>
-                                        <th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Mulai</th>
-                                        <th width="15%" class="fw-600" style="vertical-align:middle;">Jadwal Selesai
+                                        <th width="5%" class="fw-600" style="vertical-align:middle;text-align: center;">No </th>
+                                        <th width="20%" class="fw-600" style="vertical-align:middle;text-align: center;">Perihal Zoom</th>
+                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Mulai</th>
+                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Selesai
                                         </th>
-                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;">Status
+                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;text-align: center;">Status
                                         </th>
                                     </tr>
                                 </thead>
@@ -57,22 +57,22 @@
 
                                         <?php } else if ($list['status'] == 1) {  ?>
 
-                                        <td>
+                                        <td style="text-align: center;">
                                             <span class="badge badge-success"> Disetujui</span>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a name="d_edit_bagi_pegawai"
-                                                class="btn btn-square btn-outline btn-xs btn-dark"
+                                                class="nav-link hover-info cat-info"
                                                 href="<?php echo base_url('zoom/zoomorder/lookzoom/' . $list['idm']); ?>"
                                                 data-provide="tooltip" data-placement="top"
-                                                title="Lihat Detail Rapat Daring"><i class="ti-eye"></i></a>
+                                                title="Lihat Detail Rapat Daring"><i class="fa fa-eye"></i></a>
                                         </td>
 
 
 
                                         <?php } else if ($list['status'] == 2) {  ?>
 
-                                        <td>
+                                        <td style="text-align: center;">
                                             <span class="badge badge-danger">Batal/Tidak Disetujui</span>
                                         </td>
                                         <td>

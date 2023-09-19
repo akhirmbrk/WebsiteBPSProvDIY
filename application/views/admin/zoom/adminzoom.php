@@ -22,18 +22,18 @@
     							<table id="mp_tabel" class="table table-hover table-bordered table-responsive" data-provide="datatables" cellspacing="0">
     								<thead>
     									<tr>
-    										<th width="5%" class="fw-600" style="vertical-align:middle; text-align:center;"">No </th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;"">Perihal Zoom
+    										<th width="5%" class="fw-600" style="vertical-align:middle; text-align:center;">No </th>
+    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Perihal Zoom
     										</th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;"">Jadwal Mulai
+    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Jadwal Mulai
     										</th>
-    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;"">Jadwal Selesai
+    										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Jadwal Selesai
     										</th>
-    										<th width="20%" class="fw-600" style="vertical-align:middle; text-align:center;"">Diajukan Oleh
+    										<th width="20%" class="fw-600" style="vertical-align:middle; text-align:center;">Diajukan Oleh
     										</th>
-    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;"">Ruangan</th>
-    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;"">Tanggal</th>
-    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;"">Action</th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;">Ruangan</th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;">Tanggal</th>
+    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;">Action</th>
     									</tr>
     								</thead>
     								<tbody>
@@ -54,7 +54,7 @@
     												<td>
 
     													<nav class="nav gap-2 fs-16" style="text-align: center;">
-    														<a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('zoom/adminbidang/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
+    														<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('zoom/adminbidang/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
     														&nbsp
 
 
