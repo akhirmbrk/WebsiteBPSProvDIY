@@ -33,7 +33,7 @@
 
 
 <!-- Scripts -->
-<script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>m
+<script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>
 <script src="<?= base_url(''); ?>assets/js/app.min.js"></script>
 <script src="<?= base_url(''); ?>assets/js/script.min.js"></script>
 <script src="<?= base_url(''); ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
@@ -44,6 +44,9 @@
 
 
 <script>
+    // JavaScript untuk salju turun
+
+
     <?php
     if (isset($tabUser)) {
         $this->load->view('monitoring/livesearch/userSearch');
@@ -59,19 +62,20 @@
         //
         //
         var userapp = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['ida', 'nip', 'namaU']),
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['id_pegawai', 'nip_lama', 'nama_peg']),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-                url: '<?= base_url('') ?>/assets/data/json/fix.json',
+                url: '<?= base_url('Monitoring/TimKerja/AllUserProv') ?>',
                 filter: function(list) {
                     return $.map(list, function(user) {
                         return {
-                            ida: user.ida,
-                            nip: user.nip,
-                            namaU: user.namaU.replace(/,/g, ' ')
+                            id_pegawai: user.id_pegawai,
+                            nip_lama: user.nip_lama,
+                            nama_peg: user.nama_peg.replace(/,/g, ' ')
                         };
                     });
-                }
+                },
+                ttl: 300
             }
         });
 
@@ -81,9 +85,9 @@
             typeaheadjs: {
                 name: 'userapp',
                 displayKey: function(item) {
-                    return item.namaU + ' - ' + item.nip;
+                    return item.nama_peg + ' - ' + item.nip_lama;
                 },
-                valueKey: 'namaU',
+                valueKey: 'nama_peg',
                 source: userapp.ttAdapter()
             }
         });

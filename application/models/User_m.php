@@ -84,13 +84,13 @@ class User_m extends CI_Model
         return $hasil;
     }
 
-    public function list_user()
+    public function list_user_prov()
     {
         $data = array();
         $i = 0;
 
         // $Q = $this->db->query("SELECT * FROM kegiatan WHERE oleh = " . $nip . " ORDER BY idm DESC");
-        $Q = $this->db->query("SELECT * FROM userapp ");
+        $Q = $this->db->query("SELECT id_pegawai, nip_lama, nama_peg FROM pegawai");
 
 
         if ($Q->num_rows() > 0) {
@@ -104,44 +104,7 @@ class User_m extends CI_Model
         return $data;
     }
 
-    public function detail_user_by_id($id)
-    {
-        $data = array();
-        $Q = $this->db->query("SELECT * FROM userapp WHERE  ida = " . $id);
-        if ($Q->num_rows() > 0) {
-            $data = $Q->row_array();
-        } else {
-            $data['ida'] = 0;
-        }
-        $Q->free_result();
-        return $data;
-    }
 
-    public function detail_user_by_nip($nip)
-    {
-        $data = array();
-        $Q = $this->db->query("SELECT * FROM userapp WHERE  nip = " . $nip);
-        if ($Q->num_rows() > 0) {
-            $data = $Q->row_array();
-        } else {
-            $data['nip'] = 0;
-        }
-        $Q->free_result();
-        return $data;
-    }
-
-    public function detail_user_by_name($nama)
-    {
-        $data = array();
-        $Q = $this->db->query("SELECT `ida` FROM `userapp` WHERE REPLACE(`namaU`, ',', ' ') ='" . $nama . "'");
-        if ($Q->num_rows() > 0) {
-            $data = $Q->row_array();
-        } else {
-            $data['ida'] = 0;
-        }
-        $Q->free_result();
-        return $data;
-    }
 
 
     public function update_kegiatan($id)
@@ -160,10 +123,6 @@ class User_m extends CI_Model
     }
 
 
-    public function get_users($limit, $start)
-    {
-        return $this->db->get('userapp', $limit, $start)->result_array();
-    }
 
     public function get_users_live($limit, $start, $keyword, $count)
     {

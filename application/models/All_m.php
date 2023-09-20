@@ -196,12 +196,20 @@ class All_m extends CI_Model
 
 
 
-	public function list_order($nip)
+	public function list_order($nip, $keterangan)
 	{
 		$data = array();
 		$i = 0;
+		if ($keterangan == 0) {
+			$ket = 0;
+		} else {
+			$ket = 1;
+		}
+		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
+		$Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 
-		$Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
+
+		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
 
 
 		if ($Q->num_rows() > 0) {
@@ -359,12 +367,20 @@ class All_m extends CI_Model
 
 
 
-	public function list_order_permintaan($status)
+	public function list_order_permintaan($status, $keterangan)
 	{
+
 		$data = array();
 		$i = 0;
+		if ($keterangan == 0) {
+			$ket = 0;
+		} else {
+			$ket = 1;
+		}
+		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
+		$Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 
-		$Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " ORDER BY idm DESC");
+		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " ORDER BY idm DESC");
 
 
 		if ($Q->num_rows() > 0) {
