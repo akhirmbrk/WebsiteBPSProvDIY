@@ -120,8 +120,18 @@
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
-                            <span class="icon fa fa-home" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Pegawai</span>
+                            <span class="icon fa fa-building" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Pegawai Provinsi</span>
+                        </a>
+
+                    </li>
+
+                    <li class="menu-item <?php if (isset($admin_permintaan)) {
+                                                echo 'active';
+                                            } ?>">
+                        <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
+                            <span class="icon fa fa-building-o" style="color: #465161;"></span>
+                            <span class="title" style="color: #465161;">Pegawai Provinsi</span>
                         </a>
 
                     </li>

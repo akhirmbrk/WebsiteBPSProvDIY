@@ -40,6 +40,7 @@ class User extends CI_Controller
 		$data['tab'] = "2";
 		$data['tipe'] = "1";
 		$data['title'] = "User Utama";
+		$data['user'] = "1";
 		// $data['start'] = $this->uri->segment(4);
 
 		// $data['users'] = $this->User_m->get_users($config['per_page'], $data['start']);
