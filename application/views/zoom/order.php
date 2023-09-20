@@ -12,8 +12,8 @@
 
                 <div class="col-12">
                     <?php echo $this->session->flashdata('info_form');  ?>
-                    <div class="card-body">
-                        <div class="row">
+                    <div class="card-body ">
+                        <div class="row ">
 
                             <div class="col-md-12">
                                 <form class="" method="post" action="<?php echo base_url('zoom/zoomorder/order/'); ?>">
@@ -93,8 +93,9 @@
                                         <div class="form-group col-md-4">
                                             <label class="require">Ruangan</label>
                                             <select name="ruangan" class="form-control" data-provide="selectpicker">
-                                                <option value="bima">Ruang Bima</option>
-                                                <option value="pst">Ruang PST</option>
+                                                <?php foreach ($ruangan as $key => $item) { ?>
+                                                    <option value="<?= $item['id_ruangan'] ?>"><?= $item['nama_ruangan'] ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>

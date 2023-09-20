@@ -196,20 +196,20 @@ class All_m extends CI_Model
 
 
 
-	public function list_order($nip, $keterangan)
+	public function list_order($nip)
 	{
 		$data = array();
 		$i = 0;
-		if ($keterangan == 0) {
-			$ket = 0;
-		} else {
-			$ket = 1;
-		}
+		// if ($keterangan == 0) {
+		// 	$ket = 0;
+		// } else {
+		// 	$ket = 1;
+		// }
 		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
-		$Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " AND keterangan =" . $ket . " ORDER BY idm DESC");
+		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 
 
-		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
+		$Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
 
 
 		if ($Q->num_rows() > 0) {
@@ -760,5 +760,21 @@ class All_m extends CI_Model
 
 		$this->db->where('idr', $idr);
 		$this->db->update('rapatteam', $data);
+	}
+
+	public function list_ruangan()
+	{
+		$data = array();
+		$Q = $this->db->select('*');
+		$Q = $this->db->from('ruangan');
+		$Q = $this->db->get();
+
+		if ($Q->num_rows() > 0) {
+			foreach ($Q->result_array() as $row) {
+				$data[] = $row;
+			}
+		}
+		$Q->free_result();
+		return $data;
 	}
 }

@@ -176,29 +176,14 @@ class Kegiatan_m extends CI_Model
     {
         $data = array(
             'progres_kegiatan' => $this->input->post('progresKegiatan'),
-            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan')
+            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan'),
+            'time_update' => date("Y-m-d H:i"),
+            'last_user_update' => $_SESSION['nama'],
 
         );
         $this->db->where('id_kegiatan', $id);
         $this->db->update('kegiatan', $data);
 
-        // $query = $this->db->select('progres_kegiatan');
-        // $query = $this->db->from('kegiatan');
-        // $query = $this->db->where('id_parent', $parent);
-        // $query = $this->db->get()->result_array();
-        // $total = count($query);
-        // $progres = 0;
-        // foreach ($query as $key => $item) {
-        //     $progres += (int)$query[$key]['progres_kegiatan'];
-        // }
-        // $mean = $progres / $total;
-
-        // $data1 = array(
-        //     'progres_kegiatan' => $mean
-        // );
-
-        // $this->db->where('id_kegiatan', $parent);
-        // $this->db->update('kegiatan', $data1);
 
         $hasil['point'] = 'sukses';
 

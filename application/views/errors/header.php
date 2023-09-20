@@ -18,7 +18,7 @@
   <link href="<?php echo base_url(); ?>assets/css/core.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/css/app.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/css/style.min.css" rel="stylesheet">
-	
+	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/img/apple-touch-icon.png">
   <link rel="icon" href="<?= base_url(''); ?>assets/img/bg/logo_bps.png">
