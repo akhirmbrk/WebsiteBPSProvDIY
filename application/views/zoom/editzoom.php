@@ -102,12 +102,11 @@
                                             <div class="form-group col-md-4">
                                                 <label class="require">Ruangan</label>
                                                 <select name="ruangan" class="form-control" data-provide="selectpicker">
-                                                    <option <?php if ($editzoom['ruangan'] == 'bima') {
-                                                                echo 'selected';
-                                                            } ?> value="bima">Ruang Bima</option>
-                                                    <option <?php if ($editzoom['ruangan'] == 'pst') {
-                                                                echo 'selected';
-                                                            } ?> value="pst">Ruang PST</option>
+                                                    <?php foreach ($ruangan as $key => $item) { ?>
+                                                        <option value="<?= $item['id_ruangan'] ?>" <?php if ($editzoom['ruangan'] == $item['id_ruangan']) {
+                                                                                                        echo 'selected';
+                                                                                                    } ?>><?= $item['nama_ruangan'] ?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
