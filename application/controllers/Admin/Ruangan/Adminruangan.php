@@ -32,7 +32,7 @@ class Adminruangan extends CI_Controller
 		$data['judul'] = "";
 		$data['adminPermintaanRuangan'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(0);
+		$data['list_order'] = $this->All_m->list_order_permintaan(0, 1);
 
 		$this->load->vars($data);
 
@@ -48,7 +48,7 @@ class Adminruangan extends CI_Controller
 		$data['judul'] = "";
 		$data['adminDiSetujuiRuangan'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(1);
+		$data['list_order'] = $this->All_m->list_order_permintaan(1, 1);
 
 		$this->load->vars($data);
 
@@ -84,7 +84,7 @@ class Adminruangan extends CI_Controller
 		$data['judul'] = "";
 		$data['adminBatalRuangan'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(2);
+		$data['list_order'] = $this->All_m->list_order_permintaan(2, 1);
 
 		$this->load->vars($data);
 
@@ -98,30 +98,9 @@ class Adminruangan extends CI_Controller
 
 	public function replyzoom($idm)
 	{
-		$data = array();
-		$this->load->library('form_validation');
-
-		$this->form_validation->set_rules('reply', 'Jawaban Rapat Daring', 'trim|required');
-		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
-
-		if ($this->form_validation->run() == FALSE) {
-
-			$data['judul'] = "-";
-			$data['adminPermintaanRuangan'] = "1";
-
-			$data['idm'] = $idm;
-			$data['permintaan'] = $this->All_m->permintaan_data($idm);
-
-			$this->load->vars($data);
-			$this->load->view('part/header');
-			$this->load->view('template/sidetopbaradmin');
-			$this->load->view('admin/ruangan/adminruangan_reply');
-			$this->load->view('part/footer');
-		} else {
-			$this->All_m->update_permintaan($idm);
-			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Setujui Permintaan Rapat Daring</div> ');
-			redirect('admin/ruangan/adminruangan/daring_disetujui/', 'refresh');
-		}
+		$this->All_m->update_permintaan($idm);
+		$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Setujui Permintaan Rapat Daring</div> ');
+		redirect('admin/ruangan/adminruangan/daring_disetujui/', 'refresh');
 	}
 
 

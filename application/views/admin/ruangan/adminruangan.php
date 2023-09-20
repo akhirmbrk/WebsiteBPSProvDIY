@@ -64,7 +64,7 @@
     												<td>
 
     													<nav class="nav gap-2 fs-16">
-    														<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('admin/ruangan/adminruangan/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
+    														<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('Admin/Ruangan/Adminruangan/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
     														&nbsp
 
 
