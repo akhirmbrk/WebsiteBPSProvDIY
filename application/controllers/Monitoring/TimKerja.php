@@ -115,10 +115,10 @@ class TimKerja extends CI_Controller
     public function tambahAnggotaTimKerja($idTim)
     {
 
-        if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
-            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
-        }
+        // if (($_SESSION['user_role'] == 4) || ($_SESSION['user_role'] == 5) || ($_SESSION['user_role'] == 6)) {
+        //     $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+        //     redirect('Monitoring/Kegiatan', 'refresh');
+        // }
 
 
         $data['tab'] = "4";
@@ -261,5 +261,17 @@ class TimKerja extends CI_Controller
         $this->Z_anggotateam_m->hapus_tim_kerja($team, $bps, $periode);
         $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Tim Kerja</div> ');
         redirect('Monitoring/TimKerja', 'refresh');
+    }
+
+    public function AllUserProv()
+    {
+
+        $dataeven = $this->User_m->list_user_prov();
+
+
+        $ff = json_encode($dataeven);
+
+        header('Content-Type: application/json');
+        echo $ff;
     }
 }

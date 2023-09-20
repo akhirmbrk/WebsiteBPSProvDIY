@@ -30,7 +30,7 @@ class Adminruangan extends CI_Controller
 	{
 		$data = array();
 		$data['judul'] = "";
-		$data['admin_permintaan'] = "1";
+		$data['adminPermintaanRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(0);
 
@@ -46,7 +46,7 @@ class Adminruangan extends CI_Controller
 	{
 		$data = array();
 		$data['judul'] = "";
-		$data['admindisetujui'] = "1";
+		$data['adminDiSetujuiRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(1);
 
@@ -64,7 +64,7 @@ class Adminruangan extends CI_Controller
 		$data = array();
 
 
-		$data['admindisetujui'] = "1";
+		$data['adminDiSetujuiRuangan'] = "1";
 		$data['myorder'] = "1";
 
 		$data['idm'] = $idm;
@@ -82,7 +82,7 @@ class Adminruangan extends CI_Controller
 	{
 		$data = array();
 		$data['judul'] = "";
-		$data['admin_batal'] = "1";
+		$data['adminBatalRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(2);
 
@@ -107,7 +107,7 @@ class Adminruangan extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 
 			$data['judul'] = "-";
-			$data['admin_permintaan'] = "1";
+			$data['adminPermintaanRuangan'] = "1";
 
 			$data['idm'] = $idm;
 			$data['permintaan'] = $this->All_m->permintaan_data($idm);
@@ -138,7 +138,7 @@ class Adminruangan extends CI_Controller
 	public function order()
 	{
 		$data = array();
-		$data['admin_tambahjadwal'] = "1";
+		$data['adminTambahJadwalRuangan'] = "1";
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
