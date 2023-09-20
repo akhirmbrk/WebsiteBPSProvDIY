@@ -10,15 +10,15 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">Pengaturan untuk membuat dan
                         menyesuaikan tim kerja</small>
+                </div>
             </div>
-        </div>
-        <div class="header-action">
-            <div class="buttons">
-                <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
-            </div>
+            <div class="header-action">
+                <div class="buttons">
+                    <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
+                </div>
 
+            </div>
         </div>
-    </div>
 </header>
 <!--/.header -->
 
@@ -66,7 +66,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                         <hr>
 
                         <div class="text-right">
-                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
+                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
                         </div>
                     </form>
                 </div>

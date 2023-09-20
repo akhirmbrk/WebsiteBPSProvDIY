@@ -11,35 +11,29 @@ class tim_kerja_m extends CI_Model
     public function list_teamkerja($limit, $start, $search, $count)
     {
 
-
-        // var_dump($id_zperiode);
         $this->db->order_by('z_team.id_zteam', 'DESC')->select('*');
         $this->db->from('z_team');
         $this->db->join('z_periode', 'z_team.id_zperiode = z_periode.id_zperiode');
-        // $this->db->where('z_team.id_zperiode =', $id_zperiode);
 
+        if ($search) {
+            // Jika $search adalah sebuah array, maka ambil komponen keyword dan periode
+            if (is_array($search) && isset($search['keyword']) && isset($search['periode'])) {
+                $search_keyword = $search['keyword'];
+                $periode = $search['periode'];
+                // var_dump($tim);
+                // Jika ada kata kunci, tambahkan kondisi LIKE
+                if ($search_keyword) {
+                    $this->db->like("nama_team", $search_keyword);
+                }
 
-
-        // var_dump($this->db->result_array());
-        // if ($search) {
-        //     // Jika $search adalah sebuah array, maka ambil komponen keyword dan periode
-        //     if (is_array($search) && isset($search['keyword']) && isset($search['periode'])) {
-        //         $search_keyword = $search['keyword'];
-        //         $periode = $search['periode'];
-        //         // var_dump($tim);
-        //         // Jika ada kata kunci, tambahkan kondisi LIKE
-        //         if ($search_keyword) {
-        //             $this->db->like("nama_team", $search_keyword);
-        //         }
-
-        //         // Jika ada periode, tambahkan kondisi LIKE
-        //         if ($periode) {
-        //             $this->db->group_start();
-        //             $this->db->where("id_zperiode", $periode);
-        //             $this->db->group_end();
-        //         }
-        //     }
-        // }
+                // Jika ada periode, tambahkan kondisi LIKE
+                if ($periode) {
+                    $this->db->group_start();
+                    $this->db->where("z_team.id_zperiode", $periode);
+                    $this->db->group_end();
+                }
+            }
+        }
 
         if ($count) {
             return $this->db->count_all_results();

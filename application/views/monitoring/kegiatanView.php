@@ -67,7 +67,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
                         <hr>
                         <div class="text-right">
-                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
+                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
                         </div>
 
                     </form>
