@@ -32,7 +32,7 @@ class Adminbidang extends CI_Controller
 		$data['judul'] = "Permintaan Rapat";
 		$data['admin_permintaan'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(0);
+		$data['list_order'] = $this->All_m->list_order_permintaan(0, 0);
 
 		$this->load->vars($data);
 
@@ -48,7 +48,7 @@ class Adminbidang extends CI_Controller
 		$data['judul'] = "Rapat Disetujui";
 		$data['admindisetujui'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(1);
+		$data['list_order'] = $this->All_m->list_order_permintaan(1, 0);
 
 		$this->load->vars($data);
 
@@ -84,7 +84,7 @@ class Adminbidang extends CI_Controller
 		$data['judul'] = "Rapat Batal";
 		$data['admin_batal'] = "1";
 
-		$data['list_order'] = $this->All_m->list_order_permintaan(2);
+		$data['list_order'] = $this->All_m->list_order_permintaan(2, 0);
 
 		$this->load->vars($data);
 

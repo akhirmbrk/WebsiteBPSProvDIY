@@ -31,7 +31,7 @@
     							<div class="row">
 
     								<div class="col-md-12">
-    									<form class="" method="post" action="<?php echo base_url('zoom/adminbidang/replyzoom/' . $idm); ?>">
+    									<form class="" method="post" action="<?php echo base_url('Admin/Ruangan/Adminruangan/replyzoom/'); ?>">
 
     										<div class="form-group">
     											<label>Jawaban Permintaan Rapat Daring </label>
