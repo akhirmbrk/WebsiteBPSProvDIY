@@ -23,6 +23,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/material-icons/css/material-icons.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
@@ -34,7 +37,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?= base_url(''); ?>assets/css/app.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" href="<?= base_url(''); ?>assets/img/apple-touch-icon.png">

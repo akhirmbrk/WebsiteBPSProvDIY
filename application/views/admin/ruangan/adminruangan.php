@@ -62,21 +62,13 @@
     												<td><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span>
     												</td>
     												<td>
-
-    													<nav class="nav gap-2 fs-16">
+    													<nav class="nav gap-2 fs-16" style="justify-content: center;">
     														<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('Admin/Ruangan/Adminruangan/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
     														&nbsp
-
 
     														<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-info" data-provide="tooltip" data-placement="top" title="Tidak Disetujui" data-toggle="modal" data-target="#modal-sqduh"><i class="fa fa-close"></i></a>
 
     													</nav>
-
-
-
-
-
-
     												</td>
 
     											</tr>
