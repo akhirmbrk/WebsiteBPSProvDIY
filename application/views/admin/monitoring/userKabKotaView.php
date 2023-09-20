@@ -25,16 +25,12 @@
 						<!-- Search Form -->
 						<div class="card-body">
 							<form class="lookup lookup-right">
-								<input type="text" id="searchUser" name="searchUser" autofocus autocomplete="off" placeholder="Cari Nama Pegawai">
-								<!-- <button type="button" id="searchBtn" class="btn btn-info">Search</button>
-                            <button type="button" id="resetBtn" class="btn btn-warning">Reset</button> -->
-
+								<input type="text" id="searchUserKabkota" name="searchUserKabkota" autocomplete="off" placeholder="Cari Nama Pegawai">
 							</form>
 						</div>
-
 						<!-- List User Table -->
 
-						<div id="ajaxContent"></div>
+						<div id="ajaxContent1"></div>
 
 
 					</div>

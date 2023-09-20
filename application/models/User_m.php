@@ -170,12 +170,12 @@ class User_m extends CI_Model
         //  $this->db->get('userapp', $limit, $start)->result_array();
 
         $this->db->select('*');
-        $this->db->from('userapp');
+        $this->db->from('pegawai');
         if ($keyword) {
             $keyword = $keyword['keyword'];
             if ($keyword) {
-                $this->db->like("namaU", $keyword);
-                $this->db->or_like("nip", $keyword);
+                $this->db->like("nama_peg", $keyword);
+                $this->db->or_like("nip_lama", $keyword);
             }
         }
         if ($count) {
@@ -191,6 +191,33 @@ class User_m extends CI_Model
 
         return array();
     }
+
+    public function get_users_kabkota_live($limit, $start, $keyword, $count)
+    {
+        $this->db->select('*');
+        $this->db->from('pegawai_kabkota');
+        if ($keyword) {
+            $keyword = $keyword['keyword'];
+            if ($keyword) {
+                $this->db->like("nama_pegawai_kabkota", $keyword);
+                $this->db->or_like("nip_lama_pegawai_kabkota", $keyword);
+            }
+        }
+        if ($count) {
+            return $this->db->count_all_results();
+        } else {
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0) {
+                return $query->result_array();
+            }
+        }
+        // var_dump($query->result_array());
+
+        return array();
+    }
+
 
     public function get_jumlah_user()
     {
