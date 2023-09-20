@@ -33,6 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?= base_url(''); ?>assets/css/core.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/app.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.min.css" rel="stylesheet">
+	<link href="<?= base_url(''); ?>assets/css/style.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 
 
