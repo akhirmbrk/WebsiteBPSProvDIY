@@ -176,7 +176,9 @@ class Kegiatan_m extends CI_Model
     {
         $data = array(
             'progres_kegiatan' => $this->input->post('progresKegiatan'),
-            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan')
+            'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan'),
+            'time_update' => date("Y-m-d H:i"),
+            'last_user_update' => $_SESSION['nama'],
 
         );
         $this->db->where('id_kegiatan', $id);
