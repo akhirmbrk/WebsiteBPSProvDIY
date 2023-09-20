@@ -97,6 +97,8 @@ class Zoomorder extends CI_Controller
 			$data['ordered'] = "1";
 			$data['content'] = 'Permintaan Rapat';
 
+			$data['ruangan'] = $this->All_m->list_ruangan();
+
 
 			$tgl = date('Y-m-d', strtotime(' +0 day'));
 
@@ -178,6 +180,9 @@ class Zoomorder extends CI_Controller
 
 			$data['idm'] = $idm;
 			$data['editzoom'] = $this->All_m->editzoom($idm);
+
+			$data['ruangan'] = $this->All_m->list_ruangan();
+
 
 			$this->load->vars($data);
 			$this->load->view('template/header', $data);
