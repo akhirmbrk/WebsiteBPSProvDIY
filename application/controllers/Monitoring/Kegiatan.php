@@ -42,18 +42,9 @@ class Kegiatan extends CI_Controller
         $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
-        // $data['start'] = $this->uri->segment(4);
-
-        // $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan($config['per_page'], $data['start']);
-
-        // foreach ($data['list_kegiatan'] as $key => $item) {
-        //     $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
-        // }
-
-        // $filter['bps'] = $this->BPS_m->list_bps();
         $filter['periode'] = $this->Periode_m->list_periode();
-        // $filter['tim_kerja'] = $this->tim_kerja_m->list_tim_kerja();
-
+        $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($Periode = 0);
+        // var_dump($filter);
         $this->load->vars($data);
         $this->load->vars($filter);
 
@@ -67,7 +58,10 @@ class Kegiatan extends CI_Controller
     {
         $search = array(
             'keyword' => trim($this->input->post('searchKegiatan')),
+            'periode' => $this->input->post('filterPeriode'),
+            'timKerja' => $this->input->post('filterTimKerja')
         );
+        // var_dump($search);
 
         $this->load->library('pagination');
 

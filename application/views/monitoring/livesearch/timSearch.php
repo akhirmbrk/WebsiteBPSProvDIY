@@ -9,6 +9,22 @@ ajaxlist((page_url = false));
 event.preventDefault();
 });
 
+/*-- Filter Periode --*/
+$(document).on("change", "#filterPeriode", function(event) {
+ajaxlist((page_url = false));
+event.preventDefault();
+console.log($('#filterPeriode').val());
+});
+
+
+/*-- Reset Filter--*/
+$(document).on('click', "#resetFilter", function(event) {
+$("#filterPeriode").val('');
+ajaxlist(page_url = false);
+event.preventDefault();
+});
+
+
 // Dengan tombol
 /*-- Search keyword--*/
 // $(document).on('click', "#searchBtn", function(event) {
@@ -33,8 +49,12 @@ event.preventDefault();
 /*-- create function ajaxlist --*/
 function ajaxlist(page_url = false) {
 var search_key = $("#searchTimKerja").val();
+var periode_key = $("#filterPeriode").val();
 
-var dataString = "searchTimKerja=" + search_key;
+var data = {
+searchTimKerja: search_key,
+filterPeriode: periode_key
+};
 var base_url = '<?php echo base_url("Monitoring/TimKerja/indexAjax") ?>';
 
 if (page_url == false) {
@@ -44,7 +64,7 @@ var page_url = base_url;
 $.ajax({
 type: "POST",
 url: page_url,
-data: dataString,
+data: data,
 success: function(response) {
 <!-- console.log(response); -->
 $("#ajaxContent").html(response);

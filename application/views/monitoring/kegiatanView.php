@@ -35,14 +35,16 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                 <div class="card shadow-1">
                     <h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
 
-                    <form action="<?= base_url('monitoring/kegiatan/filterKegiatan') ?>" method="post" class="card-body">
+                    <form class="card-body">
                         <div class="form-group">
                             <label>Periode Pelaksanaan</label>
-                            <select name="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
+                            <select id="filterPeriode" name="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($periode)) {
-                                    foreach ($periode as $indeks => $item) {  ?>
-                                        <option value="<?= $item['id_zperiode'] ?>"><?= $item['Tahun']; ?></option>
+                                    foreach ($periode as $indeks => $item) {
+                                        $selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+                                        <option value="<?= $item['Tahun'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
+                                        ?>
                                 <?php }
                                 } ?>
 
@@ -51,24 +53,23 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label>Tim Kerja</label>
-                            <select name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
+                            <select id="filterTimKerja" name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
                                 <?php
                                 if (count($tim_kerja)) {
-                                    foreach ($tim_kerja as $indeks => $item) {  ?>
+                                    foreach ($tim_kerja as $indeks => $item) { ?>
                                         <option value="<?= $item['id_zteam'] ?>"><?php echo $item['nama_team']; ?></option>
                                 <?php }
                                 } ?>
                             </select>
-                        </div> -->
+                        </div>
 
                         <hr>
-
                         <div class="text-right">
-                            <a class="btn btn-sm btn-bold btn-secondary mr-1" href="#">Reset</a>
-                            <button class="btn btn-sm btn-bold btn-primary" type="submit">Apply</button>
+                            <a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -81,7 +82,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                         <!-- Searching kegiatan -->
                         <div class="card-body">
                             <form class="lookup lookup-right">
-                                <input type="text" id="searchKegiatan" name="searchKegiatan" autofocus autocomplete="off" placeholder="Cari Kegiatan">
+                                <input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
                             </form>
                         </div>
                         <!-- end Searching kegiatan -->

@@ -2,10 +2,35 @@ $(function() {
 /*--first time load--*/
 ajaxlist((page_url = false));
 
+
 // Real Live
 /*-- Search keyword--*/
 $(document).on("keyup", "#searchKegiatan", function(event) {
 ajaxlist((page_url = false));
+event.preventDefault();
+});
+
+/*-- Filter Periode --*/
+$(document).on("change", "#filterPeriode", function(event) {
+ajaxlist((page_url = false));
+event.preventDefault();
+console.log($('#filterPeriode').val());
+});
+
+
+/*-- Filter Tim Kerja --*/
+$(document).on("change", "#filterTimKerja", function(event) {
+ajaxlist((page_url = false));
+event.preventDefault();
+console.log($('#filterTimKerja').val());
+});
+
+
+/*-- Reset Filter--*/
+$(document).on('click', "#resetFilter", function(event) {
+$("#filterPeriode").val('');
+$("#filterTimKerja").val('');
+ajaxlist(page_url = false);
 event.preventDefault();
 });
 
@@ -15,6 +40,7 @@ event.preventDefault();
 // ajaxlist(page_url = false);
 // event.preventDefault();
 // });
+
 
 // /*-- Reset Search--*/
 // $(document).on('click', "#resetBtn", function(event) {
@@ -33,8 +59,15 @@ event.preventDefault();
 /*-- create function ajaxlist --*/
 function ajaxlist(page_url = false) {
 var search_key = $("#searchKegiatan").val();
+var periode_key = $("#filterPeriode").val();
+var tim_key = $("#filterTimKerja").val();
 
-var dataString = "searchKegiatan=" + search_key;
+<!-- var dataString = "searchKegiatan=" + search_key; -->
+var data = {
+searchKegiatan: search_key,
+filterPeriode: periode_key,
+filterTimKerja: tim_key
+};
 var base_url = '<?php echo base_url("Monitoring/Kegiatan/indexAjax") ?>';
 
 if (page_url == false) {
@@ -44,9 +77,9 @@ var page_url = base_url;
 $.ajax({
 type: "POST",
 url: page_url,
-data: dataString,
+data: data,
 success: function(response) {
-<!-- console.log(response); -->
+console.log(response);
 $("#ajaxContent").html(response);
 },
 });

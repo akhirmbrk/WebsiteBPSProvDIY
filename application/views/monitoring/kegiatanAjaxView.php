@@ -41,7 +41,7 @@
                             </div>
 
                             <small class="opacity-65 fw-300">
-                                <?= $tim[$indeks]['nama_team'] ?>
+                                <?= $tim[$indeks]['id_zteam'] ?>
                                 <span class="divider-dash"></span>
                                 BPS Provinsi Daerah Istimewa Yogyakarta
                             </small>

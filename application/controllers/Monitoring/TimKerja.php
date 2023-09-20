@@ -61,21 +61,23 @@ class TimKerja extends CI_Controller
     {
         $search = array(
             'keyword' => trim($this->input->post('searchTimKerja')),
+            'periode' => $this->input->post('filterPeriode')
         );
 
+        // var_dump($search);
         $this->load->library('pagination');
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Monitoring/TimKerja/indexAjax";
         $data['start'] = $this->uri->segment(4);
         $config['per_page'] = 5;
-        $config['total_rows'] = $this->tim_kerja_m->list_teamkerja($periode = 0, $config['per_page'], $data['start'], $search, $count = true);
+        $config['total_rows'] = $this->tim_kerja_m->list_teamkerja($config['per_page'], $data['start'], $search, $count = true);
         $config['attributes'] = array('class' => 'page-link');
 
         $this->pagination->initialize($config);
 
 
         // $data['teams'] = $this->Z_anggotateam_m->get_teams_live($config['per_page'], $data['start'], $search, $count = false);
-        $data['teams'] = $this->tim_kerja_m->list_teamkerja($periode = 0, $config['per_page'], $data['start'], $search, $count = false);
+        $data['teams'] = $this->tim_kerja_m->list_teamkerja($config['per_page'], $data['start'], $search, $count = false);
 
         // var_dump($data['teams']);
 
