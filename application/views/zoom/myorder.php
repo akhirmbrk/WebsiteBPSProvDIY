@@ -44,15 +44,15 @@
 
 
                                         <?php if ($list['status'] == 0) { ?>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <span class="badge badge-warning">Belum Disetujui</span>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <a name="d_edit_bagi_pegawai"
-                                                class="btn btn-square btn-outline btn-xs btn-dark"
+                                                class="nav-link hover-info cat-info"
                                                 href="<?php echo base_url('zoom/zoomorder/editzoom/' . $list['idm']); ?>"
                                                 data-provide="tooltip" data-placement="top" title="Edit"><i
-                                                    class="ti-pencil"></i></a>
+                                                    class="fa fa-pencil"></i></a>
                                         </td>
 
                                         <?php } else if ($list['status'] == 1) {  ?>
