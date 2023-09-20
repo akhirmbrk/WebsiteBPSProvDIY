@@ -51,22 +51,6 @@
                                     </a>
                                 </li>
 
-                                <?php //if (($_SESSION['user_role'] == 1) || ($_SESSION['user_role'] == 2) || ($_SESSION['user_role'] == 3)) { 
-                                ?>
-                                <li class="menu-item <?php if ($tab === '2') {
-                                                            echo 'active';
-                                                        } else {
-                                                            echo '';
-                                                        }  ?>">
-                                    <span class="topbar-btn" data-toggle="dropdown" style="color: #9096a0;"><span class="icon fa fa-user"></span>Pegawai</span>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="<?= base_url('Monitoring/User'); ?>"><i class=""></i>Provinsi</a>
-                                        <a class="dropdown-item" href="#"><i class=""></i>Kabupaten/Kota</a>
-                                    </div>
-                                </li>
-                                <?php // } 
-                                ?>
-
                                 <li class="menu-item <?php if ($tab === '3') {
                                                             echo 'active';
                                                         } else {

@@ -25,26 +25,12 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		// $this->load->library('pagination');
-
-		// $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/User/index";
-		// $config['total_rows'] = $this->User_m->get_jumlah_user();
-		// $config['per_page'] = 5;
-
-		// $config['attributes'] = array('class' => 'page-link');
-
-		// $this->pagination->initialize($config);
-
-
 		$data['tabUser'] = "1";
 		$data['tab'] = "2";
 		$data['tipe'] = "1";
-		$data['title'] = "User Utama";
+		$data['title'] = "User Provinsi";
 		$data['user'] = "1";
-		// $data['start'] = $this->uri->segment(4);
 
-		// $data['users'] = $this->User_m->get_users($config['per_page'], $data['start']);
-		// // var_dump($data['users']);
 		$this->load->vars($data);
 
 		$this->load->view('template/header');
@@ -63,7 +49,7 @@ class User extends CI_Controller
 		$this->load->library('pagination');
 
 		$config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/Monitoring/User/indexAjax";
-		$data['start'] = $this->uri->segment(4);
+		$data['start'] = $this->uri->segment(5);
 		$config['per_page'] = 5;
 		$config['total_rows'] = $this->User_m->get_users_live($config['per_page'], $data['start'], $search, $count = true);
 
@@ -82,6 +68,50 @@ class User extends CI_Controller
 		$this->load->view('admin/monitoring/userAjaxView');
 	}
 
+	public function userKabkota()
+	{
+		$data['tabUserKabkota'] = "1";
+		$data['tab'] = "2";
+		$data['tipe'] = "1";
+		$data['title'] = "User Kabupaten/Kota";
+		$data['user'] = "1";
+
+		$this->load->vars($data);
+
+		$this->load->view('template/header');
+		// $this->load->view('template/topNav');
+		$this->load->view('template/sidetopbaradmin');
+		$this->load->view('admin/monitoring/userKabKotaView');
+		$this->load->view('template/footer');
+	}
+
+	public function userKabkotaAjax()
+	{
+		$search = array(
+			'keyword' => trim($this->input->post('searchUser')),
+		);
+
+		$this->load->library('pagination');
+
+		$config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/Monitoring/User/userKabkotaAjax";
+		$data['start'] = $this->uri->segment(5);
+		$config['per_page'] = 5;
+		$config['total_rows'] = $this->User_m->get_users_kabkota_live($config['per_page'], $data['start'], $search, $count = true);
+
+		$config['attributes'] = array('class' => 'page-link');
+
+		$this->pagination->initialize($config);
+
+
+		$data['users'] = $this->User_m->get_users_kabkota_live($config['per_page'], $data['start'], $search, $count = false);
+		$data['result_user'] = $config['total_rows'];
+
+		// var_dump($data['users']);
+		$this->load->vars($data);
+
+
+		$this->load->view('admin/monitoring/userKabkotaAjaxView');
+	}
 
 	public function editRole()
 	{

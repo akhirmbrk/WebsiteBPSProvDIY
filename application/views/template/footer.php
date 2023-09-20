@@ -51,6 +51,8 @@
         $this->load->view('monitoring/livesearch/kegiatanSearch');
     } elseif (isset($tabTim)) {
         $this->load->view('monitoring/livesearch/timSearch');
+    } elseif (isset($tabUserKabkota)) {
+        $this->load->view('monitoring/livesearch/userKabkotaSearch');
     }
     ?>
     app.ready(function() {

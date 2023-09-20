@@ -32,10 +32,10 @@ event.preventDefault();
 
 /*-- create function ajaxlist --*/
 function ajaxlist(page_url = false) {
-var search_key = $("#searchUser").val();
+var search_key = $("#searchUserKabkota").val();
 
 var dataString = "searchUser=" + search_key;
-var base_url = '<?php echo base_url("Admin/Monitoring/User/indexAjax") ?>';
+var base_url = '<?php echo base_url("Admin/Monitoring/User/userKabkotaAjax") ?>';
 
 if (page_url == false) {
 var page_url = base_url;
@@ -47,7 +47,7 @@ url: page_url,
 data: dataString,
 success: function(response) {
 <!-- console.log(response); -->
-$("#ajaxContent").html(response);
+$("#ajaxContent1").html(response);
 },
 });
 }

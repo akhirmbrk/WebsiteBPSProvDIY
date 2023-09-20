@@ -1,5 +1,4 @@
 <!-- List User Table -->
-
 <h6 class="ml-4" style="color :#33cabb;"><em>Hasil Pencarian : <?= $result_user; ?></em></h6>
 
 <table class="table table-hover  ">
@@ -13,12 +12,13 @@
     </thead>
     <tbody>
         <?php
+
         if (count($users)) {
             foreach ($users as $indeks => $item) { ?>
                 <tr>
-                    <input type="hidden" name="idUser" id="idUser<?= $item['id_pegawai'] ?>" value="<?= $item['id_pegawai'] ?>">
-                    <td name="namaUser" id="namaUser<?= $item['id_pegawai'] ?>"><?= $item['nama_peg'] ?></td>
-                    <td name="nipUser" id="nipUser<?= $item['id_pegawai'] ?>"><?= $item['nip'] ?></td>
+                    <input type="hidden" name="idUser" id="idUser<?= $item['id_pegawai_kabkota'] ?>" value="<?= $item['id_pegawai_kabkota'] ?>">
+                    <td name="namaUser" id="namaUser<?= $item['id_pegawai_kabkota'] ?>"><?= $item['nama_pegawai_kabkota'] ?></td>
+                    <td name="nipUser" id="nipUser<?= $item['id_pegawai_kabkota'] ?>"><?= $item['nip_lama_pegawai_kabkota'] ?></td>
                     <td name="roleUser" id="roleUser">
                         <!-- <?php if ($item['super_admin'] == 1) {
                                     echo '<span class="badge badge-ring badge-danger mr-2 mt-2"></span>';
@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <!-- <nav class="nav gap-2 fs-16"> -->
-                        <span name="editUser" id="<?= $item['id_pegawai'] ?>" onclick="editUser(this.id)" class="nav-link hover-primary cat-edit" href="#" data-provide="tooltip" title="Edit" data-perform="edit" data-target="modal-cat-edit.html"><i class="ti-pencil"></i></span>
+                        <span name="editUser" id="<?= $item['id_pegawai_kabkota'] ?>" onclick="editUser(this.id)" class="nav-link hover-primary cat-edit" href="#" data-provide="tooltip" title="Edit" data-perform="edit" data-target="modal-cat-edit.html"><i class="ti-pencil"></i></span>
                         <!-- <a class="nav-link hover-danger cat-delete" href="#" data-provide="tooltip" title="Delete" data-perform="delete" data-target="#"><i class="ti-trash"></i></a> -->
                         <!-- </nav> -->
                     </td>
