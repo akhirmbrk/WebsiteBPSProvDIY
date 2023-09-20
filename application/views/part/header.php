@@ -11,7 +11,9 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <!-- Styles -->
   <link href="<?php echo base_url(); ?>assets/css/core.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/css/app.min.css" rel="stylesheet">

@@ -49,7 +49,7 @@
                                         </td>
                                         <td style="text-align: center;">
                                             <a name="d_edit_bagi_pegawai"
-                                                class="nav-link hover-info cat-info"
+                                                class="nav-link hover-primary cat-info"
                                                 href="<?php echo base_url('zoom/zoomorder/editzoom/' . $list['idm']); ?>"
                                                 data-provide="tooltip" data-placement="top" title="Edit"><i
                                                     class="fa fa-pencil"></i></a>

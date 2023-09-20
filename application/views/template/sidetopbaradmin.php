@@ -6,7 +6,7 @@
     </header>
 
     <nav class="sidebar-navigation">
-        <ul class="menu menu-xl">
+        <ul class="menu">
 
 
             <li class="menu-item">
@@ -67,7 +67,7 @@
 
                 <ul class="menu-submenu bg-light">
 
-                    <li class="menu-item <?php if (isset($admin_permintaan)) {
+                    <li class="menu-item <?php if (isset($adminPermintaanRuangan)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/index'); ?>">
@@ -76,7 +76,7 @@
                         </a>
 
                     </li>
-                    <li class="menu-item <?php if (isset($admindisetujui)) {
+                    <li class="menu-item <?php if (isset($adminDiSetujuiRuangan)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_disetujui'); ?>">
@@ -85,7 +85,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-item <?php if (isset($admin_batal)) {
+                    <li class="menu-item <?php if (isset($adminBatalRuangan)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_batal'); ?>">
@@ -95,7 +95,7 @@
                     </li>
 
 
-                    <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
+                    <li class="menu-item <?php if (isset($adminTambahJadwalRuangan)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/order'); ?>">
@@ -116,7 +116,7 @@
 
                 <ul class="menu-submenu bg-light">
 
-                    <li class="menu-item <?php if (isset($admin_permintaan)) {
+                    <li class="menu-item <?php if (isset($tabUser)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
@@ -126,7 +126,7 @@
 
                     </li>
 
-                    <li class="menu-item <?php if (isset($admin_permintaan)) {
+                    <li class="menu-item <?php if (isset($tabUserKabkota)) {
                                                 echo 'active';
                                             } ?>">
                         <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
