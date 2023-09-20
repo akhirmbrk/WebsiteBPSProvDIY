@@ -40,6 +40,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link rel="apple-touch-icon" href="<?= base_url(''); ?>assets/img/apple-touch-icon.png">
 	<link rel="icon" href="<?= base_url(''); ?>assets/img/bg/logo_bps.png">
 
+	<!-- salju -->
+	<style>
+
+	</style>
+
+	<!-- end salju -->
+
+
 	<!-- Open Graph Tags
     <meta property="og:title" content="The Admin Template of 2018!">
     <meta property="og:description" content="TheAdmin is a responsive, professional, and multipurpose admin template powered with Bootstrap 4.">

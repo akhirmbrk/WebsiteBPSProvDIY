@@ -26,12 +26,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 <!--/.header -->
 
 
-<div class="main-content">
-    <div class="container">
+
+<div class="main-content ">
+    <div class="container ">
         <?php echo $this->session->flashdata('info_form');  ?>
         <div class="row">
 
-            <div class="col-md-4 col-xl-3 d-none d-md-block">
+            <div class="col-md-4 col-xl-3 d-none d-md-block ">
 
                 <!-- Filter -->
                 <div class="card shadow-1">
