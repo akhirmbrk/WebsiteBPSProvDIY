@@ -14,56 +14,56 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                         menyesuaikan tim kerja</small>
                 </div>
             </div>
-            <div class="header-action">
-                <div class="buttons">
-                    <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
-                </div>
-
+        </div>
+        <div class="header-action">
+            <div class="buttons">
+                <a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
             </div>
         </div>
+    </div>
 </header>
 <!--/.header -->
 <div class="bubbles">
-	<span style="--i:11;"></span>
-	<span style="--i:12;"></span>
-	<span style="--i:24;"></span>
-	<span style="--i:10;"></span>
-	<span style="--i:14;"></span>
-	<span style="--i:23;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:16;"></span>
-	<span style="--i:19;"></span>
-	<span style="--i:20;"></span>
-	<span style="--i:22;"></span>
-	<span style="--i:25;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:21;"></span>
-	<span style="--i:15;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:26;"></span>
-	<span style="--i:17;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:28;"></span>
-	<span style="--i:11;"></span>
-	<span style="--i:12;"></span>
-	<span style="--i:24;"></span>
-	<span style="--i:10;"></span>
-	<span style="--i:14;"></span>
-	<span style="--i:23;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:16;"></span>
-	<span style="--i:19;"></span>
-	<span style="--i:20;"></span>
-	<span style="--i:22;"></span>
-	<span style="--i:25;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:21;"></span>
-	<span style="--i:15;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:26;"></span>
-	<span style="--i:17;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:28;"></span>
+    <span style="--i:11;"></span>
+    <span style="--i:12;"></span>
+    <span style="--i:24;"></span>
+    <span style="--i:10;"></span>
+    <span style="--i:14;"></span>
+    <span style="--i:23;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:16;"></span>
+    <span style="--i:19;"></span>
+    <span style="--i:20;"></span>
+    <span style="--i:22;"></span>
+    <span style="--i:25;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:21;"></span>
+    <span style="--i:15;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:26;"></span>
+    <span style="--i:17;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:28;"></span>
+    <span style="--i:11;"></span>
+    <span style="--i:12;"></span>
+    <span style="--i:24;"></span>
+    <span style="--i:10;"></span>
+    <span style="--i:14;"></span>
+    <span style="--i:23;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:16;"></span>
+    <span style="--i:19;"></span>
+    <span style="--i:20;"></span>
+    <span style="--i:22;"></span>
+    <span style="--i:25;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:21;"></span>
+    <span style="--i:15;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:26;"></span>
+    <span style="--i:17;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:28;"></span>
 </div>
 
 <div class="main-content">

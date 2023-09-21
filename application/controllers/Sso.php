@@ -37,20 +37,6 @@ class Sso extends CI_Controller
 	{
 
 		unset($_SESSION);
-		// unset($_SESSION['getprop']);
-		// if (isset($_SESSION['roleSuperAdmin'])) {
-		// 	unset($_SESSION['roleSuperAdmin']);
-		// } elseif (isset($_SESSION['roleAdminTKProv'])) {
-		// 	unset($_SESSION['roleAdminTKProv']);
-		// } elseif (isset($_SESSION['roleAdminTKKabkota'])) {
-		// 	unset($_SESSION['roleAdminTKKabkota']);
-		// } elseif (isset($_SESSION['roleKepalaProv'])) {
-		// 	unset($_SESSION['roleKepalaProv']);
-		// } elseif (isset($_SESSION['roleKepalaKabkota'])) {
-		// 	unset($_SESSION['roleKepalaKabkota']);
-		// } elseif (isset($_SESSION['roleKetuaTKProv'])) {
-		// 	unset($_SESSION['roleKetuaTKProv']);
-		// }
 
 		//unset($_SESSION['getUrlFoto']);
 
@@ -64,34 +50,19 @@ class Sso extends CI_Controller
 	{
 		$this->load->model('All_m');
 		$this->load->library('session');
-		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340054255";
-
-		// $_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
+		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
 		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340024494";
+		// $_SESSION['nip'] = "340054255";
+		// $_SESSION['user_role'] = array();
+		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340024494";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
+		// $AksesUser = $this->All_m->list_user_access($user[0]['id_pegawai']);
 
-		// if ($user[0]['super_admin'] == '1') {
-		// 	if ($user[0]['admin_tim_kerja_prov'] == '1') {
-		// 		$_SESSION['user_role'] = 2;
-		// 	} elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
-		// 		$_SESSION['user_role'] = 3;
-		// 	} else {
-		// 		$_SESSION['user_role'] = 1;
-		// 	}
-		// } elseif ($user[0]['admin_tim_kerja_prov'] == '1') {
-		// 	$_SESSION['user_role'] = 4;
-		// } elseif ($user[0]['admin_tim_kerja_kabkota'] == '1') {
-		// 	$_SESSION['user_role'] = 5;
-		// } else {
-		// 	$_SESSION['user_role'] = 6;
-		// }
+		// var_dump($_SESSION['user_role']);
 
-		// var_dump($this->session->userdata('user_role'));
-		// var_dump($_SESSION);
 
 
 

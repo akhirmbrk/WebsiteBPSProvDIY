@@ -30,6 +30,7 @@ class Landingpage extends CI_Controller
 		$data['tab'] = "1";
 		$data['title'] = "Website Integrasi";
 
+
 		$this->load->vars($data);
 
 		// $this->load->view('template/header');

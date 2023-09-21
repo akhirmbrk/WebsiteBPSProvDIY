@@ -710,7 +710,6 @@ class All_m extends CI_Model
 
 
 
-
 	public function list_rapat_upload($nip, $id_zteam)
 	{
 		$data = array();
@@ -774,6 +773,43 @@ class All_m extends CI_Model
 				$data[] = $row;
 			}
 		}
+		$Q->free_result();
+		return $data;
+	}
+
+	public function list_user_access($id)
+	{
+		$data = array();
+		$Q = $this->db->select('*');
+		$Q = $this->db->from('user_access')->where('id_pegawai', $id);
+		$Q = $this->db->get();
+
+		if ($Q->num_rows() > 0) {
+			foreach ($Q->result_array() as $row) {
+				$data[] = $row;
+			}
+		}
+		$Q->free_result();
+		return $data;
+	}
+
+	public function cek_akses_user($nip, $role)
+	{
+		foreach ($role as $key => $value) {
+			// var_dump($value);
+			$Q = $this->db->get_where(
+				'user_access',
+				[
+					'nip_pegawai' => $nip,
+					'id_role' => $value
+				]
+			);
+			// var_dump($Q->row_array());
+			// 	// var_dump($Q->result_array());
+			// 	// die;
+		}
+		$data = $Q->num_rows();
+		// var_dump($Q->row_array());
 		$Q->free_result();
 		return $data;
 	}

@@ -48,6 +48,9 @@ $this->load->view('template/topnav');
 	<div id="slider" class="col-12">
 		<br>
 		<div class="container mx-auto text-center">
+
+			<?php echo $this->session->flashdata('info_form');  ?>
+
 			<span class="fs-50 fw-900" style="font-family: var(--font-markazi-text)">MENU UTAMA</span>
 			<br>
 			<!-- <div class="flexbox flex-justified">
@@ -141,7 +144,7 @@ $this->load->view('template/topnav');
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<div class="slider-card">
-						<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/admin/zoom/adminbidang') ?>">
+							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/admin/zoom/adminbidang') ?>">
 								<img class="adminImg" src="<?= base_url('') ?>/assets/img/logoAdmin.png" alt="">
 							</a>
 						</div>

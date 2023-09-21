@@ -5,6 +5,7 @@ class User extends CI_Controller
 {
 	public $load;
 	public $User_m;
+	public $All_m;
 	public $session;
 	public $input;
 	public $pagination;
@@ -14,17 +15,28 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('User_m');
+		$this->load->model('All_m');
 		//session_name("ckp34");
 		if (!(isset($_SESSION['nip']))) {
 			$this->session->set_flashdata('info_form', ' <div class="alert alert-block alert-danger">Mohon Login Terlebih Dahulu</div>');
 			redirect('sso/index', 'refresh');
 		}
 
+		// CEK ROLE USER
+		$role = [1, 2];
+		$akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+		if ($akses < 1) {
+			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
+			redirect('Landingpage', 'refresh');
+		}
+		//-------------------
+
 		date_default_timezone_set("Asia/Jakarta");
 	}
 
 	public function index()
 	{
+
 		$data['tabUser'] = "1";
 		$data['tab'] = "2";
 		$data['tipe'] = "1";
@@ -135,6 +147,4 @@ class User extends CI_Controller
 			redirect('admin/monitoring/User', 'refresh');
 		}
 	}
-
-
 }
