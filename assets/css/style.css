@@ -192,9 +192,9 @@ section .set div:nth-child(8) {
 
 .set2 {
 	transform: scale(2) rotateY(180deg);
-	/* filter: blur(2px); */
+	filter: blur(2px);
 }
 .set3 {
 	transform: scale (0.8) rotateX(180deg);
-	/* filter: blur(4px); */
+	filter: blur(4px);
 }
