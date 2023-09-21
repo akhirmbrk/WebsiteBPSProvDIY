@@ -43,7 +43,7 @@ class Zoomorder extends CI_Controller
 		$this->load->view('template/topnav', $data);
 		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/zoomindex');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 	public function evenn()
@@ -112,7 +112,7 @@ class Zoomorder extends CI_Controller
 			$this->load->view('template/topnav', $data);
 			$this->load->view('template/header_content', $data);
 			$this->load->view('zoom/order');
-			$this->load->view('part/footer');
+			$this->load->view('template/footer');
 		} else {
 			$hasil = $this->All_m->addorder();
 
@@ -151,7 +151,7 @@ class Zoomorder extends CI_Controller
 		$this->load->view('template/topnav', $data);
 		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/myorder');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -189,7 +189,7 @@ class Zoomorder extends CI_Controller
 			$this->load->view('template/topnav', $data);
 			$this->load->view('template/header_content', $data);
 			$this->load->view('zoom/editzoom', $data);
-			$this->load->view('part/footer');
+			$this->load->view('template/footer');
 		} else {
 
 
@@ -232,7 +232,7 @@ class Zoomorder extends CI_Controller
 		$this->load->view('template/topnav', $data);
 		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/lookzoom');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -253,7 +253,7 @@ class Zoomorder extends CI_Controller
 		$this->load->view('template/topnav', $data);
 		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/myorderupload');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -274,7 +274,7 @@ class Zoomorder extends CI_Controller
 		$this->load->view('template/topnav', $data);
 		$this->load->view('template/header_content', $data);
 		$this->load->view('zoom/uploadnotulenview');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 

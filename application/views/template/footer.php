@@ -44,7 +44,24 @@
 
 
 <script>
-    // JavaScript untuk salju turun
+    app.ready(function() {
+
+        $('button[name="copiesdi"]').click(function(event) {
+
+            var r = document.createRange();
+            r.selectNode(document.getElementById("okeee"));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(r);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+
+
+
+        })
+
+
+
+    });
 
 
     <?php

@@ -45,7 +45,7 @@ class Adminbidang extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom');
 		$this->load->view('template/footer');
@@ -61,10 +61,10 @@ class Adminbidang extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom_disetujui');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 
@@ -80,10 +80,10 @@ class Adminbidang extends CI_Controller
 		$data['lookzoom'] = $this->All_m->lookzoom($idm);
 
 		$this->load->vars($data);
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('zoom/lookzoom');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -97,10 +97,10 @@ class Adminbidang extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/zoom/adminzoom_batal');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 
@@ -122,10 +122,10 @@ class Adminbidang extends CI_Controller
 			$data['permintaan'] = $this->All_m->permintaan_data($idm);
 
 			$this->load->vars($data);
-			$this->load->view('part/header');
+			$this->load->view('template/header');
 			$this->load->view('template/sidetopbaradmin');
 			$this->load->view('admin/zoom/adminzoom_reply');
-			$this->load->view('part/footer');
+			$this->load->view('template/footer');
 		} else {
 			$this->All_m->update_permintaan($idm);
 			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Setujui Permintaan Rapat Daring</div> ');
@@ -173,10 +173,10 @@ class Adminbidang extends CI_Controller
 			$data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
 
 			$this->load->vars($data);
-			$this->load->view('part/header');
+			$this->load->view('template/header');
 			$this->load->view('template/sidetopbaradmin');
 			$this->load->view('zoom/orderadmin');
-			$this->load->view('part/footer');
+			$this->load->view('template/footer');
 		} else {
 			$hasil = $this->All_m->addorderadmin();
 

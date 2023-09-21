@@ -60,7 +60,7 @@ class Manajemenfile extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
 		$this->load->view('manajemenfile/myrapatupload');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function uploadnotulenrapat($idr)
@@ -76,7 +76,7 @@ class Manajemenfile extends CI_Controller
 		$this->load->view('template/header', $data);
 		$this->load->view('template/topnav', $data);
 		$this->load->view('uploadnotulenrapat');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function notulenrapat($idr)

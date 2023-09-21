@@ -45,10 +45,10 @@ class Adminruangan extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/ruangan/adminruangan');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 	public function daring_disetujui()
@@ -61,10 +61,10 @@ class Adminruangan extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/ruangan/adminruangan_disetujui');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 
@@ -80,10 +80,10 @@ class Adminruangan extends CI_Controller
 		$data['lookzoom'] = $this->All_m->lookzoom($idm);
 
 		$this->load->vars($data);
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('zoom/lookzoom');
-		$this->load->view('part/footer');
+		$this->load->view('template/footer');
 	}
 
 
@@ -97,10 +97,10 @@ class Adminruangan extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('part/header');
+		$this->load->view('template/header');
 		$this->load->view('template/sidetopbaradmin');
 		$this->load->view('admin/ruangan/adminruangan_batal');
-		$this->load->view('part/footer_zoomindex');
+		$this->load->view('template/footer_zoomindex');
 	}
 
 
@@ -152,10 +152,10 @@ class Adminruangan extends CI_Controller
 			$data['tanggal_now'] = $bln_dh_1 . '/' . $tgl_dh_1 . '/' . $thn_dh_1;
 
 			$this->load->vars($data);
-			$this->load->view('part/header');
+			$this->load->view('template/header');
 			$this->load->view('template/sidetopbaradmin');
 			$this->load->view('zoom/orderadmin');
-			$this->load->view('part/footer');
+			$this->load->view('template/footer');
 		} else {
 			$hasil = $this->All_m->addorderadmin();
 
