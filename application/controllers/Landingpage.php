@@ -32,6 +32,7 @@ class Landingpage extends CI_Controller
 		var_dump($_SESSION);
 		// die;
 
+
 		$this->load->vars($data);
 
 		// $this->load->view('template/header');

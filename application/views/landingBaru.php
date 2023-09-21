@@ -144,7 +144,7 @@ $this->load->view('template/topnav');
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('Admin/Zoom/Adminbidang') ?>">
+						<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/admin/zoom/adminbidang') ?>">
 								<img class="adminImg" src="<?= base_url('') ?>/assets/img/logoAdmin.png" alt="">
 							</a>
 						</div>
