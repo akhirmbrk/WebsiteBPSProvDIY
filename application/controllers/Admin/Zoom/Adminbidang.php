@@ -19,9 +19,19 @@ class Adminbidang extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->model('All_m');
 		$defadata = $this->All_m->top_bar();
-		if ($defadata['admin_zoom'] != 1) {
-			redirect('zoom/zoomorder/index/', 'refresh');
+		// if ($defadata['admin_zoom'] != 1) {
+		// 	redirect('zoom/zoomorder/index/', 'refresh');
+		// }
+
+		// CEK ROLE USER
+		$role = [1, 2, 3, 4];
+		$akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+
+		if ($akses < 1) {
+			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
+			redirect('Landingpage', 'refresh');
 		}
+		//-------------------
 
 		date_default_timezone_set("Asia/Jakarta");
 	}
