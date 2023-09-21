@@ -1,3 +1,6 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css" />
+</head>
 <!-- Main container -->
 
 <header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/bluehead.png') ?>);">
@@ -25,126 +28,114 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 	</div>
 </header>
 <!--/.header -->
-
-<div class="bubbles">
-	<span style="--i:11;"></span>
-	<span style="--i:12;"></span>
-	<span style="--i:24;"></span>
-	<span style="--i:10;"></span>
-	<span style="--i:14;"></span>
-	<span style="--i:23;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:16;"></span>
-	<span style="--i:19;"></span>
-	<span style="--i:20;"></span>
-	<span style="--i:22;"></span>
-	<span style="--i:25;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:21;"></span>
-	<span style="--i:15;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:26;"></span>
-	<span style="--i:17;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:28;"></span>
-	<span style="--i:11;"></span>
-	<span style="--i:12;"></span>
-	<span style="--i:24;"></span>
-	<span style="--i:10;"></span>
-	<span style="--i:14;"></span>
-	<span style="--i:23;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:16;"></span>
-	<span style="--i:19;"></span>
-	<span style="--i:20;"></span>
-	<span style="--i:22;"></span>
-	<span style="--i:25;"></span>
-	<span style="--i:18;"></span>
-	<span style="--i:21;"></span>
-	<span style="--i:15;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:26;"></span>
-	<span style="--i:17;"></span>
-	<span style="--i:13;"></span>
-	<span style="--i:28;"></span>
-</div>
-
 <div class="main-content">
-    <div class="container">
-        <?php echo $this->session->flashdata('info_form');  ?>
-        <div class="row">
+	<section>
+		<div class="set">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
+		<div class="set set2">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
+		<div class="set set3">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
+		<div class="container">
+			<?php echo $this->session->flashdata('info_form');  ?>
+			<div class="row">
 
-            <div class="col-md-4 col-xl-3 d-none d-md-block">
+				<div class="col-md-4 col-xl-3 d-none d-md-block">
 
-				<!-- Filter -->
-				<div class="card shadow-1">
-					<h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
+					<!-- Filter -->
+					<div class="card shadow-1">
+						<h5 class="card-title"><strong>Filter Kegiatan</strong></h5>
 
-					<form class="card-body">
-						<div class="form-group">
-							<label>Periode Pelaksanaan</label>
-							<select id="filterPeriode" name="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
-								<?php
-								if (count($periode)) {
-									foreach ($periode as $indeks => $item) {
-										$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
-										<option value="<?= $item['Tahun'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
-										?>
-								<?php }
-								} ?>
+						<form class="card-body">
+							<div class="form-group">
+								<label>Periode Pelaksanaan</label>
+								<select id="filterPeriode" name="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
+									<?php
+									if (count($periode)) {
+										foreach ($periode as $indeks => $item) {
+											$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+											<option value="<?= $item['Tahun'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
+											?>
+									<?php }
+									} ?>
 
-							</select>
-						</div>
+								</select>
+							</div>
 
 
 
-						<div class="form-group">
-							<label>Tim Kerja</label>
-							<select id="filterTimKerja" name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
-								<?php
-								if (count($tim_kerja)) {
-									foreach ($tim_kerja as $indeks => $item) { ?>
-										<option value="<?= $item['id_zteam'] ?>"><?php echo $item['nama_team']; ?></option>
-								<?php }
-								} ?>
-							</select>
-						</div>
+							<div class="form-group">
+								<label>Tim Kerja</label>
+								<select id="filterTimKerja" name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
+									<?php
+									if (count($tim_kerja)) {
+										foreach ($tim_kerja as $indeks => $item) { ?>
+											<option value="<?= $item['id_zteam'] ?>"><?php echo $item['nama_team']; ?></option>
+									<?php }
+									} ?>
+								</select>
+							</div>
 
-						<hr>
-						<div class="text-right">
-							<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
-						</div>
+							<hr>
+							<div class="text-right">
+								<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
+							</div>
 
-					</form>
-				</div>
-			</div>
-			<!-- END Filter -->
-
-			<div class="col-md-8 col-xl-9">
-				<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-					<div class="media-list-body bg-white b-1">
-
-						<!-- Searching kegiatan -->
-						<div class="card-body">
-							<form class="lookup lookup-right">
-								<input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
-							</form>
-						</div>
-						<!-- end Searching kegiatan -->
-
-						<!-- List Kegiatan  -->
-						<div id="ajaxContent"></div>
-
+						</form>
 					</div>
 				</div>
+				<!-- END Filter -->
+
+				<div class="col-md-8 col-xl-9">
+					<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
+						<div class="media-list-body bg-white b-1">
+
+							<!-- Searching kegiatan -->
+							<div class="card-body">
+								<form class="lookup lookup-right">
+									<input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
+								</form>
+							</div>
+							<!-- end Searching kegiatan -->
+
+							<!-- List Kegiatan  -->
+							<div id="ajaxContent"></div>
+
+						</div>
+					</div>
 
 
-				<!-- <footer class="flexbox align-items-center py-20">
+					<!-- <footer class="flexbox align-items-center py-20">
                 </footer> -->
+
+				</div>
 
 			</div>
 
 		</div>
-
-	</div>
+	</section>
 </div>
