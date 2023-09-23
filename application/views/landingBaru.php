@@ -47,7 +47,10 @@ $this->load->view('template/topnav');
 <div class="row no-margin">
 	<div id="slider" class="col-12">
 		<br>
+		<?php echo $this->session->flashdata('info_form');  ?>
 		<div class="container mx-auto text-center">
+
+
 			<span class="fs-50 fw-900" style="font-family: var(--font-markazi-text)">MENU UTAMA</span>
 			<br>
 			<!-- <div class="flexbox flex-justified">
@@ -117,14 +120,14 @@ $this->load->view('template/topnav');
 				<div class="row d-flex flex-row align-items-center">
 					<div class="col-md-6 col-sm-20">
 						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
+							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>ManajemenFile/Manajemenfile">
 								<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
 							</a>
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-20">
 						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Monitoring/Index/dashboard">
+							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>Monitoring/Index/dashboard">
 								<img class="monitoringImg" src="<?= base_url('') ?>/assets/img/monitoringLogo.png" alt="">
 							</a>
 						</div>
@@ -134,7 +137,7 @@ $this->load->view('template/topnav');
 				<div class="row d-flex justify-content-center align-items-center">
 					<div class="col-md-6 col-sm-12">
 						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Zoom/zoomorder">
+							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>Zoom/zoomorder">
 								<img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />
 							</a>
 						</div>

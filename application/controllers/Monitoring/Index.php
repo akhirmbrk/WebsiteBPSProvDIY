@@ -30,6 +30,8 @@ class Index extends CI_Controller
 
 	public function dashboard()
 	{
+		// var_dump($_SESSION);
+		// die;
 		$data['tab'] = "1";
 		$data['tipe'] = "1";
 		$data['title'] = "Dashboard Utama";

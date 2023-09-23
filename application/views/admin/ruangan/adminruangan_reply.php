@@ -1,6 +1,6 @@
     <!-- Main container -->
     <main>
-    	<header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+    	<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
     		<div class="container">
     			<div class="header-info">
     				<div class="left">
@@ -13,61 +13,92 @@
     	</header>
 
 
+    	<section>
+    		<div class="main-content">
+    			<div class="set">
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    			</div>
+    			<div class="set set2">
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    			</div>
+    			<div class="set set3">
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
+    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
+    			</div>
+    			<div class="card card-body">
 
-    	<div class="main-content">
-    		<div class="card card-body">
+    				<!-- <h2 class="d-fiestletter">Permintaan Rapat Daring </h2> -->
 
-    			<!-- <h2 class="d-fiestletter">Permintaan Rapat Daring </h2> -->
-
-    			<div class="row">
+    				<div class="row">
 
 
 
-    				<div class="col-12">
-    					<div class="card card-bordered card-hover-shadow">
+    					<div class="col-12">
+    						<div class="card card-bordered card-hover-shadow">
 
-    						<?php echo $this->session->flashdata('info_form');  ?>
-    						<div class="card-body">
-    							<div class="row">
+    							<?php echo $this->session->flashdata('info_form');  ?>
+    							<div class="card-body">
+    								<div class="row">
 
-    								<div class="col-md-12">
-    									<form class="" method="post" action="<?php echo base_url('Admin/Ruangan/Adminruangan/replyzoom/'); ?>">
+    									<div class="col-md-12">
+    										<form class="" method="post" action="<?php echo base_url('Admin/Ruangan/Adminruangan/replyzoom/'); ?>">
 
-    										<div class="form-group">
-    											<label>Jawaban Permintaan Rapat Daring </label>
-    											<?php echo form_error('reply', '<p class="text-danger">', '</p>'); ?>
-    											<textarea data-provide="summernote" name="reply" class="form-control" data-min-height="250" required> </textarea>
-    										</div>
-
-
-    										<hr>
-
-    										<div class="row">
-    											<div class="form-group col-md-3">
-    												<button class="btn btn-primary btn-block">Simpan Perubahan</button>
+    											<div class="form-group">
+    												<label>Jawaban Permintaan Rapat Daring </label>
+    												<?php echo form_error('reply', '<p class="text-danger">', '</p>'); ?>
+    												<textarea data-provide="summernote" name="reply" class="form-control" data-min-height="250" required> </textarea>
     											</div>
-    										</div>
+
+
+    											<hr>
+
+    											<div class="row">
+    												<div class="form-group col-md-3">
+    													<button class="btn btn-primary btn-block">Simpan Perubahan</button>
+    												</div>
+    											</div>
 
 
 
-    									</form>
+    										</form>
+    									</div>
+
     								</div>
-
     							</div>
+
+
     						</div>
-
-
     					</div>
-    				</div>
 
+
+
+    				</div>
+    				<!--/.row -->
 
 
     			</div>
-    			<!--/.row -->
-
-
     		</div>
-    	</div>
+    	</section>
     	<!--/.main-content -->
 
 
