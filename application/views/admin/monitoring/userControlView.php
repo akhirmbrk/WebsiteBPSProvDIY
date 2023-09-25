@@ -95,11 +95,12 @@
 
 								<div class="form-group">
 									<label>Jenis Tim Kerja</label>
-									<select title="Role User" multiple data-provide="selectpicker" name="roleEdit[]" id="roleEdit" data-width="100%">
+									<select multiple data-live-search="false" data-actions-box="true" class="selectpicker" title="Pilih Role" name="roleEdit[]" id="roleEdit" data-width="100%">
 										<?php foreach ($list_role as $key => $role) { ?>
 											<option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
 										<?php } ?>
 									</select>
+
 								</div>
 							</div>
 
@@ -108,7 +109,6 @@
 							</footer>
 
 						</form>
-
 
 						<script>
 							function editUser($id) {
@@ -153,10 +153,11 @@
 									for (var j = 0; j < role.length; j++) {
 										if (role[j] === roleOptions[i].innerHTML) {
 											roleOptions[i].setAttribute('selected', '');
-											console.log(roleOptions);
+											console.log(roleOptions[i]);
 										}
 									}
 								}
+								$(kolomRole).selectpicker('refresh');
 
 							}
 						</script>
