@@ -7,136 +7,153 @@
 
     <nav class="sidebar-navigation">
         <ul class="menu">
+            <!-- ADMIN ZOOM -->
+            <?php
+            // CEK ROLE USER
+            $roleRequie = [1, 3];
+            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                <li class="menu-item">
+                    <a class="menu-link" href="#" style="color: #465161;">
+                        <span class="icon fa fa-video-camera"></span>
+                        <span class="title">Admin Zoom</span>
+                        <span class="arrow"></span>
+                    </a>
+
+                    <ul class="menu-submenu bg-light">
+
+                        <li class="menu-item <?php if (isset($admin_permintaan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
+                                <span class="icon fa fa-home" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
+                            </a>
+
+                        </li>
+                        <li class="menu-item <?php if (isset($admindisetujui)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
+                                <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item <?php if (isset($admin_batal)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
+                                <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Rapat Daring Batal</span>
+                            </a>
+                        </li>
 
 
-            <li class="menu-item">
-                <a class="menu-link" href="#" style="color: #465161;">
-                    <span class="icon fa fa-video-camera"></span>
-                    <span class="title">Admin Zoom</span>
-                    <span class="arrow"></span>
-                </a>
+                        <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
+                                <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
-                <ul class="menu-submenu bg-light">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+            <!-- END ADMIN ZOOM -->
 
-                    <li class="menu-item <?php if (isset($admin_permintaan)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/index'); ?>">
-                            <span class="icon fa fa-home" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Permintaan Rapat Daring</span>
-                        </a>
+            <!-- ADMIN RUANGAN -->
+            <?php // CEK ROLE USER
+            $roleRequie = [1, 4];
+            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                <li class="menu-item">
+                    <a class="menu-link" href="#" style="color: #465161;">
+                        <span class="icon fa fa-users"></span>
+                        <span class="title">Admin Ruangan</span>
+                        <span class="arrow"></span>
+                    </a>
 
-                    </li>
-                    <li class="menu-item <?php if (isset($admindisetujui)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Disetujui</span>
-                        </a>
-                    </li>
+                    <ul class="menu-submenu bg-light">
 
-                    <li class="menu-item <?php if (isset($admin_batal)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Daring Batal</span>
-                        </a>
-                    </li>
+                        <li class="menu-item <?php if (isset($adminPermintaanRuangan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/index'); ?>">
+                                <span class="icon fa fa-home" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Permintaan Rapat</span>
+                            </a>
 
+                        </li>
+                        <li class="menu-item <?php if (isset($adminDiSetujuiRuangan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_disetujui'); ?>">
+                                <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Rapat Disetujui</span>
+                            </a>
+                        </li>
 
-                    <li class="menu-item <?php if (isset($admin_tambahjadwal)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/zoom/adminbidang/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
-
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <a class="menu-link" href="#" style="color: #465161;">
-                    <span class="icon fa fa-users"></span>
-                    <span class="title">Admin Ruangan</span>
-                    <span class="arrow"></span>
-                </a>
-
-                <ul class="menu-submenu bg-light">
-
-                    <li class="menu-item <?php if (isset($adminPermintaanRuangan)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/index'); ?>">
-                            <span class="icon fa fa-home" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Permintaan Rapat</span>
-                        </a>
-
-                    </li>
-                    <li class="menu-item <?php if (isset($adminDiSetujuiRuangan)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_disetujui'); ?>">
-                            <span class="icon fa fa-calendar-check-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Disetujui</span>
-                        </a>
-                    </li>
-
-                    <li class="menu-item <?php if (isset($adminBatalRuangan)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_batal'); ?>">
-                            <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Rapat Batal</span>
-                        </a>
-                    </li>
+                        <li class="menu-item <?php if (isset($adminBatalRuangan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/daring_batal'); ?>">
+                                <span class="icon fa fa-calendar-times-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Rapat Batal</span>
+                            </a>
+                        </li>
 
 
-                    <li class="menu-item <?php if (isset($adminTambahJadwalRuangan)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/order'); ?>">
-                            <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Tambah Jadwal</span>
+                        <li class="menu-item <?php if (isset($adminTambahJadwalRuangan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('admin/ruangan/adminruangan/order'); ?>">
+                                <span class="icon fa fa-calendar-plus-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Tambah Jadwal</span>
 
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+            <!-- END ADMIN RUANGAN -->
 
-            <li class="menu-item">
-                <a class="menu-link" href="#" style="color: #465161;">
-                    <span class="icon fa fa-tv"></span>
-                    <span class="title">Admin Monitoring</span>
-                    <span class="arrow"></span>
-                </a>
+            <!-- ADMIN MONITORING -->
+            <?php // CEK ROLE USER
+            $roleRequie = [1, 2];
+            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                <li class="menu-item">
+                    <a class="menu-link" href="#" style="color: #465161;">
+                        <span class="icon fa fa-tv"></span>
+                        <span class="title">Admin Monitoring</span>
+                        <span class="arrow"></span>
+                    </a>
 
-                <ul class="menu-submenu bg-light">
+                    <ul class="menu-submenu bg-light">
 
-                    <li class="menu-item <?php if (isset($tabUser)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
-                            <span class="icon fa fa-building" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Pegawai Provinsi</span>
-                        </a>
+                        <li class="menu-item <?php if (isset($tabUser)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
+                                <span class="icon fa fa-building" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Pegawai Provinsi</span>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="menu-item <?php if (isset($tabUserKabkota)) {
-                                                echo 'active';
-                                            } ?>">
-                        <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
-                            <span class="icon fa fa-building-o" style="color: #465161;"></span>
-                            <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
-                        </a>
+                        <li class="menu-item <?php if (isset($tabUserKabkota)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
+                                <span class="icon fa fa-building-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
+                            </a>
 
-                    </li>
-                </ul>
-            </li>
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+            <!-- END ADMIN MONITORING -->
 
             <li class="menu-item">
                 <a class="menu-link" style="color: #465161;" href="<?php echo base_url('landingpage'); ?>">

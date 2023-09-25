@@ -36,7 +36,8 @@ class Sso extends CI_Controller
 	function lout()
 	{
 
-		unset($_SESSION);
+		// unset($_SESSION);
+		session_destroy();
 
 		//unset($_SESSION['getUrlFoto']);
 
@@ -54,17 +55,29 @@ class Sso extends CI_Controller
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340054255";
 		// $_SESSION['user_role'] = array();
+
+		// COBA ROLE Admin Monitor
 		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		$_SESSION['getprop'] = "34";
 		$_SESSION['nip'] = "340024494";
 
+		// COBA ROLE USER BIASA 
+		// $_SESSION['nama'] = "Rahmawati, SE, MA";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "1234567";
+
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
-		// $AksesUser = $this->All_m->list_user_access($user[0]['id_pegawai']);
 
-		// var_dump($_SESSION['user_role']);
-
-
-
+		// var_dump($user);
+		$AksesUser = $this->All_m->list_user_access($user);
+		// die;
+		if (count($AksesUser) > 0) {
+			foreach ($AksesUser as $i => $value) {
+				$_SESSION['user_role'][$i] = (int)$value['id_role'];
+			};
+		} else {
+			$_SESSION['user_role'][0] = 7;
+		}
 
 		redirect('landingpage/index', 'refresh');
 		// redirect('landingBaru/index', 'refresh');

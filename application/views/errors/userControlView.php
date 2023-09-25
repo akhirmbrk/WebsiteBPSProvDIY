@@ -64,12 +64,6 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 							<label>Role</label>
 							<select name="roleEdit" id="roleEdit" class="form-control">
 								<option value="SuperAdmin">Super Admin</option>
-								<option value="AdminTimKerjaProv">Admin Tim Kerja Provinsi</option>
-								<option value="AdminTimKerjaKabKot">Admin Tim Kerja Kabupaten/Kota</option>
-								<option value="KepalaProv">Kepala Provinsi</option>
-								<option value="KepalaKabKot">Kepala KabKabupaten/Kota</option>
-								<option value="KetuaTimKerjaProvinsi">Ketua Tim Kerja Provinsi</option>
-								<option value="user">User</option>
 							</select>
 						</div>
 					</div>
@@ -86,11 +80,12 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 						var idNama = "namaUser" + $id;
 						var idNip = "nipUser" + $id;
-						var idRole = "role" + $id;
+						var idRole = "roleUser" + $id;
 
 						var nama = document.getElementById(idNama).innerHTML;
 						var nip = document.getElementById(idNip).innerHTML;
-						var role = document.getElementById(idRole).value;
+						var role = document.getElementById(idRole);
+
 
 						var kolomId = document.getElementById('idEdit');
 						var kolomNama = document.getElementById('namaEdit');
@@ -102,6 +97,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 						kolomNama.value = nama;
 						kolomNip.value = nip;
 						kolomRole.value = role;
+
 
 					}
 				</script>

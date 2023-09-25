@@ -16,9 +16,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 	</div>
 
 	<div class="header-action">
-		<div class="buttons">
-			<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
-		</div>
+		<?php // CEK ROLE USER
+		$roleRequie = [1, 6];
+		if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+			<div class="buttons">
+				<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
+			</div>
+		<?php } ?>
 
 	</div>
 	</div>
@@ -83,9 +87,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 						</span>
 					</div>
 
-
 				</div>
 				<br>
+				<?php if ($detail_kegiatan['time_update'] == null || $detail_kegiatan['last_user_update'] == null) { ?>
+					<small class="ml-3"><i>Belum diupdate</i></small>
+				<?php } else { ?>
+					<small class="ml-3"><i><?= $detail_kegiatan['time_update'] . '<span class="divider-dash"></span>' . $detail_kegiatan['last_user_update'] ?></i></small>
+				<?php } ?>
 			</div>
 			<div class="card shadow-1">
 				<div class="card-body">

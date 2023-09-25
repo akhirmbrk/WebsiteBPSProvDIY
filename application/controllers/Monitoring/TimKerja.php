@@ -148,7 +148,7 @@ class TimKerja extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/topNav');
         $this->load->view('monitoring/tambahAnggotaTimKerjaView');
-        $this->load->view('template/footer');
+        $this->load->view('template/footer_tambah_anggota');
     }
 
     public function addTimUser()

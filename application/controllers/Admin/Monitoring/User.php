@@ -43,6 +43,7 @@ class User extends CI_Controller
 		$data['title'] = "User Provinsi";
 		$data['user'] = "1";
 
+		$data['list_role'] = $this->All_m->list_user_role();
 		$this->load->vars($data);
 
 		$this->load->view('template/header');
@@ -70,10 +71,22 @@ class User extends CI_Controller
 		$this->pagination->initialize($config);
 
 
+		// $data['users'] = $this->User_m->get_users_live($config['per_page'], $data['start'], $search, $count = false);
+		// foreach ($data['users'] as $key => $user) {
+		// 	// var_dump($user['nip_lama']);
+		// 	$data['role_user'][$key] = $this->All_m->list_user_access($user['nip_lama']);
+		// }
 		$data['users'] = $this->User_m->get_users_live($config['per_page'], $data['start'], $search, $count = false);
 		$data['result_user'] = $config['total_rows'];
+		$data['role_user'] = array();
+		foreach ($data['users'] as $key => $user) {
+			$data['role_user'][$key] = $this->All_m->list_user_access($user['nip_lama']);
+			// var_dump($data['role_user'][$key]);
+			// echo '<hr>';
+		}
+		// die;
 
-		// var_dump($data['users']);
+
 		$this->load->vars($data);
 
 
@@ -87,6 +100,8 @@ class User extends CI_Controller
 		$data['tipe'] = "1";
 		$data['title'] = "User Kabupaten/Kota";
 		$data['user'] = "1";
+
+		$data['list_role'] = $this->All_m->list_user_role();
 
 		$this->load->vars($data);
 
@@ -118,6 +133,12 @@ class User extends CI_Controller
 		$data['users'] = $this->User_m->get_users_kabkota_live($config['per_page'], $data['start'], $search, $count = false);
 		$data['result_user'] = $config['total_rows'];
 
+		foreach ($data['users'] as $key => $user) {
+			$data['role_user'][$key] = $this->All_m->list_user_access($user['nip_lama_pegawai_kabkota']);
+			// var_dump($data['role_user'][$key]);
+			// echo '<hr>';
+		}
+
 		// var_dump($data['users']);
 		$this->load->vars($data);
 
@@ -125,21 +146,48 @@ class User extends CI_Controller
 		$this->load->view('admin/monitoring/userKabkotaAjaxView');
 	}
 
-	public function editRole()
+	public function editRole($ket)
 	{
 
 		$id = $this->input->post('idEdit');
-		$hasil = $this->User_m->edit_role_user($id);
+		$nip = (int) $this->input->post('nipEdit');
+
+		if ($nip == null) {
+			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Pilih User yang akan di edit terlebih dahulu</div> ');
+			if ($ket == '1') {
+				redirect('admin/monitoring/User', 'refresh');
+			} else {
+				redirect('admin/monitoring/User/userKabkota', 'refresh');
+			}
+		}
+		// var_dump((int)$nip);
+		// die;
+		$selectedRole = $this->input->post('roleEdit');
+
+		$this->User_m->hapus_role($nip);
+
+		foreach ($selectedRole as $indeks => $value) {
+			$hasil = $this->User_m->edit_role_user($nip, (int)$value);
+		}
 
 
 		if ($hasil['point'] == 'sukses') {
 
 			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Mengubah Role User</div> ');
-			redirect('admin/monitoring/User', 'refresh');
+			if ($ket == 1) {
+				redirect('admin/monitoring/User', 'refresh');
+			} else {
+				redirect('admin/monitoring/User/userKabkota', 'refresh');
+			}
 		} else {
 
-			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><h1>Gagal Mengubah Role User</h1></div> ');
-			redirect('admin/monitoring/User', 'refresh');
+			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Mengubah Role User</div> ');
+
+			if ($ket == 1) {
+				redirect('admin/monitoring/User', 'refresh');
+			} else {
+				redirect('admin/monitoring/User/userKabkota', 'refresh');
+			}
 		}
 	}
 }

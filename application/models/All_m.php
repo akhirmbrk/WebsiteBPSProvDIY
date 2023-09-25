@@ -587,25 +587,25 @@ class All_m extends CI_Model
 	{
 		$data = array();
 
-		$P = $this->db->query("SELECT * FROM pegawai WHERE nip_lama = '" . $nip . "'");
+		$P = $this->db->query("SELECT `nip_lama` FROM pegawai WHERE nip_lama = '" . $nip . "'");
 		if ($P->num_rows() == 0) {
 
-			$K = $this->db->query("SELECT * FROM pegawai_kabkota WHERE nip_lama_pegawai_kabkota = '" . $nip . "'");
+			$K = $this->db->query("SELECT `nip_lama_pegawai_kabkota` FROM pegawai_kabkota WHERE nip_lama_pegawai_kabkota = '" . $nip . "'");
 			if ($K->num_rows() == 0) {
 				$data = array(
 					'nip_lama_pegawai_kabkota' => $nip,
 					'nama_pegawai_kabkota' => $namaU
 				);
 				$this->db->insert('pegawai_kabkota', $data);
-				$kabkota = $this->db->select('*')->from('pegawai_kabkota');
+				$kabkota = $this->db->select('`nip_lama_pegawai_kabkota`')->from('pegawai_kabkota');
 				$kabkota = $this->db->where('nip_lama_pegawai_kabkota',  $nip);
 
-				return $kabkota->get()->result_array();
+				return $kabkota->get()->result_array()[0]['nip_lama_pegawai_kabkota'];
 			} else {
-				return $K->result_array();
+				return $K->result_array()[0]['nip_lama_pegawai_kabkota'];
 			}
 		} else {
-			return $P->result_array();
+			return $P->result_array()[0]['nip_lama'];
 		}
 	}
 	// public function cekUserExist($nip, $namaU)
@@ -777,11 +777,15 @@ class All_m extends CI_Model
 		return $data;
 	}
 
-	public function list_user_access($id)
+	public function list_user_access($nip)
 	{
 		$data = array();
-		$Q = $this->db->select('*');
-		$Q = $this->db->from('user_access')->where('id_pegawai', $id);
+		$Q = $this->db->select('A.id, A.id_role, A.nip_pegawai,B.nama_role');
+		$Q = $this->db->from('user_access A');
+		$Q = $this->db->join('user_role B', 'A.id_role = B.id_role');
+		$Q = $this->db->where('A.nip_pegawai', $nip);
+
+		// $Q = $this->db->join('pegawai C', 'A.nip_pegawai = C.nip_lama');
 		$Q = $this->db->get();
 
 		if ($Q->num_rows() > 0) {
@@ -816,6 +820,21 @@ class All_m extends CI_Model
 		// var_dump($data);
 
 		// die;
+		$Q->free_result();
+		return $data;
+	}
+	public function list_user_role()
+	{
+		$data = array();
+		$Q = $this->db->select('*');
+		$Q = $this->db->from('user_role');
+		$Q = $this->db->get();
+
+		if ($Q->num_rows() > 0) {
+			foreach ($Q->result_array() as $row) {
+				$data[] = $row;
+			}
+		}
 		$Q->free_result();
 		return $data;
 	}

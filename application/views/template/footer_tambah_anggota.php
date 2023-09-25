@@ -45,36 +45,42 @@
 
 <script>
     app.ready(function() {
+        //
+        //
+        var userapp = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['id_pegawai', 'nip_lama', 'nama_peg']),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: {
+                url: '<?= base_url('Monitoring/TimKerja/AllUserProv') ?>',
+                filter: function(list) {
+                    return $.map(list, function(user) {
+                        return {
+                            id_pegawai: user.id_pegawai,
+                            nip_lama: user.nip_lama,
+                            nama_peg: user.nama_peg.replace(/,/g, ' ')
+                        };
+                    });
+                },
+                ttl: 300
+            }
+        });
 
-        $('button[name="copiesdi"]').click(function(event) {
+        userapp.initialize();
 
-            var r = document.createRange();
-            r.selectNode(document.getElementById("okeee"));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(r);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-
-
-
-        })
+        $('#sample-typeahead').tagsinput({
+            typeaheadjs: {
+                name: 'userapp',
+                displayKey: function(item) {
+                    return item.nama_peg + ' - ' + item.nip_lama;
+                },
+                valueKey: 'nama_peg',
+                source: userapp.ttAdapter()
+            }
+        });
 
 
 
     });
-
-
-    <?php
-    if (isset($tabUser)) {
-        $this->load->view('monitoring/livesearch/userSearch');
-    } elseif (isset($tabKegiatan)) {
-        $this->load->view('monitoring/livesearch/kegiatanSearch');
-    } elseif (isset($tabTim)) {
-        $this->load->view('monitoring/livesearch/timSearch');
-    } elseif (isset($tabUserKabkota)) {
-        $this->load->view('monitoring/livesearch/userKabkotaSearch');
-    }
-    ?>
 </script>
 
 

@@ -8,80 +8,26 @@ class User_m extends CI_Model
         parent::__construct();
     }
 
-    public function edit_role_user($id)
+    public function edit_role_user($nip, $role)
     {
-        $atribut = $this->input->post('roleEdit');
-
-        if ($atribut == "SuperAdmin") {
-            $data = array(
-                'super_admin' => 1,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        } elseif ($atribut == "AdminTimKerjaProv") {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 1,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        } elseif ($atribut == "AdminTimKerjaKabKot") {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 1,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        } elseif ($atribut == "KepalaProv") {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 1,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        } elseif ($atribut == "KepalaKabKot") {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 1,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        } elseif ($atribut == "KetuaTimKerjaProvinsi") {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 1,
-            );
-        } else {
-            $data = array(
-                'super_admin' => 0,
-                "admin_tim_kerja_prov" => 0,
-                "admin_tim_kerja_kabkota" => 0,
-                "kepala_prov" => 0,
-                "kepala_kabkota" => 0,
-                "ketua_tim_kerja_prov" => 0,
-            );
-        }
-        $this->db->where('ida', $id);
-        $this->db->update('userapp', $data);
+        $data = array(
+            'nip_pegawai' => $nip,
+            'id_role' => $role
+        );
+        $this->db->insert('user_access', $data);
 
         $hasil['point'] = 'sukses';
 
         return $hasil;
+    }
+    public function hapus_role($nip)
+    {
+        $Q = $this->db->where('nip_pegawai', $nip);
+        $Q =  $this->db->from('user_access');
+
+        if ($Q->get()->num_rows() > 0) {
+            $Q->delete('user_access', array('nip_pegawai' => $nip));
+        }
     }
 
     public function list_user_prov()
@@ -130,6 +76,7 @@ class User_m extends CI_Model
 
         $this->db->select('*');
         $this->db->from('pegawai');
+        $this->db->where('nip_lama !=', NULL);
         if ($keyword) {
             $keyword = $keyword['keyword'];
             if ($keyword) {

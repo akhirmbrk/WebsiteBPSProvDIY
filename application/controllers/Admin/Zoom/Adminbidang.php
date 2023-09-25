@@ -25,22 +25,18 @@ class Adminbidang extends CI_Controller
 
 		// CEK ROLE USER
 		$role = [1, 2, 3, 4];
-		$akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+		// $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
 
-		if ($akses < 1) {
+		// if ($akses < 1) {
+		if (count(array_intersect($role, $_SESSION['user_role'])) < 1) {
 			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
 			redirect('Landingpage', 'refresh');
 		}
 		//-------------------
+		// var_dump($_SESSION['user_role']);
+		// die;
 
-		// CEK ROLE USER
-		$role = [1, 3, 4];
-		$akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
-		if ($akses < 1) {
-			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
-			redirect('Landingpage', 'refresh');
-		}
-		//-------------------
+
 
 		date_default_timezone_set("Asia/Jakarta");
 	}

@@ -80,7 +80,7 @@
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif;
 }
-section .set img {
+.set div img {
 	width: 50px;
 }
 /* section .main-content {

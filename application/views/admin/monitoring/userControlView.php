@@ -18,6 +18,7 @@
 	</header>
 	<!--/.header -->
 
+
 	<section>
 		<div class="main-content">
 			<div class="set">
@@ -77,31 +78,27 @@
 
 					<!-- Form Edit Role User -->
 					<div class="col-lg-5">
-						<form action="<?= base_url('') ?>Monitoring/User/editRole" method="post" class="card shadow-1">
+						<form action="<?= base_url('') ?>Admin/Monitoring/User/editRole/1" method="post" class="card shadow-1">
 							<h5 class="card-title"><strong>Edit Role User</strong></h5>
 
 							<div class="card-body">
 								<input class="form-control" type="hidden" name="idEdit" id="idEdit">
 								<div class="form-group">
 									<label class="require">Name</label>
-									<input class="form-control" type="text" name="namaEdit" id="namaEdit" readonly>
+									<input class="form-control" type="text" name="namaEdit" id="namaEdit" required readonly>
 								</div>
 
 								<div class="form-group">
 									<label class="require">NIP</label>
-									<input class="form-control" type="text" name="nipEdit" id="nipEdit" readonly>
+									<input class="form-control" type="text" name="nipEdit" id="nipEdit" required readonly>
 								</div>
 
 								<div class="form-group">
-									<label>Role</label>
-									<select name="roleEdit" id="roleEdit" class="form-control">
-										<option value="SuperAdmin">Super Admin</option>
-										<option value="AdminTimKerjaProv">Admin Tim Kerja Provinsi</option>
-										<option value="AdminTimKerjaKabKot">Admin Tim Kerja Kabupaten/Kota</option>
-										<option value="KepalaProv">Kepala Provinsi</option>
-										<option value="KepalaKabKot">Kepala KabKabupaten/Kota</option>
-										<option value="KetuaTimKerjaProvinsi">Ketua Tim Kerja Provinsi</option>
-										<option value="user">User</option>
+									<label>Jenis Tim Kerja</label>
+									<select title="Role User" multiple data-provide="selectpicker" name="roleEdit[]" id="roleEdit" data-width="100%">
+										<?php foreach ($list_role as $key => $role) { ?>
+											<option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
+										<?php } ?>
 									</select>
 								</div>
 							</div>
@@ -115,25 +112,51 @@
 
 						<script>
 							function editUser($id) {
+								// var kolomRole = document.getElementById('roleEdit');
+								// console.log(kolomRole.selected);
 
 								var idNama = "namaUser" + $id;
 								var idNip = "nipUser" + $id;
-								// var idRole = "role" + $id;
+								var idRole = "roleUser" + $id;
 
 								var nama = document.getElementById(idNama).innerHTML;
 								var nip = document.getElementById(idNip).innerHTML;
-								// var role = document.getElementById(idRole).value;
 
+								var tdElement = document.getElementById(idRole);
+								// Mengambil elemen <ul> yang berada di dalam <td>
+								var ulElement = tdElement.querySelector("ul");
+								// Mengambil daftar elemen <li> dalam <ul>
+								var liElements = ulElement.querySelectorAll("li");
+
+								// Loop melalui setiap elemen <li> dan mengakses inner HTML-nya
+								var role = []
+								liElements.forEach(function(liElement, indeks) {
+									role[indeks] = liElement.innerHTML;
+								});
+								// Cetak inner HTML dari setiap elemen <li>
+
+								// console.log(role);
 								var kolomId = document.getElementById('idEdit');
 								var kolomNama = document.getElementById('namaEdit');
 								var kolomNip = document.getElementById('nipEdit');
-								// var kolomRole = document.getElementById('roleEdit');
+								var kolomRole = document.getElementById('roleEdit');
+								var roleOptions = kolomRole.options;
+								// var allInnerHTML = [];
 
+								// Mengambil innerHTML dari semua opsi dan memeriksa apakah role sama dengan opsi
 
 								kolomId.value = $id;
 								kolomNama.value = nama;
 								kolomNip.value = nip;
-								// kolomRole.value = role;
+								for (var i = 0; i < roleOptions.length; i++) {
+									roleOptions[i].removeAttribute('selected');
+									for (var j = 0; j < role.length; j++) {
+										if (role[j] === roleOptions[i].innerHTML) {
+											roleOptions[i].setAttribute('selected', '');
+											console.log(roleOptions);
+										}
+									}
+								}
 
 							}
 						</script>

@@ -41,7 +41,7 @@
                             </div>
 
                             <small class="opacity-65 fw-300">
-                                <?= $tim[$indeks]['id_zteam'] ?>
+                                <?= $tim[$indeks]['nama_team'] ?>
                                 <span class="divider-dash"></span>
                                 BPS Provinsi Daerah Istimewa Yogyakarta
                             </small>
@@ -50,46 +50,62 @@
                         ?>
                         <div id="collapse-1-<?= $item['id_kegiatan'] ?>" class="collapse">
                             <!-- tambah SOP -->
-                            <div class="buttons">
-                                <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahSubKegiatan/') . $item['id_kegiatan'] ?>" title="Tambah Sub Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
-                                <!-- End Tambah SOP -->
-                                <table class="table table-separated table-hover p-3">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 80px;">No</th>
-                                            <th>Nama Kegiatan</th>
-                                            <th style="width: 200px;">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                            <?php // CEK ROLE USER
+                            $roleRequie = [1, 2];
+                            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                                <div class="button m-3">
+                                    <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahSubKegiatan/') . $item['id_kegiatan'] ?>" title="Tambah Sub Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
+                                </div>
+                            <?php } ?>
+                            <!-- End Tambah SOP -->
 
-                                        <?php
-                                        if (count($list_sub_kegiatan)) {
-                                            foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
-                                                <tr>
-                                                    <th scope="row"><?= $key + 1 ?></th>
-                                                    <td>
-                                                        <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <nav class="nav gap-2 fs-16">
-                                                            <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>
+                            <table class="table table-separated table-hover p-3">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 80px;">No</th>
+                                        <th>Nama Kegiatan</th>
+                                        <th style="width: 120px;">status</th>
+                                        <th style="width: 200px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+                                    if (count($list_sub_kegiatan)) {
+                                        foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
+                                            <tr>
+                                                <th scope="row"><?= $key + 1 ?></th>
+                                                <td>
+                                                    <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($list_sub_kegiatan[$indeks][$key]['time_update'] != null) { ?>
+                                                        <small><i><?= $list_sub_kegiatan[$indeks][$key]['time_update'] . '<span class="divider-dash"></span>' . $list_sub_kegiatan[$indeks][$key]['last_user_update'] ?></i></small>
+                                                    <?php } else echo '<small><i>Belum diupdate</i></small>'; ?>
+                                                </td>
+                                                <td>
+                                                    <nav class="nav gap-2 fs-16">
+                                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>
+                                                        <?php // CEK ROLE USER Untuk DELETE
+                                                        $roleRequie = [1, 2];
+                                                        if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
                                                             <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
-                                                        </nav>
-                                                    </td>
+                                                        <?php } ?>
+                                                    </nav>
+                                                </td>
 
-                                                </tr>
 
-                                        <?php }
-                                        } ?>
-                                    </tbody>
-                                </table>
+                                            </tr>
 
-                            </div>
+                                    <?php }
+                                    } ?>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
-        <?php }
-        } ?>
-        <?= $this->pagination->create_links(); ?>
     </div>
+    <?php }
+        } ?>
+    <?= $this->pagination->create_links(); ?>
