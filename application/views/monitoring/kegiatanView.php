@@ -93,7 +93,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 							<div class="form-group">
 								<label>Tim Kerja</label>
-								<select id="filterTimKerja" name="filterTimKerja" title="All Tim Kerja" data-provide="selectpicker" data-width="100%">
+								<select id="filterTimKerja" name="filterTimKerja[]" title="All Tim Kerja" multiple data-live-search="true" data-actions-box="true" class="selectpicker" data-provide="selectpicker" data-width="100%">
 									<?php
 									if (count($tim_kerja)) {
 										foreach ($tim_kerja as $indeks => $item) { ?>

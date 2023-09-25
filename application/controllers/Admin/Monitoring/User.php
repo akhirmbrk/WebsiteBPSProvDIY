@@ -166,10 +166,13 @@ class User extends CI_Controller
 
 		$this->User_m->hapus_role($nip);
 
-		foreach ($selectedRole as $indeks => $value) {
-			$hasil = $this->User_m->edit_role_user($nip, (int)$value);
+		if ($selectedRole != null) {
+			foreach ($selectedRole as $indeks => $value) {
+				$hasil = $this->User_m->edit_role_user($nip, (int)$value);
+			}
+		} else {
+			$hasil['point'] = 'sukses';
 		}
-
 
 		if ($hasil['point'] == 'sukses') {
 

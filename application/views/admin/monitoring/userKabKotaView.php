@@ -59,7 +59,7 @@
 
 							<div class="form-group">
 								<label>Jenis Tim Kerja</label>
-								<select title="Role User" multiple data-provide="selectpicker" name="roleEdit[]" id="roleEdit" data-width="100%">
+								<select title="Role User" multiple data-live-search="false" data-actions-box="true" class="selectpicker" data-provide="selectpicker" name="roleEdit[]" id="roleEdit" data-width="100%">
 									<?php foreach ($list_role as $key => $role) { ?>
 										<option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
 									<?php } ?>
@@ -121,6 +121,7 @@
 									}
 								}
 							}
+							$(kolomRole).selectpicker('refresh');
 
 						}
 					</script>
