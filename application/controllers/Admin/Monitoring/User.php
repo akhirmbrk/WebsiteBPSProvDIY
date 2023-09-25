@@ -43,7 +43,7 @@ class User extends CI_Controller
 		$data['title'] = "User Provinsi";
 		$data['user'] = "1";
 
-		$data['list_role'] = $this->All_m->list_user_role();
+		$data['list_role'] = $this->All_m->list_user_role($ket = 1);
 		$this->load->vars($data);
 
 		$this->load->view('template/header');
@@ -101,7 +101,7 @@ class User extends CI_Controller
 		$data['title'] = "User Kabupaten/Kota";
 		$data['user'] = "1";
 
-		$data['list_role'] = $this->All_m->list_user_role();
+		$data['list_role'] = $this->All_m->list_user_role($ket = 2);
 
 		$this->load->vars($data);
 
