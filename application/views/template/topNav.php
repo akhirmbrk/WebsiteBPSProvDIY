@@ -16,7 +16,7 @@
                 <!-- Admin -->
                 <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
                 <div class="topbar-left">
-                    <span class="topbar-btn topbar-menu-toggler"><i>&#9776;</i></span>
+                    <span class="topbar-btn topbar-menu-toggler"><i style="color: #40d2f3">&#9776;</i></span>
 
                     <div class="topbar-brand">
                         <?php if ($tipe == 1) { ?>
