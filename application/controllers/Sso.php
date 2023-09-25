@@ -51,10 +51,12 @@ class Sso extends CI_Controller
 	{
 		$this->load->model('All_m');
 		$this->load->library('session');
+		// $_SESSION['user_role'] = array();
+
+		// Coba Role SUper Admin
 		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340054255";
-		// $_SESSION['user_role'] = array();
 
 		// COBA ROLE Admin Monitor
 		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";

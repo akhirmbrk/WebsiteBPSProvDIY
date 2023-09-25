@@ -823,12 +823,18 @@ class All_m extends CI_Model
 		$Q->free_result();
 		return $data;
 	}
-	public function list_user_role()
+	public function list_user_role($ket)
 	{
 		$data = array();
 		$Q = $this->db->select('*');
 		$Q = $this->db->from('user_role');
-		$Q = $this->db->get();
+		if ($ket == 1) {
+			$Q = $this->db->where('id_role <', 5);
+			$Q = $this->db->get();
+		} elseif ($ket == 2) {
+			$Q = $this->db->where('id_role >=', 5);
+			$Q = $this->db->get();
+		}
 
 		if ($Q->num_rows() > 0) {
 			foreach ($Q->result_array() as $row) {
