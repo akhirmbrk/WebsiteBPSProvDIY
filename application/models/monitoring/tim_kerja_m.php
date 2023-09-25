@@ -17,7 +17,7 @@ class tim_kerja_m extends CI_Model
 
         if ($search) {
             // Jika $search adalah sebuah array, maka ambil komponen keyword dan periode
-            if (is_array($search) && isset($search['keyword']) && isset($search['periode'])) {
+            if (is_array($search) && isset($search['keyword']) || isset($search['periode'])) {
                 $search_keyword = $search['keyword'];
                 $periode = $search['periode'];
                 // var_dump($tim);
@@ -29,7 +29,13 @@ class tim_kerja_m extends CI_Model
                 // Jika ada periode, tambahkan kondisi LIKE
                 if ($periode) {
                     $this->db->group_start();
-                    $this->db->where("z_team.id_zperiode", $periode);
+                    foreach ($periode as $value) {
+                        $this->db->or_where("z_team.id_zperiode", $value);
+                    }
+                    $this->db->group_end();
+                } else {
+                    $this->db->group_start();
+                    $this->db->where("z_periode.aktif", 1);
                     $this->db->group_end();
                 }
             }

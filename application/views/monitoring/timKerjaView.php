@@ -70,7 +70,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 						<form class="card-body">
 							<div class="form-group">
 								<label>Periode Pelaksanaan</label>
-								<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" data-provide="selectpicker" data-width="100%">
+								<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
 									<?php
 									if (count($periode)) {
 										foreach ($periode as $indeks => $item) {

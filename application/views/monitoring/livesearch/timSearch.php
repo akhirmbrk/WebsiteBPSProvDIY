@@ -20,6 +20,7 @@ console.log($('#filterPeriode').val());
 /*-- Reset Filter--*/
 $(document).on('click', "#resetFilter", function(event) {
 $("#filterPeriode").val('');
+$('#filterPeriode').selectpicker('refresh');
 ajaxlist(page_url = false);
 event.preventDefault();
 });

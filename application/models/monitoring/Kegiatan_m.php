@@ -228,11 +228,11 @@ class Kegiatan_m extends CI_Model
 
         if ($search) {
             // Jika $search adalah sebuah array, maka ambil komponen keyword dan periode
-            if (is_array($search) && isset($search['keyword']) && isset($search['periode']) && isset($search['timKerja'])) {
+            if (is_array($search) && isset($search['keyword']) || isset($search['periode']) || isset($search['timKerja'])) {
                 $search_keyword = $search['keyword'];
                 $periode = $search['periode'];
                 $tim = $search['timKerja'];
-                // var_dump($tim);
+
                 // Jika ada kata kunci, tambahkan kondisi LIKE
                 if ($search_keyword) {
                     $this->db->like("judul_kegiatan", $search_keyword);
@@ -241,14 +241,19 @@ class Kegiatan_m extends CI_Model
                 // Jika ada periode, tambahkan kondisi LIKE
                 if ($periode) {
                     $this->db->group_start();
-                    $this->db->like("YEAR(tgl_start)", $periode);
-                    $this->db->or_like("YEAR(tgl_end)", $periode);
+                    foreach ($periode as $value) {
+                        $this->db->or_like("YEAR(tgl_start)", $value);
+                        $this->db->or_like("YEAR(tgl_end)", $value);
+                    }
+
                     $this->db->group_end();
                 }
 
                 if ($tim) {
                     $this->db->group_start();
-                    $this->db->where("id_tim_kerja", $tim);
+                    foreach ($tim as $tim_value) {
+                        $this->db->or_where("id_tim_kerja", $tim_value);
+                    }
                     $this->db->group_end();
                 }
             }

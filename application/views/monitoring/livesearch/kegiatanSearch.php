@@ -23,14 +23,15 @@ $(document).on("change", "#filterTimKerja", function(event) {
 ajaxlist((page_url = false));
 event.preventDefault();
 console.log($('#filterTimKerja').val());
-$(#filterTimKerja).selectpicker('refresh');
+
 });
 
 /*-- Reset Filter--*/
 $(document).on('click', "#resetFilter", function(event) {
 $("#filterPeriode").val('');
 $("#filterTimKerja").val('');
-$(#filterTimKerja).selectpicker('refresh');
+$('#filterTimKerja').selectpicker('refresh');
+$('#filterPeriode').selectpicker('refresh');
 ajaxlist(page_url = false);
 event.preventDefault();
 });
@@ -80,7 +81,7 @@ type: "POST",
 url: page_url,
 data: data,
 success: function(response) {
-console.log(response);
+<!-- console.log(response); -->
 $("#ajaxContent").html(response);
 },
 });
