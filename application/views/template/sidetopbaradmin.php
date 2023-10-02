@@ -1,12 +1,12 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-color-warning sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
-    <header class="sidebar-header " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
+    <header class="sidebar-header" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
         <a class="menu-link" style="color:#465161;" href="<?= base_url('Admin/IndexAdmin') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
 
-    <nav class="sidebar-color-warning sidebar-navigation ">
-        <ul class="menu">
+    <nav class="sidebar-navigation ">
+        <ul class="menu menu-lg menu-bordery">
             <!-- Dashboard Admin  -->
             <li class="menu-item <?php if (isset($dash_admin)) {
                                         echo 'active';
@@ -81,7 +81,7 @@
             $roleRequie = [1, 4];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
                 <li class="menu-item <?php if (isset($adminPermintaanRuangan) || isset($adminPermintaanRuangan) || isset($adminDiSetujuiRuangan) || isset($adminBatalRuangan) || isset($adminTambahJadwalRuangan)) {
-                                            echo 'open';
+                                            echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
                         <span class="icon fa fa-users"></span>
@@ -138,7 +138,7 @@
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
                 <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota)) {
-                                            echo 'open';
+                                            echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
                         <span class="icon fa fa-tv"></span>
@@ -204,8 +204,6 @@
 background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 15%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 100%);">
     <div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
-
-
     </div>
 
     <div class="topbar-right">
@@ -215,16 +213,11 @@ background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 15%,
 
         <ul class="topbar-btns">
             <li class="dropdown">
-                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
-                <!-- <div class="dropdown-menu dropdown-menu-right">
-                     <a class="dropdown-item" href="<?php echo base_url('sso/lout'); ?>"><i class="ti-power-off"></i>
-                         Logout</a>
-
-                 </div> -->
+                <span class="topbar-btn"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
             </li>
-
-
-
+            <li class="dropdown d-none d-md-block">
+                <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
+            </li>
         </ul>
 
     </div>
