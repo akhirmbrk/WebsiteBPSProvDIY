@@ -148,7 +148,6 @@
 
                     <ul class="topbar-btns">
                         <li class="dropdown">
-                            <span class="topbar-btn" style="color: white;"><?= $_SESSION['nama'] ?></span>
                             <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url('');
                                                                                                         ?>/assets/img/avatar/1.jpg" alt="..."></span>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -157,7 +156,7 @@
 
 
 
-                                <?php if ($tipe != 'landing') { ?>
+                                <?php if ($tipe != 'Landing') { ?>
                                     <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
                                         Landing Page</a>
                                 <?php } ?>
@@ -165,6 +164,9 @@
                                     Logout</a>
 
                             </div>
+                        </li>
+                        <li class="dropdown d-none d-md-block">
+                            <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
                         </li>
 
 

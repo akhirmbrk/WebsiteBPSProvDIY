@@ -204,8 +204,6 @@
 background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 15%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 100%);">
     <div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
-
-
     </div>
 
     <div class="topbar-right">
@@ -215,16 +213,11 @@ background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 15%,
 
         <ul class="topbar-btns">
             <li class="dropdown">
-                <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
-                <!-- <div class="dropdown-menu dropdown-menu-right">
-                     <a class="dropdown-item" href="<?php echo base_url('sso/lout'); ?>"><i class="ti-power-off"></i>
-                         Logout</a>
-
-                 </div> -->
+                <span class="topbar-btn"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
             </li>
-
-
-
+            <li class="dropdown d-none d-md-block">
+                <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
+            </li>
         </ul>
 
     </div>
