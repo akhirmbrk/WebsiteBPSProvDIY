@@ -93,8 +93,8 @@
     													</td>
     													<td>
     														<nav class="nav gap-2 fs-16" style="justify-content: center;">
-    															<a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('zoom/adminbidang/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail"><i class="fa fa-eye"></i></a>
-    															<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" href="<?php echo base_url('zoom/adminbidang/hapuszoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Tidak Disetujui"><i class="fa fa-trash"></i></a>
+    															<a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('admin/zoom/adminbidang/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail"><i class="fa fa-eye"></i></a>
+    															<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" href="<?php echo base_url('admin/zoom/adminbidang/hapuszoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Tidak Disetujui"><i class="fa fa-trash"></i></a>
     														</nav>
 
 

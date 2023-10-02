@@ -3,11 +3,13 @@
     <!-- Landing Page -->
 
 
-    <?php if ($tipe == 1) { ?> <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
-
-        <?php if ($tipe == 2) { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> <?php } ?>
-
-            <?php if ($tipe == 'Landing') { ?><header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);"> <?php } ?>
+    <?php if ($tipe == 1) { ?>
+        <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
+        <?php } elseif ($tipe == 2) { ?>
+            <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
+            <?php } elseif ($tipe == 'Landing') { ?>
+                <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);">
+                <?php } ?>
 
 
                 <!-- Menu Biasa -->
@@ -154,32 +156,7 @@
                                 <!-- <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
 
 
-                                <?php if ($tipe == 2 && count($defadata)) { ?>
 
-                                    <?php if ($defadata['admin_zoom'] == 1) { ?>
-
-                                        <!-- <li class="menu-item"> -->
-                                        <a class="dropdown-item" href="<?php echo base_url('admin/Zoom/Adminbidang'); ?>">
-                                            <span class="icon fa fa-file-text-o"></span>
-                                            <span class="title">Admin</span>
-                                        </a>
-                                        <!-- </li> -->
-
-                                    <?php } ?>
-
-                                    <?php if ($defadata['admin_pst'] == 0) { ?>
-
-                                        <!-- <li class="menu-item"> -->
-                                        <a class="dropdown-item" href="<?php echo base_url('admin/Zoom/Adminbidang'); ?>">
-                                            <span class="icon fa fa-file-text-o"></span>
-                                            <span class="title">PST</span>
-                                        </a>
-                                        <!-- </li> -->
-
-                                    <?php } ?>
-
-
-                                <?php } ?>
                                 <?php if ($tipe != 'landing') { ?>
                                     <a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
                                         Landing Page</a>
@@ -191,10 +168,7 @@
                         </li>
 
 
-                        <!-- Notifikasi -->
-                        <!-- <li>
-                    <span class="topbar-btn has-new" data-toggle="quickview" data-target="#qv-notifications"><i class="ti-bell"></i></span>
-                </li> -->
+
 
                     </ul>
 

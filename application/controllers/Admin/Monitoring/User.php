@@ -39,7 +39,7 @@ class User extends CI_Controller
 
 		$data['tabUser'] = "1";
 		$data['tab'] = "2";
-		$data['tipe'] = "1";
+		$data['tipe'] = "3";
 		$data['title'] = "User Provinsi";
 		$data['user'] = "1";
 
@@ -97,7 +97,7 @@ class User extends CI_Controller
 	{
 		$data['tabUserKabkota'] = "1";
 		$data['tab'] = "2";
-		$data['tipe'] = "1";
+		$data['tipe'] = "3";
 		$data['title'] = "User Kabupaten/Kota";
 		$data['user'] = "1";
 

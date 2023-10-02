@@ -38,7 +38,8 @@ class Adminruangan extends CI_Controller
 	public function index()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "Permintaan Ruangan";
+		$data['tipe'] = "3";
 		$data['adminPermintaanRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(0, 1);
@@ -54,7 +55,8 @@ class Adminruangan extends CI_Controller
 	public function daring_disetujui()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "Ruangan Disetujui";
+		$data['tipe'] = "3";
 		$data['adminDiSetujuiRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(1, 1);
@@ -72,7 +74,8 @@ class Adminruangan extends CI_Controller
 	{
 		$data = array();
 
-
+		$data['title'] = "Detail Ruangan";
+		$data['tipe'] = "3";
 		$data['adminDiSetujuiRuangan'] = "1";
 		$data['myorder'] = "1";
 
@@ -90,7 +93,8 @@ class Adminruangan extends CI_Controller
 	public function daring_batal()
 	{
 		$data = array();
-		$data['judul'] = "";
+		$data['title'] = "Ruangan Batal";
+		$data['tipe'] = "3";
 		$data['adminBatalRuangan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(2, 1);
@@ -140,8 +144,9 @@ class Adminruangan extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "";
+			$data['title'] = "Permintaan Ruangan";
 			$data['ordered'] = "1";
+			$data['tipe'] = "3";
 
 
 			$tgl = date('Y-m-d', strtotime(' +1 day'));

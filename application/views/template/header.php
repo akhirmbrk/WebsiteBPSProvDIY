@@ -15,6 +15,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				echo ' &mdash; Monitoring BPS';
 			} elseif ($tipe == 2) {
 				echo ' &mdash; Zoom Order';
+			} elseif ($tipe == 3) {
+				echo ' &mdash; Admin';
 			} else {
 				echo ' &mdash; Landing Page';
 			} ?></title>

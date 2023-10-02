@@ -97,7 +97,7 @@
 													</td>
 													<td>
 														<nav class="nav gap-2 fs-16" style="justify-content: center;">
-															<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('zoom/adminbidang/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
+															<a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('admin/zoom/adminbidang/replyzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Disetujui"><i class="fa fa-check"></i></a>
 															&nbsp
 
 															<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" data-provide="tooltip" data-placement="top" title="Tidak Disetujui" data-toggle="modal" data-target="#modal-sqduh"><i class="fa fa-close"></i></a>

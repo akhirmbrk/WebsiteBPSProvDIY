@@ -44,7 +44,8 @@ class Adminbidang extends CI_Controller
 	public function index()
 	{
 		$data = array();
-		$data['judul'] = "Permintaan Rapat";
+		$data['title'] = "Permintaan Zoom";
+		$data['tipe'] = 3;
 		$data['admin_permintaan'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(0, 0);
@@ -60,7 +61,8 @@ class Adminbidang extends CI_Controller
 	public function daring_disetujui()
 	{
 		$data = array();
-		$data['judul'] = "Rapat Disetujui";
+		$data['title'] = "Zoom Disetujui";
+		$data['tipe'] = 3;
 		$data['admindisetujui'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(1, 0);
@@ -78,7 +80,8 @@ class Adminbidang extends CI_Controller
 	{
 		$data = array();
 
-
+		$data['title'] = "Detail Zoom";
+		$data['tipe'] = 3;
 		$data['admindisetujui'] = "1";
 		$data['myorder'] = "1";
 
@@ -96,7 +99,8 @@ class Adminbidang extends CI_Controller
 	public function daring_batal()
 	{
 		$data = array();
-		$data['judul'] = "Rapat Batal";
+		$data['title'] = "Zoom Batal";
+		$data['tipe'] = 3;
 		$data['admin_batal'] = "1";
 
 		$data['list_order'] = $this->All_m->list_order_permintaan(2, 0);
@@ -121,7 +125,8 @@ class Adminbidang extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "-";
+			$data['title'] = "Reply Zoom";
+			$data['tipe'] = 3;
 			$data['admin_permintaan'] = "1";
 
 			$data['idm'] = $idm;
@@ -154,6 +159,7 @@ class Adminbidang extends CI_Controller
 	{
 		$data = array();
 		$data['admin_tambahjadwal'] = "1";
+		$data['tipe'] = 3;
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('perihal', 'Perihal Zoom', 'trim|required');
@@ -167,8 +173,9 @@ class Adminbidang extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 
-			$data['judul'] = "Tambah Jadwal";
+			$data['title'] = "Tambah Jadwal Zoom";
 			$data['ordered'] = "1";
+			$data['tipe'] = 3;
 
 
 			$tgl = date('Y-m-d', strtotime(' +1 day'));

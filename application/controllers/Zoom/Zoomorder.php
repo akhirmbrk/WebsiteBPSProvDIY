@@ -118,16 +118,16 @@ class Zoomorder extends CI_Controller
 
 
 			if ($hasil['point'] == 'sukses') {
-
 				$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
 				redirect('zoom/Zoomorder/order/', 'refresh');
 			} else if ($hasil['point'] == 'lewat') {
-
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
 				redirect('zoom/Zoomorder/order/', 'refresh');
 			} else if ($hasil['point'] == 'block') {
-
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
+				redirect('zoom/Zoomorder/order/', 'refresh');
+			} else if ($hasil['point'] == 'blockOFF') {
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Ruangan untuk Tanggal ' . $hasil['tanggal'] . ' Sudah dipakai</h1></div> ');
 				redirect('zoom/Zoomorder/order/', 'refresh');
 			}
 		}

@@ -1,18 +1,31 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
+<aside class="sidebar sidebar-color-warning sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
     <header class="sidebar-header " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
-        <a class="menu-link" style="color:#465161;" href="<?= base_url('admin/zoom/adminbidang/index') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
+        <a class="menu-link" style="color:#465161;" href="<?= base_url('Admin/IndexAdmin') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
 
-    <nav class="sidebar-navigation">
+    <nav class="sidebar-color-warning sidebar-navigation ">
         <ul class="menu">
+            <!-- Dashboard Admin  -->
+            <li class="menu-item <?php if (isset($dash_admin)) {
+                                        echo 'active';
+                                    } ?>">
+                <a class="menu-link" style="color: #465161;" href="<?php echo base_url('Admin/IndexAdmin'); ?>">
+                    <span class="icon fa fa-home"></span>
+                    <span class="title">Dashboard Admin</span>
+                </a>
+            </li>
+            <!-- END Dashboard Admin  -->
+
             <!-- ADMIN ZOOM -->
             <?php
             // CEK ROLE USER
             $roleRequie = [1, 3];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item">
+                <li class="menu-item <?php if (isset($admin_permintaan) || isset($admindisetujui) || isset($admindisetujui) || isset($admin_batal) || isset($admin_tambahjadwal)) {
+                                            echo 'open active';
+                                        } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
                         <span class="icon fa fa-video-camera"></span>
                         <span class="title">Admin Zoom</span>
@@ -67,7 +80,9 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 4];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item">
+                <li class="menu-item <?php if (isset($adminPermintaanRuangan) || isset($adminPermintaanRuangan) || isset($adminDiSetujuiRuangan) || isset($adminBatalRuangan) || isset($adminTambahJadwalRuangan)) {
+                                            echo 'open';
+                                        } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
                         <span class="icon fa fa-users"></span>
                         <span class="title">Admin Ruangan</span>
@@ -122,7 +137,9 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item">
+                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota)) {
+                                            echo 'open';
+                                        } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
                         <span class="icon fa fa-tv"></span>
                         <span class="title">Admin Monitoring</span>

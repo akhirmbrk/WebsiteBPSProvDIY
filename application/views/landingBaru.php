@@ -154,7 +154,7 @@ $this->load->view('template/topnav');
 							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 								<div class="col-md-6 col-sm-12">
 									<div class="slider-card">
-										<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/admin/zoom/adminbidang') ?>">
+										<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/Admin/IndexAdmin') ?>">
 											<img class="adminImg" src="<?= base_url('') ?>/assets/img/logoAdmin.png" alt="">
 										</a>
 									</div>
@@ -165,29 +165,31 @@ $this->load->view('template/topnav');
 			</div>
 		</div>
 	</div>
+</div>
 
 
 
 
 
 
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>
 
-	<!-- Optional JavaScript; choose one of the two! -->
-	<script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>
-
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<!-- <script src="<?= base_url() ?>/assets/js/carousel.landing.js"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- <script src="<?= base_url() ?>/assets/js/carousel.landing.js"></script>
 <script src="<?= base_url() ?>/assets/js/owl.carousel.min.js"></script>
 <script src="<?= base_url() ?>/assets/js/owl.carousel.js"></script> -->
-	<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!-- Option 2: Separate Popper and Bootstrap JS -->
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 
 
-	</body>
+
+
+</body>
+
+</html>
