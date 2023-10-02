@@ -18,13 +18,17 @@
                 <!-- Admin -->
                 <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
                 <div class="topbar-left">
-                    <span class="topbar-btn topbar-menu-toggler"><i style="color: #40d2f3">&#9776;</i></span>
+                    <?php if ($tipe == 1 || $tipe == 2 || $tipe == 3) { ?>
+                        <span class="topbar-btn topbar-menu-toggler"><i style="color: #40d2f3">&#9776;</i></span>
+                    <?php } else { ?>
+                    <?php } ?>
 
                     <div class="topbar-brand">
                         <?php if ($tipe == 1) { ?>
                             <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                                     ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
                         <?php } elseif ($tipe == 2) { ?>
+
                             <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
                         <?php } elseif ($tipe == 3) { ?>
