@@ -80,9 +80,114 @@
                                             <tr>
                                                 <th scope="row"><?= $key + 1 ?></th>
                                                 <td>
-                                                    <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
+                                                    <div class="accordion" id="accordionExample1">
+                                                        <div class="accordion-item">
+                                                            <h5 class="accordion-header" id="headingOne1">
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                                                    <?= $list_sub_kegiatan[$indeks][$key]['judul_kegiatan'] ?>
+                                                                </button>
+                                                            </h5>
+                                                            <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1">
+                                                                <div class="accordion-body">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <th colspan="2">Yogyakarta</th>
+                                                                            <td colspan="1">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar <?php if ($item['progres_kota'] <= 25) {
+                                                                                                                    echo "bg-danger";
+                                                                                                                } elseif ($item['progres_kota'] <= 50) {
+                                                                                                                    echo "bg-warning";
+                                                                                                                } elseif ($item['progres_kota'] <= 75) {
+                                                                                                                    echo "bg-info";
+                                                                                                                } else {
+                                                                                                                    echo "bg-success";
+                                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_kota'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kota'] ?>%</div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <th colspan="2">Bantul</th>
+                                                                            <td colspan="1">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar  <?php if ($item['progres_bantul'] <= 25) {
+                                                                                                                    echo "bg-danger";
+                                                                                                                } elseif ($item['progres_bantul'] <= 50) {
+                                                                                                                    echo "bg-warning";
+                                                                                                                } elseif ($item['progres_bantul'] <= 75) {
+                                                                                                                    echo "bg-info";
+                                                                                                                } else {
+                                                                                                                    echo "bg-success";
+                                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_bantul'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_bantul'] ?>%</div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <th colspan="2">Sleman</th>
+                                                                            <td colspan="1">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar  <?php if ($item['progres_sleman'] <= 25) {
+                                                                                                                    echo "bg-danger";
+                                                                                                                } elseif ($item['progres_sleman'] <= 50) {
+                                                                                                                    echo "bg-warning";
+                                                                                                                } elseif ($item['progres_sleman'] <= 75) {
+                                                                                                                    echo "bg-info";
+                                                                                                                } else {
+                                                                                                                    echo "bg-success";
+                                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_sleman'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_sleman'] ?>%</div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <th colspan="2">Gunungkidul</th>
+                                                                            <td colspan="1">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar  <?php if ($item['progres_gunungkidul'] <= 25) {
+                                                                                                                    echo "bg-danger";
+                                                                                                                } elseif ($item['progres_gunungkidul'] <= 50) {
+                                                                                                                    echo "bg-warning";
+                                                                                                                } elseif ($item['progres_gunungkidul'] <= 75) {
+                                                                                                                    echo "bg-info";
+                                                                                                                } else {
+                                                                                                                    echo "bg-success";
+                                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_gunungkidul'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_gunungkidul'] ?>%</div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <th colspan="2">Kulon Progo</th>
+                                                                            <td colspan="1">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar  <?php if ($item['progres_kulonprogo'] <= 25) {
+                                                                                                                    echo "bg-danger";
+                                                                                                                } elseif ($item['progres_kulonprogo'] <= 50) {
+                                                                                                                    echo "bg-warning";
+                                                                                                                } elseif ($item['progres_kulonprogo'] <= 75) {
+                                                                                                                    echo "bg-info";
+                                                                                                                } else {
+                                                                                                                    echo "bg-success";
+                                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_kulonprogo'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kulonprogo'] ?>%</div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                 </td>
                                                 <td>
+
                                                     <?php if ($list_sub_kegiatan[$indeks][$key]['time_update'] != null) { ?>
                                                         <small><i>update terakhir
                                                                 <?= date('d-m-Y', strtotime($list_sub_kegiatan[$indeks][$key]['time_update'])) ?>
@@ -114,96 +219,7 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <th colspan="2">Yogyakarta</th>
-                                                <td colspan="1">
-                                                    <div class="progress">
-                                                        <div class="progress-bar <?php if ($item['progres_kota'] <= 25) {
-                                                                                        echo "bg-danger";
-                                                                                    } elseif ($item['progres_kota'] <= 50) {
-                                                                                        echo "bg-warning";
-                                                                                    } elseif ($item['progres_kota'] <= 75) {
-                                                                                        echo "bg-info";
-                                                                                    } else {
-                                                                                        echo "bg-success";
-                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_kota'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kota'] ?>%</div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <th colspan="2">Bantul</th>
-                                                <td colspan="1">
-                                                    <div class="progress">
-                                                        <div class="progress-bar  <?php if ($item['progres_bantul'] <= 25) {
-                                                                                        echo "bg-danger";
-                                                                                    } elseif ($item['progres_bantul'] <= 50) {
-                                                                                        echo "bg-warning";
-                                                                                    } elseif ($item['progres_bantul'] <= 75) {
-                                                                                        echo "bg-info";
-                                                                                    } else {
-                                                                                        echo "bg-success";
-                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_bantul'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_bantul'] ?>%</div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <th colspan="2">Sleman</th>
-                                                <td colspan="1">
-                                                    <div class="progress">
-                                                        <div class="progress-bar  <?php if ($item['progres_sleman'] <= 25) {
-                                                                                        echo "bg-danger";
-                                                                                    } elseif ($item['progres_sleman'] <= 50) {
-                                                                                        echo "bg-warning";
-                                                                                    } elseif ($item['progres_sleman'] <= 75) {
-                                                                                        echo "bg-info";
-                                                                                    } else {
-                                                                                        echo "bg-success";
-                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_sleman'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_sleman'] ?>%</div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <th colspan="2">Gunungkidul</th>
-                                                <td colspan="1">
-                                                    <div class="progress">
-                                                        <div class="progress-bar  <?php if ($item['progres_gunungkidul'] <= 25) {
-                                                                                        echo "bg-danger";
-                                                                                    } elseif ($item['progres_gunungkidul'] <= 50) {
-                                                                                        echo "bg-warning";
-                                                                                    } elseif ($item['progres_gunungkidul'] <= 75) {
-                                                                                        echo "bg-info";
-                                                                                    } else {
-                                                                                        echo "bg-success";
-                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_gunungkidul'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_gunungkidul'] ?>%</div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <th colspan="2">Kulon Progo</th>
-                                                <td colspan="1">
-                                                    <div class="progress">
-                                                        <div class="progress-bar  <?php if ($item['progres_kulonprogo'] <= 25) {
-                                                                                        echo "bg-danger";
-                                                                                    } elseif ($item['progres_kulonprogo'] <= 50) {
-                                                                                        echo "bg-warning";
-                                                                                    } elseif ($item['progres_kulonprogo'] <= 75) {
-                                                                                        echo "bg-info";
-                                                                                    } else {
-                                                                                        echo "bg-success";
-                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_kulonprogo'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_kulonprogo'] ?>%</div>
-                                                    </div>
-                                                </td>
-                                                <td></td>
-                                            </tr>
+
 
 
                                     <?php }
