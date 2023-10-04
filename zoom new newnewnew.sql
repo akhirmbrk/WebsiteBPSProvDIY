@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Okt 2023 pada 09.40
+-- Waktu pembuatan: 04 Okt 2023 pada 19.12
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 5.6.38
 
@@ -29,22 +29,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bps` (
-  `kodeBPS` int(4) NOT NULL,
-  `namaBPS` varchar(32) DEFAULT NULL,
-  `administratif` varchar(16) DEFAULT NULL
+  `kode` int(4) NOT NULL,
+  `namaBPS` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `bps`
 --
 
-INSERT INTO `bps` (`kodeBPS`, `namaBPS`, `administratif`) VALUES
-(3400, 'BPS Provinsi DI Yogyakarta', 'Provinsi'),
-(3401, 'BPS Kabupaten Kulon Progo', 'Kabupaten/Kota'),
-(3402, 'BPS Kabupaten Bantul', 'Kabupaten/Kota'),
-(3403, 'BPS Kabupaten Gunungkidul', 'Kabupaten/Kota'),
-(3404, 'BPS Kabupaten Sleman', 'Kabupaten/Kota'),
-(3471, 'BPS Kota Yogyakarta', 'Kabupaten/Kota');
+INSERT INTO `bps` (`kode`, `namaBPS`) VALUES
+(1, 'BPS Kabupaten Kulon Progo'),
+(2, 'BPS Kabupaten Bantul'),
+(3, 'BPS Kabupaten Gunungkidul'),
+(4, 'BPS Kabupaten Sleman'),
+(71, 'BPS Kota Yogyakarta');
 
 -- --------------------------------------------------------
 
@@ -57,11 +55,11 @@ CREATE TABLE `kegiatan` (
   `judul_kegiatan` text,
   `tgl_start` datetime DEFAULT NULL,
   `tgl_end` datetime DEFAULT NULL,
-  `progres_kota` int(3) DEFAULT NULL,
-  `progres_bantul` int(3) NOT NULL,
-  `progres_sleman` int(3) NOT NULL,
-  `progres_kulonprogo` int(3) NOT NULL,
-  `progres_gunungkidul` int(3) NOT NULL,
+  `progres_71` int(3) DEFAULT NULL,
+  `progres_1` int(3) NOT NULL,
+  `progres_2` int(3) NOT NULL,
+  `progres_3` int(3) NOT NULL,
+  `progres_4` int(3) NOT NULL,
   `id_tim_kerja` int(11) NOT NULL,
   `deskripsi_kegiatan` text NOT NULL,
   `id_parent` int(3) NOT NULL COMMENT 'jika kegiatan utama = 0',
@@ -74,10 +72,12 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`, `progres_kota`, `progres_bantul`, `progres_sleman`, `progres_kulonprogo`, `progres_gunungkidul`, `id_tim_kerja`, `deskripsi_kegiatan`, `id_parent`, `KodeBPS`, `time_update`, `last_user_update`) VALUES
+INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`, `progres_71`, `progres_1`, `progres_2`, `progres_3`, `progres_4`, `id_tim_kerja`, `deskripsi_kegiatan`, `id_parent`, `KodeBPS`, `time_update`, `last_user_update`) VALUES
 (50, 'HSN', '2023-10-04 00:00:00', '2023-11-04 00:00:00', 0, 0, 0, 0, 0, 13, ' ', 0, 3400, NULL, NULL),
-(51, 'pleno HSN', '2023-10-05 00:00:00', '2023-10-05 00:00:00', 15, 13, 10, 20, 5, 13, ' ', 50, 3400, NULL, NULL),
-(52, 'Upacara HSN', '2023-10-09 00:00:00', '2023-10-09 00:00:00', 2, 5, 24, 10, 10, 13, ' ', 50, 3400, NULL, NULL);
+(51, 'pleno HSN', '2023-10-05 00:00:00', '2023-10-05 00:00:00', 15, 36, 6, 20, 5, 13, '                                    <ul><li><u><b>adasd</b></u></li></ul>									', 50, 3400, '2023-10-04 23:12:00', 'Isdiyanto SST, M.T.'),
+(52, 'Upacara HSN', '2023-10-09 00:00:00', '2023-10-09 00:00:00', 2, 16, 24, 10, 10, 13, ' ', 50, 3400, NULL, NULL),
+(53, 'Survey Budaya', '2023-11-01 00:00:00', '2023-11-08 00:00:00', 0, 0, 0, 0, 0, 2, ' ', 0, 3400, NULL, NULL),
+(54, 'Persiapan Sampling', '2023-11-01 00:00:00', '2023-11-04 00:00:00', 0, 0, 0, 0, 0, 2, ' ', 53, 3400, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -914,7 +914,7 @@ INSERT INTO `z_team` (`id_zteam`, `nama_team`, `id_zperiode`, `id_ketuatim`) VAL
 -- Indeks untuk tabel `bps`
 --
 ALTER TABLE `bps`
-  ADD PRIMARY KEY (`kodeBPS`);
+  ADD PRIMARY KEY (`kode`);
 
 --
 -- Indeks untuk tabel `kegiatan`
@@ -1014,7 +1014,7 @@ ALTER TABLE `z_team`
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_kegiatan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT untuk tabel `manajemenfile`

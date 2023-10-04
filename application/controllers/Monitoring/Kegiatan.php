@@ -49,7 +49,7 @@ class Kegiatan extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/topNav');
-        // $this->load->view('monitoring/kegiatanView');
+        $this->load->view('monitoring/kegiatanView');
         $this->load->view('template/footer');
     }
 
