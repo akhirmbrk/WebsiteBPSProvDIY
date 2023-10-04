@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-color-warning sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
-    <header class="sidebar-header" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(247,179,50,1) 65%, rgba(252,78,27,1) 85%);">
+    <header class="sidebar-header bg-warning">
         <a class="menu-link" style="color:#465161;" href="<?= base_url('Admin/IndexAdmin') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                         ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
@@ -137,7 +137,7 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota)) {
+                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota) || isset($tabKegiatan) || isset($tabTim)) {
                                             echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
@@ -164,6 +164,26 @@
                             <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
                                 <span class="icon fa fa-building-o" style="color: #465161;"></span>
                                 <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item <?php if (isset($tabKegiatan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/Kegiatan/index'); ?>">
+                                <span class="icon fa fa-list-alt" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Kegiatan</span>
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item <?php if (isset($tabTim)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/TimKerja/index'); ?>">
+                                <span class="icon fa fa-users" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Tim Kerja</span>
                             </a>
 
                         </li>
@@ -200,8 +220,7 @@
 
 <!-- Topbar -->
 <!-- <header class="topbar bg-dark" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
-<header class="topbar bg-dark" style="background: rgb(252,78,27);
-background: linear-gradient(73deg, rgba(252,78,27,1) 0%, rgba(247,179,50,1) 15%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 100%);">
+<header class="topbar bg-warning">
     <div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
     </div>

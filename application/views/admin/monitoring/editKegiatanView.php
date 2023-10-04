@@ -2,7 +2,7 @@
 <main class="main-container">
 
 
-	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
+	<header class="header header-inverse mb-0" style=" background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
 		<div class=" container">
 			<div class="header-info">
 				<div class="left">

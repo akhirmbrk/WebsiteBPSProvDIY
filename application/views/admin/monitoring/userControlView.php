@@ -1,7 +1,7 @@
 <!-- Main container -->
 
 <main>
-	<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255)">
 		<div class="container">
 			<div class="header-info">
 				<div class="left">
@@ -22,44 +22,13 @@
 	</header>
 	<!--/.header -->
 
-
-	<section>
 		<div class="main-content">
-			<div class="set">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-			</div>
-			<div class="set set2">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-			</div>
-			<div class="set set3">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-			</div>
-
-			<?php echo $this->session->flashdata('info_form');  ?>
-			<div class="row">
-				<div class="col-lg-7">
-					<div class="card shadow-1">
+		
+			<div class="container">
+				<?php echo $this->session->flashdata('info_form');  ?>
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="card shadow-1">
 
 						<!-- Search Form -->
 						<!-- <div class="card-body">
@@ -230,7 +199,8 @@
 					</script>
 				</div>
 
+				</div>
 			</div>
 		</div>
-	</section>
+	
 </main>

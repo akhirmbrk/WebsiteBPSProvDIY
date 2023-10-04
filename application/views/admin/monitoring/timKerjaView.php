@@ -1,5 +1,5 @@
 <!-- Main container -->
-<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
+<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
 	<div class="container">
 		<div class="header-info">
 			<div class="left">
@@ -25,9 +25,38 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 </header>
 <!--/.header -->
 
-
+<section>
 	<div class="main-content">
-		
+		<div class="set">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
+		<div class="set set2">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
+		<div class="set set3">
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
+			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
+		</div>
 		<div class="container">
 			<?php echo $this->session->flashdata('info_form');  ?>
 			<div class="row">
@@ -82,13 +111,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 				<div class="col-md-8 col-xl-9">
 
 					<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-						<div class="media-list-body bg-white b-1 mb-50">
+						<div class="media-list-body bg-white b-1">
 
 							<!-- Search -->
 							<div class="card-body">
-								<div class="lookup lookup-right">
+								<form class="lookup lookup-right">
 									<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
-								</div>
+								</form>
 							</div>
 							<!-- END Search -->
 

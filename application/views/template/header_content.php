@@ -1,5 +1,5 @@
 <main>
-    <header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/bluehead.png') ?>);">
+    <header class="header header-inverse" style="background:rgba(243,243,243,255);">
         <div class="header-info">
             <div class="left">
                 <h2 class="header-title" style="font-family: 'Acme', sans-serif;
