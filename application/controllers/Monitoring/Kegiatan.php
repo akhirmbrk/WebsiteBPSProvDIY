@@ -39,7 +39,6 @@ class Kegiatan extends CI_Controller
         $data['tabKegiatan'] = "1";
         $data['tab'] = "3";
         $data['tipe'] = "1";
-        // $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
         $filter['periode'] = $this->Periode_m->list_periode();
@@ -50,7 +49,7 @@ class Kegiatan extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/topNav');
-        $this->load->view('monitoring/kegiatanView');
+        // $this->load->view('monitoring/kegiatanView');
         $this->load->view('template/footer');
     }
 
@@ -76,6 +75,8 @@ class Kegiatan extends CI_Controller
 
 
 
+        $data['kodeKabKota'] = $this->BPS_m->list_bps();
+        // die;
         $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = false);
 
 
@@ -90,14 +91,14 @@ class Kegiatan extends CI_Controller
         $this->load->view('monitoring/kegiatanAjaxView');
     }
 
-    public function detailKegiatan($id)
+    public function detailKegiatan($id, $kodeKabKota)
     {
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 70;
         $data['title'] = "Kegiatan Monitoring BPS";
 
-
+        $data['kodeKabKota'] = $kodeKabKota;
         $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
 
@@ -109,7 +110,7 @@ class Kegiatan extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function editKegiatan($id)
+    public function editKegiatan($id, $kodeKabKota)
     {
         // CEK ROLE USER
         $role = [1, 6];
@@ -125,6 +126,7 @@ class Kegiatan extends CI_Controller
         $data['progress'] = 70;
         $data['title'] = "Kegiatan Monitoring BPS";
 
+        $data['kodeKabKota'] = $kodeKabKota;
         $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
 
@@ -209,7 +211,7 @@ class Kegiatan extends CI_Controller
     }
 
 
-    public function updateKegiatan($id)
+    public function updateKegiatan($id, $kodeKabKota)
     {
         // CEK ROLE USER
         $role = [1, 6];
@@ -223,7 +225,7 @@ class Kegiatan extends CI_Controller
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id);
+        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota);
 
 
         if ($hasil['point'] == 'sukses') {

@@ -61,7 +61,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
 			</div>
 			<div class="container">
-				<form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']); ?>" class="row" method="post" enctype="multipart/form-data">
+				<form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']) . "/" . $kodeKabKota ?>" class="row" method="post" enctype="multipart/form-data">
 
 
 					<div class="col-md-7 col-xl-8">
@@ -93,7 +93,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 								<label class="require">Progress</label>
 
-								<div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
+								<div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_' . $kodeKabKota]; ?>" data-target="next"></div>
 								<input style="width: 25px;" type="number" name="progresKegiatan" value="" class="form-control-plaintext" readonly>
 
 
@@ -103,7 +103,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 									<label class="require">Deskripsi Kegiatan</label>
 									<textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan">
                                     <?= $detail_kegiatan['deskripsi_kegiatan'] ?>
-                                </textarea>
+									</textarea>
 								</div>
 							</div>
 

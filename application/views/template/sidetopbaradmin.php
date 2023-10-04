@@ -171,7 +171,7 @@
                         <li class="menu-item <?php if (isset($tabKegiatan)) {
                                                     echo 'active';
                                                 } ?>">
-                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/Kegiatan/index'); ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/Kegiatan/'); ?>">
                                 <span class="icon fa fa-list-alt" style="color: #465161;"></span>
                                 <span class="title" style="color: #465161;">Kegiatan</span>
                             </a>

@@ -41,10 +41,8 @@
 
 					<div class="card-body"><!-- List User Table -->
 
-						<!-- <h6 class="ml-4" style="color :#33cabb;"><em>Hasil Pencarian : <?= $result_user; ?></em></h6> -->
-
 						<table class="table table-hover table-responsive" data-provide="datatables">
-							<thead class="thead thead-dark">
+							<thead>
 								<tr>
 									<th>Nama</th>
 									<th>NIP</th>

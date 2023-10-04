@@ -66,14 +66,14 @@
 
 
     <?php
-    if (isset($tabUser)) {
-        $this->load->view('monitoring/livesearch/userSearch');
-    } elseif (isset($tabKegiatan)) {
+    if (isset($tabKegiatan)) {
         $this->load->view('monitoring/livesearch/kegiatanSearch');
     } elseif (isset($tabTim)) {
         $this->load->view('monitoring/livesearch/timSearch');
-    } elseif (isset($tabUserKabkota)) {
-        $this->load->view('monitoring/livesearch/userKabkotaSearch');
+    } elseif (isset($tabTimAdmin)) {
+        $this->load->view('admin/monitoring/livesearch/timSearch');
+    } elseif (isset($tabKegiatanAdmin)) {
+        $this->load->view('admin/monitoring/livesearch/kegiatanSearch');
     }
     ?>
 </script>

@@ -70,7 +70,7 @@ searchKegiatan: search_key,
 filterPeriode: periode_key,
 filterTimKerja: tim_key
 };
-var base_url = '<?php echo base_url("Monitoring/Kegiatan/indexAjax") ?>';
+var base_url = '<?php echo base_url("Admin/Monitoring/Kegiatan/indexAjax") ?>';
 
 if (page_url == false) {
 var page_url = base_url;

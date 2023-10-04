@@ -20,7 +20,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 		$roleRequie = [1, 6];
 		if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 			<div class="buttons">
-				<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
+				<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] . "/" . $kodeKabKota ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
 			</div>
 		<?php } ?>
 
@@ -31,49 +31,49 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 
 
-	<div class="main-content">
-		
-		<div class="container">
+<div class="main-content">
 
-			<? //= var_dump($detail_kegiatan) 
-			?>
-			<div class="card shadow-1">
+	<div class="container">
 
-				<div class="card-body" style="text-align: center;">
-					<h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
-					<br>
-					<!-- <div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_kegiatan'] ?>%" data-color="<?php if ($detail_kegiatan['progres_kegiatan']  <= 25) {
-																																										echo "#f96868";
-																																									} elseif ($detail_kegiatan['progres_kegiatan']  <= 50) {
-																																										echo "#f2a654";
-																																									} elseif ($detail_kegiatan['progres_kegiatan']  <= 75) {
-																																										echo "#48b0f7";
-																																									} else {
-																																										echo "#46be8a";
-																																									} ?>" data-scale-color="transparent">
+		<? //= var_dump($detail_kegiatan) 
+		?>
+		<div class="card shadow-1">
 
-						<span class="easypie-data lead" style="font-size:26px">
-							<?= $detail_kegiatan['progres_kegiatan']  ?>%
-						</span>
-					</div> -->
-
-				</div>
+			<div class="card-body" style="text-align: center;">
+				<h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
 				<br>
-				<?php if ($detail_kegiatan['time_update'] == null || $detail_kegiatan['last_user_update'] == null) { ?>
-					<small class="ml-3"><i>Belum diupdate</i></small>
-				<?php } else { ?>
-					<small class="ml-3"><i><?= $detail_kegiatan['time_update'] . '<span class="divider-dash"></span>' . $detail_kegiatan['last_user_update'] ?></i></small>
-				<?php } ?>
-			</div>
-			<div class="card shadow-1">
-				<div class="card-body">
-					<h5>Detail Progres Kegiatan</h5>
-					<?= $detail_kegiatan['deskripsi_kegiatan'] ?>
+				<div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_' . $kodeKabKota] ?>%" data-color="<?php if ($detail_kegiatan['progres_' . $kodeKabKota]  <= 25) {
+																																									echo "#f96868";
+																																								} elseif ($detail_kegiatan['progres_' . $kodeKabKota]  <= 50) {
+																																									echo "#f2a654";
+																																								} elseif ($detail_kegiatan['progres_' . $kodeKabKota]  <= 75) {
+																																									echo "#48b0f7";
+																																								} else {
+																																									echo "#46be8a";
+																																								} ?>" data-scale-color="transparent">
+
+					<span class="easypie-data lead" style="font-size:26px">
+						<?= $detail_kegiatan['progres_' . $kodeKabKota]  ?>%
+					</span>
 				</div>
+
+			</div>
+			<br>
+			<?php if ($detail_kegiatan['time_update'] == null || $detail_kegiatan['last_user_update'] == null) { ?>
+				<small class="ml-3"><i>Belum diupdate</i></small>
+			<?php } else { ?>
+				<small class="ml-3"><i><?= $detail_kegiatan['time_update'] . '<span class="divider-dash"></span>' . $detail_kegiatan['last_user_update'] ?></i></small>
+			<?php } ?>
+		</div>
+		<div class="card shadow-1">
+			<div class="card-body">
+				<h5>Detail Progres Kegiatan</h5>
+				<?= $detail_kegiatan['deskripsi_kegiatan'] ?>
 			</div>
 		</div>
-
 	</div>
+
+</div>
 
 
 <!-- <div class="card shadow-1">

@@ -16088,12 +16088,6 @@ ul.flexbox {
 	font-size: 0.5rem;
 }
 
-.menu-submenu .menu-item.active > .menu-link,
-.menu-submenu .menu-item:hover > .menu-link {
-	opacity: 1;
-	background-color: red;
-}
-
 .menu-sub-submenu {
 	list-style-type: none;
 	margin-bottom: 0;
