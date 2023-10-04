@@ -1,9 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Sso_bps {
-    
-    function load()
-    {
-        include_once APPPATH.'/third_party/ckponline/vendor/autoload.php';
+class Sso_bps
+{
+
+	function load()
+	{
+		include_once APPPATH . '/third_party/ckponline/vendor/autoload.php';
 		//require 'vendor/autoload.php';
 
 		//session_start();
@@ -23,10 +24,10 @@ class Sso_bps {
 			// If we don't have an authorization code then get one
 			$authUrl = $provider->getAuthorizationUrl();
 			$_SESSION['oauth2state'] = $provider->getState();
-			header('Location: '.$authUrl);
+			header('Location: ' . $authUrl);
 			exit;
 
-		// Check given state against previously stored one to mitigate CSRF attack
+			// Check given state against previously stored one to mitigate CSRF attack
 		} elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
 			unset($_SESSION['oauth2state']);
 			exit('Invalid state, make sure HTTP sessions are enabled.');
@@ -37,7 +38,7 @@ class Sso_bps {
 					'code' => $_GET['code']
 				]);
 			} catch (Exception $e) {
-				exit('Failed to get access token: '.$e->getMessage());
+				exit('Failed to get access token: ' . $e->getMessage());
 			}
 
 			// Optional: Now you have a token you can look up a users profile data
@@ -51,12 +52,12 @@ class Sso_bps {
 
 
 			} catch (Exception $e) {
-				exit('Failed to get resource owner: '.$e->getMessage());
+				exit('Failed to get resource owner: ' . $e->getMessage());
 			}
 
 			// Use this to interact with an API on the users behalf
 			//echo $token->getToken();
-			
+
 			//header("Location: http://localhost/3400_portal/index.php/home/sesssion_on_portal/".$user->getNip());
 			//return $user->getName();
 
@@ -64,10 +65,12 @@ class Sso_bps {
 			$arry['nama'] = $user->getName();
 			$arry['nip'] = $user->getNip();
 			$arry['getprop'] = $user->getKodeProvinsi();
+			$arry['kodeKabKota'] = $user->getKabupaten();
+
 			//$arry['getUrlFoto'] = $user->getUrlFoto();
 			//$arry['jabatan'] = $user->getJabatan();
-			
-			
+
+
 			/*
 			echo "Nama : ".$user->getName();
             echo "E-Mail : ". $user->getEmail();
@@ -88,20 +91,19 @@ class Sso_bps {
 			//$arry['foto'] = $user->getUrlFoto();
 
 
-			
-			return $arry;
 
+			return $arry;
 		}
-    }
- 
+	}
+
 
 
 
 	function lout()
-    {
-        include_once APPPATH.'/third_party/ckponline/vendor/autoload.php';
-		
-		
+	{
+		include_once APPPATH . '/third_party/ckponline/vendor/autoload.php';
+
+
 		$provider = new JKD\SSO\Client\Provider\Keycloak([
 			'authServerUrl'             => 'https://sso.bps.go.id',
 			'realm'                     => 'pegawai-bps',
@@ -113,8 +115,8 @@ class Sso_bps {
 			'encryptionKeyPath'         => null
 		]);
 
-			$url_logout = $provider->getLogoutUrl();
-			//echo $url_logout;
-			header('Location: '.$url_logout);
+		$url_logout = $provider->getLogoutUrl();
+		//echo $url_logout;
+		header('Location: ' . $url_logout);
 	}
 }

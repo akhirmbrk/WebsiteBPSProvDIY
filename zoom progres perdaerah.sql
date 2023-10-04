@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Sep 2023 pada 03.07
+-- Waktu pembuatan: 04 Okt 2023 pada 09.40
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 5.6.38
 
@@ -57,7 +57,11 @@ CREATE TABLE `kegiatan` (
   `judul_kegiatan` text,
   `tgl_start` datetime DEFAULT NULL,
   `tgl_end` datetime DEFAULT NULL,
-  `progres_kegiatan` int(11) DEFAULT NULL,
+  `progres_kota` int(3) DEFAULT NULL,
+  `progres_bantul` int(3) NOT NULL,
+  `progres_sleman` int(3) NOT NULL,
+  `progres_kulonprogo` int(3) NOT NULL,
+  `progres_gunungkidul` int(3) NOT NULL,
   `id_tim_kerja` int(11) NOT NULL,
   `deskripsi_kegiatan` text NOT NULL,
   `id_parent` int(3) NOT NULL COMMENT 'jika kegiatan utama = 0',
@@ -70,24 +74,10 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`, `progres_kegiatan`, `id_tim_kerja`, `deskripsi_kegiatan`, `id_parent`, `KodeBPS`, `time_update`, `last_user_update`) VALUES
-(27, 'SAKIP CERIA', '2023-09-30 00:00:00', '2024-10-07 00:00:00', 0, 13, ' ', 0, 3400, NULL, NULL),
-(28, 'ceria1', '2023-09-13 00:00:00', '2023-09-13 00:00:00', 82, 13, '                                                                                                                                                                                                                                                                                                                                                                                                                         ', 27, 3400, '2023-09-20 15:45:00', 'Isdiyanto SST, M.T.'),
-(31, 'ceria3', '2023-09-13 00:00:00', '2023-09-13 00:00:00', 53, 13, '<ol><li>&nbsp;Hampir Ceria</li><li>dikit lagi</li></ol>', 27, 3400, NULL, NULL),
-(33, 'SOSIAL YES', '2022-09-14 00:00:00', '2022-09-16 00:00:00', 0, 3, ' ', 0, 3400, NULL, NULL),
-(34, 'PERKANTORAN SUKSES', '2023-09-16 00:00:00', '2023-09-16 00:00:00', 0, 12, ' ', 0, 3400, NULL, NULL),
-(35, 'rapat', '2023-09-14 00:00:00', '2023-09-16 00:00:00', 10, 3, ' ', 33, 3400, NULL, NULL),
-(37, 'Rpat 15', '2023-09-15 00:00:00', '2023-09-15 00:00:00', 20, 3, ' ', 33, 3400, NULL, NULL),
-(38, 'Jaya', '2023-09-14 00:00:00', '2023-09-14 00:00:00', 0, 1, ' ', 0, 3400, NULL, NULL),
-(39, 'rapat', '2023-09-16 00:00:00', '2023-09-16 00:00:00', 0, 12, ' ', 34, 3400, NULL, NULL),
-(40, 'rapat1', '2023-09-14 00:00:00', '2023-09-21 00:00:00', 0, 1, ' ', 0, 3400, NULL, NULL),
-(41, 'HSN', '2023-10-01 00:00:00', '2023-10-31 00:00:00', 10, 1, ' ', 0, 3400, NULL, NULL),
-(42, 'Rapat Pleno', '2023-10-01 00:00:00', '2023-10-03 00:00:00', 20, 1, '-Mulai Rapat', 41, 3400, NULL, NULL),
-(43, 'Webinar ', '2023-10-11 00:00:00', '2023-10-14 00:00:00', 0, 1, ' ', 41, 3400, NULL, NULL),
-(45, 'PERLOMBAAN HSN', '2023-09-23 00:00:00', '2023-09-25 00:00:00', 0, 7, ' ', 0, 3400, NULL, NULL),
-(47, 'Rapat Pleno', '2023-09-23 00:00:00', '2023-09-23 00:00:00', 100, 7, '                                                                     ', 45, 3400, NULL, NULL),
-(48, 'Lomba Donor Darah', '2023-09-23 00:00:00', '2023-09-23 00:00:00', 0, 7, ' ', 45, 3400, NULL, NULL),
-(49, 'Lomba Balap Karung', '2023-09-24 00:00:00', '2023-09-24 00:00:00', 0, 7, ' ', 45, 3400, NULL, NULL);
+INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`, `progres_kota`, `progres_bantul`, `progres_sleman`, `progres_kulonprogo`, `progres_gunungkidul`, `id_tim_kerja`, `deskripsi_kegiatan`, `id_parent`, `KodeBPS`, `time_update`, `last_user_update`) VALUES
+(50, 'HSN', '2023-10-04 00:00:00', '2023-11-04 00:00:00', 0, 0, 0, 0, 0, 13, ' ', 0, 3400, NULL, NULL),
+(51, 'pleno HSN', '2023-10-05 00:00:00', '2023-10-05 00:00:00', 15, 13, 10, 20, 5, 13, ' ', 50, 3400, NULL, NULL),
+(52, 'Upacara HSN', '2023-10-09 00:00:00', '2023-10-09 00:00:00', 2, 5, 24, 10, 10, 13, ' ', 50, 3400, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,8 +137,59 @@ INSERT INTO `meetingreq` (`idm`, `perihal`, `tgl_start`, `tgl_end`, `status`, `t
 (9, 'Coba notulen', '2023-08-29 11:06:00', '2023-08-29 11:07:00', 1, '2023-08-29', 340054255, 'gas', '9_1693282232', 'Isdiyanto SST, M.T.', '2023-08-29', 2, 340054255, 'Isdiyanto SST, M.T.', 0, 'Zoom'),
 (10, 'Coba 2', '2023-08-30 17:30:00', '2023-08-30 18:00:00', 1, '2023-08-30', 340054255, 'asdas', NULL, 'Isdiyanto SST, M.T.', '2023-09-20', 23, 340054255, 'Isdiyanto SST, M.T.', 0, 'Zoom'),
 (11, 'Magang Mahasiswa Politeknik Statistika STIS', '2023-09-14 07:30:00', '2023-09-14 16:00:00', 2, '2023-08-30', 340054255, 'tes', NULL, 'Isdiyanto SST, M.T.', '2023-08-31', 10, 340054255, 'Isdiyanto SST, M.T.', 0, 'Zoom'),
-(12, 'Rapat1', '2023-09-15 07:30:00', '2023-09-15 16:00:00', 1, '2023-09-14', 1111, 'boleh', NULL, 'Muhammad Afnan Falieh, Otw. Str.Stat', '2023-09-14', 20, 1111, 'Muhammad Afnan Falieh, Otw. Str.Stat', 1, 'bima'),
-(13, 'Coba', '2023-09-21 07:30:00', '2023-09-21 16:00:00', 0, '2023-09-20', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 3, NULL, NULL, 1, '2');
+(12, 'Rapat1', '2023-09-15 07:30:00', '2023-09-15 16:00:00', 2, '2023-09-14', 1111, 'boleh', NULL, 'Muhammad Afnan Falieh, Otw. Str.Stat', '2023-10-02', 20, 340054255, 'Isdiyanto SST, M.T.', 1, '1'),
+(13, 'Coba', '2023-09-21 07:30:00', '2023-09-21 16:00:00', 1, '2023-09-20', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-02', 3, 340054255, 'Isdiyanto SST, M.T.', 1, '2'),
+(14, 'Perayaan HSN', '2023-09-26 10:30:00', '2023-09-26 12:00:00', 0, '2023-09-26', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 44, NULL, NULL, 1, '1'),
+(15, 'Rapat3', '2023-09-23 07:30:00', '2023-09-23 16:00:00', 1, '2023-09-22', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-22', 8, 340054255, 'Isdiyanto SST, M.T.', 0, '4'),
+(16, 'Rapat4', '2023-09-24 07:30:00', '2023-09-24 16:00:00', 2, '2023-09-23', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-23', 15, 340054255, 'Isdiyanto SST, M.T.', 1, '5'),
+(17, 'Rapat5', '2023-09-25 07:30:00', '2023-09-25 16:00:00', 1, '2023-09-24', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-24', 6, 340054255, 'Isdiyanto SST, M.T.', 0, '6'),
+(18, 'Rapat6', '2023-09-26 07:30:00', '2023-09-26 16:00:00', 0, '2023-09-25', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 10, NULL, NULL, 1, '7'),
+(19, 'Rapat7', '2023-09-27 07:30:00', '2023-09-27 16:00:00', 2, '2023-09-26', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-26', 12, 340054255, 'Isdiyanto SST, M.T.', 0, '8'),
+(20, 'Rapat8', '2023-09-28 07:30:00', '2023-09-28 16:00:00', 1, '2023-09-27', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-27', 7, 340054255, 'Isdiyanto SST, M.T.', 1, '9'),
+(21, 'Rapat9', '2023-09-29 07:30:00', '2023-09-29 16:00:00', 0, '2023-09-28', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 11, NULL, NULL, 0, '10'),
+(22, 'Rapat10', '2023-09-30 07:30:00', '2023-09-30 16:00:00', 2, '2023-09-29', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-29', 18, 340054255, 'Isdiyanto SST, M.T.', 1, '11'),
+(23, 'Rapat11', '2023-10-01 07:30:00', '2023-10-01 16:00:00', 1, '2023-09-30', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-09-30', 9, 340054255, 'Isdiyanto SST, M.T.', 0, '12'),
+(24, 'Rapat12', '2023-10-02 07:30:00', '2023-10-02 16:00:00', 0, '2023-10-01', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '13'),
+(25, 'Rapat13', '2023-10-03 07:30:00', '2023-10-03 16:00:00', 2, '2023-10-02', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-02', 20, 340054255, 'Isdiyanto SST, M.T.', 0, '14'),
+(26, 'Rapat14', '2023-10-04 07:30:00', '2023-10-04 16:00:00', 1, '2023-10-03', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-03', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '15'),
+(27, 'Rapat15', '2023-10-05 07:30:00', '2023-10-05 16:00:00', 0, '2023-10-04', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '16'),
+(28, 'Rapat16', '2023-10-06 07:30:00', '2023-10-06 16:00:00', 2, '2023-10-05', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-05', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '17'),
+(29, 'Rapat17', '2023-10-07 07:30:00', '2023-10-07 16:00:00', 1, '2023-10-06', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-06', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '18'),
+(30, 'Rapat18', '2023-10-08 07:30:00', '2023-10-08 16:00:00', 0, '2023-10-07', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '19'),
+(31, 'Rapat19', '2023-10-09 07:30:00', '2023-10-09 16:00:00', 2, '2023-10-08', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-08', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '20'),
+(32, 'Rapat20', '2023-10-10 07:30:00', '2023-10-10 16:00:00', 1, '2023-10-09', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-09', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '21'),
+(33, 'Rapat21', '2023-10-11 07:30:00', '2023-10-11 16:00:00', 0, '2023-10-10', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '22'),
+(34, 'Rapat22', '2023-10-12 07:30:00', '2023-10-12 16:00:00', 2, '2023-10-11', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-11', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '23'),
+(35, 'Rapat23', '2023-10-13 07:30:00', '2023-10-13 16:00:00', 1, '2023-10-12', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-12', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '24'),
+(36, 'Rapat24', '2023-10-14 07:30:00', '2023-10-14 16:00:00', 0, '2023-10-13', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '25'),
+(37, 'Rapat25', '2023-10-15 07:30:00', '2023-10-15 16:00:00', 2, '2023-10-14', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-14', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '26'),
+(38, 'Rapat26', '2023-10-16 07:30:00', '2023-10-16 16:00:00', 1, '2023-10-15', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-15', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '27'),
+(39, 'Rapat27', '2023-10-17 07:30:00', '2023-10-17 16:00:00', 0, '2023-10-16', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '28'),
+(40, 'Rapat28', '2023-10-18 07:30:00', '2023-10-18 16:00:00', 2, '2023-10-17', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-17', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '29'),
+(41, 'Rapat29', '2023-10-19 07:30:00', '2023-10-19 16:00:00', 1, '2023-10-18', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-18', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '30'),
+(42, 'Rapat30', '2023-10-20 07:30:00', '2023-10-20 16:00:00', 0, '2023-10-19', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '31'),
+(43, 'Rapat31', '2023-10-21 07:30:00', '2023-10-21 16:00:00', 2, '2023-10-20', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-20', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '32'),
+(44, 'Rapat32', '2023-10-22 07:30:00', '2023-10-22 16:00:00', 1, '2023-10-21', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-21', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '33'),
+(45, 'Rapat33', '2023-10-23 07:30:00', '2023-10-23 16:00:00', 0, '2023-10-22', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '34'),
+(46, 'Rapat34', '2023-10-24 07:30:00', '2023-10-24 16:00:00', 2, '2023-10-23', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-23', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '35'),
+(47, 'Rapat35', '2023-10-25 07:30:00', '2023-10-25 16:00:00', 1, '2023-10-24', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-24', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '36'),
+(48, 'Rapat36', '2023-10-26 07:30:00', '2023-10-26 16:00:00', 0, '2023-10-25', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '37'),
+(49, 'Rapat37', '2023-10-27 07:30:00', '2023-10-27 16:00:00', 2, '2023-10-26', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-26', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '38'),
+(50, 'Rapat38', '2023-10-28 07:30:00', '2023-10-28 16:00:00', 1, '2023-10-27', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-27', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '39'),
+(51, 'Rapat39', '2023-10-29 07:30:00', '2023-10-29 16:00:00', 0, '2023-10-28', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '40'),
+(52, 'Rapat40', '2023-10-30 07:30:00', '2023-10-30 16:00:00', 2, '2023-10-29', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-29', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '41'),
+(53, 'Rapat41', '2023-10-31 07:30:00', '2023-10-31 16:00:00', 1, '2023-10-30', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-10-30', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '42'),
+(54, 'Rapat42', '2023-11-01 07:30:00', '2023-11-01 16:00:00', 0, '2023-10-31', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '43'),
+(55, 'Rapat43', '2023-11-02 07:30:00', '2023-11-02 16:00:00', 2, '2023-11-01', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-01', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '44'),
+(56, 'Rapat44', '2023-11-03 07:30:00', '2023-11-03 16:00:00', 1, '2023-11-02', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-02', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '45'),
+(57, 'Rapat45', '2023-11-04 07:30:00', '2023-11-04 16:00:00', 0, '2023-11-03', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '46'),
+(58, 'Rapat46', '2023-11-05 07:30:00', '2023-11-05 16:00:00', 2, '2023-11-04', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-04', 16, 340054255, 'Isdiyanto SST, M.T.', 1, '47'),
+(59, 'Rapat47', '2023-11-06 07:30:00', '2023-11-06 16:00:00', 1, '2023-11-05', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-05', 10, 340054255, 'Isdiyanto SST, M.T.', 0, '48'),
+(60, 'Rapat48', '2023-11-07 07:30:00', '2023-11-07 16:00:00', 0, '2023-11-06', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 14, NULL, NULL, 1, '49'),
+(61, 'Rapat49', '2023-11-08 07:30:00', '2023-11-08 16:00:00', 2, '2023-11-07', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-07', 18, 340054255, 'Isdiyanto SST, M.T.', 0, '50'),
+(62, 'Rapat50', '2023-11-09 07:30:00', '2023-11-09 16:00:00', 1, '2023-11-08', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', '2023-11-08', 8, 340054255, 'Isdiyanto SST, M.T.', 1, '51'),
+(63, 'Rapat51', '2023-11-10 07:30:00', '2023-11-10 16:00:00', 0, '2023-11-09', 340054255, NULL, NULL, 'Isdiyanto SST, M.T.', NULL, 12, NULL, NULL, 0, '52'),
+(64, 'Coba', '2023-10-04 08:30:00', '2023-10-04 16:00:00', 0, '2023-10-04', 340013059, NULL, NULL, 'Rahmawati, SE, MA', NULL, 12, NULL, NULL, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -448,16 +489,57 @@ INSERT INTO `pegawai` (`id_pegawai`, `nama_peg`, `nip`, `nip_lama`, `pangkat`, `
 CREATE TABLE `pegawai_kabkota` (
   `id_pegawai_kabkota` int(11) NOT NULL,
   `nama_pegawai_kabkota` varchar(100) NOT NULL,
-  `nip_lama_pegawai_kabkota` varchar(10) NOT NULL
+  `nip_lama_pegawai_kabkota` varchar(10) NOT NULL,
+  `kodeKabKota` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pegawai_kabkota`
 --
 
-INSERT INTO `pegawai_kabkota` (`id_pegawai_kabkota`, `nama_pegawai_kabkota`, `nip_lama_pegawai_kabkota`) VALUES
-(6, 'Muhammad Afnan Falieh, Otw. Str.Stat', '340024494'),
-(8, 'USER BIASA', '1234567');
+INSERT INTO `pegawai_kabkota` (`id_pegawai_kabkota`, `nama_pegawai_kabkota`, `nip_lama_pegawai_kabkota`, `kodeKabKota`) VALUES
+(6, 'Muhammad Afnan Falieh, Otw. Str.Stat', '340024494', 0),
+(8, 'USER BIASA', '1234567', 0),
+(9, 'Nama Pegawai 9', '340000009', 0),
+(10, 'Nama Pegawai 10', '340000010', 0),
+(11, 'Nama Pegawai 11', '340000011', 0),
+(12, 'Nama Pegawai 12', '340000012', 0),
+(13, 'Nama Pegawai 13', '340000013', 0),
+(14, 'Nama Pegawai 14', '340000014', 0),
+(15, 'Nama Pegawai 15', '340000015', 0),
+(16, 'Nama Pegawai 16', '340000016', 0),
+(17, 'Nama Pegawai 17', '340000017', 0),
+(18, 'Nama Pegawai 18', '340000018', 0),
+(19, 'Nama Pegawai 19', '340000019', 0),
+(20, 'Nama Pegawai 20', '340000020', 0),
+(21, 'Nama Pegawai 21', '340000021', 0),
+(22, 'Nama Pegawai 22', '340000022', 0),
+(23, 'Nama Pegawai 23', '340000023', 0),
+(24, 'Nama Pegawai 24', '340000024', 0),
+(25, 'Nama Pegawai 25', '340000025', 0),
+(26, 'Nama Pegawai 26', '340000026', 0),
+(27, 'Nama Pegawai 27', '340000027', 0),
+(28, 'Nama Pegawai 28', '340000028', 0),
+(29, 'Nama Pegawai 29', '340000029', 0),
+(30, 'Nama Pegawai 30', '340000030', 0),
+(31, 'Nama Pegawai 31', '340000031', 0),
+(32, 'Nama Pegawai 32', '340000032', 0),
+(33, 'Nama Pegawai 33', '340000033', 0),
+(34, 'Nama Pegawai 34', '340000034', 0),
+(35, 'Nama Pegawai 35', '340000035', 0),
+(36, 'Nama Pegawai 36', '340000036', 0),
+(37, 'Nama Pegawai 37', '340000037', 0),
+(38, 'Nama Pegawai 38', '340000038', 0),
+(39, 'Nama Pegawai 39', '340000039', 0),
+(40, 'Nama Pegawai 40', '340000040', 0),
+(41, 'Nama Pegawai 41', '340000041', 0),
+(42, 'Nama Pegawai 42', '340000042', 0),
+(43, 'Nama Pegawai 43', '340000043', 0),
+(44, 'Nama Pegawai 44', '340000044', 0),
+(45, 'Nama Pegawai 45', '340000045', 0),
+(46, 'Nama Pegawai 46', '340000046', 0),
+(47, 'Nama Pegawai 47', '340000047', 0),
+(48, 'Nama Pegawai 48', '340000048', 0);
 
 -- --------------------------------------------------------
 
@@ -684,9 +766,12 @@ INSERT INTO `user_access` (`id`, `nip_pegawai`, `id_role`) VALUES
 (2, 340054255, 2),
 (3, 340054255, 3),
 (4, 340054255, 4),
-(35, 340024494, 2),
-(36, 340024494, 3),
-(39, 340013059, 2);
+(45, 1234567, 5),
+(46, 340024494, 5),
+(47, 340024494, 6),
+(51, 340013059, 2),
+(52, 340013059, 3),
+(53, 340013059, 4);
 
 -- --------------------------------------------------------
 
@@ -929,7 +1014,7 @@ ALTER TABLE `z_team`
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_kegiatan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `manajemenfile`
@@ -941,7 +1026,7 @@ ALTER TABLE `manajemenfile`
 -- AUTO_INCREMENT untuk tabel `meetingreq`
 --
 ALTER TABLE `meetingreq`
-  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `m_jabatan`
@@ -959,7 +1044,7 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT untuk tabel `pegawai_kabkota`
 --
 ALTER TABLE `pegawai_kabkota`
-  MODIFY `id_pegawai_kabkota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pegawai_kabkota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `rapatteam`
@@ -983,7 +1068,7 @@ ALTER TABLE `userapp`
 -- AUTO_INCREMENT untuk tabel `user_access`
 --
 ALTER TABLE `user_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`

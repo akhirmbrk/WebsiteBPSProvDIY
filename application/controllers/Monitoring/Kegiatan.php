@@ -39,7 +39,7 @@ class Kegiatan extends CI_Controller
         $data['tabKegiatan'] = "1";
         $data['tab'] = "3";
         $data['tipe'] = "1";
-        $data['progress'] = 76;
+        // $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
         $filter['periode'] = $this->Periode_m->list_periode();
