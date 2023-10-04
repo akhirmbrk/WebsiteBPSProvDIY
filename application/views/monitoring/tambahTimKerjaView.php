@@ -99,7 +99,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   								</select>
 
   								<footer class="card-footer text-right">
-  									<a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
+  									<a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/TimKerja") ?>">Cancel</a>
   									<button class="btn btn-primary" type="submit">Submit</button>
   								</footer>
 
@@ -110,4 +110,4 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   				</form>
   			</div>
   		</div>
-	</section>
+  	</section>

@@ -147,9 +147,9 @@ class Zoomorder extends CI_Controller
 
 		$this->load->vars($data);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/topnav', $data);
-		$this->load->view('template/header_content', $data);
+		$this->load->view('template/header');
+		$this->load->view('template/topnav');
+		$this->load->view('template/header_content');
 		$this->load->view('zoom/myorder');
 		$this->load->view('template/footer');
 	}

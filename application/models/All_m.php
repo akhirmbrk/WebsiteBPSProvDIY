@@ -41,8 +41,10 @@ class All_m extends CI_Model
 
 		if ($keterangan == 1) {
 			$ruangan = $this->input->post("ruangan");
-			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan);
-			// var_dump($cekRuangan->row_array());
+			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan)->row_array();
+
+			// var_dump($cekRuangan);
+			// die;
 			if ($cekRuangan['jumlah'] > 1) {
 				$hasil['point'] = 'blockOFF';
 				$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");

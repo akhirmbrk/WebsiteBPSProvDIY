@@ -1,22 +1,13 @@
 <body class="topbar-unfix">
-    <!-- Topbar -->
-    <!-- Landing Page -->
-
 
     <?php if ($tipe == 1) { ?>
-        <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
+        <header class="topbar topbar-expand-lg topbar-secondary bg-secondary topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
         <?php } elseif ($tipe == 2) { ?>
-            <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
+            <header class="topbar topbar-expand-lg topbar-secondary bg-secondary topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);">
             <?php } elseif ($tipe == 'Landing') { ?>
-                <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);">
+                <header class="topbar topbar-expand-lg topbar-secondary bg-secondary  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(0,150,222,1) 70%, rgba(104,186,42,1) 80%, rgba(236,138,20,1) 90%);">
                 <?php } ?>
 
-
-                <!-- Menu Biasa -->
-                <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(163,232,247,1) 70%, rgba(0,122,240,1) 90%);"> -->
-
-                <!-- Admin -->
-                <!-- <header class="topbar topbar-expand-lg  topbar-inverse " style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
                 <div class="topbar-left">
                     <?php if ($tipe == 1 || $tipe == 2 || $tipe == 3) { ?>
                         <span class="topbar-btn topbar-menu-toggler"><i style="color: #40d2f3">&#9776;</i></span>

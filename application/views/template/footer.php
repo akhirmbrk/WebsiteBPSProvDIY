@@ -33,6 +33,7 @@
 
 
 <!-- Scripts -->
+
 <script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>
 <script src="<?= base_url(''); ?>assets/js/app.min.js"></script>
 <script src="<?= base_url(''); ?>assets/js/script.min.js"></script>

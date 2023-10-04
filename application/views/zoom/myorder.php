@@ -5,8 +5,6 @@
 
             <div class="row">
 
-
-
                 <div class="col-12">
                     <div class="card card-bordered card-hover-shadow">
 
@@ -14,8 +12,7 @@
                         <div class="card-body">
                             <?php echo $this->session->flashdata('info_form');  ?>
 
-                            <table id="mp_tabel" class="table table-hover table-bordered table-responsive"
-                                data-provide="datatables" cellspacing="0">
+                            <table id="mp_tabel" class="table table-hover table-bordered table-responsive" data-provide="datatables" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th width="5%" class="fw-600" style="vertical-align:middle;text-align: center;">No </th>
@@ -32,67 +29,54 @@
                                     $nomor = 1;
                                     if (count($list_order)) {
                                         foreach ($list_order as $indeks => $list) {  ?>
-                                    <tr>
-                                        <td><?php echo $nomor; ?></td>
-                                        <td><?php echo $list['perihal']; ?></td>
-                                        <td><?php echo $list['jadwal_awal']; ?></td>
-                                        <td><?php echo $list['jadwal_akhir']; ?></td>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $list['perihal']; ?></td>
+                                                <td><?php echo $list['jadwal_awal']; ?></td>
+                                                <td><?php echo $list['jadwal_akhir']; ?></td>
+
+                                                <?php if ($list['status'] == 0) { ?>
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-warning">Belum Disetujui</span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-primary cat-info" href="<?php echo base_url('zoom/zoomorder/editzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    </td>
+
+                                                <?php } else if ($list['status'] == 1) {  ?>
+
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-success"> Disetujui</span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('zoom/zoomorder/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail Rapat Daring"><i class="fa fa-eye"></i></a>
+                                                    </td>
 
 
 
+                                                <?php } else if ($list['status'] == 2) {  ?>
 
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-danger">Batal/Tidak Disetujui</span>
+                                                    </td>
+                                                    <td>
 
+                                                    </td>
 
-                                        <?php if ($list['status'] == 0) { ?>
-                                        <td style="text-align: center;">
-                                            <span class="badge badge-warning">Belum Disetujui</span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a name="d_edit_bagi_pegawai"
-                                                class="nav-link hover-primary cat-info"
-                                                href="<?php echo base_url('zoom/zoomorder/editzoom/' . $list['idm']); ?>"
-                                                data-provide="tooltip" data-placement="top" title="Edit"><i
-                                                    class="fa fa-pencil"></i></a>
-                                        </td>
+                                                <?php }  ?>
 
-                                        <?php } else if ($list['status'] == 1) {  ?>
-
-                                        <td style="text-align: center;">
-                                            <span class="badge badge-success"> Disetujui</span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a name="d_edit_bagi_pegawai"
-                                                class="nav-link hover-info cat-info"
-                                                href="<?php echo base_url('zoom/zoomorder/lookzoom/' . $list['idm']); ?>"
-                                                data-provide="tooltip" data-placement="top"
-                                                title="Lihat Detail Rapat Daring"><i class="fa fa-eye"></i></a>
-                                        </td>
-
-
-
-                                        <?php } else if ($list['status'] == 2) {  ?>
-
-                                        <td style="text-align: center;">
-                                            <span class="badge badge-danger">Batal/Tidak Disetujui</span>
-                                        </td>
-                                        <td>
-
-                                        </td>
-
-                                        <?php }  ?>
-
-                                    </tr>
-                                    <?php
+                                            </tr>
+                                        <?php
                                             $nomor++;
                                         }
                                     } else { ?>
-                                    <tr>
-                                        <td><?php echo $nomor; ?></td>
-                                        <td>tidak ada data</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                        <tr>
+                                            <td><?php echo $nomor; ?></td>
+                                            <td>tidak ada data</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
 
                                     <?php } ?>
                                 </tbody>
