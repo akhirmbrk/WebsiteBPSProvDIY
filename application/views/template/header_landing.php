@@ -39,12 +39,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?= base_url(''); ?>assets/css/app.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.css" rel="stylesheet">
-	<link href="<?= base_url(''); ?>assets/css/landing.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+	
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" href="<?= base_url(''); ?>assets/img/apple-touch-icon.png">
 	<link rel="icon" href="<?= base_url(''); ?>assets/img/bg/logo_bps.png">
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
 
 </head>
