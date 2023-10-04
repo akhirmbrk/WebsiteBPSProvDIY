@@ -1,4 +1,4 @@
-<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/bluehead.png') ?>);">
+<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
 	<div class="container">
 		<div class="header-info">
 			<div class="left">
@@ -30,38 +30,9 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 <!--/.header -->
 
 
-<section>
+
 	<div class="main-content">
-		<div class="set">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
-		<div class="set set2">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
-		<div class="set set3">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
+		
 		<div class="container">
 
 			<? //= var_dump($detail_kegiatan) 
@@ -104,7 +75,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 		</div>
 
 	</div>
-</section>
+
 
 <!-- <div class="card shadow-1">
             <div class="card-body">

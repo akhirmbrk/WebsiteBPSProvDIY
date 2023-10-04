@@ -1,6 +1,6 @@
     <!-- Main container -->
     <main>
-    	<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+    	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
     		<div class="container">
     			<div class="header-info">
     				<div class="left">
@@ -13,38 +13,9 @@
     	</header>
 
 
-    	<section>
+
     		<div class="main-content">
-    			<div class="set">
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    			</div>
-    			<div class="set set2">
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    			</div>
-    			<div class="set set3">
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves1.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves2.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves3.png" /></div>
-    				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/leaves4.png" /></div>
-    			</div>
+    			
     			<div class="card card-body">
 
     				<!-- <h2 class="d-fiestletter">Permintaan Rapat Daring </h2> -->
@@ -98,7 +69,7 @@
 
     			</div>
     		</div>
-    	</section>
+    
     	<!--/.main-content -->
 
 

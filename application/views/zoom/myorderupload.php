@@ -14,8 +14,7 @@
                         <div class="card-body">
                             <?php echo $this->session->flashdata('info_form');  ?>
 
-                            <table id="mp_tabel" class="table table-hover table-bordered table-responsive"
-                                data-provide="datatables" cellspacing="0">
+                            <table id="mp_tabel" class="table table-hover table-bordered table-responsive" data-provide="datatables" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th width="5%" class="fw-600" style="vertical-align:middle; text-align:center;">No </th>
@@ -28,62 +27,54 @@
                                 </thead>
                                 <tbody>
                                     <?php
-									$nomor = 1;
-									if (count($list_order) > 0) {
-										// if (count($list_order)) {
-										foreach ($list_order as $indeks => $list) {  ?>
-                                    <tr>
-                                        <td><?php echo $nomor; ?></td>
-                                        <td><?php echo $list['perihal']; ?></td>
-                                        <td><?php echo $list['jadwal_awal']; ?></td>
-                                        <td><?php echo $list['jadwal_akhir']; ?></td>
+                                    $nomor = 1;
+                                    if (count($list_order) > 0) {
+                                        // if (count($list_order)) {
+                                        foreach ($list_order as $indeks => $list) {  ?>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $list['perihal']; ?></td>
+                                                <td><?php echo $list['jadwal_awal']; ?></td>
+                                                <td><?php echo $list['jadwal_akhir']; ?></td>
 
 
 
 
 
 
-                                        <?php if ($list['notulen'] == NULL) { ?>
-                                        <td style="text-align: center;">
-                                            <span class="badge badge-warning">Belum Upload</span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a name="d_edit_bagi_pegawai"
-                                                class="nav-link hover-info cat-info"
-                                                href="<?php echo base_url('zoom/zoomorder/uploadnotulenview/' . $list['idm']); ?>"
-                                                data-provide="tooltip" data-placement="top" title="Upload Notulen"><i
-                                                    class="fa fa-upload"></i></a>
-                                        </td>
+                                                <?php if ($list['notulen'] == NULL) { ?>
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-warning">Belum Upload</span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('zoom/zoomorder/uploadnotulenview/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Upload Notulen"><i class="fa fa-upload"></i></a>
+                                                    </td>
 
 
-                                        <?php } else {  ?>
+                                                <?php } else {  ?>
 
-                                        <td style="text-align: center;">
-                                            <span class="badge badge-success">Sudah Upload</span>
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a name="d_edit_bagi_pegawai"
-                                                class="nav-link hover-success cat-info"
-                                                href="<?php echo base_url('notulen/' . $list['notulen'] . '.pdf'); ?>"
-                                                data-provide="tooltip" data-placement="top" title="Download Notulen"><i
-                                                    class="fa fa-download"></i></a>
-                                        </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="badge badge-success">Sudah Upload</span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-success cat-info" href="<?php echo base_url('notulen/' . $list['notulen'] . '.pdf'); ?>" data-provide="tooltip" data-placement="top" title="Download Notulen"><i class="fa fa-download"></i></a>
+                                                    </td>
 
-                                        <?php }  ?>
+                                                <?php }  ?>
 
-                                    </tr>
-                                    <?php
-											$nomor++;
-										}
-									} else { ?>
-                                    <tr>
-                                        <td><?php echo $nomor; ?></td>
-                                        <td>tidak ada data</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                            </tr>
+                                        <?php
+                                            $nomor++;
+                                        }
+                                    } else { ?>
+                                        <tr>
+                                            <td><?php echo $nomor; ?></td>
+                                            <td>tidak ada data</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
 
                                     <?php } ?>
                                 </tbody>

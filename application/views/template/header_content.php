@@ -1,5 +1,5 @@
 <main>
-    <header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/bluehead.png') ?>);">
+    <header class="header header-inverse" style="background:rgba(243,243,243,255);">
         <div class="header-info">
             <div class="left">
                 <h2 class="header-title" style="font-family: 'Acme', sans-serif;
@@ -13,33 +13,33 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
             </div>
         </div>
 
-        <?php  
-        if(isset($dash)){ ?>
-        <div class="header-action">
-            <div class="flexbox align-items-center gap-items-4">
-                <a class="text- " href="#" data-calendar="prev"><i class="ti-angle-left"></i></a>
-                <span class="text-  fs-16" id="calendar-title" style="color:#9597a5"></span>
-                <a class="text-" href="#" data-calendar="next"><i class="ti-angle-right"></i></a>
-            </div>
-
-            <nav class="nav">
-                <a class="nav-link"  style="color: #9597a5;" href="#" data-calendar="today">Today</a>
-                <a class="nav-link active"  style="color: #9597a5;" href="#" data-calendar-view="month">Month</a>
-                <a class="nav-link" href="#"  style="color: #9597a5;" data-calendar-view="basicWeek">Week</a>
-                <a class="nav-link" href="#"  style="color: #9597a5;" data-calendar-view="basicDay">Day</a>
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle"  style="color: #9597a5;" data-toggle="dropdown" href="#">More</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-calendar-view="agendaWeek">Agenda week</a>
-                        <a class="dropdown-item" href="#" data-calendar-view="agendaDay">Agenda day</a>
-                        <a class="dropdown-item" href="#" data-calendar-view="listYear">List year</a>
-                        <a class="dropdown-item" href="#" data-calendar-view="listMonth">List month</a>
-                        <a class="dropdown-item" href="#" data-calendar-view="listWeek">List week</a>
-                        <a class="dropdown-item" href="#" data-calendar-view="listDay">List day</a>
-                    </div>
+        <?php
+        if (isset($dash)) { ?>
+            <div class="header-action">
+                <div class="flexbox align-items-center gap-items-4">
+                    <a class="text- " href="#" data-calendar="prev" style="color:#9597a5;"><i class="ti-angle-left"></i></a>
+                    <span class="text-  fs-16" id="calendar-title" style="color:#9597a5;"></span>
+                    <a class="text-" href="#" data-calendar="next" style="color:#9597a5;"><i class="ti-angle-right"></i></a>
                 </div>
-            </nav>
-        </div>
+
+                <nav class="nav">
+                    <a class="nav-link" style="color: #9597a5;" href="#" data-calendar="today">Today</a>
+                    <a class="nav-link active" style="color: #9597a5;" href="#" data-calendar-view="month">Month</a>
+                    <a class="nav-link" href="#" style="color: #9597a5;" data-calendar-view="basicWeek">Week</a>
+                    <a class="nav-link" href="#" style="color: #9597a5;" data-calendar-view="basicDay">Day</a>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" style="color: #9597a5;" data-toggle="dropdown" href="#">More</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#" data-calendar-view="agendaWeek">Agenda week</a>
+                            <a class="dropdown-item" href="#" data-calendar-view="agendaDay">Agenda day</a>
+                            <a class="dropdown-item" href="#" data-calendar-view="listYear">List year</a>
+                            <a class="dropdown-item" href="#" data-calendar-view="listMonth">List month</a>
+                            <a class="dropdown-item" href="#" data-calendar-view="listWeek">List week</a>
+                            <a class="dropdown-item" href="#" data-calendar-view="listDay">List day</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         <?php }
         ?>
 </main>

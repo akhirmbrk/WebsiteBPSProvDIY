@@ -33,13 +33,13 @@
 
 
 <!-- Scripts -->
-
 <script src="<?= base_url(''); ?>assets/js/core.min.js" data-provide="typeahead"></script>
 <script src="<?= base_url(''); ?>assets/js/app.min.js"></script>
 <script src="<?= base_url(''); ?>assets/js/script.min.js"></script>
 <script src="<?= base_url(''); ?>assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
 <script src="<?= base_url(''); ?>assets/vendor/i8-icon/jquery-i8-icon.min.js"></script>
 <script src="<?= base_url('') ?>assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script type="module" src="<?= base_url('') ?>assets/src/main.ts"></script>
 <!-- <script src="<?= base_url('') ?>/assets/data/json/countries.json"></script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
