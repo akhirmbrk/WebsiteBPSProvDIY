@@ -64,7 +64,7 @@
                                     <tr>
                                         <th style="width: 80px;">No</th>
                                         <th>Nama Kegiatan</th>
-                                        <th style="width: 120px;">status</th>
+                                        <th style="width: 200px;">status</th>
                                         <th style="width: 200px;">Action</th>
                                     </tr>
                                 </thead>
@@ -80,7 +80,9 @@
                                                 </td>
                                                 <td>
                                                     <?php if ($list_sub_kegiatan[$indeks][$key]['time_update'] != null) { ?>
-                                                        <small><i><?= $list_sub_kegiatan[$indeks][$key]['time_update'] . '<span class="divider-dash"></span>' . $list_sub_kegiatan[$indeks][$key]['last_user_update'] ?></i></small>
+                                                        <small><i>update terakhir
+                                                                <?= date('d-m-Y', strtotime($list_sub_kegiatan[$indeks][$key]['time_update'])) ?>
+                                                            </i></small>
                                                     <?php } else echo '<small><i>Belum diupdate</i></small>'; ?>
                                                 </td>
                                                 <td>

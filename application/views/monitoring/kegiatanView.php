@@ -86,13 +86,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 				<div class="col-md-8 col-xl-9">
 					<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-						<div class="media-list-body bg-white b-1">
+						<div class="media-list-body bg-white b-1 mb-50">
 
 							<!-- Searching kegiatan -->
 							<div class="card-body">
-								<form class="lookup lookup-right">
+								<div class="lookup lookup-right">
 									<input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
-								</form>
+								</div>
 							</div>
 							<!-- end Searching kegiatan -->
 

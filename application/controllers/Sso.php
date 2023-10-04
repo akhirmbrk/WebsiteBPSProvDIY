@@ -54,19 +54,19 @@ class Sso extends CI_Controller
 		// $_SESSION['user_role'] = array();
 
 		// Coba Role SUper Admin
-		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340054255";
+		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340054255";
 
-		// COBA ROLE Admin Monitor
+		// COBA ROLE User KabKota
 		// $_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340024494";
 
-		// COBA ROLE USER BIASA 
-		// $_SESSION['nama'] = "Rahmawati, SE, MA";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "1234567";
+		// COBA ROLE Admin Monitor, zoom, bidang
+		$_SESSION['nama'] = "Rahmawati, SE, MA";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340013059";
 
 		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
 

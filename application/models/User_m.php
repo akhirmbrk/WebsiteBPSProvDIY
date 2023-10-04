@@ -36,7 +36,29 @@ class User_m extends CI_Model
         $i = 0;
 
         // $Q = $this->db->query("SELECT * FROM kegiatan WHERE oleh = " . $nip . " ORDER BY idm DESC");
-        $Q = $this->db->query("SELECT id_pegawai, nip_lama, nama_peg FROM pegawai");
+        $Q =  $this->db->select('id_pegawai, nip_lama, nama_peg, nip')->from('pegawai');
+        $Q =  $this->db->where('nip_lama !=', NULL)->get();
+
+
+        if ($Q->num_rows() > 0) {
+            foreach ($Q->result_array() as $row) {
+                $data[] = $row;
+                $i++;
+            }
+        }
+
+        $Q->free_result();
+        return $data;
+    }
+
+    public function list_user_kabkota()
+    {
+        $data = array();
+        $i = 0;
+
+        // $Q = $this->db->query("SELECT * FROM kegiatan WHERE oleh = " . $nip . " ORDER BY idm DESC");
+        $Q =  $this->db->select('*')->from('pegawai_kabkota');
+        $Q =  $this->db->where('nip_lama_pegawai_kabkota !=', NULL)->get();
 
 
         if ($Q->num_rows() > 0) {
@@ -87,7 +109,7 @@ class User_m extends CI_Model
         if ($count) {
             return $this->db->count_all_results();
         } else {
-            $this->db->limit($limit, $start);
+            // $this->db->limit($limit, $start);
             $query = $this->db->get();
 
             if ($query->num_rows() > 0) {
