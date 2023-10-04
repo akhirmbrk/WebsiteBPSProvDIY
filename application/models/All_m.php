@@ -601,7 +601,7 @@ class All_m extends CI_Model
 	///
 
 
-	public function cekUserExist($nip, $namaU)
+	public function cekUserExist($nip, $namaU, $kodeKabKota)
 	{
 		$data = array();
 
@@ -612,7 +612,8 @@ class All_m extends CI_Model
 			if ($K->num_rows() == 0) {
 				$data = array(
 					'nip_lama_pegawai_kabkota' => $nip,
-					'nama_pegawai_kabkota' => $namaU
+					'nama_pegawai_kabkota' => $namaU,
+					'kodeKabKota' => $kodeKabKota
 				);
 				$this->db->insert('pegawai_kabkota', $data);
 				$kabkota = $this->db->select('`nip_lama_pegawai_kabkota`')->from('pegawai_kabkota');

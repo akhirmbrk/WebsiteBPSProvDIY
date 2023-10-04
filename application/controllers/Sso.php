@@ -23,6 +23,7 @@ class Sso extends CI_Controller
 			$_SESSION['nama'] = $pdf['nama'];
 			$_SESSION['getprop'] = $pdf['getprop'];
 			$_SESSION['nip'] = $pdf['nip'];
+			$_SESSION['kodeKabKota'] = $pdf['kodeKabKota'];
 
 			redirect('landingpage/index', 'refresh');
 			// redirect('landingBaru/index', 'refresh');
@@ -54,24 +55,28 @@ class Sso extends CI_Controller
 		// $_SESSION['user_role'] = array();
 
 		// Coba Role SUper Admin
-		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340054255";
+		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340054255";
+		$_SESSION['kodeKabKota'] = "00";
 
 		// COBA ROLE User KabKota
 		// $_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340024494";
+		// $_SESSION['kodeKabKota'] = "71";
+
 
 		// COBA ROLE Admin Monitor, zoom, bidang
-		$_SESSION['nama'] = "Rahmawati, SE, MA";
-		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340013059";
+		// $_SESSION['nama'] = "Rahmawati, SE, MA";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340013059";
+		// $_SESSION['kodeKabKota'] = "00";
 
-		$user = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama']);
+		$nipUser = $this->All_m->cekUserExist($_SESSION['nip'], $_SESSION['nama'], $_SESSION['kodeKabKota']);
 
 		// var_dump($user);
-		$AksesUser = $this->All_m->list_user_access($user);
+		$AksesUser = $this->All_m->list_user_access($nipUser);
 		// die;
 		if (count($AksesUser) > 0) {
 			foreach ($AksesUser as $i => $value) {

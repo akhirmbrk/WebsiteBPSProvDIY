@@ -71,21 +71,20 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 				<div class="card-body" style="text-align: center;">
 					<h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
 					<br>
-					<div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_kegiatan'] ?>%" data-color="<?php if ($detail_kegiatan['progres_kegiatan']  <= 25) {
-																																									echo "#f96868";
-																																								} elseif ($detail_kegiatan['progres_kegiatan']  <= 50) {
-																																									echo "#f2a654";
-																																								} elseif ($detail_kegiatan['progres_kegiatan']  <= 75) {
-																																									echo "#48b0f7";
-																																								} else {
-																																									echo "#46be8a";
-																																								} ?>" data-scale-color="transparent">
+					<!-- <div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_kegiatan'] ?>%" data-color="<?php if ($detail_kegiatan['progres_kegiatan']  <= 25) {
+																																										echo "#f96868";
+																																									} elseif ($detail_kegiatan['progres_kegiatan']  <= 50) {
+																																										echo "#f2a654";
+																																									} elseif ($detail_kegiatan['progres_kegiatan']  <= 75) {
+																																										echo "#48b0f7";
+																																									} else {
+																																										echo "#46be8a";
+																																									} ?>" data-scale-color="transparent">
 
 						<span class="easypie-data lead" style="font-size:26px">
 							<?= $detail_kegiatan['progres_kegiatan']  ?>%
-							<!-- <small class="text-uppercase">opened</small> -->
 						</span>
-					</div>
+					</div> -->
 
 				</div>
 				<br>
