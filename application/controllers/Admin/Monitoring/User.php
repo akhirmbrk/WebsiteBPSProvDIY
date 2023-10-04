@@ -36,6 +36,7 @@ class User extends CI_Controller
 
 	public function index()
 	{
+		$data['tabUser'] = "1";
 		$data['tab'] = "2";
 		$data['tipe'] = "3";
 		$data['title'] = "User Provinsi";
@@ -60,6 +61,7 @@ class User extends CI_Controller
 
 	public function userKabkota()
 	{
+		$data['tabUserKabkota'] = "1";
 		$data['tab'] = "2";
 		$data['tipe'] = "3";
 		$data['title'] = "User Kabupaten/Kota";
