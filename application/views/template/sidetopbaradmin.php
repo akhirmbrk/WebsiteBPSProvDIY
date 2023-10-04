@@ -137,7 +137,7 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota)) {
+                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota) || isset($tabKegiatan) || isset($tabTim)) {
                                             echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
@@ -164,6 +164,26 @@
                             <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
                                 <span class="icon fa fa-building-o" style="color: #465161;"></span>
                                 <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item <?php if (isset($tabKegiatan)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/Kegiatan/index'); ?>">
+                                <span class="icon fa fa-list-alt" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Kegiatan</span>
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item <?php if (isset($tabTim)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/TimKerja/index'); ?>">
+                                <span class="icon fa fa-users" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Tim Kerja</span>
                             </a>
 
                         </li>

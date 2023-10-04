@@ -94,7 +94,8 @@
     													<td>
     														<nav class="nav gap-2 fs-16" style="justify-content: center;">
     															<a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('admin/zoom/adminbidang/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail"><i class="fa fa-eye"></i></a>
-    															<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" href="<?php echo base_url('admin/zoom/adminbidang/hapuszoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Tidak Disetujui"><i class="fa fa-trash"></i></a>
+    															&nbsp
+    															<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" data-provide="tooltip" data-placement="top" title="Tidak Disetujui" data-toggle="modal" data-target="#modal-sqduh"><i class="fa fa-trash"></i></a>
     														</nav>
 
 
@@ -138,3 +139,21 @@
 
     </main>
     <!-- END Main container -->
+
+    <div class="modal fade modal-top" id="modal-sqduh" tabindex="-1" role="dialog" aria-labelledby="modal-sqduh-label" aria-hidden="true">
+    	<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<h5 class="modal-title" id="modal-sqduh-label">Konfirmasi</h5>
+    				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    					<span aria-hidden="true">&times;</span>
+    				</button>
+    			</div>
+    			<div class="modal-body">Apakah Anda yakin untuk tidak menyetujui permintaan ini?</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+    				<a href="<?php echo base_url('admin/zoom/adminbidang/hapuszoom/' . $list['idm']); ?>" class="btn btn-primary">Ya</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>

@@ -36,6 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 	<!-- Styles -->
 	<link href="<?= base_url(''); ?>assets/css/core.min.css" rel="stylesheet">
+	<link href="<?= base_url(''); ?>assets/css/app.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/app.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.min.css" rel="stylesheet">
 	<link href="<?= base_url(''); ?>assets/css/style.css" rel="stylesheet">
