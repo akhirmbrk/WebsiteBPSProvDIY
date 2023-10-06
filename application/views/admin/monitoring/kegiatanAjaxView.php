@@ -55,6 +55,16 @@
                         <?php //var_dump($list_sub_kegiatan[$indeks][1]) 
                         ?>
                         <div id="collapse-1-<?= $item['id_kegiatan'] ?>" class="collapse">
+                            <!-- tambah SOP -->
+                            <?php // CEK ROLE USER
+                            $roleRequie = [1, 2];
+                            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                                <div class="button m-3">
+                                    <a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahSubKegiatan/') . $item['id_kegiatan'] ?>" title="Tambah Sub Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
+                                </div>
+                            <?php } ?>
+                            <!-- End Tambah SOP -->
+
                             <table class="table table-separated p-3">
                                 <thead>
                                     <tr>
@@ -62,9 +72,11 @@
                                         <th>Nama Kegiatan</th>
                                         <th style="width: 200px;">progres</th>
                                         <th style="width: 200px;">status</th>
+                                        <th style="width: 80px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <?php
                                     if (count($list_sub_kegiatan)) {
                                         foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
@@ -82,7 +94,7 @@
                                                                 <?php foreach ($kodeKabKota as $value) { ?>
                                                                     <tr>
                                                                         <td>
-                                                                            <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
+                                                                            <a class="" href="<?= base_url('admin/monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
                                                                                 <?= $value['namaBPS'] ?>
                                                                             </a>
                                                                         </td>
@@ -136,26 +148,23 @@
                                                             </i></small>
                                                     <?php } else echo '<small><i>Belum diupdate</i></small>'; ?>
                                                 </td>
-                                                <!-- <td>
+                                                <td>
                                                     <nav class="nav gap-2 fs-16">
-                                                        <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>
+                                                        <!-- <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a> -->
                                                         <?php // CEK ROLE USER Untuk DELETE
                                                         $roleRequie = [1, 2];
                                                         if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
                                                             <a class="nav-link hover-danger cat-delete" href="<?= base_url('monitoring/Kegiatan/hapusKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="delete" data-target="#" data-original-title="Delete"><i class="ti-trash"></i></a>
                                                         <?php } ?>
                                                     </nav>
-                                                </td> -->
+                                                </td>
+
 
                                             </tr>
 
-
-
-
                                     <?php }
                                     } ?>
-
-
+                                </tbody>
                             </table>
 
                         </div>

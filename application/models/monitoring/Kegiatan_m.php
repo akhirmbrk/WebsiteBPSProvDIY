@@ -50,7 +50,11 @@ class Kegiatan_m extends CI_Model
                 'judul_kegiatan' => $this->input->post("judulKegiatan"),
                 'tgl_start' => $tgl_start,
                 'tgl_end' => $tgl_end,
-                'progres_kegiatan' => 0,
+                'progres_71' => 0,
+                'progres_1' => 0,
+                'progres_2' => 0,
+                'progres_3' => 0,
+                'progres_4' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
@@ -117,7 +121,11 @@ class Kegiatan_m extends CI_Model
                 'judul_kegiatan' => $this->input->post("judulKegiatan"),
                 'tgl_start' => $tgl_start,
                 'tgl_end' => $tgl_end,
-                'progres_kegiatan' => 0,
+                'progres_71' => 0,
+                'progres_1' => 0,
+                'progres_2' => 0,
+                'progres_3' => 0,
+                'progres_4' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
                 // 'id_tim_kerja' => '2',
                 'deskripsi_kegiatan' => " ",
@@ -172,10 +180,10 @@ class Kegiatan_m extends CI_Model
     }
 
 
-    public function update_kegiatan($id)
+    public function update_kegiatan($id, $kodeKabKota)
     {
         $data = array(
-            'progres_kegiatan' => $this->input->post('progresKegiatan'),
+            'progres_' . $kodeKabKota => $this->input->post('progresKegiatan'),
             'deskripsi_kegiatan' => $this->input->post('deskripsiKegiatan'),
             'time_update' => date("Y-m-d H:i"),
             'last_user_update' => $_SESSION['nama'],

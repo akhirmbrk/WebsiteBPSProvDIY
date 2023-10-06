@@ -13,7 +13,7 @@ class BPS_m extends CI_Model
         $data = array();
         $i = 0;
 
-        $Q = $this->db->query("SELECT * FROM bps ORDER BY kodeBPS ASC");
+        $Q = $this->db->query("SELECT * FROM bps");
 
         if ($Q->num_rows() > 0) {
             foreach ($Q->result_array() as $row) {

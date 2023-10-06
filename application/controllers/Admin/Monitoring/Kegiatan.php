@@ -36,9 +36,10 @@ class Kegiatan extends CI_Controller
 
     public function index()
     {
-        $data['tabKegiatan'] = "1";
+        $data['tabKegiatanAdmin'] = "1";
         $data['tab'] = "3";
         $data['tipe'] = "1";
+        $data['progress'] = 76;
         $data['title'] = "Kegiatan";
 
         $filter['periode'] = $this->Periode_m->list_periode();
@@ -48,8 +49,8 @@ class Kegiatan extends CI_Controller
         $this->load->vars($filter);
 
         $this->load->view('template/header');
-        $this->load->view('template/topNav');
-        $this->load->view('monitoring/kegiatanView');
+        $this->load->view('template/sidetopbaradmin');
+        $this->load->view('Admin/Monitoring/kegiatanView');
         $this->load->view('template/footer');
     }
 
@@ -64,7 +65,7 @@ class Kegiatan extends CI_Controller
 
         $this->load->library('pagination');
 
-        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/monitoring/kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(4);
         $config['per_page'] = 2;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
@@ -74,9 +75,8 @@ class Kegiatan extends CI_Controller
         $this->pagination->initialize($config);
 
 
-
         $data['kodeKabKota'] = $this->BPS_m->list_bps();
-        // die;
+
         $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = false);
 
 
@@ -88,7 +88,7 @@ class Kegiatan extends CI_Controller
 
         $this->load->vars($data);
 
-        $this->load->view('monitoring/kegiatanAjaxView');
+        $this->load->view('Admin/monitoring/kegiatanAjaxView');
     }
 
     public function detailKegiatan($id, $kodeKabKota)
@@ -105,8 +105,8 @@ class Kegiatan extends CI_Controller
         $this->load->vars($data);
 
         $this->load->view('template/header');
-        $this->load->view('template/topNav');
-        $this->load->view('monitoring/detailKegiatanView');
+        $this->load->view('template/sidetopbaradmin');
+        $this->load->view('Admin/monitoring/detailKegiatanView');
         $this->load->view('template/footer');
     }
 
@@ -117,7 +117,7 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Edit Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
@@ -133,8 +133,8 @@ class Kegiatan extends CI_Controller
         $this->load->vars($data);
 
         $this->load->view('template/header');
-        $this->load->view('template/topNav');
-        $this->load->view('monitoring/editKegiatanView');
+        $this->load->view('template/sidetopbaradmin');
+        $this->load->view('Admin/monitoring/editKegiatanView');
         $this->load->view('template/footer');
     }
 
@@ -146,7 +146,7 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
@@ -164,8 +164,8 @@ class Kegiatan extends CI_Controller
         $data['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja(0);
 
         $this->load->view('template/header', $data);
-        $this->load->view('template/topNav', $data);
-        $this->load->view('monitoring/tambahKegiatanView', $data);
+        $this->load->view('template/sidetopbaradmin', $data);
+        $this->load->view('Admin/monitoring/tambahKegiatanView', $data);
         $this->load->view('template/footer');
     }
 
@@ -176,7 +176,7 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
@@ -198,15 +198,15 @@ class Kegiatan extends CI_Controller
         if ($hasil['point'] == 'sukses') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         } elseif ($hasil['point'] == 'lewat') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Waktu Mulai Kegiatan Sudah Berlalu</div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         } elseif ($hasil['point'] == 'block') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan</div> ');
-            redirect('Monitoring/Kegiatan/tambahKegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan/tambahKegiatan', 'refresh');
         }
     }
 
@@ -218,24 +218,24 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Update Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota);
+        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota   );
 
 
         if ($hasil['point'] == 'sukses') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Mengupdate Kegiatan</div> ');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         } else {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Mengupdate Kegiatan</div> ');
-            redirect('Monitoring/Kegiatan/editKegiatanView', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan/editKegiatanView', 'refresh');
         }
     }
 
@@ -246,13 +246,13 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Hapus Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
         $this->Kegiatan_m->hapus_kegiatan($id);
         $this->session->set_flashdata('info_form', '<div class="alert alert-\ alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
-        redirect('monitoring/kegiatan', 'refresh');
+        redirect('Admin/monitoring/kegiatan', 'refresh');
     }
 
     public function filterKegiatan()
@@ -280,8 +280,8 @@ class Kegiatan extends CI_Controller
         $this->load->vars($filter);
 
         $this->load->view('template/header');
-        $this->load->view('template/topNav');
-        $this->load->view('monitoring/kegiatanView');
+        $this->load->view('template/sidetopbaradmin');
+        $this->load->view('Admin/monitoring/kegiatanView');
         $this->load->view('template/footer');
     }
 
@@ -292,7 +292,7 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Sub-Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
@@ -321,8 +321,8 @@ class Kegiatan extends CI_Controller
         $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($parentKegiatan[0]['id_tim_kerja']);
 
         $this->load->view('template/header', $data);
-        $this->load->view('template/topNav', $data);
-        $this->load->view('monitoring/tambahSubKegiatanView', $data);
+        $this->load->view('template/sidetopbaradmin', $data);
+        $this->load->view('Admin/monitoring/tambahSubKegiatanView', $data);
         $this->load->view('template/footer');
     }
 
@@ -333,7 +333,7 @@ class Kegiatan extends CI_Controller
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Sub-Kegiatan</div>');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
 
@@ -354,15 +354,15 @@ class Kegiatan extends CI_Controller
         if ($hasil['point'] == 'sukses') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
-            redirect('Monitoring/Kegiatan', 'refresh');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan Tangal Lewat</div> ');
-            redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
+            redirect('Admin/Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
         } else if ($hasil['point'] == 'block') {
 
             $this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Menambahkan Kegiatan Tangal Block</div> ');
-            redirect('Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
+            redirect('Admin/Monitoring/Kegiatan/tambahSubKegiatan/' . $this->input->post('id_parent_kegiatan'), 'refresh');
         }
     }
 }

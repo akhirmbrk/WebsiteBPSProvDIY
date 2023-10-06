@@ -20,14 +20,12 @@
                                 <div class="row">
 
                                     <div class="col-md-12">
-                                        <form class="" method="post"
-                                            action="<?php echo base_url('zoom/adminbidang/replyzoom/'.$idm);?>">
+                                        <form class="" method="post" action="<?php echo base_url('zoom/adminbidang/replyzoom/' . $idm); ?>">
 
                                             <div class="form-group">
                                                 <label>Jawaban Permintaan Rapat Daring </label>
                                                 <?php echo form_error('reply', '<p class="text-danger">', '</p>'); ?>
-                                                <textarea data-provide="summernote" name="reply" class="form-control"
-                                                    data-min-height="250" required> </textarea>
+                                                <textarea data-provide="summernote" name="reply" class="form-control" data-min-height="250" required></textarea>
                                             </div>
 
 
