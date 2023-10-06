@@ -93,14 +93,14 @@
 	animation-delay: 6s;
 } */
 
-/* .wrapper span:nth-child(8){
+.wrapper span:nth-child(8){
 	left: 90%;
 	animation-delay: 8s;
 	box-shadow: 0 0 50px #0094de,
 	0 0 100px #0094de,
 	0 0 150px #0094de,
 	0 0 200px #0094de;
-} */
+}
 
 .wrapper span:nth-child(9){
 	left: 85%;
