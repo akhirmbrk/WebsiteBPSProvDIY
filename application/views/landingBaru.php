@@ -2,14 +2,22 @@
 $this->load->view('template/topnav');
 ?>
 
-<body>
-	<section id="up"></section>
-	<section id="down"></section>
-	<section id="left"></section>
-	<section id="right"></section>
-</body>
+
+	<div class="wrapper">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
 
 <div class="row no-margin">
+
 	<div id="slider" class="col-12">
 		<br>
 		<?php echo $this->session->flashdata('info_form');  ?>
