@@ -1,6 +1,6 @@
 <main>
     <header class="header header-inverse" style="background:rgba(243,243,243,255);">
-        <div class="header-info">
+        <div class="header-info ml-5">
             <div class="left">
                 <h2 class="header-title" style="font-family: 'Acme', sans-serif;
 						 font-size: 55px;

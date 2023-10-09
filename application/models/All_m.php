@@ -36,15 +36,9 @@ class All_m extends CI_Model
 
 		$jedah_res = $jedah->row_array();
 
-		$ketonline = $this->input->post("online");
-		$ketoffline = $this->input->post("offline");
-		if ($ketonline != NULL && $ketoffline == NULL) {
-			$keterangan = 0;
-		} elseif ($ketonline == NULL && $ketoffline != NULL) {
-			$keterangan = 1;
-		} else {
-			$hasil['point'] = 'ket';
-		}
+		$keterangan = $this->input->post("keterangan");
+		// var_dump($keterangan);
+		// die;
 
 		$ruangan = 'Zoom';
 
@@ -119,7 +113,7 @@ class All_m extends CI_Model
 
 		if ($keterangan == 1) {
 			$ruangan = $this->input->post("ruangan");
-			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan);
+			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan)->row_array();
 			// var_dump($cekRuangan->row_array());
 			if ($cekRuangan['jumlah'] > 1) {
 				$hasil['point'] = 'blockOFF';

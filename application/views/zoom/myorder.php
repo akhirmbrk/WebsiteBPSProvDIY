@@ -16,12 +16,11 @@
                                 <thead>
                                     <tr>
                                         <th width="5%" class="fw-600" style="vertical-align:middle;text-align: center;">No </th>
-                                        <th width="20%" class="fw-600" style="vertical-align:middle;text-align: center;">Perihal Zoom</th>
+                                        <th width="20%" class="fw-600" style="vertical-align:middle;text-align: center;">Perihal Rapat</th>
                                         <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Mulai</th>
-                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Selesai
-                                        </th>
-                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;text-align: center;">Status
-                                        </th>
+                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Selesai </th>
+                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Keterangan</th>
+                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;text-align: center;">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -30,13 +29,18 @@
                                     if (count($list_order)) {
                                         foreach ($list_order as $indeks => $list) {  ?>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $list['perihal']; ?></td>
-                                                <td><?php echo $list['jadwal_awal']; ?></td>
-                                                <td><?php echo $list['jadwal_akhir']; ?></td>
+                                                <td style="vertical-align:middle;text-align: center;"><?php echo $nomor; ?></td>
+                                                <td style=" vertical-align:middle;"><?php echo $list['perihal']; ?></td>
+                                                <td style="vertical-align:middle;"><?php echo $list['jadwal_awal']; ?></td>
+                                                <td style="vertical-align:middle;"><?php echo $list['jadwal_akhir']; ?></td>
+                                                <td style=" vertical-align:middle;text-align: center;"><?php if ($list['keterangan'] == 0) {
+                                                                                                            echo "Online";
+                                                                                                        } else {
+                                                                                                            echo "Offline";
+                                                                                                        }; ?></td>
 
                                                 <?php if ($list['status'] == 0) { ?>
-                                                    <td style="text-align: center;">
+                                                    <td style=" text-align: center;">
                                                         <span class="badge badge-warning">Belum Disetujui</span>
                                                     </td>
                                                     <td style="text-align: center;">
@@ -73,6 +77,7 @@
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td>tidak ada data</td>
+                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>

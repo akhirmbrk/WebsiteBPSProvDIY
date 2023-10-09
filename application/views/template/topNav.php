@@ -16,15 +16,15 @@
 
                     <div class="topbar-brand">
                         <?php if ($tipe == 1) { ?>
-                            <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                                                    ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
+                            <a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Monitoring/Index/dashboard') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Monitoring BPS</a>
                         <?php } elseif ($tipe == 2) { ?>
 
-                            <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
+                            <a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
                         <?php } elseif ($tipe == 3) { ?>
-                            <a class="menu-link" style="color:#9096a0;" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
+                            <a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
                         <?php } else { ?>
                             <a class="menu-link" style="text-decoration:none" href="<?= base_url('Landingpage') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Integrasi BPS</a>
@@ -42,8 +42,8 @@
                                                         } else {
                                                             echo '';
                                                         }  ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/Index/dashboard');
-                                                                                        ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?= base_url('Monitoring/Index/dashboard');
+                                                                                            ?>">
                                         <span class="icon fa fa-home"></span>
                                         <span class="title">Home</span>
                                     </a>
@@ -54,8 +54,8 @@
                                                         } else {
                                                             echo '';
                                                         }  ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/Kegiatan');
-                                                                                        ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?= base_url('Monitoring/Kegiatan');
+                                                                                            ?>">
                                         <span class="icon fa fa-list-alt"></span>
                                         <span class="title">Kegiatan</span>
                                     </a>
@@ -66,8 +66,8 @@
                                                         } else {
                                                             echo '';
                                                         }  ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?= base_url('Monitoring/TimKerja');
-                                                                                        ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?= base_url('Monitoring/TimKerja');
+                                                                                            ?>">
                                         <span class="icon fa fa-users"></span>
                                         <span class="title">Tim Kerja</span>
                                     </a>
@@ -83,7 +83,7 @@
                                 <li class="menu-item  <?php if (isset($dash)) {
                                                             echo 'active';
                                                         } ?>">
-                                    <a class="menu-link" style="color: #9096a0;" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" style="color: whitesmoke;" href="<?php echo base_url('zoom/zoomorder/index'); ?>">
                                         <span class="icon fa fa-home"></span>
                                         <span class="title">Dashboard</span>
                                     </a>
@@ -92,7 +92,7 @@
                                 <li class="menu-item <?php if (isset($ordered)) {
                                                             echo 'active';
                                                         } ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/order'); ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?php echo base_url('zoom/zoomorder/order'); ?>">
                                         <span class="icon fa fa-plus"></span>
                                         <span class="title">Rapat</span>
                                     </a>
@@ -103,7 +103,7 @@
                                 <li class="menu-item <?php if (isset($myorder)) {
                                                             echo 'active';
                                                         } ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/myorder'); ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?php echo base_url('zoom/zoomorder/myorder'); ?>">
                                         <span class="icon fa fa-calendar"></span>
                                         <span class="title">Daftar Rapat</span>
 
@@ -113,7 +113,7 @@
                                 <li class="menu-item <?php if (isset($myorderupload)) {
                                                             echo 'active';
                                                         } ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('zoom/zoomorder/myorderupload'); ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?php echo base_url('zoom/zoomorder/myorderupload'); ?>">
                                         <span class="icon fa fa-upload"></span>
                                         <span class="title">Upload Notula</span>
                                     </a>
@@ -128,7 +128,7 @@
                                 <li class="menu-item  <?php if (isset($dash)) {
                                                             echo 'active';
                                                         } ?>">
-                                    <a class="menu-link" style="color: #9096a0;" href="<?php echo base_url('manajemenfile/manajemenfile/index'); ?>">
+                                    <a class="menu-link" style="color: whitesmoke;" href="<?php echo base_url('manajemenfile/manajemenfile/index'); ?>">
                                         <span class="icon fa fa-home"></span>
                                         <span class="title">Dashboard</span>
                                     </a>
