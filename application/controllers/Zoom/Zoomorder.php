@@ -8,6 +8,7 @@ class Zoomorder extends CI_Controller
 	public $All_m;
 	public $upload;
 	public $form_validation;
+	public $input;
 
 	public function __construct()
 	{
@@ -114,6 +115,7 @@ class Zoomorder extends CI_Controller
 			$this->load->view('zoom/order');
 			$this->load->view('template/footer');
 		} else {
+
 			$hasil = $this->All_m->addorder();
 
 
@@ -128,6 +130,9 @@ class Zoomorder extends CI_Controller
 				redirect('zoom/Zoomorder/order/', 'refresh');
 			} else if ($hasil['point'] == 'blockOFF') {
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Ruangan untuk Tanggal ' . $hasil['tanggal'] . ' Sudah dipakai</h1></div> ');
+				redirect('zoom/Zoomorder/order/', 'refresh');
+			} else if ($hasil['point'] == 'ket') {
+				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1>Keterangan Isi Keterangan Terlebih Dahulu</h1></div> ');
 				redirect('zoom/Zoomorder/order/', 'refresh');
 			}
 		}

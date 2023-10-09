@@ -79,15 +79,29 @@
                                             <input type="number" class="form-control" name="jumlah_peserta" placeholder="Max = 100" max="100" autocomplete="off" required>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-4">
-                                            <label class="require">Keterangan</label>
-                                            <select name="keterangan" onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
-                                                <option value="0">Online</option>
-                                                <option value="1">Offline</option>
-                                            </select>
-                                        </div>
+
+
+
+                                    <!-- <label class="require">Keterangan</label>
+                                    <select name="keterangan" onchange="showRuangan()" id="keterangan" class="form-control" data-provide="selectpicker">
+                                        <option value="0">Online</option>
+                                        <option value="1">Offline</option>
+                                    </select>
+ -->
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="online" id="exampleRadios1" value="0">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Online
+                                        </label>
                                     </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="offline" id="exampleRadios2" value="1">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Offline
+                                        </label>
+                                    </div>
+
 
                                     <div id="ruangRapat" class="row" style="display: none;">
                                         <div class="form-group col-md-4">
