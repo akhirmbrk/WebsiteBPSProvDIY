@@ -26,36 +26,35 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 <!--/.header -->
 
 
-	<div class="main-content">
-		
-		<div class="container">
-			<?php echo $this->session->flashdata('info_form');  ?>
-			<div class="row">
+<div class="main-content">
 
-				<div class="col-md-4 col-xl-3 d-none d-md-block">
+	<div class="container">
+		<?php echo $this->session->flashdata('info_form');  ?>
 
-					<!-- Filter -->
-					<div class="card shadow-1">
-						<h5 class="card-title"><strong>Filter Tim Kerja</strong></h5>
+		<!-- Filter -->
+		<div class="row">
+			<div class="card">
+				<hr>
+				<h4><strong>Filter Tim Kerja</strong></h4>
 
-						<form class="card-body">
-							<div class="form-group">
-								<label>Periode Pelaksanaan</label>
-								<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
-									<?php
-									if (count($periode)) {
-										foreach ($periode as $indeks => $item) {
-											$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
-											<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
-									<?php }
-									} ?>
+				<form>
+					<div class="form-group">
+						<label>Periode Pelaksanaan</label>
+						<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
+							<?php
+							if (count($periode)) {
+								foreach ($periode as $indeks => $item) {
+									$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+									<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
+							<?php }
+							} ?>
 
-								</select>
-							</div>
-
+						</select>
+					</div>
 
 
-							<!-- 
+
+					<!-- 
                         <div class="form-group">
                             <label>Jenis Tim Kerja</label>
                             <select id="filterTimKerja" name="filterTimKerja" title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
@@ -68,39 +67,32 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                             </select>
                         </div> -->
 
-							<hr>
+					<hr>
 
-							<div class="text-right">
-								<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
-							</div>
-						</form>
+					<div class="text-right">
+						<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
 					</div>
-				</div>
-
+				</form>
 				<!-- END Filter -->
 
-				<div class="col-md-8 col-xl-9">
+				<hr>
 
-					<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-						<div class="media-list-body bg-white b-1 mb-50">
 
-							<!-- Search -->
-							<div class="card-body">
-								<div class="lookup lookup-right">
-									<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
-								</div>
+				<!-- Search -->
+				<!-- END Search -->
+				<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
+					<div class="media-list-body bg-white b-1 mb-50">
+						<div class="card-body">
+							<div class="lookup lookup-right">
+								<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
 							</div>
-							<!-- END Search -->
-
-							<!-- List Tim Kerja -->
-							<div id="ajaxContent"></div>
-
 						</div>
+						<!-- List Tim Kerja -->
+						<div id="ajaxContent"></div>
 
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
+</div>

@@ -64,9 +64,9 @@ class Kegiatan extends CI_Controller
 
         $this->load->library('pagination');
 
-        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/monitoring/kegiatan/indexAjax";
+        $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Monitoring/Kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(4);
-        $config['per_page'] = 2;
+        $config['per_page'] = 5;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
         $config['attributes'] = array('class' => 'page-link');
