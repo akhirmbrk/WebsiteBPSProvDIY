@@ -2,7 +2,7 @@
   <main class="main-container">
 
 
-  	<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+  	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255)">
   		<div class="container">
   			<div class="header-info">
   				<div class="left">
@@ -31,40 +31,11 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
   	<section>
   		<div class="main-content">
-  			<div class="set">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
-  			<div class="set set2">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
-  			<div class="set set3">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
+  			
   			<div class="container">
   				<?php echo $this->session->flashdata('info_form');  ?>
 
-  				<form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
+  				<form class="row" action="<?= base_url('') ?>Admin/Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
 
 
   					<div class="col-md-7 col-xl-12">
@@ -99,7 +70,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   								</select>
 
   								<footer class="card-footer text-right">
-  									<a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
+  									<a class="btn btn-secondary mr-2" href="<?= base_url("Admin/Monitoring/index/timKerja") ?>">Cancel</a>
   									<button class="btn btn-primary" type="submit">Submit</button>
   								</footer>
 
