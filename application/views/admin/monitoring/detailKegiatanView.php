@@ -1,4 +1,4 @@
-<header class="header header-inverse mb-0" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
 	<div class="container">
 		<div class="header-info">
 			<div class="left">
@@ -20,91 +20,60 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 		$roleRequie = [1, 6];
 		if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 			<div class="buttons">
-				<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
+				<a class="btn btn-primary btn-float" href="<?= base_url('admin/monitoring/kegiatan/editKegiatan/') . $detail_kegiatan['id_kegiatan'] . "/" . $kodeKabKota ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>
 			</div>
 		<?php } ?>
 
-	</div>
 	</div>
 </header>
 <!--/.header -->
 
 
-<section>
-	<div class="main-content">
-		<div class="set">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
-		<div class="set set2">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
-		<div class="set set3">
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-		</div>
-		<div class="container">
 
-			<? //= var_dump($detail_kegiatan) 
-			?>
-			<div class="card shadow-1">
+<div class="main-content">
 
-				<div class="card-body" style="text-align: center;">
-					<h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
-					<br>
-					<div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_kegiatan'] ?>%" data-color="<?php if ($detail_kegiatan['progres_kegiatan']  <= 25) {
+	<div class="container">
+
+		<? //= var_dump($detail_kegiatan) 
+		?>
+		<div class="card shadow-1">
+
+			<div class="card-body" style="text-align: center;">
+				<h2 class="header-title "><strong>Progress Kegiatan</strong></h2>
+				<br>
+				<div data-provide="easypie" data-size="200" data-line-width="10" data-percent="<?= $detail_kegiatan['progres_' . $kodeKabKota] ?>%" data-color="<?php if ($detail_kegiatan['progres_' . $kodeKabKota]  <= 25) {
 																																									echo "#f96868";
-																																								} elseif ($detail_kegiatan['progres_kegiatan']  <= 50) {
+																																								} elseif ($detail_kegiatan['progres_' . $kodeKabKota]  <= 50) {
 																																									echo "#f2a654";
-																																								} elseif ($detail_kegiatan['progres_kegiatan']  <= 75) {
+																																								} elseif ($detail_kegiatan['progres_' . $kodeKabKota]  <= 75) {
 																																									echo "#48b0f7";
 																																								} else {
 																																									echo "#46be8a";
 																																								} ?>" data-scale-color="transparent">
 
-						<span class="easypie-data lead" style="font-size:26px">
-							<?= $detail_kegiatan['progres_kegiatan']  ?>%
-							<!-- <small class="text-uppercase">opened</small> -->
-						</span>
-					</div>
+					<span class="easypie-data lead" style="font-size:26px">
+						<?= $detail_kegiatan['progres_' . $kodeKabKota]  ?>%
+					</span>
+				</div>
 
-				</div>
-				<br>
-				<?php if ($detail_kegiatan['time_update'] == null || $detail_kegiatan['last_user_update'] == null) { ?>
-					<small class="ml-3"><i>Belum diupdate</i></small>
-				<?php } else { ?>
-					<small class="ml-3"><i><?= $detail_kegiatan['time_update'] . '<span class="divider-dash"></span>' . $detail_kegiatan['last_user_update'] ?></i></small>
-				<?php } ?>
 			</div>
-			<div class="card shadow-1">
-				<div class="card-body">
-					<h5>Detail Progres Kegiatan</h5>
-					<?= $detail_kegiatan['deskripsi_kegiatan'] ?>
-				</div>
+			<br>
+			<?php if ($detail_kegiatan['time_update'] == null || $detail_kegiatan['last_user_update'] == null) { ?>
+				<small class="ml-3"><i>Belum diupdate</i></small>
+			<?php } else { ?>
+				<small class="ml-3"><i><?= $detail_kegiatan['time_update'] . '<span class="divider-dash"></span>' . $detail_kegiatan['last_user_update'] ?></i></small>
+			<?php } ?>
+		</div>
+		<div class="card shadow-1">
+			<div class="card-body">
+				<h5>Detail Progres Kegiatan</h5>
+				<?= $detail_kegiatan['deskripsi_kegiatan'] ?>
 			</div>
 		</div>
-
 	</div>
-</section>
+
+</div>
+
 
 <!-- <div class="card shadow-1">
             <div class="card-body">
@@ -112,8 +81,3 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
             </div>
 
         </div> -->
-
-
-
-</div>
-</div>

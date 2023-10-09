@@ -2,7 +2,7 @@
 <main class="main-container">
 
 
-	<header class="header header-inverse mb-0" style=" background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
 		<div class=" container">
 			<div class="header-info">
 				<div class="left">
@@ -28,97 +28,68 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 	</header>
 	<!--/.header -->
 
-	<section>
-		<div class="main-content">
-			<div class="set">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			</div>
-			<div class="set set2">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			</div>
-			<div class="set set3">
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-			</div>
-			<div class="container">
-				<form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']); ?>" class="row" method="post" enctype="multipart/form-data">
+
+	<div class="main-content">
+
+		<div class="container">
+			<form action="<?php echo (base_url('Admin/Monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']) . "/" . $kodeKabKota ?>" class="row" method="post" enctype="multipart/form-data">
 
 
-					<div class="col-md-7 col-xl-8">
-						<div class="card shadow-1">
-							<h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
+				<div class="col-md-7 col-xl-8">
+					<div class="card shadow-1">
+						<h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
 
-							<div class="card-body">
+						<div class="card-body">
 
-								<div class="row">
-									<div class="form-group col-md-6">
-										<label class="require">Tim Kerja</label>
-										<input type="text" class="form-control" value="Tim Kerja" disabled>
-									</div>
-
-									<div class="form-group col-md-6">
-										<label class="require">Judul Kegiatan</label>
-										<input type="text" class="form-control" value="<?= $detail_kegiatan['judul_kegiatan'] ?>" disabled>
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label class="require">Tim Kerja</label>
+									<input type="text" class="form-control" value="Tim Kerja" disabled>
 								</div>
 
-								<hr>
-								<label class="require">Tanggal Mulai</label>
-								<input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Mulai" disabled>
-								<br>
-								<label class="require">Tanggal Selesai</label>
-								<input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Selesai" disabled>
-
-								<hr>
-
-								<label class="require">Progress</label>
-
-								<div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_kegiatan'] ?>" data-target="next"></div>
-								<input style="width: 25px;" type="number" name="progresKegiatan" value="" class="form-control-plaintext" readonly>
-
-
-								<hr>
-
-								<div class="form-group">
-									<label class="require">Deskripsi Kegiatan</label>
-									<textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan">
-                                    <?= $detail_kegiatan['deskripsi_kegiatan'] ?>
-                                </textarea>
+								<div class="form-group col-md-6">
+									<label class="require">Judul Kegiatan</label>
+									<input type="text" class="form-control" value="<?= $detail_kegiatan['judul_kegiatan'] ?>" disabled>
 								</div>
 							</div>
 
+							<hr>
+							<label class="require">Tanggal Mulai</label>
+							<input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Mulai" disabled>
+							<br>
+							<label class="require">Tanggal Selesai</label>
+							<input type="text" value="<?= $detail_kegiatan['tgl_start'] ?>" class="form-control" value="Tanggal Selesai" disabled>
 
-							<footer class="card-footer text-right">
-								<a class="btn btn-secondary mr-2" href="<?= base_url('Monitoring/Kegiatan') ?>">Cancel</a>
-								<button class="btn btn-primary" type="submit">Update</button>
-							</footer>
+							<hr>
+
+							<label class="require">Progress</label>
+
+							<div data-provide="slider" name="progresKegiatan" data-value=" <?= $detail_kegiatan['progres_' . $kodeKabKota]; ?>" data-target="next"></div>
+							<input style="width: 25px;" type="number" name="progresKegiatan" value="" class="form-control-plaintext" readonly>
 
 
+							<hr>
+
+							<div class="form-group">
+								<label class="require">Deskripsi Kegiatan</label>
+								<textarea data-provide="summernote" data-toolbar="slim" data-min-height="220" name="deskripsiKegiatan">
+                                    <?= $detail_kegiatan['deskripsi_kegiatan'] ?>
+									</textarea>
+							</div>
 						</div>
+
+
+						<footer class="card-footer text-right">
+							<a class="btn btn-secondary mr-2" href="<?= base_url('Admin/Monitoring/Kegiatan') ?>">Cancel</a>
+							<button class="btn btn-primary" type="submit">Update</button>
+						</footer>
+
+
 					</div>
+				</div>
 
 
-					<!-- <div class="col-md-5 col-xl-4">
+				<!-- <div class="col-md-5 col-xl-4">
         <div class="card shadow-1">
           <h5 class="card-title">Attachments</h5>
 
@@ -135,7 +106,6 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
       </div> -->
 
 
-				</form>
-			</div>
+			</form>
 		</div>
-	</section>
+	</div>
