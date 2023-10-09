@@ -36,7 +36,16 @@ class All_m extends CI_Model
 
 		$jedah_res = $jedah->row_array();
 
-		$keterangan = $this->input->post("keterangan");
+		$ketonline = $this->input->post("online");
+		$ketoffline = $this->input->post("offline");
+		if ($ketonline != NULL && $ketoffline == NULL) {
+			$keterangan = 0;
+		} elseif ($ketonline == NULL && $ketoffline != NULL) {
+			$keterangan = 1;
+		} else {
+			$hasil['point'] = 'ket';
+		}
+
 		$ruangan = 'Zoom';
 
 		if ($keterangan == 1) {
