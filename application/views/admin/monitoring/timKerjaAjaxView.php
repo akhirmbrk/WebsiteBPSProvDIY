@@ -7,7 +7,7 @@ if (count($teams)) {
             <img class="avatar" src="<?= base_url('');
                                         ?>/assets/img/avatar/3.jpg" alt="...">
 
-            <a class="media-body text-truncate" href="<?= base_url('Monitoring/TimKerja/detailTimKerja') . "/" . $item['id_zteam'] .  "/" . $item['id_zperiode'] ?>">
+            <a class="media-body text-truncate" href="<?= base_url('Admin/Monitoring/TimKerja/detailTimKerja') . "/" . $item['id_zteam'] .  "/" . $item['id_zperiode'] ?>">
                 <h5 class="fs-15"><?= $item['nama_team'] ?></h5>
                 <small class="opacity-65 fw-300">
                     <?= "BPS Provinsi DIY &mdash; " . $item['Tahun']

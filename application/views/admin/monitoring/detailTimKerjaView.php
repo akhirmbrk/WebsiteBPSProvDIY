@@ -15,7 +15,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   		<div class="header-action">
   			<?php if (!count($member)) { ?>
   				<div class="buttons">
-  					<a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
+  					<a class="btn btn-primary btn-float" href="<?= base_url('Admin/Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
   				</div>
   			<?php } ?>
 
@@ -23,87 +23,56 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   	</div>
   </header><!--/.header -->
 
-  <section>
-  	<div class="main-content">
-  		<div class="set">
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  		</div>
-  		<div class="set set2">
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  		</div>
-  		<div class="set set3">
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  			<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  		</div>
-  		<div class="container">
-  			<div class="row">
+  <div class="main-content">
 
-  				<div class="col-md-8 col-xl-9">
-  					<?php
-						// var_dump($member[0]);
-						if (count($member)) {
-							foreach ($member as $indeks => $item) {  ?>
-  							<div class="card shadow-1">
-  								<header class="card-header bg-lightest">
-  									<div class="card-title flexbox">
-  										<img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/1.jpg" alt="...">
-  										<div>
-  											<h5 class="mb-0"><?= $item['namaU'] ?>
-  												<small class="sidetitle fs-11"><?= $item['nip'] ?></small>
-  											</h5>
-  											<small class=""><?php if ($item['id_user'] == $item['id_ketuatim']) {
-																	echo 'Ketua Tim';
-																} else {
-																	echo 'Anggota';
-																} ?></small>
-  										</div>
+  	<div class="container">
+  		<div class="row">
+
+  			<div class="col-md-8 col-xl-9">
+  				<?php
+					// var_dump($member[0]);
+					if (count($member)) {
+						foreach ($member as $indeks => $item) {  ?>
+  						<div class="card shadow-1">
+  							<header class="card-header bg-lightest">
+  								<div class="card-title flexbox">
+  									<img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/1.jpg" alt="...">
+  									<div>
+  										<h5 class="mb-0"><?= $item['nama_peg'] ?>
+  											<small class="sidetitle fs-11"><?= $item['nip_lama'] ?></small>
+  										</h5>
+  										<small class=""><?php if ($item['id_user'] == $item['id_ketuatim']) {
+																echo 'Ketua Tim';
+															} else {
+																echo 'Anggota';
+															} ?></small>
   									</div>
-  								</header>
-
-  								<div class="card-body">
-  									<p></p>
   								</div>
+  							</header>
 
+  							<div class="card-body">
+  								<p></p>
   							</div>
-  					<?php }
-						} ?>
+
+  						</div>
+  				<?php }
+					} ?>
 
 
 
-  					<br>
-  					<br>
-
-
-  				</div>
-
-
-  				<div class="col-md-4 col-xl-3">
-
-
-  				</div>
+  				<br>
+  				<br>
 
 
   			</div>
+
+
+  			<div class="col-md-4 col-xl-3">
+
+
+  			</div>
+
+
   		</div>
   	</div>
-  </section>
+  </div>

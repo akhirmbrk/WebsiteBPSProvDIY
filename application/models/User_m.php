@@ -149,8 +149,24 @@ class User_m extends CI_Model
 
     public function get_jumlah_user()
     {
-        return $this->db->get('userapp')->num_rows();
+        return $this->db->get('pegawai')->num_rows();
     }
+
+    public function detail_user_by_name($nama)
+    {
+        $data = array();
+        $Q = $this->db->query("SELECT `id_pegawai` FROM `pegawai` WHERE REPLACE(`nama_peg`, ',', ' ') ='" . $nama . "'");
+        if ($Q->num_rows() > 0) {
+            $data = $Q->row_array();
+        } else {
+            $data = 0;
+        }
+        $Q->free_result();
+        // var_dump($data);
+        // die;
+        return $data;
+    }
+
 
     /* SELECT SUM(ABC.jumlah_realisasi/ABC.target*100) AS total_realisasi, COUNT(ABC.id_pekerjaan) AS id, SUM(ABC.jumlah_persen_ketepatan/ABC.jumlah_realisasi) AS jm_per_ketepatan, SUM(ABC.jumlah_persen_kualitas/ABC.jumlah_realisasi) AS jm_per_kualitas, ABC.id_peg FROM ( SELECT MP.id_pekerjaan, MP.target, sum(TKH.realisasi) AS jumlah_realisasi, sum(TKH.realisasi*TKH.ketepatan) AS jumlah_persen_ketepatan, sum(TKH.realisasi*TKH.kualitas) AS jumlah_persen_kualitas, MP.id_pegawai AS id_peg FROM transaksi_kerja MP LEFT JOIN transaksi_k_harian_sdh_dinilai TKH ON TKH.id_tk = MP.id_tk WHERE MP.bln_ckp = 1 AND MP.tahun = 2018 GROUP BY MP.id_pekerjaan, MP.id_pegawai) AS ABC GROUP BY ABC.id_peg  */
 

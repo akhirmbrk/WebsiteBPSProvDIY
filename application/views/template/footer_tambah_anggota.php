@@ -71,7 +71,7 @@
             typeaheadjs: {
                 name: 'userapp',
                 displayKey: function(item) {
-                    return item.nama_peg + ' - ' + item.nip_lama;
+                    return item.nama_peg;
                 },
                 valueKey: 'nama_peg',
                 source: userapp.ttAdapter()
