@@ -1,7 +1,7 @@
 <!-- Main container -->
 
 <main>
-	<header class="header header-inverse" style="background-image: url(<?= base_url('assets/img/bg/redhead.png') ?>);">
+	<header class="header header-inverse" style="background:rgba(243,243,243,255)">
 		<div class="container">
 			<div class="header-info">
 				<div class="left">
