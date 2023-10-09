@@ -1,10 +1,12 @@
 <!-- Main container -->
-<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255);">
-	<div class="container">
+
+<main>
+	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255)"">
+	<div class=" container">
 		<div class="header-info">
 			<div class="left">
 				<h2>
-					<div class="header-title" style="font-family: 'Acme', sans-serif;
+					<h2 class="header-title" style="font-family: 'Acme', sans-serif;
 						 font-size: 55px;
 						  color: #444448;
 
@@ -12,7 +14,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">Pengaturan untuk membuat dan
 							menyesuaikan tim kerja</small>
-					</div>
+					</h2>
 			</div>
 		</div>
 		<div class="header-action">
@@ -21,9 +23,9 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			</div>
 
 		</div>
-	</div>
-</header>
-<!--/.header -->
+		</div>
+	</header>
+	<!--/.header -->
 
 
 <div class="main-content">
@@ -90,9 +92,12 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 						<!-- List Tim Kerja -->
 						<div id="ajaxContent"></div>
 
+						</div>
+
 					</div>
+
 				</div>
+
 			</div>
 		</div>
 	</div>
-</div>
