@@ -102,7 +102,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 
   							<footer class="card-footer text-right">
-  								<a class="btn btn-secondary mr-2" href="<?= base_url('Monitoring/Kegiatan') ?>">Cancel</a>
+  								<a class="btn btn-secondary mr-2" href="<?= base_url('Admin/Monitoring/Kegiatan') ?>">Cancel</a>
   								<button class="btn btn-primary" type="submit">Submit</button>
   							</footer>
 
