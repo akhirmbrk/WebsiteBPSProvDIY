@@ -35,7 +35,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   			<div class="container">
   				<?php echo $this->session->flashdata('info_form');  ?>
 
-  				<form class="row" action="<?= base_url('') ?>Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
+  				<form class="row" action="<?= base_url('') ?>Admin/Monitoring/TimKerja/createTimUser" method="post" enctype="multipart/form-data">
 
 
   					<div class="col-md-7 col-xl-12">
@@ -70,7 +70,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   								</select>
 
   								<footer class="card-footer text-right">
-  									<a class="btn btn-secondary mr-2" href="<?= base_url("monitoring/index/timKerja") ?>">Cancel</a>
+  									<a class="btn btn-secondary mr-2" href="<?= base_url("Admin/Monitoring/index/timKerja") ?>">Cancel</a>
   									<button class="btn btn-primary" type="submit">Submit</button>
   								</footer>
 
