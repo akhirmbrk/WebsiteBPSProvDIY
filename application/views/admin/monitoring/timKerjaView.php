@@ -36,10 +36,9 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			<!-- Filter -->
 			<div class="row">
 				<div class="card">
-					<hr>
-					<h4><strong>Filter Tim Kerja</strong></h4>
+					<h4 class="m-3"><strong>Filter Tim Kerja</strong></h4>
 
-					<form>
+					<form class="m-3">
 						<div class="form-group">
 							<label>Periode Pelaksanaan</label>
 							<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
@@ -69,7 +68,6 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                             </select>
                         </div> -->
 
-						<hr>
 
 						<div class="text-right">
 							<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
@@ -77,20 +75,17 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 					</form>
 					<!-- END Filter -->
 
-					<hr>
-
 
 					<!-- Search -->
 					<!-- END Search -->
-					<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-						<div class="media-list-body bg-white b-1 mb-50">
-							<div class="card-body">
-								<div class="lookup lookup-right">
-									<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
-								</div>
+					<div class="media-list media-list-divided media-list-hover">
+						<div class="card-body">
+							<div class="lookup lookup-right">
+								<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
 							</div>
-							<!-- List Tim Kerja -->
-							<div id="ajaxContent"></div>
+						</div>
+						<div id="ajaxContent" class=" media-list-body bg-white b-1 mb-50">
+
 
 						</div>
 

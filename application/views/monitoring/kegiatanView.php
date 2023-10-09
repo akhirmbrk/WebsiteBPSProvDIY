@@ -37,7 +37,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			<div class="card">
 
 				<!-- Filter -->
-				<form>
+				<form class="m-3">
 					<br>
 					<div class="card-body">
 						<h4> <strong>Filter Kegiatan</strong></h4>
@@ -79,18 +79,12 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 				</form>
 
 				<!-- END Filter -->
-				<hr>
-				<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-					<div class="media-list-body b-1 mb-30">
-
-						<div class="lookup lookup-right m-3">
-							<input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
-						</div>
-
-						<!-- List Kegiatan  -->
-						<div id="ajaxContent"></div>
-
+				<div class="media-list">
+					<div class="lookup lookup-right m-3">
+						<input type="text" id="searchKegiatan" name="searchKegiatan" autocomplete="off" placeholder="Cari Kegiatan">
 					</div>
+					<!-- List Kegiatan  -->
+					<div id="ajaxContent" class="media-list-body b-1 mb-30"></div>
 				</div>
 
 

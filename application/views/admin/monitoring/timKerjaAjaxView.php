@@ -1,13 +1,13 @@
 <?php
 if (count($teams)) {
     foreach ($teams as $indeks => $item) {  ?>
-        <div class="media align-items-center">
+        <div class="media align-items-center ">
             <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
 
             <img class="avatar" src="<?= base_url('');
                                         ?>/assets/img/avatar/3.jpg" alt="...">
+            <a class="media-body text-truncate " href="<?= base_url('Admin/Monitoring/TimKerja/detailTimKerja') . "/" . $item['id_zteam'] .  "/" . $item['id_zperiode'] ?>">
 
-            <a class="media-body text-truncate" href="<?= base_url('Admin/Monitoring/TimKerja/detailTimKerja') . "/" . $item['id_zteam'] .  "/" . $item['id_zperiode'] ?>">
                 <h5 class="fs-15"><?= $item['nama_team'] ?></h5>
                 <small class="opacity-65 fw-300">
                     <?= "BPS Provinsi DIY &mdash; " . $item['Tahun']
@@ -22,6 +22,7 @@ if (count($teams)) {
             </a>
 
         </div>
+        <!-- <hr> -->
 <?php  }
 } ?>
 

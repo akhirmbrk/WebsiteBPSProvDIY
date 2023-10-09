@@ -3,7 +3,7 @@
     if (count($list_kegiatan)) {
         foreach ($list_kegiatan as $indeks => $item) {  ?>
             <div class="card">
-                <h4 id="parent" class=" card-title">
+                <h2 id="parent" class="card-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-<?= $item['id_kegiatan'] ?>">
                         <strong>
                             <?= $item["judul_kegiatan"]; ?>
@@ -51,11 +51,11 @@
                         <span class="divider-dash"></span>
                         BPS Provinsi Daerah Istimewa Yogyakarta
                     </small>
-                </h4>
+                </h2>
                 <?php //var_dump($list_sub_kegiatan[$indeks][1]) 
                 ?>
                 <div id="collapse-1-<?= $item['id_kegiatan'] ?>" class="collapse">
-                    <table class="table table-separated p-3">
+                    <table class="table table-hover table-separated p-3">
                         <thead>
                             <tr>
                                 <th style="width: 80px;">No</th>
@@ -155,6 +155,7 @@
                     </table>
 
                 </div>
+
             </div>
     <?php }
     } ?>

@@ -66,7 +66,7 @@ class Kegiatan extends CI_Controller
         $this->load->library('pagination');
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/monitoring/kegiatan/indexAjax";
-        $data['start'] = $this->uri->segment(4);
+        $data['start'] = $this->uri->segment(5);
         $config['per_page'] = 2;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
@@ -225,7 +225,7 @@ class Kegiatan extends CI_Controller
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota   );
+        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota);
 
 
         if ($hasil['point'] == 'sukses') {
