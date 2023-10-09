@@ -137,7 +137,7 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota) || isset($tabKegiatan) || isset($tabTim)) {
+                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota) || isset($tabKegiatanAdmin) || isset($tabTimAdmin)  || isset($tabTim)) {
                                             echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
@@ -168,7 +168,7 @@
 
                         </li>
 
-                        <li class="menu-item <?php if (isset($tabKegiatan)) {
+                        <li class="menu-item <?php if (isset($tabKegiatanAdmin)) {
                                                     echo 'active';
                                                 } ?>">
                             <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/Kegiatan/'); ?>">
@@ -178,7 +178,7 @@
 
                         </li>
 
-                        <li class="menu-item <?php if (isset($tabTim)) {
+                        <li class="menu-item <?php if (isset($tabTimAdmin)) {
                                                     echo 'active';
                                                 } ?>">
                             <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/TimKerja/index'); ?>">

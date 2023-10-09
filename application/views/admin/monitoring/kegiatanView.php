@@ -103,4 +103,3 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			</div>
 		</div>
 	</div>
-</main>
