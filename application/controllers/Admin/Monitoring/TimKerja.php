@@ -39,7 +39,7 @@ class TimKerja extends CI_Controller
 
     public function index()
     {
-        $data['tabTim'] = "1";
+        $data['tabTimAdmin'] = "1";
         $data['tab'] = "4";
         $data['tipe'] = "1";
         $data['title'] = "Tim Kerja";
@@ -68,7 +68,7 @@ class TimKerja extends CI_Controller
         $this->load->library('pagination');
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/Monitoring/TimKerja/indexAjax";
-        $data['start'] = $this->uri->segment(4);
+        $data['start'] = $this->uri->segment(5);
         $config['per_page'] = 5;
         $config['total_rows'] = $this->tim_kerja_m->list_teamkerja($config['per_page'], $data['start'], $search, $count = true);
         $config['attributes'] = array('class' => 'page-link');
@@ -174,8 +174,9 @@ class TimKerja extends CI_Controller
         $member = $this->input->post('sample-typeahead');
         $arr_member = explode(",", $member);
 
-
         foreach ($arr_member as $item) {
+            // var_dump($item);
+            // die;
             $coba[] = $this->User_m->detail_user_by_name($item);
         }
 
@@ -185,9 +186,9 @@ class TimKerja extends CI_Controller
 
         foreach ($coba as $indeks => $item) {
             if ($indeks == 0) {
-                $ketua = $item['ida'];
+                $ketua = $item['id_pegawai'];
             }
-            $hasil = $this->Z_anggotateam_m->add_teams($item['ida'], $idTim);
+            $hasil = $this->Z_anggotateam_m->add_teams($item['id_pegawai'], $idTim);
         };
         $this->tim_kerja_m->update_teams($idTim, $ketua);
 

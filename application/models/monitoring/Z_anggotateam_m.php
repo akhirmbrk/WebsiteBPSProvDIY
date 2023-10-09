@@ -29,10 +29,10 @@ class Z_anggotateam_m extends CI_Model
         $data = array();
         $i = 0;
         // $Q = $this->db->query("SELECT `id_team`,`id_user`,`id_zperiode`,`nip`,`namaU`,`Tahun` FROM `z_anggotateam` A JOIN  `z_team` C ON A.id_team = C.id_zteam JOIN`userapp` B ON A.id_user = B.ida  JOIN `z_periode` D ON C.id_zperiode = D.id_zperiode WHERE A.id_team = $id  AND C.id_zperiode = $periode");
-        $Q = $this->db->select('`id_team`, `id_user`, `z_team.id_zperiode`, `nip`, `namaU`, `Tahun`,`id_ketuatim`');
+        $Q = $this->db->select('`id_team`, `id_user`, `z_team.id_zperiode`, `nip_lama`, `nama_peg`, `Tahun`,`id_ketuatim`');
         $Q = $this->db->from('z_anggotateam');
         $Q = $this->db->join('z_team', 'z_team.id_zteam = z_anggotateam.id_team');
-        $Q = $this->db->join('userapp', 'userapp.ida = z_anggotateam.id_user');
+        $Q = $this->db->join('pegawai', 'pegawai.id_pegawai = z_anggotateam.id_user');
         $Q = $this->db->join('z_periode', 'z_periode.id_zperiode = z_team.id_zperiode');
         $Q = $this->db->where('z_anggotateam.id_team', $id);
         $Q = $this->db->where('z_team.id_zperiode', $periode);

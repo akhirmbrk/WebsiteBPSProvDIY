@@ -19,7 +19,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 		</div>
 		<div class="header-action">
 			<div class="buttons">
-				<a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
+				<a class="btn btn-primary btn-float" href="<?= base_url('Admin/Monitoring/TimKerja/TambahTimKerja') ?>" title="Tambah Tim Kerja" data-provide="tooltip"><i class="ti-plus"></i></a>
 			</div>
 
 		</div>
@@ -27,36 +27,36 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 	</header>
 	<!--/.header -->
 
-		<div class="main-content">
-			
-			<div class="container">
-				<?php echo $this->session->flashdata('info_form');  ?>
-				<div class="row">
 
-					<div class="col-md-4 col-xl-3 d-none d-md-block">
+<div class="main-content">
 
-						<!-- Filter -->
-						<div class="card shadow-1">
-							<h5 class="card-title"><strong>Filter Tim Kerja</strong></h5>
+	<div class="container">
+		<?php echo $this->session->flashdata('info_form');  ?>
 
-							<form class="card-body">
-								<div class="form-group">
-									<label>Periode Pelaksanaan</label>
-									<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
-										<?php
-										if (count($periode)) {
-											foreach ($periode as $indeks => $item) {
-												$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
-												<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
-										<?php }
-										} ?>
+		<!-- Filter -->
+		<div class="row">
+			<div class="card">
+				<hr>
+				<h4><strong>Filter Tim Kerja</strong></h4>
 
-									</select>
-								</div>
+				<form>
+					<div class="form-group">
+						<label>Periode Pelaksanaan</label>
+						<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
+							<?php
+							if (count($periode)) {
+								foreach ($periode as $indeks => $item) {
+									$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+									<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
+							<?php }
+							} ?>
+
+						</select>
+					</div>
 
 
 
-								<!-- 
+					<!-- 
                         <div class="form-group">
                             <label>Jenis Tim Kerja</label>
                             <select id="filterTimKerja" name="filterTimKerja" title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
@@ -69,40 +69,35 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                             </select>
                         </div> -->
 
-								<hr>
+					<hr>
 
-								<div class="text-right">
-									<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
-								</div>
-							</form>
-						</div>
+					<div class="text-right">
+						<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
 					</div>
+				</form>
+				<!-- END Filter -->
 
-					<!-- END Filter -->
+				<hr>
 
-					<div class="col-md-8 col-xl-9">
 
-						<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
-							<div class="media-list-body bg-white b-1">
-
-								<!-- Search -->
-								<div class="card-body">
-									<form class="lookup lookup-right">
-										<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
-									</form>
-								</div>
-								<!-- END Search -->
-
-								<!-- List Tim Kerja -->
-								<div id="ajaxContent"></div>
-
+				<!-- Search -->
+				<!-- END Search -->
+				<div class="media-list media-list-divided media-list-hover" data-provide="selectall">
+					<div class="media-list-body bg-white b-1 mb-50">
+						<div class="card-body">
+							<div class="lookup lookup-right">
+								<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
 							</div>
+						</div>
+						<!-- List Tim Kerja -->
+						<div id="ajaxContent"></div>
 
 						</div>
 
 					</div>
 
 				</div>
+
 			</div>
 		</div>
-</main>
+	</div>

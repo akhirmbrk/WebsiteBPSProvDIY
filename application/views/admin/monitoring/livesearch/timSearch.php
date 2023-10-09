@@ -56,7 +56,7 @@ var data = {
 searchTimKerja: search_key,
 filterPeriode: periode_key
 };
-var base_url = '<?php echo base_url("Monitoring/TimKerja/indexAjax") ?>';
+var base_url = '<?php echo base_url("Admin/Monitoring/TimKerja/indexAjax") ?>';
 
 if (page_url == false) {
 var page_url = base_url;
