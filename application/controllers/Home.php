@@ -11,23 +11,11 @@ class Home extends CI_Controller
 		date_default_timezone_set("Asia/Jakarta");
 	}
 
-
-
 	public function index()
 	{
 		$data['title'] = 'Login';
 		$data['tipe'] = '';
 		$this->load->view('template/header', $data);
 		$this->load->view('login_lama');
-	}
-
-	public function comingSoon()
-	{
-		$data['tab'] = "1";
-		$data['tipe'] = "1";
-		$data['title'] = "Coming Soon";
-		$this->load->view('template/header', $data);
-		$this->load->view('template/comingSoonView');
-		$this->load->view('template/footer');
 	}
 }
