@@ -20,7 +20,7 @@ $this->load->view('template/topnav');
 
 	<div id="slider" class="col-12">
 		<br>
-		<?php echo $this->session->flashdata('info_form');  ?>
+		<?php echo $this->session->flashdata('info_form'); ?>
 		<div class="container mx-auto text-center">
 
 
@@ -28,69 +28,7 @@ $this->load->view('template/topnav');
 			<span class="fs-50 fw-900">MENU UTAMA</span>
 			<br>
 			<br>
-			<!-- <div class="flexbox flex-justified">
-				<span>
-					<div class="slider-card">
-						<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
-							<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-						</a>
-					</div>
-				</span>
-				<span>
-					<div class="slider-card">
-						<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Monitoring/Index/dashboard">
-							<img class="monitoringImg" src="<?= base_url('') ?>/assets/img/monitoringLogo.png" alt="">
-						</a>
-					</div>
-				</span>
-				<span>
-					<div class="slider-card">
-						<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/Zoom/zoomorder">
-							<img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />
-						</a>
-					</div>
-				</span>
-				<span>
-					<div class="slider-card">
-						<div class="d-flex justify-content-center align-center mb-4">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('/admin/zoom/adminbidang') ?>">
-								<img class="adminImg" src="<?= base_url('') ?>/assets/img/logoAdmin.png" alt="">
-							</a>
-						</div>
-				</span>
-			</div> -->
-			<!-- <div class="container">
-				<div class="row">
-					<div class="col-md-6 col-sm-12">
-						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
-								<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-							</a>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-12">
-						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
-								<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-							</a>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-12">
-						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
-								<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-							</a>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-12">
-						<div class="slider-card">
-							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>/ManajemenFile/Manajemenfile">
-								<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</div> -->
+
 			<div class="container">
 				<div class="row d-flex flex-row align-items-center">
 					<div class="col-md-6 col-sm-20">
