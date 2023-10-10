@@ -15,16 +15,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 						Berjalan</small></h2>
 			</div>
 		</div>
-		<?php // CEK ROLE USER
-		$roleRequie = [1];
-		if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-			<div class="header-action">
-				<div class="buttons">
-					<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/tambahKegiatan') ?>" title="Tambah Kegiatan" data-provide="tooltip"><i class="ti-plus"></i></a>
-				</div>
 
-			</div>
-		<?php } ?>
 	</div>
 </header>
 <!--/.header -->

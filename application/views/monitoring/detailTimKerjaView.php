@@ -10,16 +10,6 @@
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">Anggota Tim Kerja <small class="subtitle"></small></h2>
   			</div>
   		</div>
-
-
-  		<div class="header-action">
-  			<?php if (!count($member)) { ?>
-  				<div class="buttons">
-  					<a class="btn btn-primary btn-float" href="<?= base_url('Monitoring/TimKerja/tambahAnggotaTimKerja/') . $idTim ?>" title="Tambah Anggota" data-provide="tooltip"><i class="ti-plus"></i></a>
-  				</div>
-  			<?php } ?>
-
-  		</div>
   	</div>
   </header><!--/.header -->
 
@@ -39,8 +29,8 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   								<div class="card-title flexbox">
   									<img class="avatar" src="<?= base_url('') ?>/assets/img/avatar/1.jpg" alt="...">
   									<div>
-  										<h5 class="mb-0"><?= $item['namaU'] ?>
-  											<small class="sidetitle fs-11"><?= $item['nip'] ?></small>
+  										<h5 class="mb-0"><?= $item['nama_peg'] ?>
+  											<small class="sidetitle fs-11"><?= $item['nip_lama'] ?></small>
   										</h5>
   										<small class=""><?php if ($item['id_user'] == $item['id_ketuatim']) {
 																echo 'Ketua Tim';
@@ -69,7 +59,6 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 
   			<div class="col-md-4 col-xl-3">
-
 
   			</div>
 

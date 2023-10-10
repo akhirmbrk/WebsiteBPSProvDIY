@@ -35,7 +35,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			<form action="<?php echo (base_url('monitoring/Kegiatan/updateKegiatan/') . $detail_kegiatan['id_kegiatan']) . "/" . $kodeKabKota ?>" class="row" method="post" enctype="multipart/form-data">
 
 
-				<div class="col-md-7 col-xl-8">
+				<div class="col-md-8 col-xl-12">
 					<div class="card shadow-1">
 						<h4 class="card-title"><strong>Detail</strong> Kegiatan</h4>
 

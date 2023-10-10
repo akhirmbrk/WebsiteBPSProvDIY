@@ -2,6 +2,7 @@
 </header>
 
 <div class="main-content">
+
     <div class="card card-body">
         <div id="calendar" data-provide="fullcalendar"></div>
     </div>
