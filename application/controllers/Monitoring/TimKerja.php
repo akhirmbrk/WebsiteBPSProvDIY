@@ -275,7 +275,7 @@ class TimKerja extends CI_Controller
         redirect('Monitoring/TimKerja', 'refresh');
     }
 
-    public function AllUserProv()
+    public function allUserProv()
     {
         // CEK ROLE USER
         $role = [1];
