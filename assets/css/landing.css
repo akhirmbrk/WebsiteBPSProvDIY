@@ -4,9 +4,9 @@
 	text-align: center;
 }
 
-/* .slider-card:hover {
+.slider-card:hover {
 	transform: scale(0.95);
-} */
+}
 
 .container {
 	display: flex;

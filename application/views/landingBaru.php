@@ -40,8 +40,6 @@ $this->load->view('template/topnav');
 					</div>
 					<div class="col-md-6 col-sm-20">
 						<?php
-						// var_dump($_SESSION);
-						// die;
 						// CEK ROLE USER
 						$roleRequie = [1, 2, 3, 4];
 						if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
@@ -57,8 +55,6 @@ $this->load->view('template/topnav');
 				</div>
 				<div class="row d-flex justify-content-center align-items-center">
 					<?php
-					// var_dump($_SESSION);
-					// die;
 					// CEK ROLE USER
 					$roleRequie = [1, 2, 3, 4];
 					if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>

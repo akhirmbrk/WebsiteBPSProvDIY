@@ -93,6 +93,11 @@ class Kegiatan extends CI_Controller
 
     public function detailKegiatan($id, $kodeKabKota)
     {
+        // Cek Kesesuaian kode kabkode user dengan yang akan diedit
+        if ($_SESSION['kodeKabKota'] != $kodeKabKota && $_SESSION['kodeKabKota'] != "00") {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['progress'] = 70;
@@ -120,6 +125,11 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
+        // Cek Kesesuaian kode kabkode user dengan yang akan diedit
+        if ($_SESSION['kodeKabKota'] != $kodeKabKota && $_SESSION['kodeKabKota'] != "00") {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
 
         $data['tab'] = "3";
         $data['tipe'] = "1";
@@ -221,6 +231,11 @@ class Kegiatan extends CI_Controller
             redirect('Monitoring/Kegiatan', 'refresh');
         }
         //-------------------
+        // Cek Kesesuaian kode kabkode user dengan yang akan diedit
+        if ($_SESSION['kodeKabKota'] != $kodeKabKota && $_SESSION['kodeKabKota'] != "00") {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
+            redirect('Monitoring/Kegiatan', 'refresh');
+        }
 
         $data = array();
 

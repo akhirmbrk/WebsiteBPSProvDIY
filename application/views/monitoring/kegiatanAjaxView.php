@@ -79,12 +79,23 @@
                                                 </h5>
                                                 <div id="collapse-2-<?= $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" class="collapse">
                                                     <table>
-                                                        <?php foreach ($kodeKabKota as $value) { ?>
+                                                        <?php
+                                                        foreach ($kodeKabKota as $value) { ?>
                                                             <tr>
                                                                 <td>
-                                                                    <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
-                                                                        <?= $value['namaBPS'] ?>
-                                                                    </a>
+                                                                    <?php if ($_SESSION['kodeKabKota'] == '00') { ?>
+                                                                        <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
+                                                                            <?= $value['namaBPS'] ?>
+                                                                        </a>
+                                                                        <?php } else {
+                                                                        if ($_SESSION['kodeKabKota'] == $value['kode']) { ?>
+                                                                            <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
+                                                                                <?= $value['namaBPS'] ?>
+                                                                            </a>
+                                                                        <?php } else { ?>
+                                                                            <span class="text-muted"><?= $value['namaBPS'] ?></span>
+                                                                    <?php }
+                                                                    } ?>
                                                                 </td>
                                                                 <td style="width: 200px;" colspan="3">
                                                                     <div class="progress">

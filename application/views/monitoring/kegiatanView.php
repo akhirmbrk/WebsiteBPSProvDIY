@@ -23,12 +23,12 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 <div class="main-content">
 
 	<div class="container">
-		<?php echo $this->session->flashdata('info_form');  ?>
 		<div class="row">
 			<div class="card">
 
 				<!-- Filter -->
 				<form class="m-3">
+					<?php echo $this->session->flashdata('info_form'); ?>
 					<br>
 					<div class="card-body">
 						<h4> <strong>Filter Kegiatan</strong></h4>
