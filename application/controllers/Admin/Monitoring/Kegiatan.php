@@ -67,7 +67,7 @@ class Kegiatan extends CI_Controller
 
         $config['base_url'] = "http://localhost/WebsiteBPSProvDIY/Admin/monitoring/kegiatan/indexAjax";
         $data['start'] = $this->uri->segment(5);
-        $config['per_page'] = 2;
+        $config['per_page'] = 5;
         $config['total_rows'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = true);
 
         $config['attributes'] = array('class' => 'page-link');
@@ -142,7 +142,7 @@ class Kegiatan extends CI_Controller
     public function tambahKegiatan()
     {
         // CEK ROLE USER
-        $role = [1];
+        $role = [1, 2];
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
@@ -172,7 +172,7 @@ class Kegiatan extends CI_Controller
     public function addKegiatan()
     {
         // CEK ROLE USER
-        $role = [1];
+        $role = [1, 2];
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Kegiatan</div>');
@@ -251,7 +251,23 @@ class Kegiatan extends CI_Controller
         //-------------------
 
         $this->Kegiatan_m->hapus_kegiatan($id);
-        $this->session->set_flashdata('info_form', '<div class="alert alert-\ alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
+        $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
+        redirect('Admin/monitoring/kegiatan', 'refresh');
+    }
+
+    public function hapusSubKegiatan($id)
+    {
+        // CEK ROLE USER
+        $role = [1, 2];
+        $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+        if ($akses < 1) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Hapus Kegiatan</div>');
+            redirect('Admin/Monitoring/Kegiatan', 'refresh');
+        }
+        //-------------------
+
+        $this->Kegiatan_m->hapus_subkegiatan($id);
+        $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
         redirect('Admin/monitoring/kegiatan', 'refresh');
     }
 
@@ -352,7 +368,6 @@ class Kegiatan extends CI_Controller
         // var_dump($data);
 
         if ($hasil['point'] == 'sukses') {
-
             $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Menambahkan Kegiatan</div> ');
             redirect('Admin/Monitoring/Kegiatan', 'refresh');
         } else if ($hasil['point'] == 'lewat') {

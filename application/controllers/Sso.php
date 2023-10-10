@@ -60,7 +60,7 @@ class Sso extends CI_Controller
 		$_SESSION['nip'] = "340054255";
 		$_SESSION['kodeKabKota'] = "00";
 
-		// COBA ROLE User KabKota
+		// // COBA ROLE User KabKota
 		// $_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340024494";

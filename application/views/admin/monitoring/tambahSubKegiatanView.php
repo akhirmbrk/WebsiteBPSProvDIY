@@ -27,89 +27,58 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   	</header>
   	<!--/.header -->
 
-  	<section>
-  		<div class="main-content">
-  			<div class="set">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
-  			<div class="set set2">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
-  			<div class="set set3">
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow1.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow2.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow3.png" /></div>
-  				<div><img src="<?php echo base_url(); ?>/assets/img/leaves/snow4.png" /></div>
-  			</div>
-  			<div class="container">
+  	<div class="main-content">
 
-  				<div class="col-md-7 col-xl-8">
-  					<?php echo $this->session->flashdata('info_form');  ?>
-  					<form action="<?php echo base_url('Monitoring/Kegiatan/addSubKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
-  						<div class="card shadow-1">
-  							<h4 class="card-title"><strong>Detail Kegiatan</strong></h4>
-  							<!-- tambahkan input tipe hidden -->
-  							<input type="hidden" name="id_parent_kegiatan" value="<?= $id_parent ?>">
-  							<div class="card-body">
-  								<div class="row">
-  									<div class="form-group col-md-6">
-  										<label class="require">Tim Kerja</label>
-  										<input class="form-control" type="text" id="timKerja" name="timKerja" value="<?= $tim_kerja['id_zteam'] ?>" autofocus autocomplete="off" hidden>
-  										<input class="form-control" type="text" id="timKerja1" name="timKerja1" value="<?= $tim_kerja['nama_team'] ?>" autocomplete="off" readonly>
-  									</div>
+  		<div class="container">
 
-  									<div class="form-group col-md-6">
-  										<label class="require">Judul Kegiatan</label>
-  										<input class="form-control" type="text" name="judulKegiatan" autofocus autocomplete="off" required>
-  									</div>
+  			<div class="col-md-8 col-xl-12">
+  				<?php echo $this->session->flashdata('info_form');  ?>
+  				<form action="<?php echo base_url('Admin/Monitoring/Kegiatan/addSubKegiatan'); ?>" class="row" method="post" enctype="multipart/form-data">
+  					<div class="card shadow-1">
+  						<h4 class="card-title"><strong>Detail Kegiatan</strong></h4>
+  						<!-- tambahkan input tipe hidden -->
+  						<input type="hidden" name="id_parent_kegiatan" value="<?= $id_parent ?>">
+  						<div class="card-body">
+  							<div class="row">
+  								<div class="form-group col-md-6">
+  									<label class="require">Tim Kerja</label>
+  									<input class="form-control" type="text" id="timKerja" name="timKerja" value="<?= $tim_kerja['id_zteam'] ?>" autofocus autocomplete="off" hidden>
+  									<input class="form-control" type="text" id="timKerja1" name="timKerja1" value="<?= $tim_kerja['nama_team'] ?>" autocomplete="off" readonly>
   								</div>
 
-  								<hr>
-  								<label class="require">Waktu Kegiatan</label>
-  								<div class="input-group" data-provide="datepicker">
-  									<input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
-  									<span class="input-group-addon">
-  										<i class="fa fa-calendar"></i>
-  									</span>
-
-  									<input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
-  									<span class="input-group-addon">
-  										<i class="fa fa-calendar"></i>
-  									</span>
+  								<div class="form-group col-md-6">
+  									<label class="require">Judul Kegiatan</label>
+  									<input class="form-control" type="text" name="judulKegiatan" autofocus autocomplete="off" required>
   								</div>
+  							</div>
 
+  							<hr>
+  							<label class="require">Waktu Kegiatan</label>
+  							<div class="input-group" data-provide="datepicker">
+  								<input type="text" class="form-control" name="tglStart" placeholder="Tanggal Mulai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
+  								<span class="input-group-addon">
+  									<i class="fa fa-calendar"></i>
+  								</span>
 
-
+  								<input type="text" class="form-control" name="tglEnd" placeholder="Tanggal Selesai" value="<?php echo $tanggal_now; ?>" autocomplete="off" required>
+  								<span class="input-group-addon">
+  									<i class="fa fa-calendar"></i>
+  								</span>
   							</div>
 
 
-  							<footer class="card-footer text-right">
-  								<a class="btn btn-secondary mr-2" href="<?= base_url('Admin/Monitoring/Kegiatan') ?>">Cancel</a>
-  								<button class="btn btn-primary" type="submit">Submit</button>
-  							</footer>
-
 
   						</div>
-  					</form>
-  				</div>
+
+
+  						<footer class="card-footer text-right">
+  							<a class="btn btn-secondary mr-2" href="<?= base_url('Admin/Monitoring/Kegiatan') ?>">Cancel</a>
+  							<button class="btn btn-primary" type="submit">Submit</button>
+  						</footer>
+
+
+  					</div>
+  				</form>
   			</div>
   		</div>
-  	</section>
+  	</div>

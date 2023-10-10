@@ -35,7 +35,7 @@ function ajaxlist(page_url = false) {
 var search_key = $("#searchUser").val();
 
 var dataString = "searchUser=" + search_key;
-var base_url = '<?php echo base_url("Admin/Monitoring/User/indexAjax") ?>';
+var base_url = '<?php echo base_url("Admin/User/indexAjax") ?>';
 
 if (page_url == false) {
 var page_url = base_url;

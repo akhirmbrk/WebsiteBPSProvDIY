@@ -153,12 +153,8 @@ class All_m extends CI_Model
 		return $hasil;
 	}
 
-
-
-
 	public function addorderadmin()
 	{
-
 		$tgl_dh_1 = substr($this->input->post("tgl_start"), 3, 2);
 		$bln_dh_1 = substr($this->input->post("tgl_start"), 0, 2);
 		$thn_dh_1 = substr($this->input->post("tgl_start"), 6, 4);
@@ -183,6 +179,26 @@ class All_m extends CI_Model
 
 		$jedah_res = $jedah->row_array();
 
+		$keterangan = $this->input->post("keterangan");
+		// var_dump($keterangan);
+		// die;
+		if ($keterangan == 0) {
+			$ruangan = 'Zoom';
+			$reply = $this->input->post("reply");
+		} elseif ($keterangan == 1) {
+			$ruangan = $this->input->post("ruangan");
+			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan)->row_array();
+			$reply = NULL;
+
+			// var_dump($cekRuangan->row_array());
+			if ($cekRuangan['jumlah'] > 1) {
+				$hasil['point'] = 'blockOFF';
+				$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
+				return $hasil;
+			}
+		}
+		// die;
+
 		if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
 			$hasil['point'] = 'lewat';
 			$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
@@ -199,10 +215,12 @@ class All_m extends CI_Model
 				'jumlah_peserta' => $this->input->post("jumlah_peserta"),
 				'tgl_pengajuan' => date("Y-m-d"),
 				'namapengusul' => $_SESSION['nama'],
-				'reply' => $this->input->post("reply"),
+				'reply' => $reply,
 				'tgl_approve' => date("Y-m-d"),
 				'nip_approve' => $_SESSION['nip'],
-				'nama_approve' => $_SESSION['nama']
+				'nama_approve' => $_SESSION['nama'],
+				'keterangan' => $keterangan,
+				'ruangan' => $ruangan
 
 			);
 			$this->db->insert('meetingreq', $data);
@@ -393,12 +411,12 @@ class All_m extends CI_Model
 		$i = 0;
 		if ($keterangan == 0) {
 			$ket = 0;
+			$Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 		} else {
 			$ket = 1;
+			$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan=B.id_ruangan WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 		}
 		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $nip . " ORDER BY idm DESC");
-		$Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
-
 		// $Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " ORDER BY idm DESC");
 
 

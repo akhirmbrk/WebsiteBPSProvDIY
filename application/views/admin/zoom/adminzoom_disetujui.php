@@ -42,7 +42,6 @@
     										</th>
     										<th width="20%" class="fw-600" style="vertical-align:middle; text-align:center;">Diajukan Oleh
     										</th>
-    										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;">Ruangan</th>
     										<th width="10%" class="fw-600" style="vertical-align:middle; text-align:center;">Tanggal</th>
     										<th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Action</th>
     									</tr>
@@ -53,20 +52,19 @@
 										if (count($list_order)) {
 											foreach ($list_order as $indeks => $list) {  ?>
     											<tr>
-    												<td><?php echo $nomor; ?></td>
-    												<td><?php echo $list['perihal']; ?></td>
-    												<td><?php echo $list['jadwal_awal']; ?></td>
-    												<td><?php echo $list['jadwal_akhir']; ?></td>
-    												<td><span name="m_nama_kegiatan"><?php echo $list['namapengusul']; ?></span>
+    												<td style="vertical-align:middle;text-align: center;"><?php echo $nomor; ?></td>
+    												<td style="vertical-align:middle;"><?php echo $list['perihal']; ?></td>
+    												<td style="vertical-align:middle;text-align: center;"><?php echo $list['jadwal_awal']; ?></td>
+    												<td style="vertical-align:middle;text-align: center;"><?php echo $list['jadwal_akhir']; ?></td>
+    												<td style="vertical-align:middle;text-align: center;"><span name="m_nama_kegiatan"><?php echo $list['namapengusul']; ?></span>
     												</td>
-    												<td><?php echo $list['ruangan']; ?></td>
-    												<td><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span>
+    												<td style="vertical-align:middle;text-align: center;"><span name="m_nama_kegiatan"><?php echo $list['tgl_pengajuan_ok']; ?></span>
     												</td>
-    												<td>
+    												<td style="vertical-align:middle;text-align: center;">
     													<nav class="nav gap-2 fs-16" style="justify-content: center;">
     														<a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('admin/zoom/adminbidang/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail"><i class="fa fa-eye"></i></a>
     														&nbsp
-    														<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" data-provide="tooltip" data-placement="top" title="Tidak Disetujui" data-toggle="modal" data-target="#modal-sqduh"><i class="fa fa-trash"></i></a>
+    														<a name="d_edit_bagi_pegawai" class="nav-link hover-danger cat-delete" onclick="$('#btnDelete').attr('href','<?php echo base_url('admin/zoom/adminbidang/hapuszoom/' . $list['idm']); ?>')" data-provide="tooltip" data-placement="top" title="Tidak Disetujui" data-toggle="modal" data-target="#modal-sqduh"><i class="fa fa-trash"></i></a>
     													</nav>
 
 
@@ -123,7 +121,7 @@
     			<div class="modal-body">Apakah Anda yakin untuk tidak menyetujui permintaan ini?</div>
     			<div class="modal-footer">
     				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-    				<a href="<?php echo base_url('admin/zoom/adminbidang/hapuszoom/' . $list['idm']); ?>" class="btn btn-primary">Ya</a>
+    				<a id="btnDelete" href="" class="btn btn-primary">Ya</a>
     			</div>
     		</div>
     	</div>

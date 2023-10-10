@@ -202,6 +202,15 @@ class Kegiatan_m extends CI_Model
     {
         $this->db->where('id_kegiatan', $id);
         $this->db->delete('kegiatan');
+
+        $this->db->where('id_parent', $id);
+        $this->db->delete('kegiatan');
+    }
+
+    public function hapus_subkegiatan($id)
+    {
+        $this->db->where('id_kegiatan', $id);
+        $this->db->delete('kegiatan');
     }
 
     public function filter_kegiatan($tim)

@@ -21,27 +21,20 @@
                                         <th width="20%" class="fw-600" style="vertical-align:middle; text-align:center;">Perihal Zoom</th>
                                         <th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Jadwal Mulai</th>
                                         <th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Jadwal Selesai</th>
-                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle; text-align:center;">Notulen</th>
-                                        <!-- <th width="15%" class="fw-600" style="vertical-align:middle;"></th> -->
+                                        <th width="15%" class="fw-600" style="vertical-align:middle; text-align:center;">Notulen</th>
+                                        <th width="8%" class="fw-600" style="vertical-align:middle; text-align:center;"> Download File</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $nomor = 1;
-                                    if (count($list_order) > 0) {
-                                        // if (count($list_order)) {
+                                    if (count($list_order)) {
                                         foreach ($list_order as $indeks => $list) {  ?>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $list['perihal']; ?></td>
-                                                <td><?php echo $list['jadwal_awal']; ?></td>
-                                                <td><?php echo $list['jadwal_akhir']; ?></td>
-
-
-
-
-
-
+                                                <td style="vertical-align:middle; text-align:center;"><?php echo $nomor; ?></td>
+                                                <td style="vertical-align:middle; "><?php echo $list['perihal']; ?></td>
+                                                <td style="vertical-align:middle; text-align:center;"><?php echo $list['jadwal_awal']; ?></td>
+                                                <td style="vertical-align:middle; text-align:center;"><?php echo $list['jadwal_akhir']; ?></td>
                                                 <?php if ($list['notulen'] == NULL) { ?>
                                                     <td style="text-align: center;">
                                                         <span class="badge badge-warning">Belum Upload</span>

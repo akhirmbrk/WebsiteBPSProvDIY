@@ -8,16 +8,14 @@
 
 
 
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xl-12">
                     <h5> UPLOAD NOTULEN</h5>
-                    <hr />
+                    <hr>
 
-                    <form method="post" id="demo"
-                        action="<?php echo base_url("zoom/zoomorder/uploadnotulen/" . $idm); ?>"
-                        enctype="multipart/form-data">
+                    <form method="post" id="demo" action="<?php echo base_url("zoom/zoomorder/uploadnotulen/" . $idm); ?>" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label> Notulen Saya: </label>
+                            <h6>Notulen Saya:</h6>
 
                         </div>
                         <div class="form-group">
@@ -25,7 +23,7 @@
                             <br />
                             <br />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-5 col-md-3 mx-auto">
                             <input class="btn btn-block btn-success " type="submit" name="preview" value="upload">
                         </div>
 
