@@ -10,7 +10,7 @@
 
                 <div class="topbar-left">
                     <?php if ($tipe == 1 || $tipe == 2 || $tipe == 3) { ?>
-                        <span class="topbar-btn topbar-menu-toggler"><i style="color: #40d2f3">&#9776;</i></span>
+                        <span class="topbar-btn topbar-menu-toggler"><i style="color: w">&#9776;</i></span>
                     <?php } else { ?>
                     <?php } ?>
 
@@ -161,7 +161,7 @@
                             </div>
                         </li>
                         <li class="dropdown d-none d-md-block">
-                            <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
+                            <span class="topbar-btn" style="color:whitesmoke;"><?= $_SESSION['nama'] ?></span>
                         </li>
 
 

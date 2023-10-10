@@ -1,8 +1,13 @@
 <?php
 if (count($teams)) {
-    foreach ($teams as $indeks => $item) {  ?>
+    foreach ($teams as $indeks => $item) {
+        if ($item['aktif'] == 1) {
+            $badge = 'badge-success';
+        } else {
+            $badge = 'badge-danger';
+        } ?>
         <div class="media align-items-center ">
-            <span class="badge badge-dot badge-success" title="On Hold" data-provide="tooltip"></span>
+            <span class="badge badge-dot <?= $badge ?>" title="On Hold" data-provide="tooltip"></span>
 
             <img class="avatar" src="<?= base_url('');
                                         ?>/assets/img/avatar/3.jpg" alt="...">

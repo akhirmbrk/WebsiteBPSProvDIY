@@ -38,9 +38,7 @@
 							</div> -->
 
 					<!-- List User Table -->
-
-					<div class="card-body"><!-- List User Table -->
-
+					<div class="card-body">
 						<table class="table table-hover table-responsive" data-provide="datatables">
 							<thead>
 								<tr>

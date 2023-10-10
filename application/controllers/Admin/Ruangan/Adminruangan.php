@@ -118,7 +118,7 @@ class Adminruangan extends CI_Controller
 
 
 
-	public function hapuszoom($idm)
+	public function hapusmeet($idm)
 	{
 		$this->All_m->hapuszoom($idm);
 		$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Membatalakan Permintaan Rapat Daring</div> ');
@@ -138,15 +138,18 @@ class Adminruangan extends CI_Controller
 		$this->form_validation->set_rules('time_start', 'Jam Mulai', 'trim|required');
 		$this->form_validation->set_rules('tgl_end', 'Tanggal Selesai', 'trim|required');
 		$this->form_validation->set_rules('time_end', 'Jam Selesai', 'trim|required');
-		$this->form_validation->set_rules('reply', 'Link Rapat Daring', 'trim|required');
 
 		$this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
 		if ($this->form_validation->run() == FALSE) {
 
 			$data['title'] = "Permintaan Ruangan";
+			$data['content'] = 'Tambah Permintaan Rapat';
 			$data['ordered'] = "1";
 			$data['tipe'] = "3";
+
+
+			$data['ruangan'] = $this->All_m->list_ruangan();
 
 
 			$tgl = date('Y-m-d', strtotime(' +1 day'));
@@ -159,7 +162,7 @@ class Adminruangan extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('template/header');
 			$this->load->view('template/sidetopbaradmin');
-			$this->load->view('zoom/orderadmin');
+			$this->load->view('admin/ruangan/adminruangan_order');
 			$this->load->view('template/footer');
 		} else {
 			$hasil = $this->All_m->addorderadmin();
@@ -168,15 +171,15 @@ class Adminruangan extends CI_Controller
 			if ($hasil['point'] == 'sukses') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Pesan Zoom</div> ');
-				redirect('admin/ruangan/adminruangan/daring_disetujui/', 'refresh');
+				redirect('Admin/Ruangan/Adminruangan/daring_disetujui', 'refresh');
 			} else if ($hasil['point'] == 'lewat') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h1>Tanggal ' . $hasil['tanggal'] . ' Sudah Lewat Atau Format Salah</h1></div> ');
-				redirect('admin/ruangan/adminruangan/order/', 'refresh');
+				redirect('Admin/Ruangan/Adminruangan/order/', 'refresh');
 			} else if ($hasil['point'] == 'block') {
 
 				$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h1> Jadwal Zoom untuk Tanggal ' . $hasil['tanggal'] . ' Sudah Penuh</h1></div> ');
-				redirect('admin/ruangan/adminruangan/order/', 'refresh');
+				redirect('Admin/Ruangan/Adminruangan/order/', 'refresh');
 			}
 		}
 	}

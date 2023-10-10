@@ -24,7 +24,7 @@ class Adminbidang extends CI_Controller
 		// }
 
 		// CEK ROLE USER
-		$role = [1, 2, 3, 4];
+		$role = [1, 3];
 		// $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
 
 		// if ($akses < 1) {
@@ -174,6 +174,7 @@ class Adminbidang extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 
 			$data['title'] = "Tambah Jadwal Zoom";
+			$data['content'] = 'Tambah Jadwal Zoom';
 			$data['ordered'] = "1";
 			$data['tipe'] = 3;
 
@@ -188,7 +189,7 @@ class Adminbidang extends CI_Controller
 			$this->load->vars($data);
 			$this->load->view('template/header');
 			$this->load->view('template/sidetopbaradmin');
-			$this->load->view('zoom/orderadmin');
+			$this->load->view('admin/zoom/adminzoom_order');
 			$this->load->view('template/footer');
 		} else {
 			$hasil = $this->All_m->addorderadmin();

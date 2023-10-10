@@ -23,7 +23,7 @@ class User extends CI_Controller
 		}
 
 		// CEK ROLE USER
-		$role = [1, 2];
+		$role = [1];
 		$akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
 		if ($akses < 1) {
 			$this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
@@ -55,7 +55,7 @@ class User extends CI_Controller
 		$this->load->view('template/header');
 		// $this->load->view('template/topNav');
 		$this->load->view('template/sidetopbaradmin');
-		$this->load->view('admin/monitoring/userControlView');
+		$this->load->view('admin/userControlView');
 		$this->load->view('template/footer');
 	}
 
@@ -82,7 +82,7 @@ class User extends CI_Controller
 		$this->load->view('template/header');
 		// $this->load->view('template/topNav');
 		$this->load->view('template/sidetopbaradmin');
-		$this->load->view('admin/monitoring/userKabKotaView');
+		$this->load->view('admin/userKabKotaView');
 		$this->load->view('template/footer');
 	}
 
@@ -97,9 +97,9 @@ class User extends CI_Controller
 		if ($nip == null) {
 			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Pilih User yang akan di edit terlebih dahulu</div> ');
 			if ($ket == '1') {
-				redirect('admin/monitoring/User', 'refresh');
+				redirect('Admin/User', 'refresh');
 			} else {
-				redirect('admin/monitoring/User/userKabkota', 'refresh');
+				redirect('Admin/User/userKabkota', 'refresh');
 			}
 		}
 		// var_dump((int)$nip);
@@ -120,18 +120,18 @@ class User extends CI_Controller
 
 			$this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Mengubah Role User</div> ');
 			if ($ket == 1) {
-				redirect('admin/monitoring/User', 'refresh');
+				redirect('Admin/User', 'refresh');
 			} else {
-				redirect('admin/monitoring/User/userKabkota', 'refresh');
+				redirect('Admin/User/userKabkota', 'refresh');
 			}
 		} else {
 
 			$this->session->set_flashdata('info_form', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Gagal Mengubah Role User</div> ');
 
 			if ($ket == 1) {
-				redirect('admin/monitoring/User', 'refresh');
+				redirect('Admin/User', 'refresh');
 			} else {
-				redirect('admin/monitoring/User/userKabkota', 'refresh');
+				redirect('Admin/User/userKabkota', 'refresh');
 			}
 		}
 	}

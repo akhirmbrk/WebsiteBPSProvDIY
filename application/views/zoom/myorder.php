@@ -20,7 +20,8 @@
                                         <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Mulai</th>
                                         <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Jadwal Selesai </th>
                                         <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Keterangan</th>
-                                        <th width="15%" colspan="2" class="fw-600" style="vertical-align:middle;text-align: center;">Status</th>
+                                        <th width="15%" class="fw-600" style="vertical-align:middle;text-align: center;">Status</th>
+                                        <th width="8%" class="fw-600" style="vertical-align:middle;text-align: center;">Action </th>
                                     </tr>
                                 </thead>
                                 <tbody>

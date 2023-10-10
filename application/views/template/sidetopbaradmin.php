@@ -137,7 +137,7 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota) || isset($tabKegiatanAdmin) || isset($tabTimAdmin)  || isset($tabTim)) {
+                <li class="menu-item <?php if (isset($tabKegiatanAdmin) || isset($tabTimAdmin)  || isset($tabTim)) {
                                             echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
@@ -147,27 +147,6 @@
                     </a>
 
                     <ul class="menu-submenu bg-light">
-
-                        <li class="menu-item <?php if (isset($tabUser)) {
-                                                    echo 'active';
-                                                } ?>">
-                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/index'); ?>">
-                                <span class="icon fa fa-building" style="color: #465161;"></span>
-                                <span class="title" style="color: #465161;">Pegawai Provinsi</span>
-                            </a>
-
-                        </li>
-
-                        <li class="menu-item <?php if (isset($tabUserKabkota)) {
-                                                    echo 'active';
-                                                } ?>">
-                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/User/userKabkota'); ?>">
-                                <span class="icon fa fa-building-o" style="color: #465161;"></span>
-                                <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
-                            </a>
-
-                        </li>
-
                         <li class="menu-item <?php if (isset($tabKegiatanAdmin)) {
                                                     echo 'active';
                                                 } ?>">
@@ -191,6 +170,45 @@
                 </li>
             <?php } ?>
             <!-- END ADMIN MONITORING -->
+
+            <!--SUPER ADMIN -->
+            <?php // CEK ROLE USER
+            $roleRequie = [1];
+            if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+                <li class="menu-item <?php if (isset($tabUser) || isset($tabUserKabkota)) {
+                                            echo 'open active';
+                                        } ?>">
+                    <a class="menu-link" href="#" style="color: #465161;">
+                        <span class="icon fa fa-cog"></span>
+                        <span class="title">Pengaturan Role User</span>
+                        <span class="arrow"></span>
+                    </a>
+
+                    <ul class="menu-submenu bg-light">
+
+                        <li class="menu-item <?php if (isset($tabUser)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/User'); ?>">
+                                <span class="icon fa fa-building" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Pegawai Provinsi</span>
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item <?php if (isset($tabUserKabkota)) {
+                                                    echo 'active';
+                                                } ?>">
+                            <a class="menu-link" href="<?php echo base_url('Admin/User/userKabkota'); ?>">
+                                <span class="icon fa fa-building-o" style="color: #465161;"></span>
+                                <span class="title" style="color: #465161;">Pegawai Kabupaten/Kota</span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+            <?php } ?>
+
 
             <li class="menu-item">
                 <a class="menu-link" style="color: #465161;" href="<?php echo base_url('landingpage'); ?>">
