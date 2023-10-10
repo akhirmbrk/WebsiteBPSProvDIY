@@ -86,11 +86,23 @@
                                                                         <?= $value['namaBPS'] ?>
                                                                     </a>
                                                                 </td>
+                                                                <td style="width: 200px;" colspan="3">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar <?php if ($item['progres_' . $value['kode']] <= 25) {
+                                                                                                        echo "bg-danger";
+                                                                                                    } elseif ($item['progres_' . $value['kode']] <= 50) {
+                                                                                                        echo "bg-warning";
+                                                                                                    } elseif ($item['progres_' . $value['kode']] <= 75) {
+                                                                                                        echo "bg-info";
+                                                                                                    } else {
+                                                                                                        echo "bg-success";
+                                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_' . $value['kode']] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_' . $value['kode']] ?>%</div>
+                                                                    </div>
+                                                                </td>
                                                             </tr>
                                                         <?php } ?>
                                                     </table>
                                                 </div>
-                                            </div>
 
                                         </td>
                                         <td>
@@ -107,27 +119,7 @@
                                             </div>
 
 
-                                            <div id="collapse-2-<?= $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" class="collapse">
-                                                <table>
-                                                    <?php foreach ($kodeKabKota as $value) { ?>
-                                                        <tr>
-                                                            <td style="width: 200px;">
-                                                                <div class="progress">
-                                                                    <div class="progress-bar <?php if ($item['progres_' . $value['kode']] <= 25) {
-                                                                                                    echo "bg-danger";
-                                                                                                } elseif ($item['progres_' . $value['kode']] <= 50) {
-                                                                                                    echo "bg-warning";
-                                                                                                } elseif ($item['progres_' . $value['kode']] <= 75) {
-                                                                                                    echo "bg-info";
-                                                                                                } else {
-                                                                                                    echo "bg-success";
-                                                                                                } ?>" role="progressbar" style="width:<?= $item['progres_' . $value['kode']] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_' . $value['kode']] ?>%</div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                </table>
-                                            </div>
+
                                         </td>
                                         <td>
                                             <?php if ($list_sub_kegiatan[$indeks][$key]['time_update'] != null) { ?>
