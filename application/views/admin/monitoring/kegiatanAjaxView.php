@@ -30,8 +30,8 @@
                     } else {
                         $mean[$indeks] = 0;
                     }
-
                     ?>
+
                     <!-- END Progress Kegiatan Utama -->
                     <div class="row">
                         <div class="col-xl-11">
@@ -113,7 +113,6 @@
                                                     </table>
                                                 </div>
                                             </div>
-
                                         </td>
                                         <td>
                                             <div class="progress">
@@ -168,8 +167,6 @@
                                                 <?php } ?>
                                             </nav>
                                         </td>
-
-
                                     </tr>
 
                             <?php }

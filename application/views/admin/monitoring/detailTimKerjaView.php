@@ -55,8 +55,14 @@
  								</div>
 
  							</div>
- 					<?php }
-						} ?>
+ 						<?php }
+						} else { ?>
+ 						<div class="card shadow-1">
+ 							<h4 class="m-3">
+ 								Admin Belum menambahkan anggota Tim
+ 							</h4>
+ 						</div>
+ 					<?php } ?>
 
 
 

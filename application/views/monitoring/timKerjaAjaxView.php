@@ -31,5 +31,5 @@ if (count($teams)) {
 } ?>
 
 <!-- END List Tim Kerja -->
-</div>
 <?= $this->pagination->create_links(); ?>
+</div>
