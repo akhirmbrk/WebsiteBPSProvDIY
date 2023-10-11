@@ -41,7 +41,7 @@ $this->load->view('template/topnav');
 						<?php
 						// CEK ROLE USER
 						$roleRequie = [1, 2, 3, 4];
-						if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+						if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0 || $_SESSION['kodeKabKota'] == '00') { ?>
 							<div class="slider-card">
 								<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>ManajemenFile/Manajemenfile">
 									<img class="fileImg" src="<?= base_url('') ?>/assets/img/fileLogo.png" alt="" />
@@ -62,8 +62,8 @@ $this->load->view('template/topnav');
 							<div class="col-md-12 col-sm-12">
 							<?php } ?>
 							<!-- CEK ROLE USER -->
-							<?php $roleRequie = [1, 2, 3, 4];
-							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
+							<?php
+							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0 || $_SESSION['kodeKabKota'] == '00') { ?>
 								<div class="slider-card">
 									<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('Zoom/zoomorder') ?>">
 										<img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />

@@ -74,7 +74,7 @@ class Manajemenfile extends CI_Controller
 		$data['idr'] = $idr;
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);
-		$this->load->view('template/topnav', $data);
+		$this->load->view('template/sidetopbar', $data);
 		$this->load->view('uploadnotulenrapat');
 		$this->load->view('template/footer');
 	}

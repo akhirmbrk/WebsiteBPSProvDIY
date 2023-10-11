@@ -507,7 +507,8 @@ class All_m extends CI_Model
 	public function lookzoom($idm)
 	{
 		$data = array();
-		$Q = $this->db->query("SELECT * FROM meetingreq WHERE oleh = " . $_SESSION['nip'] . " AND idm = " . $idm);
+		// $Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
+		$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
 		if ($Q->num_rows() > 0) {
 			$data = $Q->row_array();
 

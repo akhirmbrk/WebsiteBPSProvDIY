@@ -17,7 +17,9 @@
 
 
 
-                            <?php if ($lookzoom['idm'] != 0) { ?>
+                            <?php
+                            // var_dump($lookzoom);
+                            if ($lookzoom['idm'] != 0) { ?>
 
 
                                 <div class="col-md-6">
@@ -94,23 +96,35 @@
                                         </div>
                                     </div>
 
-                                    <?php if ($lookzoom['keterangan'] == 1) {
-                                        echo '
-                                    
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                            <label>Tempat </label>
-                                            <input type="text" class="form-control" name="ruangan" value=" ';
-                                        if ($lookzoom['ruangan'] == 'bima') {
-                                            echo 'Ruang Bima';
-                                        } else {
-                                            echo 'Ruang PST';
-                                        }
-                                        echo '" readonly>
-                                        </div>
-                                    </div>
-                                    ';
+                                    <?php
+                                    $ruangan = $lookzoom['ruangan'];
+
+                                    if ($ruangan == 1) {
+                                        $value = "RUANG BIMA";
+                                    } elseif ($ruangan == 2) {
+                                        $value = "RUANG PST";
+                                    } elseif ($ruangan == 3) {
+                                        $value = "RUANG ARJUNA";
+                                    } elseif ($ruangan == 4) {
+                                        $value = "RUANG KABID IPDS";
+                                    } elseif ($ruangan == 5) {
+                                        $value = "RUANG KABID NWAS";
+                                    } elseif ($ruangan == 6) {
+                                        $value = "RUANG KABID SOSIAL";
+                                    } elseif ($ruangan == 7) {
+                                        $value = "RUANG KABID PRODUKSI";
+                                    } elseif ($ruangan == 8) {
+                                        $value = "RUANG KABID DISTRIBUSI";
                                     } ?>
+
+                                    <?php if ($lookzoom['keterangan'] == 1) { ?>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label>Ruangan </label>
+                                                <input type="text" class="form-control" name="ruangan" value="<?= $value ?>" readonly>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
 
 
 
@@ -137,9 +151,10 @@
                                                 <span id="okeee"> <?php echo $lookzoom['reply']; ?> </span>
                                             </div>
                                         <?php } else if ($lookzoom['status'] == 0) { ?>
-
                                             <div class="form-group col-md-12">
-                                                <label>Deskripsi Link Zoom </label>
+                                                <?php if ($lookzoom['keterangan'] == 0) { ?>
+                                                    <label>Deskripsi Link Zoom </label>
+                                                <?php } ?>
                                                 <button name="-" class="btn btn-danger btn-block">Belum Disetujui</button>
                                                 <HR />
                                             </div>
