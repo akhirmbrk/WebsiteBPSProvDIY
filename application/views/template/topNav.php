@@ -21,7 +21,7 @@
                         <?php } elseif ($tipe == 2) { ?>
 
                             <a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Zoom/Zoomorder/') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Zoom Order BPS</a>
+                                                                                                                                            ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen Rapat</a>
                         <?php } elseif ($tipe == 3) { ?>
                             <a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
                                                                                                                                                             ?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
