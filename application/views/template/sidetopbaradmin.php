@@ -1,8 +1,8 @@
 <!-- Sidebar -->
 <aside class="sidebar sidebar-color-warning sidebar-expand-sm sidebar-icons-boxed " style="background: white; color:#465161;">
     <header class="sidebar-header bg-warning">
-        <a class="menu-link" style="color:#465161;" href="<?= base_url('Admin/IndexAdmin') ?>"><img width="40px" src="<?= base_url('');
-                                                                                                                        ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
+        <a class="menu-link fs-6" style="color:whitesmoke;" href="<?= base_url('Admin/IndexAdmin') ?>"><img width="40px" src="<?= base_url('');
+                                                                                                                                ?>/assets/img/bg/logo_bps.png" alt="...">Halaman Admin</a>
     </header>
 
     <nav class="sidebar-navigation ">
@@ -240,7 +240,7 @@
 <!-- <header class="topbar bg-dark" style="background: rgb(255,255,255); background: linear-gradient(133deg, rgba(255,255,255,1) 3%, rgba(255,255,255,1) 60%, rgba(247,179,50,1) 70%, rgba(252,78,27,1) 90%);"> -->
 <header class="topbar bg-warning">
     <div class="topbar-left">
-        <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
+        <span class="topbar-btn sidebar-toggler" style="color: whitesmoke;"><i>&#9776;</i></span>
     </div>
 
     <div class="topbar-right">
@@ -253,7 +253,7 @@
                 <span class="topbar-btn"><img class="avatar" src="<?php echo base_url(); ?>assets/img/avatar/1.jpg" alt="..."></span>
             </li>
             <li class="dropdown d-none d-md-block">
-                <span class="topbar-btn"><?= $_SESSION['nama'] ?></span>
+                <span class="topbar-btn" style="color: whitesmoke;"><?= $_SESSION['nama'] ?></span>
             </li>
         </ul>
 

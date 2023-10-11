@@ -46,8 +46,14 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   							</div>
 
   						</div>
-  				<?php }
-					} ?>
+  					<?php }
+					} else { ?>
+  					<div class="card shadow-1">
+  						<h4 class="m-3">
+  							Admin Belum menambahkan anggota Tim
+  						</h4>
+  					</div>
+  				<?php } ?>
 
 
 
