@@ -119,7 +119,7 @@
     				<div class="modal-body">Apakah Anda yakin untuk tidak menyetujui permintaan ini?</div>
     				<div class="modal-footer">
     					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-    					<a id="btnDelete" href="" class="btn btn-primary">Ya</a>
+    					<a id="btnDelete" href="" class="btn btn-danger">Ya</a>
     				</div>
     			</div>
     		</div>

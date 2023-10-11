@@ -106,23 +106,23 @@
 
 
 
-    </main>
-    <!-- END Main container -->
+    	<!-- END Main container -->
 
-    <div class="modal fade modal-top" id="modal-sqduh" tabindex="-1" role="dialog" aria-labelledby="modal-sqduh-label" aria-hidden="true">
-    	<div class="modal-dialog modal-sm">
-    		<div class="modal-content">
-    			<div class="modal-header">
-    				<h5 class="modal-title" id="modal-sqduh-label">Konfirmasi</h5>
-    				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    					<span aria-hidden="true">&times;</span>
-    				</button>
-    			</div>
-    			<div class="modal-body">Apakah Anda yakin untuk tidak menyetujui permintaan ini?</div>
-    			<div class="modal-footer">
-    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-    				<a id="btnDelete" href="" class="btn btn-primary">Ya</a>
+    	<div class="modal fade modal-top" id="modal-sqduh" tabindex="-1" role="dialog" aria-labelledby="modal-sqduh-label" aria-hidden="true">
+    		<div class="modal-dialog modal-sm">
+    			<div class="modal-content">
+    				<div class="modal-header">
+    					<h5 class="modal-title" id="modal-sqduh-label">Konfirmasi</h5>
+    					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+    					</button>
+    				</div>
+    				<div class="modal-body">Apakah Anda yakin untuk tidak menyetujui permintaan ini?</div>
+    				<div class="modal-footer">
+    					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+    					<a id="btnDelete" href="" class="btn btn-danger">Ya</a>
+    				</div>
     			</div>
     		</div>
     	</div>
-    </div>
+    </main>
