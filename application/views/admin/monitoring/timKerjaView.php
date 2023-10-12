@@ -2,19 +2,19 @@
 
 <main>
 	<header class="header header-inverse mb-0" style="background:rgba(243,243,243,255)"">
-	<div class=" container">
+	<!-- <div class=" container"> -->
 		<div class="header-info">
 			<div class="left">
-				<h2>
-					<h2 class="header-title" style="font-family: 'Acme', sans-serif;
+
+				<h2 class="header-title" style="font-family: 'Acme', sans-serif;
 						 font-size: 55px;
 						  color: #444448;
 
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;"><strong>Tim Kerja</strong> <small class="subtitle" style="color: black;
 
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;">Pengaturan untuk membuat dan
-							menyesuaikan tim kerja</small>
-					</h2>
+						menyesuaikan tim kerja</small>
+				</h2>
 			</div>
 		</div>
 		<div class="header-action">
@@ -23,39 +23,39 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 			</div>
 
 		</div>
-		</div>
+		<!-- </div> -->
 	</header>
 	<!--/.header -->
 
 
 	<div class="main-content">
 
-		<div class="container">
-			<?php echo $this->session->flashdata('info_form');  ?>
+		<!-- <div class="container"> -->
+		<?php echo $this->session->flashdata('info_form');  ?>
 
-			<!-- Filter -->
-			<div class="row">
-				<div class="card">
-					<h4 class="m-3"><strong>Filter Tim Kerja</strong></h4>
+		<!-- Filter -->
+		<div class="row">
+			<div class="card">
+				<h4 class="m-3"><strong>Filter Tim Kerja</strong></h4>
 
-					<form class="m-3">
-						<div class="form-group">
-							<label>Periode Pelaksanaan</label>
-							<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
-								<?php
-								if (count($periode)) {
-									foreach ($periode as $indeks => $item) {
-										$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
-										<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
-								<?php }
-								} ?>
+				<form class="m-3">
+					<div class="form-group">
+						<label>Periode Pelaksanaan</label>
+						<select id="filterPeriode" nama="filterPeriode" title="Periode Pelaksanaan" multiple data-live-search="false" data-actions-box="true" data-provide="selectpicker" data-width="100%">
+							<?php
+							if (count($periode)) {
+								foreach ($periode as $indeks => $item) {
+									$selected = ($item['aktif'] == 1) ? "selected" : ""; ?>
+									<option value="<?= $item['id_zperiode'] ?>" <?= $selected ?>><?= $item['Tahun']; ?></option>
+							<?php }
+							} ?>
 
-							</select>
-						</div>
+						</select>
+					</div>
 
 
 
-						<!-- 
+					<!-- 
                         <div class="form-group">
                             <label>Jenis Tim Kerja</label>
                             <select id="filterTimKerja" name="filterTimKerja" title="Jenis Tim Kerja" multiple data-provide="selectpicker" data-width="100%">
@@ -69,30 +69,30 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
                         </div> -->
 
 
-						<div class="text-right">
-							<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
+					<div class="text-right">
+						<a id="resetFilter" class="btn btn-sm btn-bold btn-secondary mr-1">Reset</a>
+					</div>
+				</form>
+				<!-- END Filter -->
+
+
+				<!-- Search -->
+				<!-- END Search -->
+				<div class="media-list media-list-divided media-list-hover">
+					<div class="card-body">
+						<div class="lookup lookup-right">
+							<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
 						</div>
-					</form>
-					<!-- END Filter -->
+					</div>
+					<div id="ajaxContent" class=" media-list-body bg-white b-1 mb-50">
 
-
-					<!-- Search -->
-					<!-- END Search -->
-					<div class="media-list media-list-divided media-list-hover">
-						<div class="card-body">
-							<div class="lookup lookup-right">
-								<input type="text" id="searchTimKerja" name="searchTimKerja" autocomplete="off" placeholder="Cari Tim Kerja">
-							</div>
-						</div>
-						<div id="ajaxContent" class=" media-list-body bg-white b-1 mb-50">
-
-
-						</div>
 
 					</div>
 
 				</div>
 
 			</div>
+
 		</div>
+		<!-- </div> -->
 	</div>
