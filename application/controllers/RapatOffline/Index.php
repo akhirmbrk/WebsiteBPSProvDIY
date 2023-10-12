@@ -13,10 +13,10 @@ class Index extends CI_Controller
         }
         $this->load->library('form_validation');
         $this->load->model('All_m');
-        $defadata = $this->All_m->top_bar();
-        if ($defadata['admin_zoom'] != 1) {
-            redirect('zoom/zoomorder/index/', 'refresh');
-        }
+        // $defadata = $this->All_m->top_bar();
+        // if ($defadata['admin_zoom'] != 1) {
+        //     redirect('zoom/zoomorder/index/', 'refresh');
+        // }
 
         date_default_timezone_set("Asia/Jakarta");
     }

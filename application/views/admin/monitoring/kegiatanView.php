@@ -33,6 +33,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 		<div class="container">
 			<div class="row">
+				<?php echo $this->session->flashdata('info_form');  ?>
 				<div class="card">
 					<?php echo $this->session->flashdata('info_form');  ?>
 

@@ -39,6 +39,14 @@ class TimKerja extends CI_Controller
 
     public function index()
     {
+        // CEK ROLE USER
+        $role = [1];
+        $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+        if ($akses < 1) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Landingpage', 'refresh');
+        }
+        //-------------------
         $data['tabTim'] = "1";
         $data['tab'] = "4";
         $data['tipe'] = "1";
@@ -60,6 +68,14 @@ class TimKerja extends CI_Controller
 
     public function indexAjax()
     {
+        // CEK ROLE USER
+        $role = [1];
+        $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
+        if ($akses < 1) {
+            $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Tambah Tim Kerja</div>');
+            redirect('Monitoring/TimKerja', 'refresh');
+        }
+        //-------------------
         $search = array(
             'keyword' => trim($this->input->post('searchTimKerja')),
             'periode' => $this->input->post('filterPeriode')

@@ -66,15 +66,23 @@ class Sso extends CI_Controller
 		// $_SESSION['nip'] = "340013059";
 		// $_SESSION['kodeKabKota'] = "00";
 
+		// Coba Role Provinsi
+		// $_SESSION['nama'] = "Helida Nurcahayani, SST, M.Si";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340019189";
+		// $_SESSION['kodeKabKota'] = "00";
+
 		// // COBA ROLE User KabKota
-		// $_SESSION['nama'] = "Muhammad Afnan Falieh";
+		// $_SESSION['nama'] = "User Kab/Kota";
 		// $_SESSION['getprop'] = "34";
 		// $_SESSION['nip'] = "340024494";
 		// $_SESSION['kodeKabKota'] = "71"; // DIY
-		// $_SESSION['kodeKabKota'] = "01"; // 
-		// $_SESSION['kodeKabKota'] = "02"; //
-		// $_SESSION['kodeKabKota'] = "03"; //
-		// $_SESSION['kodeKabKota'] = "04"; //
+		// $_SESSION['kodeKabKota'] = "01"; // Kulon Progo
+		// $_SESSION['kodeKabKota'] = "02"; // Bantul
+		// $_SESSION['kodeKabKota'] = "03"; // Gunungkidul
+		// $_SESSION['kodeKabKota'] = "04"; // Sleman
+
+
 
 
 

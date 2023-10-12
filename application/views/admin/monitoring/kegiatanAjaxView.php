@@ -18,9 +18,10 @@
 
                         $progres[$indeks] = 0;
                         foreach ($list_sub_kegiatan[$indeks] as $key => $value) {
-                            $persenSub[] = 0;
-                            foreach ($kodeKabKota as $value) {
-                                $persenSub[$key] += $list_sub_kegiatan[$indeks][$key]['progres_' . $value['kode']];
+                            $persenSub[$key] = 0;
+                            // var_dump($list_sub_kegiatan[$indeks]);
+                            foreach ($kodeKabKota as $kode) {
+                                $persenSub[$key] += $value['progres_' . $kode['kode']];
                             }
                             $total[$indeks] = count($list_sub_kegiatan[$indeks]);
                             $progresSub[$key] = number_format($persenSub[$key] / 5, 1);
@@ -30,6 +31,7 @@
                     } else {
                         $mean[$indeks] = 0;
                     }
+
                     ?>
 
                     <!-- END Progress Kegiatan Utama -->
@@ -49,7 +51,7 @@
                         </div>
                         <div class="col-xl-1">
                             <nav class="nav gap-2 fs-16">
-                                <span class="nav-link hover-danger cat-delete" data-placement="top" title="Hapus kegiatan" data-toggle="modal" data-target="#modal-hapus-kegiatan-<?= $item['id_kegiatan'] ?>"><i class="ti-trash"></i></span>
+                                <span class="nav-link hover-danger cat-delete" onclick="$('#btnDelete').attr('href','<?= base_url('Admin/Monitoring/Kegiatan/hapusKegiatan/') . $item['id_kegiatan'] ?>')" data-placement="top" title="Hapus kegiatan" data-toggle="modal" data-target="#modal-hapus-kegiatan"><i class="ti-trash"></i></span>
                             </nav>
                         </div>
                     </div>
@@ -163,7 +165,7 @@
                                                 <?php // CEK ROLE USER Untuk DELETE
                                                 $roleRequie = [1, 2];
                                                 if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                                                    <a class="nav-link hover-danger cat-delete" data-placement="top" title="Hapus Subkegiatan" data-toggle="modal" data-target="#modal-hapus-<?= $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>"><i class="ti-trash"></i></a>
+                                                    <a class="nav-link hover-danger cat-delete" onclick="$('#btnDelete1').attr('href','<?= base_url('Admin/Monitoring/Kegiatan/hapusSubKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>')" data-placement="top" title="Hapus Subkegiatan" data-toggle="modal" data-target="#modal-hapus"><i class="ti-trash"></i></a>
                                                 <?php } ?>
                                             </nav>
                                         </td>
@@ -180,7 +182,7 @@
 
 
             <!-- modal  kegiatan-->
-            <div class="modal fade modal-center" id="modal-hapus-kegiatan-<?= $item['id_kegiatan'] ?>" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-kegiatan-label" aria-hidden="true">
+            <div class="modal fade modal-center" id="modal-hapus-kegiatan" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-kegiatan-label" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -192,7 +194,7 @@
                         <div class="modal-body">Apakah Anda yakin untuk menghapus sub-kegiatan ini?</div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Tidak</button>
-                            <a href="<?= base_url('Admin/Monitoring/Kegiatan/hapusKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" class="btn btn-danger">Ya</a>
+                            <a id="btnDelete" href="" class="btn btn-danger">Ya</a>
                         </div>
                     </div>
                 </div>
@@ -202,7 +204,7 @@
             <?php
             if (count($list_sub_kegiatan)) {
                 foreach ($list_sub_kegiatan[$indeks] as $key => $item) { ?>
-                    <div class="modal fade modal-center" id="modal-hapus-<?= $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-label" aria-hidden="true">
+                    <div class="modal fade modal-center" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus-label" aria-hidden="true">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -214,7 +216,7 @@
                                 <div class="modal-body">Apakah Anda yakin untuk menghapus sub-kegiatan ini?</div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Tidak</button>
-                                    <a href="<?= base_url('Admin/Monitoring/Kegiatan/hapusSubKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" class="btn btn-danger">Ya</a>
+                                    <a id="btnDelete1" href="" class="btn btn-danger">Ya</a>
                                 </div>
                             </div>
                         </div>

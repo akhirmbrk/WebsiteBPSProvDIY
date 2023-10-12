@@ -18,7 +18,7 @@ class Adminbidang extends CI_Controller
 		}
 		$this->load->library('form_validation');
 		$this->load->model('All_m');
-		$defadata = $this->All_m->top_bar();
+		// $defadata = $this->All_m->top_bar();
 		// if ($defadata['admin_zoom'] != 1) {
 		// 	redirect('zoom/zoomorder/index/', 'refresh');
 		// }
