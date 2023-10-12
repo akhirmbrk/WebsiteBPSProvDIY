@@ -5,7 +5,7 @@
             <div class="card">
 
                 <h4 id="parent" class=" card-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-<?= $item['id_kegiatan'] ?>">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-1-<?= $item['id_kegiatan']; ?>">
                         <strong>
                             <?= $item["judul_kegiatan"]; ?>
                         </strong>
@@ -75,7 +75,7 @@
                     <?php } ?>
                     <!-- End Tambah SOP -->
 
-                    <table class="table table-separated p-3">
+                    <table class="table table-separated table-hover p-3">
                         <thead>
                             <tr>
                                 <th style="width: 80px;">No</th>

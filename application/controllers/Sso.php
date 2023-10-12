@@ -55,10 +55,10 @@ class Sso extends CI_Controller
 		// $_SESSION['user_role'] = array();
 
 		// Coba Role SUper Admin
-		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340054255";
-		// $_SESSION['kodeKabKota'] = "00";
+		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340054255";
+		$_SESSION['kodeKabKota'] = "00";
 
 		// COBA ROLE Admin Monitor, zoom, bidang
 		// $_SESSION['nama'] = "Rahmawati, SE, MA";
@@ -67,14 +67,14 @@ class Sso extends CI_Controller
 		// $_SESSION['kodeKabKota'] = "00";
 
 		// // COBA ROLE User KabKota
-		$_SESSION['nama'] = "Muhammad Afnan Falieh, Otw. Str.Stat";
-		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340024494";
-		$_SESSION['kodeKabKota'] = "71"; // DIY
-		$_SESSION['kodeKabKota'] = "01"; // 
-		$_SESSION['kodeKabKota'] = "02"; //
-		$_SESSION['kodeKabKota'] = "03"; //
-		$_SESSION['kodeKabKota'] = "04"; //
+		// $_SESSION['nama'] = "Muhammad Afnan Falieh";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340024494";
+		// $_SESSION['kodeKabKota'] = "71"; // DIY
+		// $_SESSION['kodeKabKota'] = "01"; // 
+		// $_SESSION['kodeKabKota'] = "02"; //
+		// $_SESSION['kodeKabKota'] = "03"; //
+		// $_SESSION['kodeKabKota'] = "04"; //
 
 
 
