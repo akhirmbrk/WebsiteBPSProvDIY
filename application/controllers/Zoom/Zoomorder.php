@@ -19,9 +19,9 @@ class Zoomorder extends CI_Controller
 			redirect('sso/index', 'refresh');
 		}
 		$this->load->library('form_validation');
-		$this->load->model('All_m');
-		$defadata['defadata'] = $this->All_m->top_bar();
-		$this->load->vars($defadata);
+		// $this->load->model('All_m');
+		// $defadata['defadata'] = $this->All_m->top_bar();
+		// $this->load->vars($defadata);
 		date_default_timezone_set("Asia/Jakarta");
 	}
 

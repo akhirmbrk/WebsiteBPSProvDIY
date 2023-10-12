@@ -61,17 +61,17 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item <?php if ($tab === '4') {
-                                                            echo 'active';
-                                                        } else {
-                                                            echo '';
-                                                        }  ?>">
+                                <!-- <li class="menu-item <?php if ($tab === '4') {
+                                                                echo 'active';
+                                                            } else {
+                                                                echo '';
+                                                            }  ?>">
                                     <a class="menu-link" style="color: whitesmoke;" href="<?= base_url('Monitoring/TimKerja');
                                                                                             ?>">
                                         <span class="icon fa fa-users"></span>
                                         <span class="title">Tim Kerja</span>
                                     </a>
-                                </li>
+                                </li> -->
 
 
                             </ul>

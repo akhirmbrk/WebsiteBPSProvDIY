@@ -73,10 +73,10 @@ class Sso extends CI_Controller
 		// $_SESSION['kodeKabKota'] = "00";
 
 		// // COBA ROLE User KabKota
-		// $_SESSION['nama'] = "User Kab/Kota";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340024494";
-		// $_SESSION['kodeKabKota'] = "71"; // DIY
+		$_SESSION['nama'] = "User Kab/Kota";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340024494";
+		$_SESSION['kodeKabKota'] = "71"; // DIY
 		// $_SESSION['kodeKabKota'] = "01"; // Kulon Progo
 		// $_SESSION['kodeKabKota'] = "02"; // Bantul
 		// $_SESSION['kodeKabKota'] = "03"; // Gunungkidul

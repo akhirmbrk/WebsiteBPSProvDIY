@@ -394,7 +394,7 @@ class All_m extends CI_Model
 	{
 		$data = array();
 
-		$P = $this->db->query("SELECT * FROM userapp WHERE nip = " . $_SESSION['nip']);
+		$P = $this->db->query("SELECT * FROM pegawai WHERE nip_lama = " . $_SESSION['nip']);
 		$res_admin = $P->row_array();
 		return $res_admin;
 	}
