@@ -16,6 +16,7 @@
                     <span class="title">Dashboard Admin</span>
                 </a>
             </li>
+
             <!-- END Dashboard Admin  -->
 
             <!-- ADMIN ZOOM -->
@@ -137,7 +138,7 @@
             <?php // CEK ROLE USER
             $roleRequie = [1, 2];
             if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
-                <li class="menu-item <?php if (isset($tabKegiatanAdmin) || isset($tabTimAdmin)  || isset($tabTim)) {
+                <li class="menu-item <?php if (isset($tabKegiatanAdmin)) {
                                             echo 'open active';
                                         } ?>">
                     <a class="menu-link" href="#" style="color: #465161;">
@@ -157,15 +158,6 @@
 
                         </li>
 
-                        <li class="menu-item <?php if (isset($tabTimAdmin)) {
-                                                    echo 'active';
-                                                } ?>">
-                            <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/TimKerja/index'); ?>">
-                                <span class="icon fa fa-users" style="color: #465161;"></span>
-                                <span class="title" style="color: #465161;">Tim Kerja</span>
-                            </a>
-
-                        </li>
                     </ul>
                 </li>
             <?php } ?>
@@ -206,6 +198,15 @@
 
                         </li>
                     </ul>
+                </li>
+                <li class="menu-item <?php if (isset($tabTimAdmin)) {
+                                            echo 'active';
+                                        } ?>">
+                    <a class="menu-link" href="<?php echo base_url('Admin/Monitoring/TimKerja/index'); ?>">
+                        <span class="icon fa fa-users" style="color: #465161;"></span>
+                        <span class="title" style="color: #465161;">Tim Kerja</span>
+                    </a>
+
                 </li>
             <?php } ?>
 
