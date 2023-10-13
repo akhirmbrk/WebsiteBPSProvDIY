@@ -219,7 +219,7 @@ class Zoomorder extends CI_Controller
 
 
 
-	public function lookzoom($idm)
+	public function lookzoom($idm, $tipe)
 	{
 		$data = array();
 
@@ -230,7 +230,14 @@ class Zoomorder extends CI_Controller
 		$data['content'] = 'Deskripsi Rapat';
 
 		$data['idm'] = $idm;
-		$data['lookzoom'] = $this->All_m->lookzoom($idm);
+
+		$admin = 0; //Sebagai Admin
+		// if(){
+		// 	$tipe = 1; // Rapat offline
+		// }else{
+		// 	$tipe = 0; // Rapat online
+		// }
+		$data['lookzoom'] = $this->All_m->lookzoom($idm, $admin, $tipe);
 
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);

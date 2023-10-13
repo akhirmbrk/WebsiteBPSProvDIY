@@ -35,6 +35,8 @@ class All_m extends CI_Model
 		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2");
 
 		$jedah_res = $jedah->row_array();
+		var_dump($jedah_res);
+		die;
 
 		$keterangan = $this->input->post("keterangan");
 		// var_dump($keterangan);
@@ -44,7 +46,7 @@ class All_m extends CI_Model
 
 		if ($keterangan == 1) {
 			$ruangan = $this->input->post("ruangan");
-			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE ruangan = " . $ruangan)->row_array();
+			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2 AND WHERE ruangan = " . $ruangan)->row_array();
 			// var_dump($cekRuangan->row_array());
 			if ($cekRuangan['jumlah'] > 1) {
 				$hasil['point'] = 'blockOFF';
@@ -337,7 +339,8 @@ class All_m extends CI_Model
 		$data = array();
 		$Q = $this->db->query("SELECT * FROM meetingreq WHERE tgl_start > CURRENT_DATE() AND status <> 2");
 		$i = 0;
-
+		// var_dump($Q->result_array());
+		// die;
 		if ($Q->num_rows() > 0) {
 			foreach ($Q->result_array() as $row) {
 				$data[] = $row;
@@ -363,13 +366,20 @@ class All_m extends CI_Model
 
 
 				$dataxx[$i]['title'] = $data[$i]['perihal'];
+
+				if ($data[$i]['keterangan'] == 0) {
+					$dataxx[$i]['keterangan'] = "Online";
+				} elseif ($data[$i]['keterangan'] == 1) {
+					$dataxx[$i]['keterangan'] = "Offline";
+				}
+
 				$dataxx[$i]['start'] = $thn_dh_1 . '-' . $bln_dh_1 . '-' . $tgl_dh_1 . 'T' . $timed;
 				$dataxx[$i]['end'] = $thn_dh_2 . '-' . $bln_dh_2 . '-' . $tgl_dh_2 . 'T' . $timed2;
 
 				$dataxx[$i]['className'] = $statuse;
 
 				if ($data[$i]['oleh'] == $_SESSION['nip']) {
-					$dataxx[$i]['url'] = base_url('zoom/zoomorder/lookzoom/' . $data[$i]['idm']);
+					$dataxx[$i]['url'] = base_url('zoom/zoomorder/lookzoom/' . $data[$i]['idm'] . '/' . $data[$i]['keterangan']);
 				} else {
 					$dataxx[$i]['url'] = "#";
 				}
@@ -380,6 +390,7 @@ class All_m extends CI_Model
 				$i++;
 			}
 		}
+
 		$Q->free_result();
 		return $dataxx;
 	}
@@ -504,11 +515,30 @@ class All_m extends CI_Model
 	}
 
 
-	public function lookzoom($idm)
+	public function lookzoom($idm, $admin, $tipe)
 	{
 		$data = array();
-		// $Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
-		$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
+		if ($admin == 1) {
+			// jika Admin
+			if ($tipe == 1) {
+				// Offline
+				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.idm = " . $idm);
+			} elseif ($tipe == 0) {
+				// Online
+				$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE A.idm = " . $idm);
+			}
+		} else {
+			// jika user biasa
+			if ($tipe == 1) {
+				// Offline
+				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
+			} elseif ($tipe == 0) {
+				// Online
+				$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE  A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
+			}
+		}
+
+
 		if ($Q->num_rows() > 0) {
 			$data = $Q->row_array();
 

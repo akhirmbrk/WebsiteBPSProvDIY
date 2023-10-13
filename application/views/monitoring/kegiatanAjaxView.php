@@ -14,13 +14,14 @@
                     <!-- Progress Kegiatan Utama -->
                     <?php
                     if (count($list_sub_kegiatan[$indeks])) {
-
                         $progres[$indeks] = 0;
                         foreach ($list_sub_kegiatan[$indeks] as $key => $value) {
                             $persenSub[$key] = 0;
-                            // var_dump($list_sub_kegiatan[$indeks]);
-                            foreach ($kodeKabKota as $kode) {
-                                $persenSub[$key] += $value['progres_' . $kode['kode']];
+                            foreach ($kodeKabKota as $i => $kode) {
+                                // var_dump($progres_kegiatan[$i][0]);
+                                // $persenSub[$key] += $value['progres_' . $kode['kode']];
+                                $progresKabKota[$i] = $progres_kegiatan[$indeks][$key][$i]['persen_progres'];
+                                $persenSub[$key] += $progresKabKota[$i];
                             }
                             $total[$indeks] = count($list_sub_kegiatan[$indeks]);
                             $progresSub[$key] = number_format($persenSub[$key] / 5, 1);
@@ -32,6 +33,7 @@
                     }
 
                     ?>
+
                     <!-- END Progress Kegiatan Utama -->
 
                     <div class="progress">
@@ -60,14 +62,15 @@
                             <tr>
                                 <th style="width: 80px;">No</th>
                                 <th>Nama Kegiatan</th>
-                                <th style="width: 200px;">progres</th>
-                                <th style="width: 200px;">status</th>
+                                <th style="width: 600px;">progres</th>
+                                <!-- <th style="width: 200px;">status</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             if (count($list_sub_kegiatan)) {
-                                foreach ($list_sub_kegiatan[$indeks] as $key => $item) {  ?>
+                                foreach ($list_sub_kegiatan[$indeks] as $key => $item) { ?>
+
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
                                         <td>
@@ -80,7 +83,7 @@
                                                 <div id="collapse-2-<?= $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" class="collapse">
                                                     <table>
                                                         <?php
-                                                        foreach ($kodeKabKota as $value) { ?>
+                                                        foreach ($kodeKabKota as $i => $value) { ?>
                                                             <tr>
                                                                 <td>
                                                                     <?php if ($_SESSION['kodeKabKota'] == '00') { ?>
@@ -99,16 +102,23 @@
                                                                 </td>
                                                                 <td style="width: 200px;" colspan="3">
                                                                     <div class="progress">
-                                                                        <div class="progress-bar <?php if ($item['progres_' . $value['kode']] <= 25) {
+                                                                        <div class="progress-bar <?php if ($progres_kegiatan[$indeks][$key][$i]['persen_progres'] <= 25) {
                                                                                                         echo "bg-danger";
-                                                                                                    } elseif ($item['progres_' . $value['kode']] <= 50) {
+                                                                                                    } elseif ($progres_kegiatan[$indeks][$key][$i]['persen_progres'] <= 50) {
                                                                                                         echo "bg-warning";
-                                                                                                    } elseif ($item['progres_' . $value['kode']] <= 75) {
+                                                                                                    } elseif ($progres_kegiatan[$indeks][$key][$i]['persen_progres'] <= 75) {
                                                                                                         echo "bg-info";
                                                                                                     } else {
                                                                                                         echo "bg-success";
-                                                                                                    } ?>" role="progressbar" style="width:<?= $item['progres_' . $value['kode']] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $item['progres_' . $value['kode']] ?>%</div>
+                                                                                                    } ?>" role="progressbar" style="width:<?= $progres_kegiatan[$indeks][$key][$i]['persen_progres'] ?>%; height: 16px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $progres_kegiatan[$indeks][$key][$i]['persen_progres'] ?>%</div>
                                                                     </div>
+                                                                </td>
+                                                                <td>
+                                                                    <?php if ($progres_kegiatan[$indeks][$key][$i]['last_time_update'] != null) { ?>
+                                                                        <small><i>update terakhir
+                                                                                <?= date('d-m-Y', strtotime($progres_kegiatan[$indeks][$key][$i]['last_time_update'])) ?>
+                                                                            </i></small>
+                                                                    <?php } else echo '<small><i>Belum diupdate</i></small>'; ?>
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>
@@ -132,13 +142,7 @@
 
 
                                         </td>
-                                        <td>
-                                            <?php if ($list_sub_kegiatan[$indeks][$key]['time_update'] != null) { ?>
-                                                <small><i>update terakhir
-                                                        <?= date('d-m-Y', strtotime($list_sub_kegiatan[$indeks][$key]['time_update'])) ?>
-                                                    </i></small>
-                                            <?php } else echo '<small><i>Belum diupdate</i></small>'; ?>
-                                        </td>
+
                                         <!-- <td>
                                                     <nav class="nav gap-2 fs-16">
                                                         <a class="nav-link hover-primary cat-edit" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] ?>" data-provide="tooltip" title="" data-perform="edit" data-target="modal-cat-edit.html" data-original-title="Edit"><i class="ti-eye"></i></a>

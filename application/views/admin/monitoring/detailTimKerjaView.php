@@ -30,7 +30,8 @@
 
  			<div class="col-md-8 col-xl-12">
  				<?php
-					// var_dump($member[0]);
+					// var_dump($member);
+					// die;
 					if (count($member)) {
 						foreach ($member as $indeks => $item) {  ?>
  						<div class="card shadow-1">

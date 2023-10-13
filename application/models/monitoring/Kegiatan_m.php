@@ -37,7 +37,7 @@ class Kegiatan_m extends CI_Model
         $jedah_res = $jedah->row_array();
 
 
-        if ($unix_now > $unix_tgl_start || $unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
+        if ($unix_now > $unix_tgl_end || $unix_tgl_start > $unix_tgl_end) {
             $hasil['point'] = 'lewat';
             $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1  . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
         }
@@ -46,6 +46,7 @@ class Kegiatan_m extends CI_Model
         //     $hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2;
         // }
         else {
+            // Tambah ke tabel kegiatan 
             $data = array(
                 'judul_kegiatan' => $this->input->post("judulKegiatan"),
                 'tgl_start' => $tgl_start,
@@ -56,18 +57,12 @@ class Kegiatan_m extends CI_Model
                 'progres_3' => 0,
                 'progres_4' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
-                // 'id_tim_kerja' => '2',
-                'deskripsi_kegiatan' => " ",
                 'id_parent' => 0,
                 'KodeBPS' => '3400'
             );
             // var_dump($data);
             $this->db->insert('kegiatan', $data);
-            // $data1 = array(
-            //     'id_team' => $this->input->post("timKerja"),
-            //     'id_kegiatan' => 
-            // );
-            // $this->db->insert('kegiatan_tim_kerja', $data1);
+
             $hasil['point'] = 'sukses';
         }
 
@@ -127,8 +122,6 @@ class Kegiatan_m extends CI_Model
                 'progres_3' => 0,
                 'progres_4' => 0,
                 'id_tim_kerja' => $this->input->post("timKerja"),
-                // 'id_tim_kerja' => '2',
-                'deskripsi_kegiatan' => " ",
                 'id_parent' => $idParent,
                 'KodeBPS' => '3400'
             );
@@ -329,6 +322,16 @@ class Kegiatan_m extends CI_Model
         $query =  $this->db->where('id_parent !=', 0);
 
         return $query->get()->result_array();
+    }
+
+    public function get_id_kegiatan($parent, $namaKegiatan)
+    {
+        $query =  $this->db->select('id_kegiatan');
+        $query =  $this->db->from('kegiatan');
+        $query =  $this->db->where('id_parent', $parent);
+        $query =  $this->db->where('judul_kegiatan', $namaKegiatan);
+
+        return $query->get()->row_array();
     }
 
     public function show_kegiatan($id)

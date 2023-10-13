@@ -63,19 +63,6 @@
 										</a>
 									</li>
 
-									<!-- <li class="menu-item <?php if ($tab === '4') {
-																	echo 'active';
-																} else {
-																	echo '';
-																}  ?>">
-                                    <a class="menu-link" style="color: whitesmoke;" href="<?= base_url('Monitoring/TimKerja');
-																							?>">
-                                        <span class="icon fa fa-users"></span>
-                                        <span class="title">Tim Kerja</span>
-                                    </a>
-                                </li> -->
-
-
 								</ul>
 							</nav>
 						<?php } elseif ($tipe == 2) { ?>
@@ -150,9 +137,6 @@
 								<div class="dropdown-menu dropdown-menu-right">
 									<!-- <a class="dropdown-item" href="<?= base_url('Monitoring/Index/profil') ?>"><i class="ti-user"></i> Profile</a> -->
 									<!-- <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
-
-
-
 									<?php if ($tipe != 'Landing') { ?>
 										<a class="dropdown-item" href="<?= base_url('landingpage') ?>"><i class="ti-back-left"></i>
 											Landing Page</a>

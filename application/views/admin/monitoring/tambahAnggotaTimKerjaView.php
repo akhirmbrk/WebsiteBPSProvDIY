@@ -31,7 +31,13 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   	<div class="main-content">
 
   		<div class="container">
-  			<form class="row" action="<?= base_url('') ?>Admin/Monitoring/TimKerja/addTimUser" method="post" enctype="multipart/form-data">
+  			<?php if (count($anggota)) {
+					$edit = 1;
+					echo "EDIT";
+				} else {
+					$edit = 0;
+				} ?>
+  			<form class="row" action="<?= base_url('') ?>Admin/Monitoring/TimKerja/addTimUser/<?= $edit ?>" method="post" enctype="multipart/form-data">
 
 
   				<div class="col-md-7 col-xl-8">
@@ -40,7 +46,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
   						<div class="card-body">
   							<label class="">Nama Tim</label>
-  							<label name="labelTimKerja" class="form-control"><?= $namaTim ?></label>
+  							<label name="labelTimKerja" class="form-control"><?= $tim['nama_team'] ?></label>
   							<input type="hidden" id="timKerja" name="timKerja" value="<?= $idTim ?>" required>
 
 
@@ -50,7 +56,20 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   							<hr>
   							<div><small>Yang pertama merupakan ketua tim</small></div>
   							<label class="require">Anggota</label>
-  							<input autocomplete="off" class="form-control" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
+  							<?php
+								// var_dump($anggota);
+								$value = [];
+								if (count($anggota)) {
+									foreach ($anggota as $i => $member) {
+										// echo $member['id_user'] . "-" . $member['nama_peg'] . "<br>";
+										$value[$i] = str_replace(',', ' ', $member['nama_peg']);
+									}
+									// var_dump($value);
+									// die;
+								} ?>
+  							<input autocomplete="off" class="form-control" value="<?php foreach ($value as $value) {
+																						echo $value . ",";
+																					} ?>" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
   							<input type="hidden" id="anggota" name="anggota" required>
 
   							<script>

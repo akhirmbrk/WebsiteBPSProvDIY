@@ -133,9 +133,13 @@ class TimKerja extends CI_Controller
         $data['tipe'] = "1";
         $data['title'] = "Tambah Tim Kerja BPS";
         $data['idTim'] = $idTim;
-        $tim = $this->tim_kerja_m->show_tim_kerja($idTim);
-        $data['namaTim'] = $tim['nama_team'];
-        $data['periodeTim'] = $this->Periode_m->show_periode($tim['id_zperiode']);
+        // $tim = $this->tim_kerja_m->show_tim_kerja($idTim);
+        $data['tim'] = $this->tim_kerja_m->show_tim_kerja($idTim);
+        $data['periodeTim'] = $this->Periode_m->show_periode($data['tim']['id_zperiode']);
+
+        $data['anggota'] = $this->Z_anggotateam_m->list_anggota_team($idTim, $data['tim']['id_zperiode']);
+
+
 
 
         $filter['tim_kerja'] = $this->tim_kerja_m->list_filter_teamkerja($periode = 0);
@@ -151,7 +155,7 @@ class TimKerja extends CI_Controller
         $this->load->view('template/footer_tambah_anggota');
     }
 
-    public function addTimUser()
+    public function addTimUser($edit)
     {
         // CEK ROLE USER
         $role = [1];
@@ -183,7 +187,9 @@ class TimKerja extends CI_Controller
         $idTim = $this->input->post("timKerja");
         $idPeriode = $this->input->post("periode");
 
-
+        if ($edit == 1) {
+            $this->Z_anggotateam_m->hapus_tim_kerja($idTim);
+        }
         foreach ($coba as $indeks => $item) {
             if ($indeks == 0) {
                 $ketua = $item['id_pegawai'];

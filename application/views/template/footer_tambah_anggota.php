@@ -51,7 +51,7 @@
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace(['id_pegawai', 'nip_lama', 'nama_peg']),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-                url: '<?= base_url('Monitoring/TimKerja/allUserProv') ?>',
+                url: '<?= base_url('Admin/Monitoring/TimKerja/allUserProv') ?>',
                 filter: function(list) {
                     return $.map(list, function(user) {
                         return {

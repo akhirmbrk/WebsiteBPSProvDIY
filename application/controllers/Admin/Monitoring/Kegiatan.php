@@ -9,6 +9,7 @@ class Kegiatan extends CI_Controller
     public $form_validation;
     public $All_m;
     public $Kegiatan_m;
+    public $Progres_Kegiatan_m;
     public $BPS_m;
     public $tim_kerja_m;
     public $Periode_m;
@@ -20,6 +21,7 @@ class Kegiatan extends CI_Controller
         parent::__construct();
         $this->load->model('All_m');
         $this->load->model('monitoring/Kegiatan_m');
+        $this->load->model('monitoring/Progres_Kegiatan_m');
         $this->load->model('monitoring/tim_kerja_m');
         $this->load->model('monitoring/BPS_m');
         $this->load->model('monitoring/Periode_m');
@@ -76,15 +78,33 @@ class Kegiatan extends CI_Controller
 
 
         $data['kodeKabKota'] = $this->BPS_m->list_bps();
-
         $data['list_kegiatan'] = $this->Kegiatan_m->get_kegiatan_live($config['per_page'], $data['start'], $search, $count = false);
 
 
+        // foreach ($data['list_kegiatan'] as $key => $item) {
+        //     $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($item['id_kegiatan']);
+        //     // var_dump($data['list_sub_kegiatan'][$key][0]['id_kegiatan']);
+        //     $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+
+        // }
         foreach ($data['list_kegiatan'] as $key => $item) {
             $data['list_sub_kegiatan'][$key] = $this->Kegiatan_m->get_sub_kegiatan_live($item['id_kegiatan']);
             $data['tim'][$key] = $this->tim_kerja_m->show_tim_kerja($item['id_tim_kerja']);
+            $data['progres_kegiatan'][$key] = [];
+
+            foreach ($data['list_sub_kegiatan'][$key] as $i => $sub) {
+                $data['progres_kegiatan'][$key][$i] = [];
+
+                foreach ($data['kodeKabKota'] as $j => $value) {
+                    $progres = $this->Progres_Kegiatan_m->show_progres_tiap_kegiatan($sub['id_kegiatan'], $value['kode']);
+                    $data['progres_kegiatan'][$key][$i][$j] = $progres;
+                }
+            }
         }
 
+
+        // var_dump($data['progres_kegiatan']);
+        // die;
 
         $this->load->vars($data);
 
@@ -99,8 +119,12 @@ class Kegiatan extends CI_Controller
         $data['title'] = "Kegiatan Monitoring BPS";
 
         $data['kodeKabKota'] = $kodeKabKota;
-        $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
-        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
+        // $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+        $data['progres_kegiatan'] = $this->Progres_Kegiatan_m->show_progres_tiap_kegiatan($id, $kodeKabKota);
+
+
+
+        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['progres_kegiatan']['id_tim_kerja']);
 
         $this->load->vars($data);
 
@@ -113,7 +137,7 @@ class Kegiatan extends CI_Controller
     public function editKegiatan($id, $kodeKabKota)
     {
         // CEK ROLE USER
-        $role = [1, 6];
+        $role = [1, 2];
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Edit Kegiatan</div>');
@@ -127,8 +151,10 @@ class Kegiatan extends CI_Controller
         $data['title'] = "Kegiatan Monitoring BPS";
 
         $data['kodeKabKota'] = $kodeKabKota;
-        $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
-        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['detail_kegiatan']['id_tim_kerja']);
+        // $data['detail_kegiatan'] = $this->Kegiatan_m->detail_kegiatan($id);
+        $data['progres_kegiatan'] = $this->Progres_Kegiatan_m->show_progres_tiap_kegiatan($id, $kodeKabKota);
+
+        $data['tim_kerja'] = $this->tim_kerja_m->show_tim_kerja($data['progres_kegiatan']['id_tim_kerja']);
 
         $this->load->vars($data);
 
@@ -211,10 +237,10 @@ class Kegiatan extends CI_Controller
     }
 
 
-    public function updateKegiatan($id, $kodeKabKota)
+    public function updateKegiatan($idk, $kodeKabKota)
     {
         // CEK ROLE USER
-        $role = [1, 6];
+        $role = [1, 2];
         $akses = $this->All_m->cek_akses_user($_SESSION['nip'], $role);
         if ($akses < 1) {
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses ke Update Kegiatan</div>');
@@ -225,7 +251,20 @@ class Kegiatan extends CI_Controller
         $data = array();
 
 
-        $hasil = $this->Kegiatan_m->update_kegiatan($id, $kodeKabKota);
+        // $hasil = $this->Kegiatan_m->update_kegiatan($idk, $kodeKabKota);
+        $progres = $this->Progres_Kegiatan_m->show_progres_tiap_kegiatan($idk, $kodeKabKota);
+        // var_dump($progres);
+        // die;
+
+        if (count($progres)) {
+            $idp = $progres['id_pkegiatan'];
+        } else {
+            $idp = 0;
+        }
+        // var_dump($idp);
+        // die;
+
+        $hasil = $this->Progres_Kegiatan_m->update_progres($idp, $idk, $kodeKabKota);
 
 
         if ($hasil['point'] == 'sukses') {
@@ -364,7 +403,20 @@ class Kegiatan extends CI_Controller
 
         $this->form_validation->set_message('required', '%s mohon diisi terlebih dahulu');
 
+        $kabKota = $this->BPS_m->list_bps();
         $hasil = $this->Kegiatan_m->add_sub_kegiatan();
+
+        // Mencari id subkegiatan yang baru ditambahkan
+        $parent = $this->input->post("id_parent_kegiatan");
+        $nama = $this->input->post("judulKegiatan");
+        $idSub = $this->Kegiatan_m->get_id_kegiatan($parent, $nama)['id_kegiatan'];
+        // var_dump($idSub);
+        // die;
+
+        foreach ($kabKota as $item) {
+            $hasil = $this->Progres_Kegiatan_m->update_progres(0, $idSub, $item['kode']);
+        }
+
         // var_dump($data);
 
         if ($hasil['point'] == 'sukses') {

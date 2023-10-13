@@ -9,10 +9,14 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		date_default_timezone_set("Asia/Jakarta");
+		if (isset($_SESSION['nama'])) {
+			redirect('Landingpage');
+		}
 	}
 
 	public function index()
 	{
+
 		$data['title'] = 'Login';
 		$data['tipe'] = '';
 		$this->load->view('template/header', $data);

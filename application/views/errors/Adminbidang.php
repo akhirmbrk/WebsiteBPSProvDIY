@@ -68,7 +68,10 @@ class Adminbidang extends CI_Controller
 		$data['myorder'] = "1";
 
 		$data['idm'] = $idm;
-		$data['lookzoom'] = $this->All_m->lookzoom($idm);
+
+		$admin = 1; //Sebagai Admin
+		$tipe = 0; // Rapat online
+		$data['lookzoom'] = $this->All_m->lookzoom($idm, $admin, $tipe);
 
 		$this->load->vars($data);
 		$this->load->view('part/header');

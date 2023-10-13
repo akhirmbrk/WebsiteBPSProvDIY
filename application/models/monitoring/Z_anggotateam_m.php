@@ -38,7 +38,8 @@ class Z_anggotateam_m extends CI_Model
         $Q = $this->db->where('z_team.id_zperiode', $periode);
         $Q = $this->db->get();
 
-        // var_dump($Q);
+        // var_dump($Q->row_array());
+        // die;
 
         if ($Q->num_rows() > 0) {
             foreach ($Q->result_array() as $row) {
@@ -72,11 +73,9 @@ class Z_anggotateam_m extends CI_Model
         return $this->db->get_where('z_anggotateam', array('ketua_tim' => 1))->num_rows();
     }
 
-    public function hapus_tim_kerja($team, $bps, $periode)
+    public function hapus_tim_kerja($team)
     {
         $this->db->where('id_team', $team);
-        $this->db->where('kodeBPS', $bps);
-        $this->db->where('Id_Periode', $periode);
         $this->db->delete('z_anggotateam');
     }
 }

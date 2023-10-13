@@ -54,7 +54,13 @@
                                                         <span class="badge badge-success"> Disetujui</span>
                                                     </td>
                                                     <td style="text-align: center;">
-                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?php echo base_url('zoom/zoomorder/lookzoom/' . $list['idm']); ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail Rapat Daring"><i class="fa fa-eye"></i></a>
+                                                        <?php
+                                                        if ($list['keterangan'] == 0) {
+                                                            $detail = base_url('zoom/zoomorder/lookzoom/' . $list['idm'] . '/0');
+                                                        } elseif ($list['keterangan'] == 1) {
+                                                            $detail = base_url('zoom/zoomorder/lookzoom/' . $list['idm'] . '/1');
+                                                        } ?>
+                                                        <a name="d_edit_bagi_pegawai" class="nav-link hover-info cat-info" href="<?= $detail ?>" data-provide="tooltip" data-placement="top" title="Lihat Detail Rapat Daring"><i class="fa fa-eye"></i></a>
                                                     </td>
 
 
