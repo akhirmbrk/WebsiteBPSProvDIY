@@ -52,6 +52,29 @@ $this->load->view('template/topnav');
 						<?php } ?>
 					</div>
 				</div>
+				<div class="row d-flex flex-row align-items-center">
+					<div class="col-md-6 col-sm-20">
+						<div class="slider-card">
+							<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url() ?>Zoom/zoomorder">
+								<img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-20">
+						<?php
+						// CEK ROLE USER
+						$roleRequie = [1, 2, 3, 4];
+						if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0 || $_SESSION['kodeKabKota'] == '00') { ?>
+							<div class="slider-card">
+								<a class="d-flex justify-content-center align-center mb-4" href="">
+									<img class="rapatImg" src="<?= base_url('') ?>/assets/img/dinasLogo.png" alt="" />
+								</a>
+							</div>
+						<?php } else { ?>
+							<img class="rapatImg" src="<?= base_url('') ?>/assets/img/dinasLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
+						<?php } ?>
+					</div>
+				</div>
 				<div class="row d-flex justify-content-center align-items-center">
 					<?php
 					// CEK ROLE USER
@@ -65,15 +88,15 @@ $this->load->view('template/topnav');
 							<?php
 							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0 || $_SESSION['kodeKabKota'] == '00') { ?>
 								<div class="slider-card">
-									<a class="d-flex justify-content-center align-center mb-4" href="<?= base_url('Zoom/zoomorder') ?>">
-										<img class="rapatImg" src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" />
+									<a class="d-flex justify-content-center align-center mb-4" href="https://srikandi.arsip.go.id/">
+										<img class="suratImg" src="<?= base_url('') ?>/assets/img/mailLogo.png" alt="" />
 									</a>
 								</div>
 							<?php } else { ?>
-								<img src="<?= base_url('') ?>/assets/img/rapatLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
+								<img src="<?= base_url('') ?>/assets/img/mailLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
 							<?php } ?>
 							</div>
-							<?php
+							<?php 
 							// CEK ROLE USER
 							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 								<div class="col-md-6 col-sm-12">
