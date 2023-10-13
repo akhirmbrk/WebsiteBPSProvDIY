@@ -19,6 +19,7 @@
 
                             <?php
                             // var_dump($lookzoom);
+                            // die;
                             if ($lookzoom['idm'] != 0) { ?>
 
 
