@@ -40,9 +40,9 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
   			<form class="row" action="<?= base_url('') ?>Admin/Monitoring/TimKerja/addTimUser/<?= $edit ?>" method="post" enctype="multipart/form-data">
 
 
-  			<div class="col-md-8 col-xl-12">
-  				<div class="card shadow-1">
-  					<h4 class="card-title"><strong>Detail Tim Kerja</strong></h4>
+  				<div class="col-md-8 col-xl-12">
+  					<div class="card shadow-1">
+  						<h4 class="card-title"><strong>Detail Tim Kerja</strong></h4>
 
   						<div class="card-body">
   							<label class="">Nama Tim</label>
@@ -72,32 +72,32 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 																					} ?>" onchange="myFunction()" type="text" id="sample-typeahead" name="sample-typeahead" required>
   							<input type="hidden" id="anggota" name="anggota" required>
 
-  						<script>
-  							// Array dengan delimiter koma
-  							function myFunction() {
+  							<script>
+  								// Array dengan delimiter koma
+  								function myFunction() {
 
-  								//   var arrayDenganKoma = document.getElementById('sample-typeahead').value;
+  									//   var arrayDenganKoma = document.getElementById('sample-typeahead').value;
 
-  								//   // Mengganti delimiter dari koma ke semikolon
-  								//   var arrayDenganSemicolon = arrayDenganKoma;
+  									//   // Mengganti delimiter dari koma ke semikolon
+  									//   var arrayDenganSemicolon = arrayDenganKoma;
 
-  								//   document.getElementById('anggota').value = arrayDenganSemicolon;
-  								//   console.log(arrayDenganSemicolon);
-  								//   console.log(document.getElementById('anggota'))
-  								console.log($('#sample-typeahead').val())
-  							}
-  						</script>
-
-
-  						<footer class="card-footer text-right">
-  							<a class="btn btn-secondary mr-2" href="<?= base_url("Admin/Monitoring/TimKerja/detailTimKerja/") . $idTim . "/" . $periodeTim['id_zperiode'] ?>">Cancel</a>
-  							<button class="btn btn-primary" type="submit">Submit</button>
-  						</footer>
+  									//   document.getElementById('anggota').value = arrayDenganSemicolon;
+  									//   console.log(arrayDenganSemicolon);
+  									//   console.log(document.getElementById('anggota'))
+  									console.log($('#sample-typeahead').val())
+  								}
+  							</script>
 
 
+  							<footer class="card-footer text-right">
+  								<a class="btn btn-secondary mr-2" href="<?= base_url("Admin/Monitoring/TimKerja/detailTimKerja/") . $idTim . "/" . $periodeTim['id_zperiode'] ?>">Cancel</a>
+  								<button class="btn btn-primary" type="submit">Submit</button>
+  							</footer>
+
+
+  						</div>
   					</div>
-  				</div>
 
-  		</form>
-  		<!-- </div> -->
-  	</div>
+  			</form>
+  			<!-- </div> -->
+  		</div>
