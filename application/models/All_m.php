@@ -9,7 +9,7 @@ class All_m extends CI_Model
 	}
 
 
-	public function addorder()
+	public function addorder($keterangan)
 	{
 
 		$tgl_dh_1 = substr($this->input->post("tgl_start"), 3, 2);
@@ -35,10 +35,9 @@ class All_m extends CI_Model
 		$jedah = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2");
 
 		$jedah_res = $jedah->row_array();
-		var_dump($jedah_res);
-		die;
+		// var_dump($jedah_res);
+		// die;
 
-		$keterangan = $this->input->post("keterangan");
 		// var_dump($keterangan);
 		// die;
 
@@ -46,12 +45,21 @@ class All_m extends CI_Model
 
 		if ($keterangan == 1) {
 			$ruangan = $this->input->post("ruangan");
-			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2 AND WHERE ruangan = " . $ruangan)->row_array();
+			$cekRuangan = $this->db->query("SELECT COUNT(*) AS jumlah FROM ( SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_end . " BETWEEN UNIX_TIMESTAMP(tgl_start) AND UNIX_TIMESTAMP(tgl_end) UNION SELECT * FROM meetingreq WHERE " . $unix_tgl_start . " < UNIX_TIMESTAMP(tgl_start) AND " . $unix_tgl_end . " > UNIX_TIMESTAMP(tgl_end) ) ee WHERE status <> 2 AND ruangan = " . $ruangan)->row_array();
 			// var_dump($cekRuangan->row_array());
-			if ($cekRuangan['jumlah'] > 1) {
+			if ($cekRuangan['jumlah'] > 0) {
 				$hasil['point'] = 'blockOFF';
 				$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
 				return $hasil;
+			}
+			$selectedPerlengkapan = $this->input->post('perlengkapan');
+			$listPerlengkapan = [];
+			if ($selectedPerlengkapan != null  && is_array($selectedPerlengkapan)) {
+				foreach ($selectedPerlengkapan as $i => $perlengkapanID) {
+					// var_dump($perlengkapanID);
+					// echo "<hr>";
+					$listPerlengkapan[$i] = $perlengkapanID;
+				}
 			}
 			// die;
 		}
@@ -76,6 +84,21 @@ class All_m extends CI_Model
 				'ruangan' => $ruangan
 			);
 			$this->db->insert('meetingreq', $data);
+
+			if ($keterangan == 1) {
+				// tambahkan perlengkapan rapat
+				$id_rapat = $this->db->insert_id();
+				foreach ($listPerlengkapan as $item) {
+					# code...
+					$data1 = array(
+						'id_rapat' => $id_rapat,
+						'id_perlengkapan' => $item
+					);
+					$this->db->insert('perlengkapan_meetingreq', $data1);
+				}
+			}
+
+
 			$hasil['point'] = 'sukses';
 		}
 
@@ -122,6 +145,15 @@ class All_m extends CI_Model
 				$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
 				return $hasil;
 			}
+			$selectedPerlengkapan = $this->input->post('perlengkapan');
+			$listPerlengkapan = [];
+			if ($selectedPerlengkapan != null  && is_array($selectedPerlengkapan)) {
+				foreach ($selectedPerlengkapan as $i => $perlengkapanID) {
+					// var_dump($perlengkapanID);
+					// echo "<hr>";
+					$listPerlengkapan[$i] = $perlengkapanID;
+				}
+			}
 			// die;
 		}
 
@@ -147,6 +179,19 @@ class All_m extends CI_Model
 			);
 			$this->db->where('idm', $idm);
 			$this->db->update('meetingreq', $data);
+
+			// tambahkan perlengkapan rapat
+			if ($keterangan == 1) {
+				$this->db->where('id_rapat', $idm);
+				$this->db->delete('perlengkapan_meetingreq');
+				foreach ($listPerlengkapan as $item) {
+					$data1 = array(
+						'id_rapat' => $idm,
+						'id_perlengkapan' => $item
+					);
+					$this->db->insert('perlengkapan_meetingreq', $data1);
+				}
+			}
 
 			$hasil['point'] = 'sukses';
 		}
@@ -193,11 +238,21 @@ class All_m extends CI_Model
 			$reply = NULL;
 
 			// var_dump($cekRuangan->row_array());
-			if ($cekRuangan['jumlah'] > 1) {
+			if ($cekRuangan['jumlah'] > 0) {
 				$hasil['point'] = 'blockOFF';
 				$hasil['tanggal'] = $tgl_dh_1 . "-" . $bln_dh_1 . "-" . $thn_dh_1 . " Pukul " . $this->input->post("time_start") . " s.d " . $tgl_dh_2 . "-" . $bln_dh_2 . "-" . $thn_dh_2 . " Pukul " . $this->input->post("time_end");
 				return $hasil;
 			}
+			$selectedPerlengkapan = $this->input->post('perlengkapan');
+			$listPerlengkapan = [];
+			if ($selectedPerlengkapan != null  && is_array($selectedPerlengkapan)) {
+				foreach ($selectedPerlengkapan as $i => $perlengkapanID) {
+					// var_dump($perlengkapanID);
+					// echo "<hr>";
+					$listPerlengkapan[$i] = $perlengkapanID;
+				}
+			}
+			// die;
 		}
 		// die;
 
@@ -226,6 +281,19 @@ class All_m extends CI_Model
 
 			);
 			$this->db->insert('meetingreq', $data);
+
+			if ($keterangan == 1) {
+				// tambahkan perlengkapan rapat
+				$id_rapat = $this->db->insert_id();
+				foreach ($listPerlengkapan as $item) {
+					# code...
+					$data1 = array(
+						'id_rapat' => $id_rapat,
+						'id_perlengkapan' => $item
+					);
+					$this->db->insert('perlengkapan_meetingreq', $data1);
+				}
+			}
 			$hasil['point'] = 'sukses';
 		}
 
@@ -423,7 +491,7 @@ class All_m extends CI_Model
 		if ($keterangan == 0) {
 			$ket = 0;
 			$Q = $this->db->query("SELECT * FROM meetingreq WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
-		} else {
+		} elseif ($keterangan == 1) {
 			$ket = 1;
 			$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan=B.id_ruangan WHERE status = " . $status . " AND keterangan =" . $ket . " ORDER BY idm DESC");
 		}
@@ -522,7 +590,7 @@ class All_m extends CI_Model
 			// jika Admin
 			if ($tipe == 1) {
 				// Offline
-				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.idm = " . $idm);
+				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan  WHERE A.idm = " . $idm);
 			} elseif ($tipe == 0) {
 				// Online
 				$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE A.idm = " . $idm);
@@ -531,7 +599,7 @@ class All_m extends CI_Model
 			// jika user biasa
 			if ($tipe == 1) {
 				// Offline
-				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
+				$Q = $this->db->query("SELECT A.*, B.nama_ruangan FROM meetingreq A JOIN ruangan B ON A.ruangan = B.id_ruangan  WHERE A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
 			} elseif ($tipe == 0) {
 				// Online
 				$Q = $this->db->query("SELECT A.* FROM meetingreq A WHERE  A.oleh = " . $_SESSION['nip'] . " AND A.idm = " . $idm);
@@ -904,6 +972,40 @@ class All_m extends CI_Model
 			$Q = $this->db->where('id_role >=', 5);
 			$Q = $this->db->get();
 		}
+
+		if ($Q->num_rows() > 0) {
+			foreach ($Q->result_array() as $row) {
+				$data[] = $row;
+			}
+		}
+		$Q->free_result();
+		return $data;
+	}
+
+	public function list_perlengkapan_rapat()
+	{
+		$data = array();
+		$Q = $this->db->select('*');
+		$Q = $this->db->from('perlengkapan_rapat');
+		$Q = $this->db->get();
+
+		if ($Q->num_rows() > 0) {
+			foreach ($Q->result_array() as $row) {
+				$data[] = $row;
+			}
+		}
+		$Q->free_result();
+		return $data;
+	}
+
+	public function show_perlengkapan_tiap_rapat($id_rapat)
+	{
+		$data = array();
+		$Q = $this->db->select('*');
+		$Q = $this->db->from('perlengkapan_meetingreq A');
+		$Q = $this->db->join('perlengkapan_rapat B', 'A.id_perlengkapan = B.id_perlengkapan');
+		$Q = $this->db->where('id_rapat', $id_rapat);
+		$Q = $this->db->get();
 
 		if ($Q->num_rows() > 0) {
 			foreach ($Q->result_array() as $row) {

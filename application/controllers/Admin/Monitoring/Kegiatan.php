@@ -147,7 +147,6 @@ class Kegiatan extends CI_Controller
 
         $data['tab'] = "3";
         $data['tipe'] = "1";
-        $data['progress'] = 70;
         $data['title'] = "Kegiatan Monitoring BPS";
 
         $data['kodeKabKota'] = $kodeKabKota;
@@ -306,6 +305,8 @@ class Kegiatan extends CI_Controller
         //-------------------
 
         $this->Kegiatan_m->hapus_subkegiatan($id);
+        $this->Progres_Kegiatan_m->hapus_progres($id);
+
         $this->session->set_flashdata('info_form', '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Berhasil Hapus Kegiatan</div> ');
         redirect('Admin/monitoring/kegiatan', 'refresh');
     }

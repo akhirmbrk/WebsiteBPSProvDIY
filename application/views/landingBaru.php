@@ -96,7 +96,7 @@ $this->load->view('template/topnav');
 								<img src="<?= base_url('') ?>/assets/img/mailLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
 							<?php } ?>
 							</div>
-							<?php 
+							<?php
 							// CEK ROLE USER
 							if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 								<div class="col-md-6 col-sm-12">

@@ -85,6 +85,19 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="form-group col-lg-12 col-md-4">
+                                        <label class="require">Perlengkapan</label>
+                                        <?php foreach ($perlengkapan as $item) { ?>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="perlengkapan[]" value="<?= $item['id_perlengkapan'] ?>" id="perlengkapan<?= $item['id_perlengkapan'] ?>">
+                                                <label class="form-check-label" for="perlengkapan<?= $item['id_perlengkapan'] ?>">
+                                                    <?= $item['nama_perlengkapan'] ?>
+                                                </label>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
                         </div>
 
                         <hr>

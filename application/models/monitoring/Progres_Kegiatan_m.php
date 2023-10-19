@@ -83,6 +83,11 @@ class Progres_Kegiatan_m extends CI_Model
 
         return $hasil;
     }
+    public function hapus_progres($id)
+    {
+        $this->db->where('id_kegiatan', $id);
+        $this->db->delete('progres_kegiatan');
+    }
 
     // public function add_progres($bps, $kegiatan)
     // {

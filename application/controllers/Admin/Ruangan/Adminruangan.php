@@ -84,6 +84,7 @@ class Adminruangan extends CI_Controller
 		$admin = 1; //Sebagai Admin
 		$tipe = 1; // Rapat online
 		$data['lookzoom'] = $this->All_m->lookzoom($idm, $admin, $tipe);
+		$data['perlengkapan'] = $this->All_m->show_perlengkapan_tiap_rapat($idm);
 
 		$this->load->vars($data);
 		$this->load->view('template/header');
@@ -109,8 +110,6 @@ class Adminruangan extends CI_Controller
 		$this->load->view('admin/ruangan/adminruangan_batal');
 		$this->load->view('template/footer_zoomindex');
 	}
-
-
 
 	public function replyzoom($idm)
 	{
@@ -153,7 +152,7 @@ class Adminruangan extends CI_Controller
 
 
 			$data['ruangan'] = $this->All_m->list_ruangan();
-
+			$data['perlengkapan'] = $this->All_m->list_perlengkapan_rapat();
 
 			$tgl = date('Y-m-d', strtotime(' +1 day'));
 

@@ -19,7 +19,7 @@ text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 
 
 		<div class="header-action">
 			<?php // CEK ROLE USER
-			$roleRequie = [1, 6];
+			$roleRequie = [1, 2];
 			if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0) { ?>
 				<div class="buttons">
 					<a class="btn btn-primary btn-float" href="<?= base_url('monitoring/kegiatan/editKegiatan/') . $progres_kegiatan['id_kegiatan'] . "/" . $kodeKabKota ?>" title="Update Progres Kegiatan" data-provide="tooltip"><i class="ti-pencil"></i></a>

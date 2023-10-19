@@ -96,7 +96,7 @@
 
 			<!-- Form Edit Role User -->
 			<div class="col-lg-5">
-				<form action="<?= base_url('') ?>Admin/Monitoring/User/editRole/2" method="post" class="card shadow-1">
+				<form action="<?= base_url('') ?>Admin/User/editRole/2" method="post" class="card shadow-1">
 					<h5 class="card-title"><strong>Edit Role User</strong></h5>
 
 					<div class="card-body">

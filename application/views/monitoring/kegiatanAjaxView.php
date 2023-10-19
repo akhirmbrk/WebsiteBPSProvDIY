@@ -86,13 +86,14 @@
                                                         foreach ($kodeKabKota as $i => $value) { ?>
                                                             <tr>
                                                                 <td>
-                                                                    <?php if ($_SESSION['kodeKabKota'] == '00') { ?>
-                                                                        <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
+                                                                    <?php
+                                                                    if ($_SESSION['kodeKabKota'] == '00') { ?>
+                                                                        <a class="" href="<?= base_url('Monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
                                                                             <?= $value['namaBPS'] ?>
                                                                         </a>
                                                                         <?php } else {
                                                                         if ($_SESSION['kodeKabKota'] == $value['kode']) { ?>
-                                                                            <a class="" href="<?= base_url('monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
+                                                                            <a class="" href="<?= base_url('Monitoring/Kegiatan/detailKegiatan/') . $list_sub_kegiatan[$indeks][$key]['id_kegiatan'] . "/" . $value['kode'] ?>">
                                                                                 <?= $value['namaBPS'] ?>
                                                                             </a>
                                                                         <?php } else { ?>

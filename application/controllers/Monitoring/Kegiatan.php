@@ -112,6 +112,8 @@ class Kegiatan extends CI_Controller
             $this->session->set_flashdata('info_form', ' <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Anda Tidak Memiliki Akses</div>');
             redirect('Monitoring/Kegiatan', 'refresh');
         }
+
+
         $data['tab'] = "3";
         $data['tipe'] = "1";
         $data['title'] = "Kegiatan Monitoring BPS";

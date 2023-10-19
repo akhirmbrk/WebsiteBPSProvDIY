@@ -99,6 +99,7 @@ class Zoomorder extends CI_Controller
 			$data['content'] = 'Permintaan Rapat';
 
 			$data['ruangan'] = $this->All_m->list_ruangan();
+			$data['perlengkapan'] = $this->All_m->list_perlengkapan_rapat();
 
 
 			$tgl = date('Y-m-d', strtotime(' +0 day'));
@@ -115,8 +116,16 @@ class Zoomorder extends CI_Controller
 			$this->load->view('zoom/order');
 			$this->load->view('template/footer');
 		} else {
+			$keterangan = $this->input->post("keterangan");
 
-			$hasil = $this->All_m->addorder();
+			if ($keterangan == 2) {
+				$hasil = $this->All_m->addorder($keterangan = 0);
+				$hasil = $this->All_m->addorder($keterangan = 1);
+			} else {
+				$hasil = $this->All_m->addorder($keterangan);
+			}
+			// $hasil = $this->All_m->addorder($keterangan);
+
 
 
 			if ($hasil['point'] == 'sukses') {
@@ -186,6 +195,9 @@ class Zoomorder extends CI_Controller
 			$data['idm'] = $idm;
 			$data['editzoom'] = $this->All_m->editzoom($idm);
 
+			$data['perlengkapan'] = $this->All_m->list_perlengkapan_rapat();
+			$data['perleng_rapat'] = $this->All_m->show_perlengkapan_tiap_rapat($idm);
+
 			$data['ruangan'] = $this->All_m->list_ruangan();
 
 
@@ -238,6 +250,8 @@ class Zoomorder extends CI_Controller
 		// 	$tipe = 0; // Rapat online
 		// }
 		$data['lookzoom'] = $this->All_m->lookzoom($idm, $admin, $tipe);
+		// $data['perlengkapan'] = $this->All_m->list_perlengkapan_rapat();
+		$data['perlengkapan'] = $this->All_m->show_perlengkapan_tiap_rapat($idm);
 
 		$this->load->vars($data);
 		$this->load->view('template/header', $data);

@@ -97,40 +97,36 @@
                                         </div>
                                     </div>
 
-                                    <?php
-                                    $ruangan = $lookzoom['ruangan'];
 
-                                    if ($ruangan == 1) {
-                                        $value = "RUANG BIMA";
-                                    } elseif ($ruangan == 2) {
-                                        $value = "RUANG PST";
-                                    } elseif ($ruangan == 3) {
-                                        $value = "RUANG ARJUNA";
-                                    } elseif ($ruangan == 4) {
-                                        $value = "RUANG KABID IPDS";
-                                    } elseif ($ruangan == 5) {
-                                        $value = "RUANG KABID NWAS";
-                                    } elseif ($ruangan == 6) {
-                                        $value = "RUANG KABID SOSIAL";
-                                    } elseif ($ruangan == 7) {
-                                        $value = "RUANG KABID PRODUKSI";
-                                    } elseif ($ruangan == 8) {
-                                        $value = "RUANG KABID DISTRIBUSI";
-                                    } ?>
 
                                     <?php if ($lookzoom['keterangan'] == 1) { ?>
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label>Ruangan </label>
-                                                <input type="text" class="form-control" name="ruangan" value="<?= $value ?>" readonly>
+                                                <input type="text" class="form-control" name="ruangan" value="<?= $lookzoom['nama_ruangan'] ?>" readonly>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label>Perlengkapan</label>
+                                                <?php if (count($perlengkapan)) {
+                                                    foreach ($perlengkapan as $item) { ?>
+                                                        <div class="form-check">
+                                                            <input disabled class="form-check-input" type="checkbox" name="perlengkapan[]" value="<?= $item['id_perlengkapan'] ?>" id="perlengkapan<?= $item['id_perlengkapan'] ?>" checked>
+                                                            <label class="form-check-label" for="perlengkapan<?= $item['id_perlengkapan'] ?>">
+                                                                <?= $item['nama_perlengkapan'] ?>
+                                                            </label>
+                                                        </div>
+                                                    <?php }
+                                                } else { ?>
+                                                    <div class="form-check">
+                                                        <label>
+                                                            Tidak Ada
+                                                        </label>
+                                                    </div>
+                                                <?php } ?>
                                             </div>
                                         </div>
+
                                     <?php } ?>
-
-
-
-
-
                                     <hr>
 
 
@@ -142,7 +138,6 @@
 
 
                                     <div class="row">
-
                                         <?php if ($lookzoom['status'] == 1 && $lookzoom['keterangan'] == 0) { ?>
                                             <div class="form-group col-md-12">
                                                 <label>Deskripsi Link Zoom </label>
@@ -160,8 +155,8 @@
                                                 <HR />
                                             </div>
 
-
                                         <?php } ?>
+
                                     </div>
 
                                 </div>

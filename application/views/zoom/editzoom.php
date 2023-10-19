@@ -115,6 +115,29 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-12 col-md-4">
+                                            <label>Perlengkapan</label>
+                                            <?php if (count($perlengkapan)) {
+                                                foreach ($perlengkapan as $item) {
+                                                    $checked = ''; // Inisialisasi variabel checked
+                                                    foreach ($perleng_rapat as $value) {
+                                                        if ($value['id_perlengkapan'] == $item['id_perlengkapan']) {
+                                                            $checked = 'checked'; // Jika ada cocok, tandai sebagai checked
+                                                            break; // Keluar dari loop saat sudah ada yang cocok
+                                                        }
+                                                    }
+                                            ?>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="perlengkapan[]" value="<?= $item['id_perlengkapan'] ?>" id="perlengkapan<?= $item['id_perlengkapan'] ?>" <?= $checked ?>>
+                                                        <label class="form-check-label" for="perlengkapan<?= $item['id_perlengkapan'] ?>">
+                                                            <?= $item['nama_perlengkapan'] ?>
+                                                        </label>
+                                                    </div>
+                                            <?php
+                                                }
+                                            } ?>
+                                        </div>
+
                                     </div>
 
 

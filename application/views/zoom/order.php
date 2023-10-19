@@ -121,36 +121,15 @@
 								</div>
 								<div class="form-group col-lg-12 col-md-4">
 									<label class="require">Perlengkapan</label>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Konsumsi
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Sound System
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Layar Proyektor
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Proyektor
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Kamera
-										</label>
-									</div>
+									<?php foreach ($perlengkapan as $item) { ?>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" name="perlengkapan[]" value="<?= $item['id_perlengkapan'] ?>" id="perlengkapan<?= $item['id_perlengkapan'] ?>">
+											<label class="form-check-label" for="perlengkapan<?= $item['id_perlengkapan'] ?>">
+												<?= $item['nama_perlengkapan'] ?>
+											</label>
+										</div>
+									<?php } ?>
+
 								</div>
 							</div>
 					</div>
