@@ -65,13 +65,15 @@ $this->load->view('template/topnav');
 						// CEK ROLE USER
 						$roleRequie = [1, 2, 3, 4];
 						if (count(array_intersect($roleRequie, $_SESSION['user_role'])) > 0 || $_SESSION['kodeKabKota'] == '00') { ?>
-							<div class="slider-card">
+							<!-- <div class="slider-card">
 								<a class="d-flex justify-content-center align-center mb-4" href="">
 									<img class="rapatImg" src="<?= base_url('') ?>/assets/img/dinasLogo.png" alt="" />
 								</a>
-							</div>
+							</div> -->
+							<img class="rapatImg" src="<?= base_url('') ?>/assets/img/dinasLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
 						<?php } else { ?>
 							<img class="rapatImg" src="<?= base_url('') ?>/assets/img/dinasLogo.png" alt="" style="filter: grayscale(70%) brightness(70%);" />
+
 						<?php } ?>
 					</div>
 				</div>

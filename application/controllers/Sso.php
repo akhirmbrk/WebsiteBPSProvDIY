@@ -55,16 +55,16 @@ class Sso extends CI_Controller
 		// $_SESSION['user_role'] = array();
 
 		// Coba Role SUper Admin
-		// $_SESSION['nama'] = "Isdiyanto SST, M.T.";
-		// $_SESSION['getprop'] = "34";
-		// $_SESSION['nip'] = "340054255";
-		// $_SESSION['kodeKabKota'] = "00";
+		$_SESSION['nama'] = "Isdiyanto SST, M.T.";
+		$_SESSION['getprop'] = "34";
+		$_SESSION['nip'] = "340054255";
+		$_SESSION['kodeKabKota'] = "00";
 
 		// COBA ROLE Admin Monitor, zoom, bidang
-		$_SESSION['nama'] = "Rahmawati, SE, MA";
-		$_SESSION['getprop'] = "34";
-		$_SESSION['nip'] = "340013059";
-		$_SESSION['kodeKabKota'] = "00";
+		// $_SESSION['nama'] = "Rahmawati, SE, MA";
+		// $_SESSION['getprop'] = "34";
+		// $_SESSION['nip'] = "340013059";
+		// $_SESSION['kodeKabKota'] = "00";
 
 		// Coba Role Provinsi
 		// $_SESSION['nama'] = "Helida Nurcahayani, SST, M.Si";
