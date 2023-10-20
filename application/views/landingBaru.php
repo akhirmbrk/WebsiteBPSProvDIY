@@ -24,7 +24,7 @@ $this->load->view('template/topnav');
 		<div class="container mx-auto text-center">
 
 
-			<span class="fs-50 fw-900">MENU UTAMA</span>
+			<span class="fs-50 fw-900" style="font-family: 'Bree Serif', serif;">MENU UTAMA</span>
 			<br>
 			<br>
 

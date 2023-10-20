@@ -28,7 +28,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="<?= base_url(''); ?>assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?= base_url(''); ?>assets/img/bg/logo_bps.png">
+    <link rel="icon" href="<?= base_url(''); ?>assets/img/logojoglo.png">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/landing.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/global.css" />
 

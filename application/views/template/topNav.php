@@ -28,8 +28,8 @@
 								<a class="menu-link" style="color:whitesmoke;" href="<?= base_url('Manajemenfile/Manajemenfile/') ?>"><img width="40px" src="<?= base_url('');
 																																								?>/assets/img/bg/logo_bps.png" alt="...">Manajemen File BPS</a>
 							<?php } else { ?>
-								<a class="menu-link" style="text-decoration:none" href="<?= base_url('Landingpage') ?>"><img width="40px" src="<?= base_url('');
-																																				?>/assets/img/bg/logo_bps.png" alt="...">Integrasi BPS</a>
+								<a class="menu-link" style="text-decoration:none" href="<?= base_url('Landingpage') ?>"><img width="75px" src="<?= base_url('');
+																																				?>/assets/img/logojoglo.png" alt="...">Integrasi BPS</a>
 							<?php } ?>
 						</div>
 
