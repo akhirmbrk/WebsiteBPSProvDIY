@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Okt 2023 pada 03.28
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 5.6.38
+-- Generation Time: Oct 20, 2023 at 08:28 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bps`
+-- Table structure for table `bps`
 --
 
 CREATE TABLE `bps` (
@@ -34,7 +34,7 @@ CREATE TABLE `bps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `bps`
+-- Dumping data for table `bps`
 --
 
 INSERT INTO `bps` (`kode`, `namaBPS`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `bps` (`kode`, `namaBPS`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kegiatan`
+-- Table structure for table `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
@@ -66,7 +66,7 @@ CREATE TABLE `kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kegiatan`
+-- Dumping data for table `kegiatan`
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`, `progres_71`, `progres_1`, `progres_2`, `progres_3`, `progres_4`, `id_tim_kerja`, `id_parent`, `KodeBPS`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `kegiatan` (`id_kegiatan`, `judul_kegiatan`, `tgl_start`, `tgl_end`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `manajemenfile`
+-- Table structure for table `manajemenfile`
 --
 
 CREATE TABLE `manajemenfile` (
@@ -97,7 +97,7 @@ CREATE TABLE `manajemenfile` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `meetingreq`
+-- Table structure for table `meetingreq`
 --
 
 CREATE TABLE `meetingreq` (
@@ -120,7 +120,7 @@ CREATE TABLE `meetingreq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `meetingreq`
+-- Dumping data for table `meetingreq`
 --
 
 INSERT INTO `meetingreq` (`idm`, `perihal`, `tgl_start`, `tgl_end`, `status`, `tgl_pengajuan`, `oleh`, `reply`, `notulen`, `namapengusul`, `tgl_approve`, `jumlah_peserta`, `nip_approve`, `nama_approve`, `keterangan`, `ruangan`) VALUES
@@ -148,7 +148,7 @@ INSERT INTO `meetingreq` (`idm`, `perihal`, `tgl_start`, `tgl_end`, `status`, `t
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `m_jabatan`
+-- Table structure for table `m_jabatan`
 --
 
 CREATE TABLE `m_jabatan` (
@@ -162,7 +162,7 @@ CREATE TABLE `m_jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `m_jabatan`
+-- Dumping data for table `m_jabatan`
 --
 
 INSERT INTO `m_jabatan` (`id_m_jabatan`, `nama_jabatan`, `id_eselon_jabatan`, `id_satker_jabatan`, `id_jabatan_atasan`, `fungsional_jabatan`, `nama_fungsional`) VALUES
@@ -285,7 +285,7 @@ INSERT INTO `m_jabatan` (`id_m_jabatan`, `nama_jabatan`, `id_eselon_jabatan`, `i
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -307,7 +307,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama_peg`, `nip`, `nip_lama`, `pangkat`, `gol`, `level_user`, `usenama`, `paswod`, `status_peg`, `id_m_jabatan`, `id_m_jab_satu`, `id_m_jab_dua`, `id_m_jab_tiga`, `linkkuesioner`) VALUES
@@ -437,7 +437,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nama_peg`, `nip`, `nip_lama`, `pangkat`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai_kabkota`
+-- Table structure for table `pegawai_kabkota`
 --
 
 CREATE TABLE `pegawai_kabkota` (
@@ -448,7 +448,7 @@ CREATE TABLE `pegawai_kabkota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai_kabkota`
+-- Dumping data for table `pegawai_kabkota`
 --
 
 INSERT INTO `pegawai_kabkota` (`id_pegawai_kabkota`, `nama_pegawai_kabkota`, `nip_lama_pegawai_kabkota`, `kodeKabKota`) VALUES
@@ -498,7 +498,7 @@ INSERT INTO `pegawai_kabkota` (`id_pegawai_kabkota`, `nama_pegawai_kabkota`, `ni
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perlengkapan_meetingreq`
+-- Table structure for table `perlengkapan_meetingreq`
 --
 
 CREATE TABLE `perlengkapan_meetingreq` (
@@ -508,7 +508,7 @@ CREATE TABLE `perlengkapan_meetingreq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `perlengkapan_meetingreq`
+-- Dumping data for table `perlengkapan_meetingreq`
 --
 
 INSERT INTO `perlengkapan_meetingreq` (`id`, `id_rapat`, `id_perlengkapan`) VALUES
@@ -526,7 +526,7 @@ INSERT INTO `perlengkapan_meetingreq` (`id`, `id_rapat`, `id_perlengkapan`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perlengkapan_rapat`
+-- Table structure for table `perlengkapan_rapat`
 --
 
 CREATE TABLE `perlengkapan_rapat` (
@@ -535,7 +535,7 @@ CREATE TABLE `perlengkapan_rapat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `perlengkapan_rapat`
+-- Dumping data for table `perlengkapan_rapat`
 --
 
 INSERT INTO `perlengkapan_rapat` (`id_perlengkapan`, `nama_perlengkapan`) VALUES
@@ -548,7 +548,7 @@ INSERT INTO `perlengkapan_rapat` (`id_perlengkapan`, `nama_perlengkapan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `progres_kegiatan`
+-- Table structure for table `progres_kegiatan`
 --
 
 CREATE TABLE `progres_kegiatan` (
@@ -562,7 +562,7 @@ CREATE TABLE `progres_kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `progres_kegiatan`
+-- Dumping data for table `progres_kegiatan`
 --
 
 INSERT INTO `progres_kegiatan` (`id_pkegiatan`, `id_bps`, `id_kegiatan`, `persen_progres`, `deskripsi_progres`, `last_user_update`, `last_time_update`) VALUES
@@ -576,10 +576,10 @@ INSERT INTO `progres_kegiatan` (`id_pkegiatan`, `id_bps`, `id_kegiatan`, `persen
 (17, 3, 74, 0, '', NULL, NULL),
 (18, 4, 74, 0, '', NULL, NULL),
 (19, 71, 74, 0, '', NULL, NULL),
-(20, 1, 76, 0, '', NULL, NULL),
+(20, 1, 76, 78, '                                    -PROGRES									', 'Isdiyanto SST, M.T.', '2023-10-20 11:31:00'),
 (21, 2, 76, 100, 'SUkses', 'Isdiyanto SST, M.T.', '2023-10-13 15:30:00'),
 (22, 3, 76, 37, '                                    <p>good yaa</p><p><br></p>									', 'Rahmawati, SE, MA', '2023-10-14 14:43:00'),
-(23, 4, 76, 0, '', NULL, NULL),
+(23, 4, 76, 39, '                                    									', 'Rahmawati, SE, MA', '2023-10-19 15:45:00'),
 (24, 71, 76, 0, '', NULL, NULL),
 (25, 1, 77, 0, '', NULL, NULL),
 (26, 2, 77, 0, '', NULL, NULL),
@@ -590,7 +590,7 @@ INSERT INTO `progres_kegiatan` (`id_pkegiatan`, `id_bps`, `id_kegiatan`, `persen
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rapatteam`
+-- Table structure for table `rapatteam`
 --
 
 CREATE TABLE `rapatteam` (
@@ -606,7 +606,7 @@ CREATE TABLE `rapatteam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `rapatteam`
+-- Dumping data for table `rapatteam`
 --
 
 INSERT INTO `rapatteam` (`idr`, `id_zteam`, `nip_pengusul`, `nama_pengusul`, `mulai_rapat`, `akhir_rapat`, `jml_peserta`, `topik`, `notulen`) VALUES
@@ -623,7 +623,7 @@ INSERT INTO `rapatteam` (`idr`, `id_zteam`, `nip_pengusul`, `nama_pengusul`, `mu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ruangan`
+-- Table structure for table `ruangan`
 --
 
 CREATE TABLE `ruangan` (
@@ -632,7 +632,7 @@ CREATE TABLE `ruangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ruangan`
+-- Dumping data for table `ruangan`
 --
 
 INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`) VALUES
@@ -648,7 +648,7 @@ INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tim_kerja`
+-- Table structure for table `tim_kerja`
 --
 
 CREATE TABLE `tim_kerja` (
@@ -657,7 +657,7 @@ CREATE TABLE `tim_kerja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tim_kerja`
+-- Dumping data for table `tim_kerja`
 --
 
 INSERT INTO `tim_kerja` (`id_team`, `nama_tim_kerja`) VALUES
@@ -681,7 +681,7 @@ INSERT INTO `tim_kerja` (`id_team`, `nama_tim_kerja`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `userapp`
+-- Table structure for table `userapp`
 --
 
 CREATE TABLE `userapp` (
@@ -699,7 +699,7 @@ CREATE TABLE `userapp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `userapp`
+-- Dumping data for table `userapp`
 --
 
 INSERT INTO `userapp` (`ida`, `nip`, `namaU`, `super_admin`, `admin_zoom`, `admin_pst`, `admin_tim_kerja_prov`, `admin_tim_kerja_kabkota`, `kepala_prov`, `kepala_kabkota`, `ketua_tim_kerja_prov`) VALUES
@@ -794,7 +794,7 @@ INSERT INTO `userapp` (`ida`, `nip`, `namaU`, `super_admin`, `admin_zoom`, `admi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access`
+-- Table structure for table `user_access`
 --
 
 CREATE TABLE `user_access` (
@@ -804,7 +804,7 @@ CREATE TABLE `user_access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_access`
+-- Dumping data for table `user_access`
 --
 
 INSERT INTO `user_access` (`id`, `nip_pegawai`, `id_role`) VALUES
@@ -819,7 +819,7 @@ INSERT INTO `user_access` (`id`, `nip_pegawai`, `id_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -828,7 +828,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id_role`, `nama_role`) VALUES
@@ -842,7 +842,7 @@ INSERT INTO `user_role` (`id_role`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `z_anggotateam`
+-- Table structure for table `z_anggotateam`
 --
 
 CREATE TABLE `z_anggotateam` (
@@ -852,51 +852,305 @@ CREATE TABLE `z_anggotateam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `z_anggotateam`
+-- Dumping data for table `z_anggotateam`
 --
 
 INSERT INTO `z_anggotateam` (`id_zanggt`, `id_team`, `id_user`) VALUES
-(4, 3, 23),
-(5, 3, 24),
-(6, 3, 25),
-(11, 11, 11),
-(12, 11, 12),
-(13, 11, 13),
-(14, 11, 14),
-(15, 5, 19),
-(16, 5, 20),
-(17, 5, 21),
-(19, 2, 13),
-(20, 2, 12),
-(21, 2, 11),
-(22, 3, 13),
-(23, 3, 11),
-(24, 3, 12),
-(36, 7, 31),
-(37, 7, 12),
-(38, 7, 17),
-(43, 17, 51),
-(44, 17, 58),
-(45, 17, 52),
-(46, 17, 60),
-(47, 18, 51),
-(48, 18, 56),
-(49, 18, 93),
-(57, 15, 67),
-(58, 15, 45),
-(59, 14, 10),
-(60, 14, 67),
-(61, 14, 45),
-(84, 16, 66),
-(85, 16, 67),
-(86, 16, 81),
-(87, 16, 69),
-(88, 16, 76);
+(89, 11, 72),
+(90, 11, 53),
+(91, 11, 2),
+(92, 11, 37),
+(93, 11, 96),
+(94, 11, 85),
+(95, 11, 49),
+(96, 11, 45),
+(97, 11, 38),
+(98, 11, 52),
+(99, 11, 69),
+(100, 11, 66),
+(101, 11, 57),
+(102, 11, 43),
+(103, 11, 82),
+(104, 11, 44),
+(105, 11, 76),
+(106, 11, 62),
+(107, 11, 107),
+(108, 11, 103),
+(109, 11, 12),
+(110, 11, 15),
+(111, 11, 99),
+(112, 11, 95),
+(113, 11, 86),
+(114, 11, 13),
+(115, 12, 12),
+(116, 12, 116),
+(117, 12, 93),
+(118, 12, 25),
+(119, 12, 91),
+(120, 12, 8),
+(121, 12, 115),
+(122, 12, 111),
+(123, 12, 29),
+(124, 12, 27),
+(125, 12, 31),
+(126, 12, 98),
+(127, 12, 99),
+(128, 13, 23),
+(129, 13, 118),
+(130, 13, 106),
+(131, 13, 53),
+(132, 13, 58),
+(133, 13, 3),
+(134, 13, 2),
+(135, 13, 37),
+(136, 13, 96),
+(137, 13, 83),
+(138, 13, 67),
+(139, 13, 100),
+(140, 13, 55),
+(141, 13, 9),
+(142, 13, 62),
+(143, 13, 93),
+(144, 13, 8),
+(145, 13, 103),
+(146, 13, 20),
+(147, 13, 14),
+(148, 13, 98),
+(149, 13, 88),
+(150, 13, 104),
+(151, 14, 53),
+(152, 14, 38),
+(153, 14, 92),
+(154, 14, 69),
+(155, 14, 81),
+(156, 14, 100),
+(157, 14, 57),
+(158, 14, 78),
+(159, 14, 84),
+(160, 14, 39),
+(161, 14, 9),
+(162, 14, 94),
+(163, 14, 74),
+(164, 14, 108),
+(165, 14, 44),
+(166, 14, 113),
+(167, 14, 114),
+(168, 14, 76),
+(169, 14, 112),
+(170, 14, 119),
+(171, 14, 107),
+(172, 14, 23),
+(173, 14, 15),
+(174, 14, 115),
+(175, 14, 27),
+(176, 14, 14),
+(177, 15, 38),
+(178, 15, 53),
+(179, 15, 58),
+(180, 15, 3),
+(181, 15, 2),
+(182, 15, 37),
+(183, 15, 96),
+(184, 15, 83),
+(185, 15, 61),
+(186, 15, 66),
+(187, 15, 51),
+(188, 15, 87),
+(189, 15, 84),
+(190, 15, 39),
+(191, 15, 113),
+(192, 15, 114),
+(193, 15, 112),
+(194, 15, 93),
+(195, 15, 103),
+(196, 15, 20),
+(197, 15, 12),
+(198, 15, 111),
+(199, 15, 31),
+(200, 15, 98),
+(201, 15, 104),
+(202, 1, 58),
+(203, 1, 102),
+(204, 1, 61),
+(205, 1, 32),
+(206, 1, 59),
+(207, 1, 101),
+(208, 1, 82),
+(209, 1, 105),
+(210, 1, 10),
+(211, 1, 62),
+(212, 1, 112),
+(213, 2, 58),
+(214, 2, 49),
+(215, 2, 102),
+(216, 2, 45),
+(217, 2, 61),
+(218, 2, 42),
+(219, 2, 59),
+(220, 2, 100),
+(221, 2, 57),
+(222, 2, 43),
+(223, 2, 84),
+(224, 2, 101),
+(225, 2, 82),
+(226, 2, 44),
+(227, 2, 105),
+(228, 2, 10),
+(229, 2, 62),
+(230, 2, 112),
+(231, 3, 3),
+(232, 3, 85),
+(233, 3, 38),
+(234, 3, 32),
+(235, 3, 100),
+(236, 3, 34),
+(237, 3, 39),
+(238, 3, 113),
+(239, 3, 107),
+(240, 3, 109),
+(241, 4, 53),
+(242, 4, 49),
+(243, 4, 52),
+(244, 4, 57),
+(245, 4, 51),
+(246, 4, 55),
+(247, 4, 87),
+(248, 4, 84),
+(249, 4, 108),
+(250, 4, 105),
+(251, 5, 37),
+(252, 5, 2),
+(253, 5, 85),
+(254, 5, 45),
+(255, 5, 92),
+(256, 5, 66),
+(257, 5, 42),
+(258, 5, 48),
+(259, 5, 78),
+(260, 5, 43),
+(261, 5, 94),
+(262, 5, 44),
+(263, 5, 119),
+(264, 16, 106),
+(265, 16, 53),
+(266, 16, 58),
+(267, 16, 3),
+(268, 16, 2),
+(269, 16, 37),
+(270, 16, 96),
+(271, 16, 38),
+(272, 16, 66),
+(273, 16, 72),
+(274, 16, 11),
+(275, 16, 12),
+(276, 6, 2),
+(277, 6, 53),
+(278, 6, 37),
+(279, 6, 45),
+(280, 6, 67),
+(281, 6, 92),
+(282, 6, 42),
+(283, 6, 59),
+(284, 6, 48),
+(285, 6, 78),
+(286, 6, 43),
+(287, 6, 39),
+(288, 6, 94),
+(289, 6, 108),
+(290, 6, 44),
+(291, 6, 105),
+(292, 6, 119),
+(304, 8, 96),
+(305, 8, 68),
+(306, 8, 9),
+(307, 8, 71),
+(308, 8, 74),
+(309, 8, 90),
+(310, 8, 114),
+(311, 8, 110),
+(312, 9, 96),
+(313, 9, 37),
+(314, 9, 2),
+(315, 9, 85),
+(316, 9, 38),
+(317, 9, 67),
+(318, 9, 32),
+(319, 9, 69),
+(320, 9, 59),
+(321, 9, 48),
+(322, 9, 81),
+(323, 9, 57),
+(324, 9, 78),
+(325, 9, 55),
+(326, 9, 87),
+(327, 9, 68),
+(328, 9, 9),
+(329, 9, 94),
+(330, 9, 101),
+(331, 9, 74),
+(332, 9, 105),
+(333, 9, 90),
+(334, 9, 114),
+(335, 9, 62),
+(336, 9, 112),
+(337, 9, 15),
+(338, 9, 104),
+(339, 9, 110),
+(340, 10, 11),
+(341, 10, 102),
+(342, 10, 52),
+(343, 10, 66),
+(344, 10, 48),
+(345, 10, 100),
+(346, 10, 51),
+(347, 10, 68),
+(348, 10, 39),
+(349, 10, 101),
+(350, 10, 44),
+(351, 10, 105),
+(352, 10, 90),
+(353, 10, 76),
+(354, 10, 116),
+(355, 10, 19),
+(356, 10, 18),
+(357, 10, 93),
+(358, 10, 21),
+(359, 10, 25),
+(360, 10, 91),
+(361, 10, 8),
+(362, 10, 72),
+(363, 10, 103),
+(364, 10, 23),
+(365, 10, 20),
+(366, 10, 12),
+(367, 10, 111),
+(368, 10, 29),
+(369, 10, 27),
+(370, 10, 14),
+(371, 10, 98),
+(372, 10, 88),
+(373, 10, 104),
+(374, 10, 110),
+(375, 10, 109),
+(376, 10, 24),
+(377, 10, 117),
+(378, 7, 66),
+(379, 7, 45),
+(380, 7, 67),
+(381, 7, 69),
+(382, 7, 81),
+(383, 7, 68),
+(384, 7, 71),
+(385, 7, 74),
+(386, 7, 90),
+(387, 7, 114),
+(388, 7, 76),
+(389, 7, 96);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `z_periode`
+-- Table structure for table `z_periode`
 --
 
 CREATE TABLE `z_periode` (
@@ -906,7 +1160,7 @@ CREATE TABLE `z_periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `z_periode`
+-- Dumping data for table `z_periode`
 --
 
 INSERT INTO `z_periode` (`id_zperiode`, `Tahun`, `aktif`) VALUES
@@ -925,7 +1179,7 @@ INSERT INTO `z_periode` (`id_zperiode`, `Tahun`, `aktif`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `z_team`
+-- Table structure for table `z_team`
 --
 
 CREATE TABLE `z_team` (
@@ -936,26 +1190,26 @@ CREATE TABLE `z_team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `z_team`
+-- Dumping data for table `z_team`
 --
 
 INSERT INTO `z_team` (`id_zteam`, `nama_team`, `id_zperiode`, `id_ketuatim`) VALUES
-(1, 'Analisis & Penjaminan Kualitas', 3, NULL),
-(2, 'Neraca Regional', 3, NULL),
-(3, 'Statistik Sosial', 3, NULL),
-(4, 'Statistik Distribusi', 3, NULL),
-(5, 'Statistik Produksi', 3, NULL),
-(6, 'Sensus Pertanian', 3, NULL),
-(7, 'Pengolahan & TIK', 3, NULL),
-(8, 'Diseminasi Statistik', 3, NULL),
-(9, 'Pembinaan & Pelaksanaan Statistik Sektoral', 3, NULL),
-(10, 'Perencanaan & Administrasi Keuangan', 3, NULL),
-(11, 'Manajemen SDM dan Hukum', 3, NULL),
-(12, 'Pengelolaan BMN, Rumah Tangga Perkantoran dan PBJ', 3, NULL),
-(13, 'SAKIP', 3, NULL),
-(14, 'Humas & UKP', 3, 10),
-(15, 'Zona Integritas & Reformasi Birokrasi', 3, 67),
-(16, 'Kolaborasi Mengawal Perubahan', 3, 66),
+(1, 'Analisis & Penjaminan Kualitas', 3, 58),
+(2, 'Neraca Regional', 3, 58),
+(3, 'Statistik Sosial', 3, 3),
+(4, 'Statistik Distribusi', 3, 53),
+(5, 'Statistik Produksi', 3, 37),
+(6, 'Sensus Pertanian', 3, 2),
+(7, 'Pengolahan & TIK', 3, 66),
+(8, 'Diseminasi Statistik', 3, 96),
+(9, 'Pembinaan & Pelaksanaan Statistik Sektoral', 3, 96),
+(10, 'Perencanaan & Administrasi Keuangan', 3, 11),
+(11, 'Manajemen SDM dan Hukum', 3, 72),
+(12, 'Pengelolaan BMN, Rumah Tangga Perkantoran dan PBJ', 3, 12),
+(13, 'SAKIP', 3, 23),
+(14, 'Humas & UKP', 3, 53),
+(15, 'Zona Integritas & Reformasi Birokrasi', 3, 38),
+(16, 'Kolaborasi Mengawal Perubahan', 3, 106),
 (17, 'Analisis & Penjaminan Kualitas', 4, 51),
 (18, 'Neraca Regional', 4, 51);
 
@@ -964,221 +1218,221 @@ INSERT INTO `z_team` (`id_zteam`, `nama_team`, `id_zperiode`, `id_ketuatim`) VAL
 --
 
 --
--- Indeks untuk tabel `bps`
+-- Indexes for table `bps`
 --
 ALTER TABLE `bps`
   ADD PRIMARY KEY (`kode`);
 
 --
--- Indeks untuk tabel `kegiatan`
+-- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `manajemenfile`
+-- Indexes for table `manajemenfile`
 --
 ALTER TABLE `manajemenfile`
   ADD PRIMARY KEY (`id_file`);
 
 --
--- Indeks untuk tabel `meetingreq`
+-- Indexes for table `meetingreq`
 --
 ALTER TABLE `meetingreq`
   ADD PRIMARY KEY (`idm`);
 
 --
--- Indeks untuk tabel `m_jabatan`
+-- Indexes for table `m_jabatan`
 --
 ALTER TABLE `m_jabatan`
   ADD PRIMARY KEY (`id_m_jabatan`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indeks untuk tabel `pegawai_kabkota`
+-- Indexes for table `pegawai_kabkota`
 --
 ALTER TABLE `pegawai_kabkota`
   ADD PRIMARY KEY (`id_pegawai_kabkota`);
 
 --
--- Indeks untuk tabel `perlengkapan_meetingreq`
+-- Indexes for table `perlengkapan_meetingreq`
 --
 ALTER TABLE `perlengkapan_meetingreq`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `perlengkapan_rapat`
+-- Indexes for table `perlengkapan_rapat`
 --
 ALTER TABLE `perlengkapan_rapat`
   ADD PRIMARY KEY (`id_perlengkapan`);
 
 --
--- Indeks untuk tabel `progres_kegiatan`
+-- Indexes for table `progres_kegiatan`
 --
 ALTER TABLE `progres_kegiatan`
   ADD PRIMARY KEY (`id_pkegiatan`);
 
 --
--- Indeks untuk tabel `rapatteam`
+-- Indexes for table `rapatteam`
 --
 ALTER TABLE `rapatteam`
   ADD PRIMARY KEY (`idr`);
 
 --
--- Indeks untuk tabel `ruangan`
+-- Indexes for table `ruangan`
 --
 ALTER TABLE `ruangan`
   ADD PRIMARY KEY (`id_ruangan`);
 
 --
--- Indeks untuk tabel `tim_kerja`
+-- Indexes for table `tim_kerja`
 --
 ALTER TABLE `tim_kerja`
   ADD PRIMARY KEY (`id_team`);
 
 --
--- Indeks untuk tabel `userapp`
+-- Indexes for table `userapp`
 --
 ALTER TABLE `userapp`
   ADD PRIMARY KEY (`ida`);
 
 --
--- Indeks untuk tabel `user_access`
+-- Indexes for table `user_access`
 --
 ALTER TABLE `user_access`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indeks untuk tabel `z_anggotateam`
+-- Indexes for table `z_anggotateam`
 --
 ALTER TABLE `z_anggotateam`
   ADD PRIMARY KEY (`id_zanggt`);
 
 --
--- Indeks untuk tabel `z_periode`
+-- Indexes for table `z_periode`
 --
 ALTER TABLE `z_periode`
   ADD PRIMARY KEY (`id_zperiode`);
 
 --
--- Indeks untuk tabel `z_team`
+-- Indexes for table `z_team`
 --
 ALTER TABLE `z_team`
   ADD PRIMARY KEY (`id_zteam`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `kegiatan`
+-- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   MODIFY `id_kegiatan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- AUTO_INCREMENT untuk tabel `manajemenfile`
+-- AUTO_INCREMENT for table `manajemenfile`
 --
 ALTER TABLE `manajemenfile`
   MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `meetingreq`
+-- AUTO_INCREMENT for table `meetingreq`
 --
 ALTER TABLE `meetingreq`
   MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
--- AUTO_INCREMENT untuk tabel `m_jabatan`
+-- AUTO_INCREMENT for table `m_jabatan`
 --
 ALTER TABLE `m_jabatan`
   MODIFY `id_m_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id_pegawai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai_kabkota`
+-- AUTO_INCREMENT for table `pegawai_kabkota`
 --
 ALTER TABLE `pegawai_kabkota`
   MODIFY `id_pegawai_kabkota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT untuk tabel `perlengkapan_meetingreq`
+-- AUTO_INCREMENT for table `perlengkapan_meetingreq`
 --
 ALTER TABLE `perlengkapan_meetingreq`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `perlengkapan_rapat`
+-- AUTO_INCREMENT for table `perlengkapan_rapat`
 --
 ALTER TABLE `perlengkapan_rapat`
   MODIFY `id_perlengkapan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `progres_kegiatan`
+-- AUTO_INCREMENT for table `progres_kegiatan`
 --
 ALTER TABLE `progres_kegiatan`
   MODIFY `id_pkegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT untuk tabel `rapatteam`
+-- AUTO_INCREMENT for table `rapatteam`
 --
 ALTER TABLE `rapatteam`
   MODIFY `idr` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `ruangan`
+-- AUTO_INCREMENT for table `ruangan`
 --
 ALTER TABLE `ruangan`
   MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `userapp`
+-- AUTO_INCREMENT for table `userapp`
 --
 ALTER TABLE `userapp`
   MODIFY `ida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access`
+-- AUTO_INCREMENT for table `user_access`
 --
 ALTER TABLE `user_access`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `z_anggotateam`
+-- AUTO_INCREMENT for table `z_anggotateam`
 --
 ALTER TABLE `z_anggotateam`
-  MODIFY `id_zanggt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_zanggt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
 
 --
--- AUTO_INCREMENT untuk tabel `z_periode`
+-- AUTO_INCREMENT for table `z_periode`
 --
 ALTER TABLE `z_periode`
   MODIFY `id_zperiode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `z_team`
+-- AUTO_INCREMENT for table `z_team`
 --
 ALTER TABLE `z_team`
   MODIFY `id_zteam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
